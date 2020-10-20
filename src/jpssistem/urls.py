@@ -6,13 +6,18 @@ from django.conf.urls.static import static
 from django.conf import settings
 
 from jpskit.views import(
-    index
+    index,
+    kontraktordash,
+    kontraktorlist
 )
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', index, name='index')
+    path('', index, name='index'),
+    path('kontraktor/dashboard', kontraktordash, name='kontraktor'),
+    path('kontraktor/senarai', kontraktorlist, name="kontraktor")
+
 ]
 
 

@@ -11,6 +11,7 @@ class Kontraktor(models.Model):
     konAlamatExtD = models.CharField(max_length=20, blank=True)
     konPoskod = models.CharField(max_length=10, blank=True)
     konBandar = models.CharField(max_length=20, blank=True)
+    konDaerah = models.CharField(max_length=20, blank=True)
     konNegeri = models.CharField(max_length=20, blank=True)
     konTel = models.CharField(max_length=20, blank=True)
     konEmail = models.CharField(max_length=150, blank=True)

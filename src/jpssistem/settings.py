@@ -40,7 +40,6 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'jpssistem.urls'
-
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',

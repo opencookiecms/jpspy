@@ -3,3 +3,10 @@ from django.http import StreamingHttpResponse, HttpResponse, HttpResponseServerE
 
 def index(request):
     return render(request, 'pages/maindashboard.html')
+
+def kontraktordash(request):
+    return render(request, 'pages/kontraktor-dashboard.html')
+
+def kontraktorlist(request):
+    return render(request, 'pages/kontraktor-list.html')
+

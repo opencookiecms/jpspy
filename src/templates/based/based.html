@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+
+<html>
+ 
+    {% include 'based/header.html' %}
+    <body id="main-container" class="default semi-dark" style="--primarycolor:#1e3d73;">
+
+    {% include 'based/menu.html' %}
+    {% include 'based/nav.html' %}
+
+    {% block content %}
+    {% endblock content %}
+   
+    {% include 'based/footer.html' %}
+    </body>
+</html>
