@@ -5,7 +5,7 @@ class Kontraktor(models.Model):
     
     #maklumat syarikat
     konNama = models.CharField(max_length=100, blank=True)
-    konImage = models.CharField(max_length=150, blank=True)
+    konImage = models.FileField(blank=True)
     konAlamat = models.CharField(max_length=200, blank=True)
     konAlamatExtS = models.CharField(max_length=50, blank=True)
     konAlamatExtD = models.CharField(max_length=20, blank=True)

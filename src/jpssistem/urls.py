@@ -8,7 +8,8 @@ from django.conf import settings
 from jpskit.views import(
     index,
     kontraktordash,
-    kontraktorlist
+    kontraktorlist,
+    kontraktordaftar
 )
 
 
@@ -16,7 +17,8 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', index, name='index'),
     path('kontraktor/dashboard', kontraktordash, name='kontraktor'),
-    path('kontraktor/senarai', kontraktorlist, name="kontraktor")
+    path('kontraktor/senarai', kontraktorlist, name="kontraktor"),
+    path('kontraktor/daftar-baru', kontraktordaftar, name="kontraktor"),
 
 ]
 

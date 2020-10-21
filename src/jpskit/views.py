@@ -10,3 +10,6 @@ def kontraktordash(request):
 def kontraktorlist(request):
     return render(request, 'pages/kontraktor-list.html')
 
+def kontraktordaftar(request):
+    return render(request, 'pages/kontraktor-wizard.html' )
+
