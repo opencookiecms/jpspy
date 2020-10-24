@@ -1,390 +1,1111 @@
-{% extends 'based/based.html' %}
-{% block content %}
-        <!-- START: Main Content-->
-        <main>
-            <div class="container-fluid site-width">
-                <!-- START: Breadcrumbs-->
-                <div class="row ">
-                    <div class="col-12  align-self-center">
-                        <div class="sub-header mt-3 py-3 align-self-center d-sm-flex w-100 rounded">
-                            <div class="w-sm-100 mr-auto"><h4 class="mb-0">Pendaftaran Baru</h4></div>
+{% extends 'based/based.html' %} {% block content %}
+<!-- START: Main Content-->
+<main>
+  <div class="container-fluid site-width">
+    <!-- START: Breadcrumbs-->
+    <div class="row">
+      <div class="col-12 align-self-center">
+        <div
+          class="sub-header mt-3 py-3 align-self-center d-sm-flex w-100 rounded"
+        >
+          <div class="w-sm-100 mr-auto">
+            <h4 class="mb-0">Pendaftaran Baru</h4>
+          </div>
 
-                            <ol class="breadcrumb bg-transparent align-self-center m-0 p-0">
-                                <li class="breadcrumb-item">Home</li>
-                                <li class="breadcrumb-item">Form</li>
-                                <li class="breadcrumb-item active"><a href="#">Wizard</a></li>
-                            </ol>
+          <ol class="breadcrumb bg-transparent align-self-center m-0 p-0">
+            <li class="breadcrumb-item">Home</li>
+            <li class="breadcrumb-item">Form</li>
+            <li class="breadcrumb-item active"><a href="#">Wizard</a></li>
+          </ol>
+        </div>
+      </div>
+    </div>
+    <!-- END: Breadcrumbs-->
+
+    <!-- START: Card Data-->
+    <div class="row">
+      <div class="col-12 col-sm-12">
+        <div class="row">
+          <div class="col-12 col-md-12 mt-3">
+            <div class="card">
+              <div class="card-body">
+                <div class="row p-3">
+                  <ul class="col-sm-3 nav nav-tabs d-block mb-4">
+                    <li class="nav-item mb-4">
+                      <a class="nav-link p-0 active"data-toggle="tab"href="#tab7">
+                        <div class="d-flex">
+                          <i class="far fa-address-card fa-2x mr-2"></i>
+                          <div class="media-body align-self-center">
+                            <h6 class="mb-0 text-info">Maklumat Syarikat</h6>
+                            Nama Syarikat,Alamat, Pengurus
+                          </div>
                         </div>
-                    </div>
-                </div>
-                <!-- END: Breadcrumbs-->
+                      </a>
+                    </li>
+                    <li class="nav-item mb-4">
+                      <a class="nav-link p-0" data-toggle="tab" href="#tab8">
+                        <div class="d-flex">
+                          <i class="far fa-address-book fa-2x mr-2"></i>
+                          <div class="media-body align-self-center">
+                            <h6 class="mb-0 text-info">Maklumat Rakan Konsi</h6>
+                            Rakan konsi
+                          </div>
+                        </div>
+                      </a>
+                    </li>
 
-                <!-- START: Card Data-->
-                <div class="row">
-                    <div class="col-12 col-sm-12">
-                        <div class="row">
-                            <div class="col-12 col-md-12 mt-3">
-                                <div class="card">
-                                    <div class="card-body">
-                                        <div class="row p-3">
-                                            <ul class="col-sm-3 nav nav-tabs d-block mb-4">
-                                                <li class="nav-item  mb-4">
-                                                    <a class="nav-link p-0 active" data-toggle="tab" href="#tab7"> 
-                                                        <div class="d-flex">
-                                                            <i class="far fa-address-card fa-2x mr-2"></i>
-                                                            <div class="media-body align-self-center">
-                                                                <h6 class="mb-0  text-info">Maklumat Syarikat</h6>
-                                                                Nama Syarikat,Alamat, Pengurus
-                                                            </div>
-                                                        </div>
-                                                    </a>
-                                                </li>
-                                                <li class="nav-item  mb-4">
-                                                    <a class="nav-link p-0" data-toggle="tab" href="#tab8">                                                    
-                                                        <div class="d-flex">
-                                                             <i class="far fa-address-book fa-2x mr-2"></i>
-                                                            <div class="media-body align-self-center">
-                                                                <h6 class="mb-0  text-info">Maklumat Rakan Konsi</h6>
-                                                                Rakan konsi
-                                                            </div>
-                                                        </div>
-                                                    </a>
-                                                </li>
+                    <li class="nav-item mb-4">
+                      <a class="nav-link p-0" data-toggle="tab" href="#tab9">
+                        <div class="d-flex">
+                          <i class="far fa-credit-card fa-2x mr-2"></i>
+                          <div class="media-body align-self-center">
+                            <h6 class="mb-0 text-info">Akaun Syarikat</h6>
+                            Maklumat Bank & Akaun Bank
+                          </div>
+                        </div>
+                      </a>
+                    </li>
 
-                                                <li class="nav-item mb-4">
-                                                    <a class="nav-link p-0" data-toggle="tab" href="#tab9"> 
-                                                        <div class="d-flex">
-                                                             <i class="far fa-credit-card fa-2x mr-2"></i>
-                                                            <div class="media-body align-self-center">
-                                                                <h6 class="mb-0 text-info">Akaun Syarikat</h6>
-                                                                Maklumat Bank & Akaun Bank
-                                                            </div>
-                                                        </div>
-                                                    </a>
-                                                </li>
-
-                                                <li class="nav-item mb-4">
-                                                    <a class="nav-link p-0" data-toggle="tab" href="#tab10"> 
-                                                        <div class="d-flex">
-                                                             <i class="far fa-credit-card fa-2x mr-2"></i>
-                                                            <div class="media-body align-self-center">
-                                                                <h6 class="mb-0 text-info">Kawasan Operasi Syarikat</h6>
-                                                                Mengikut daerah atau negeri
-                                                            </div>
-                                                        </div>
-                                                    </a>
-                                                </li>
-                                                 <li class="nav-item mb-4">
-                                                    <a class="nav-link p-0" data-toggle="tab" href="#tab11"> 
-                                                        <div class="d-flex">
-                                                             <i class="far fa-credit-card fa-2x mr-2"></i>
-                                                            <div class="media-body align-self-center">
-                                                                <h6 class="mb-0 text-info">Jenis Permohonan</h6>
-                                                                Permohonan baru atau lama
-                                                            </div>
-                                                        </div>
-                                                    </a>
-                                                </li>
-                                                <li class="nav-item mb-4">
-                                                    <a class="nav-link p-0" data-toggle="tab" href="#tab12"> 
-                                                        <div class="d-flex">
-                                                             <i class="far fa-credit-card fa-2x mr-2"></i>
-                                                            <div class="media-body align-self-center">
-                                                                <h6 class="mb-0 text-info">Maklumat Pemohon</h6>
-                                                                No sijil permohonan, No resit dan cas
-                                                            </div>
-                                                        </div>
-                                                    </a>
-                                                </li>
-                                                <li class="nav-item mb-4">
-                                                    <a class="nav-link p-0" data-toggle="tab" href="#tab13"> 
-                                                        <div class="d-flex">
-                                                             <i class="far fa-credit-card fa-2x mr-2"></i>
-                                                            <div class="media-body align-self-center">
-                                                                <h6 class="mb-0 text-info">Disemak oleh</h6>
-                                                                Semak, sah dan lulus
-                                                            </div>
-                                                        </div>
-                                                    </a>
-                                                </li>
-                                                 <li class="nav-item mb-4">
-                                                    <a class="nav-link p-0" data-toggle="tab" href="#tab14"> 
-                                                        <div class="d-flex">
-                                                             <i class="far fa-credit-card fa-2x mr-2"></i>
-                                                            <div class="media-body align-self-center">
-                                                                <h6 class="mb-0 text-info">LPIPM</h6>
-                                                                Sijil PPK, SPKK
-                                                            </div>
-                                                        </div>
-                                                    </a>
-                                                </li>
-                                                <li class="nav-item mb-4">
-                                                    <a class="nav-link p-0" data-toggle="tab" href="#tab15"> 
-                                                        <div class="d-flex">
-                                                             <i class="far fa-credit-card fa-2x mr-2"></i>
-                                                            <div class="media-body align-self-center">
-                                                                <h6 class="mb-0 text-info">Pusat Khidmat Kontraktor (PKK)</h6>
-                                                                Sijil taraf bumiputera
-                                                            </div>
-                                                        </div>
-                                                    </a>
-                                                </li>
-                                            </ul>                                       
-                                            <div class="tab-content col-sm-9" style="border-left: 1px solid #e9edf4">
-                                                <div class="tab-pane fade active show" id="tab7">
-                                                <span class="font-w-600 h4 text-secondary">Maklumat Syarikat</span>
-                                                <section>
-                                                    <div class="row mt-3">
-                                              
-                                                        <div class="col-sm-4 col-md-4">
-                                                            <div class="form-group">
-                                                                <label class="form-label">Nama Syarikat</label>
-                                                                <input type="text" name="konnama" value="" class="form-control"
-                                                                    placeholder="Nama Syarikat">
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-sm-8 col-md-8"></div>
-                                                        <div class="col-sm-4 col-md-4">
-                                                            <div class="form-group">
-                                                                <label class="form-label">Gambar</label>
-                                                                <input class="form-control" name="file" type="file" accept="image/*">
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-sm-6 col-md-6"></div>
-                                                        <div class="col-sm-6 col-md-6">
-                                                            <div class="form-group">
-                                                                <label class="form-label">Alamat</label>
-                                                                <input class="form-control" placeholder="cth:N0 1821 Lorong Peruda 1" type="text" name="alamat">
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-sm-6 col-md-6"></div>
-                                                        <div class="col-sm-6 col-md-6">
-                                                            <div class="form-group">
-                                                                <label class="form-label"></label>
-                                                                <input class="form-control" placeholder="cth:Taman Peruda" type="text"name="alamatjalan">
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-sm-6 col-md-6"></div>
-                                                        <div class="col-sm-6 col-md-6">
-                                                            <div class="form-group">
-                                                                <label class="form-label"></label>
-                                                                <input class="form-control" placeholder="cth:Bakar Arang" type="text" name="alamatdearah">
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-sm-6 col-md-6"></div>
-                                                        <div class="col-sm-2 col-md-2">
-                                                            <div class="form-group">
-                                                                <label class="form-label">Poskod</label>
-                                                                <input class="form-control" placeholder="eg:08000" type="text" name="poskod">
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-sm-2 col-md-2">
-                                                            <div class="form-group">
-                                                                <label class="form-label">Bandar</label>
-                                                                <input class="form-control" placeholder="eg:Sungai Petani" type="text"name="bandar">
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-sm-2 col-md-2">
-                                                            <div class="form-group">
-                                                                <label class="form-label">Daerah</label>
-                                                                <input class="form-control" placeholder="eg:Kuala Muda" type="text" name="daerah">
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-sm-2 col-md-2">
-                                                            <div class="form-group">
-                                                                <label class="form-label">Negeri</label>
-                                                                <select class="form-control custom-select select2" name="negeri">
-                                                                    <option value="Perlis">Perlis</option>
-                                                                    <option value="Kedah">Kedah</option>
-                                                                    <option value="Kelantan">Kelantan</option>
-                                                                    <option value="Perak">Perak</option>
-                                                                    <option value="Pahang">Pahang</option>
-                                                                    <option value="Terengganu">Terengganu</option>
-                                                                    <option value="N.Sembilan">N.Sembilan</option>
-                                                                    <option value="Kuala Lumpur">Kuala Lumpur</option>
-                                                                    <option value="Sabah">Sabah</option>
-                                                                    <option value="Sarawak">Sarawak</option>
-                                                                    <option value="Johor">Johor</option>
-                                                                    <option value="Melaka">Melaka</option>
-                                                                    <option value="Selangor">Selangor</option>
-                                                                    <option value="Pulau Pinang">Pulau Pinang</option>
-                                                                </select>
-                                                            </div>
-                                                        </div>
-
-
-                                                        <div class="col-sm-6 col-md-6">
-                                                            <div class="form-group">
-                                                                <label class="form-label">Telefon Pejabat</label>
-                                                                <input class="form-control" placeholder="04-XXXXXXX" type="text" name="telpejabat">
-                                                            </div>
-                                                        </div>
-
-                                                        <div class="col-sm-6 col-md-6"></div>
-                                                        <div class="col-sm-6 col-md-6">
-                                                            <div class="form-group">
-                                                                <label class="form-label">Nama Pengurus</label>
-                                                                <input class="form-control" placeholder="eg:Ahmad bin Hassan" type="text"name="namapengurus">
-                                                            </div>
-                                                        </div>
-
-
-                                                        <div class="col-sm-6 col-md-6"></div>
-                                                        <div class="col-sm-6 col-md-6">
-                                                            <div class="form-group">
-                                                                <label class="form-label">No Kad Pengenalan</label>
-                                                                <input class="form-control" placeholder="eg:72XXXX-00-XXXX" type="text" name="nokp">
-                                                            </div>
-                                                        </div>
-
-                                                        <div class="col-sm-6 col-md-6"></div>
-                                                        <div class="col-sm-6 col-md-6">
-                                                            <div class="form-group">
-                                                                <label class="form-label">No Telefon Pengurus</label>
-                                                                <input class="form-control" placeholder="cth:010-1234567" type="text" name="telpengurus">
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-sm-6 col-md-6"></div>
-                                                        <div class="col-sm-6 col-md-6">
-                                                            <div class="form-group">
-                                                                <label class="form-label">Email</label>
-                                                                <input class="form-control" placeholder="cth:adk@gmail.com" type="text" name="email">
-                                                            </div>
-                                                        </div>
-
-                                                        <div class="col-sm-6 col-md-6">
-                                                            <div class="form-group">
-                                                                <label class="form-label">No Fax</label>
-                                                                <input class="form-control" placeholder="cth:010-1234567" type="text"
-                                                                    name="fax">
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </section>
-                                                </div>
-
-                                                <div class="tab-pane fade" id="tab8">
-                                                 <span class="font-w-600 h4 text-secondary">Rakan konsi niaga</span>
-                                                <section>
-                                                    <div class="row mt-3">
-
-                                                        <div class="col-sm-4 col-md-6">
-                                                            <div class="form-group">
-                                                                <label class="form-label">Nama Rakan Konsi (1)</label>
-                                                                <input type="text" name="rakansatu" class="form-control"
-                                                                    placeholder="cth:Salah">
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-sm-4 col-md-3">
-                                                            <div class="form-group">
-                                                                <label class="form-label">No Kad Pengenalan</label>
-                                                                <input type="text" name="rakankadsatu" class="form-control"
-                                                                    placeholder="cth:83XXXX-XX-XXXX">
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-sm-4 col-md-3">
-                                                            <div class="form-group">
-                                                                <label class="form-label">No Tel</label>
-                                                                <input type="text" name="rakantelsatu" class="form-control"
-                                                                    placeholder="cth:012-12334456">
-                                                            </div>
-                                                        </div>
-
-                                                        <div class="col-sm-4 col-md-6">
-                                                            <div class="form-group">
-                                                                <label class="form-label">Nama Rakan Konsi (2)</label>
-                                                                <input type="text" name="rakandua" class="form-control" placeholder="cth:Salah">
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-sm-4 col-md-3">
-                                                            <div class="form-group">
-                                                                <label class="form-label">No Kad Pengenalan</label>
-                                                                <input type="text" name="rakankaddua" class="form-control"
-                                                                    placeholder="cth:83XXXX-XX-XXXX">
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-sm-4 col-md-3">
-                                                            <div class="form-group">
-                                                                <label class="form-label">No Tel</label>
-                                                                <input type="text" name="rakanteldua" class="form-control"
-                                                                    placeholder="cth:012-12334456">
-                                                            </div>
-                                                        </div>
-
-
-                                                        <div class="col-sm-4 col-md-6">
-                                                            <div class="form-group">
-                                                                <label class="form-label">Nama Rakan Konsi (3)</label>
-                                                                <input type="text" name="rakantiga" class="form-control"
-                                                                    placeholder="cth:Salah">
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-sm-4 col-md-3">
-                                                            <div class="form-group">
-                                                                <label class="form-label">No Kad Pengenalan</label>
-                                                                <input type="text" name="rakankadtiga" class="form-control"
-                                                                    placeholder="cth:83XXXX-XX-XXXX">
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-sm-4 col-md-3">
-                                                            <div class="form-group">
-                                                                <label class="form-label">No Tel</label>
-                                                                <input type="text" name="rakanteltiga" class="form-control"
-                                                                    placeholder="cth:012-12334456">
-                                                            </div>
-                                                        </div>
-
-                                                        <div class="col-sm-4 col-md-6">
-                                                            <div class="form-group">
-                                                                <label class="form-label">Nama Rakan Konsi (4)</label>
-                                                                <input type="text" name="rakanempat" class="form-control"
-                                                                    placeholder="cth:Salah">
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-sm-4 col-md-3">
-                                                            <div class="form-group">
-                                                                <label class="form-label">No Kad Pengenalan</label>
-                                                                <input type="text" name="rakankadempat" class="form-control"
-                                                                    placeholder="cth:83XXXX-XX-XXXX">
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-sm-4 col-md-3">
-                                                            <div class="form-group">
-                                                                <label class="form-label">No Tel</label>
-                                                                <input type="text" name="rakantelempat" class="form-control"
-                                                                    placeholder="cth:012-12334456">
-                                                            </div>
-                                                        </div>
-
-
-
-
-                                                    </div>
-                                                </section>  
-                                                </div>
-
-                                                <div class="tab-pane fade" id="tab9">
-                                                    <div class="form p-5 text-center">
-                                                        <h3>Thank you !</h3>
-                                                        <p>Quisque nec turpis at urna dictum luctus. Suspendisse convallis dignissim eros at volutpat. In egestas mattis dui. Aliquam mattis dictum aliquet.</p>
-                                                        <button type="button" class="btn btn-primary prevtab">Previous</button>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div> 
+                    <li class="nav-item mb-4">
+                      <a class="nav-link p-0" data-toggle="tab" href="#tab10">
+                        <div class="d-flex">
+                          <i class="far fa-credit-card fa-2x mr-2"></i>
+                          <div class="media-body align-self-center">
+                            <h6 class="mb-0 text-info">Kawasan Operasi Syarikat</h6>
+                            Mengikut daerah atau negeri
+                          </div>
+                        </div>
+                      </a>
+                    </li>
+                    <li class="nav-item mb-4">
+                      <a class="nav-link p-0" data-toggle="tab" href="#tab11">
+                        <div class="d-flex">
+                          <i class="far fa-credit-card fa-2x mr-2"></i>
+                          <div class="media-body align-self-center">
+                            <h6 class="mb-0 text-info">Jenis Permohonan</h6>
+                            Permohonan baru atau lama
+                          </div>
+                        </div>
+                      </a>
+                    </li>
+                    <li class="nav-item mb-4">
+                      <a class="nav-link p-0" data-toggle="tab" href="#tab12">
+                        <div class="d-flex">
+                          <i class="far fa-credit-card fa-2x mr-2"></i>
+                          <div class="media-body align-self-center">
+                            <h6 class="mb-0 text-info">Maklumat Pemohon</h6>
+                            No sijil permohonan, No resit dan cas
+                          </div>
+                        </div>
+                      </a>
+                    </li>
+                    <li class="nav-item mb-4">
+                      <a class="nav-link p-0" data-toggle="tab" href="#tab13">
+                        <div class="d-flex">
+                          <i class="far fa-credit-card fa-2x mr-2"></i>
+                          <div class="media-body align-self-center">
+                            <h6 class="mb-0 text-info">Disemak oleh</h6>
+                            Semak, sah dan lulus
+                          </div>
+                        </div>
+                      </a>
+                    </li>
+                    <li class="nav-item mb-4">
+                      <a class="nav-link p-0" data-toggle="tab" href="#tab14">
+                        <div class="d-flex">
+                          <i class="far fa-credit-card fa-2x mr-2"></i>
+                          <div class="media-body align-self-center">
+                            <h6 class="mb-0 text-info">LPIPM</h6>
+                            Sijil PPK, SPKK
+                          </div>
+                        </div>
+                      </a>
+                    </li>
+                    <li class="nav-item mb-4">
+                      <a class="nav-link p-0" data-toggle="tab" href="#tab15">
+                        <div class="d-flex">
+                          <i class="far fa-credit-card fa-2x mr-2"></i>
+                          <div class="media-body align-self-center">
+                            <h6 class="mb-0 text-info">
+                              Pusat Khidmat Kontraktor (PKK)
+                            </h6>
+                            Sijil taraf bumiputera
+                          </div>
+                        </div>
+                      </a>
+                    </li>
+                     <li class="nav-item mb-4">
+                      <a class="nav-link p-0" data-toggle="tab" href="#tab16">
+                        <div class="d-flex">
+                          <i class="far fa-credit-card fa-2x mr-2"></i>
+                          <div class="media-body align-self-center">
+                            <h6 class="mb-0 text-info">
+                              Suruhanjaya Syarikat Malaysia(SSM)
+                            </h6>
+                            SSM
+                          </div>
+                        </div>
+                      </a>
+                    </li>
+                    <li class="nav-item mb-4">
+                      <a class="nav-link p-0" data-toggle="tab" href="#tab17">
+                        <div class="d-flex">
+                          <i class="far fa-credit-card fa-2x mr-2"></i>
+                          <div class="media-body align-self-center">
+                            <h6 class="mb-0 text-info">
+                              SST
+                            </h6>
+                            Cukat Perkhidmatan
+                          </div>
+                        </div>
+                      </a>
+                    </li>
+                    <li class="nav-item mb-4">
+                      <a class="nav-link p-0" data-toggle="tab" href="#tab18">
+                        <div class="d-flex">
+                          <i class="far fa-credit-card fa-2x mr-2"></i>
+                          <div class="media-body align-self-center">
+                            <h6 class="mb-0 text-info">
+                              JPS
+                            </h6>
+                            Sijil JPS
+                          </div>
+                        </div>
+                      </a>
+                    </li>
+                  </ul>
+                  <div
+                    class="tab-content col-sm-9"
+                    style="border-left: 1px solid #e9edf4"
+                  >
+                    <div class="tab-pane fade active show" id="tab7">
+                      <span class="font-w-600 h4 text-secondary"
+                        >Maklumat Syarikat</span
+                      >
+                      <section>
+                        <div class="row mt-3">
+                          <div class="col-sm-4 col-md-4">
+                            <div class="form-group">
+                              <label class="form-label">Nama Syarikat</label>
+                              {{form.konNama}}
                             </div>
+                          </div>
+                          <div class="col-sm-8 col-md-8"></div>
+                          <div class="col-sm-4 col-md-4">
+                            <div class="form-group">
+                              <label class="form-label">Gambar</label>
+                              {{form.konImage}}
+                            </div>
+                          </div>
+                          <div class="col-sm-6 col-md-6"></div>
+                          <div class="col-sm-6 col-md-6">
+                            <div class="form-group">
+                              <label class="form-label">Alamat</label>
+                             {{form.konAlamat}}
+                            </div>
+                          </div>
+                          <div class="col-sm-6 col-md-6"></div>
+                          <div class="col-sm-6 col-md-6">
+                            <div class="form-group">
+                              <label class="form-label"></label>
+                             {{form.konAlamatExtS}}
+                            </div>
+                          </div>
+                          <div class="col-sm-6 col-md-6"></div>
+                          <div class="col-sm-6 col-md-6">
+                            <div class="form-group">
+                              <label class="form-label"></label>
+                             {{form.konAlamatExtD}}
+                            </div>
+                          </div>
+                          <div class="col-sm-6 col-md-6"></div>
+                          <div class="col-sm-2 col-md-2">
+                            <div class="form-group">
+                              <label class="form-label">Poskod</label>
+                             {{form.konPoskod}}
+                            </div>
+                          </div>
+                          <div class="col-sm-2 col-md-2">
+                            <div class="form-group">
+                              <label class="form-label">Bandar</label>
+                              {{form.konBandar}}
+                            </div>
+                          </div>
+                          <div class="col-sm-2 col-md-2">
+                            <div class="form-group">
+                              <label class="form-label">Daerah</label>
+                              {{form.konDaerah}}
+                            </div>
+                          </div>
+                          <div class="col-sm-2 col-md-2">
+                            <div class="form-group">
+                              <label class="form-label">Negeri</label>
+                              {{form.konNegeri}}
+                            </div>
+                          </div>
 
+                          <div class="col-sm-6 col-md-6">
+                            <div class="form-group">
+                              <label class="form-label">Telefon Pejabat</label>
+                              {{form.konTel}}
+                            </div>
+                          </div>
+
+                          <div class="col-sm-6 col-md-6"></div>
+                          <div class="col-sm-6 col-md-6">
+                            <div class="form-group">
+                              <label class="form-label">Nama Pengurus</label>
+                              {{form.konPengurus}}
+                            </div>
+                          </div>
+
+                          <div class="col-sm-6 col-md-6"></div>
+                          <div class="col-sm-6 col-md-6">
+                            <div class="form-group">
+                              <label class="form-label">No Kad Pengenalan</label>
+                             {{form.konNoKPPengurus}}
+                            </div>
+                          </div>
+
+                          <div class="col-sm-6 col-md-6"></div>
+                          <div class="col-sm-6 col-md-6">
+                            <div class="form-group">
+                              <label class="form-label">No Telefon Pengurus</label>
+                              {{form.konNoTelPengurus}}
+                            </div>
+                          </div>
+                          <div class="col-sm-6 col-md-6"></div>
+                          <div class="col-sm-6 col-md-6">
+                            <div class="form-group">
+                              <label class="form-label">Email</label>
+                              {{form.konEmail}}
+                            </div>
+                          </div>
+
+                          <div class="col-sm-6 col-md-6">
+                            <div class="form-group">
+                              <label class="form-label">No Fax</label>
+                              {{form.konFax}}
+                            </div>
+                          </div>
                         </div>
-
+                      </section>
                     </div>
-                </div>
-                <!-- END: Card DATA-->
-            </div>
-          
-        </main>
-     
-        <!-- END: Content-->
 
-        {% endblock content %}
+                    <div class="tab-pane fade" id="tab8">
+                      <span class="font-w-600 h4 text-secondary">Rakan konsi niaga</span>
+                      <section>
+                        <div class="row mt-3">
+                          <div class="col-sm-4 col-md-6">
+                            <div class="form-group">
+                              <label class="form-label">Nama Rakan Konsi (1)</label>
+                              {{form.konRKsatu}}
+                            </div>
+                          </div>
+                          <div class="col-sm-4 col-md-3">
+                            <div class="form-group">
+                              <label class="form-label">No Kad Pengenalan</label>
+                              {{form.konRKsatuNokp}}
+                            </div>
+                          </div>
+                          <div class="col-sm-4 col-md-3">
+                            <div class="form-group">
+                              <label class="form-label">No Tel</label>
+                              {{form.konRKsatuNoTel}}
+                            </div>
+                          </div>
+
+                          <div class="col-sm-4 col-md-6">
+                            <div class="form-group">
+                              <label class="form-label">Nama Rakan Konsi (2)</label>
+                              {{form.konRKdua}}
+                            </div>
+                          </div>
+                          <div class="col-sm-4 col-md-3">
+                            <div class="form-group">
+                              <label class="form-label">No Kad Pengenalan</label>
+                              {{form.konRKduaNokp}}
+                            </div>
+                          </div>
+                          <div class="col-sm-4 col-md-3">
+                            <div class="form-group">
+                              <label class="form-label">No Tel</label>
+                              {{form.konRKduaNoTel}}
+                            </div>
+                          </div>
+
+                          <div class="col-sm-4 col-md-6">
+                            <div class="form-group">
+                              <label class="form-label">Nama Rakan Konsi (3)</label>
+                              {{form.konRKtiga}}
+                            </div>
+                          </div>
+                          <div class="col-sm-4 col-md-3">
+                            <div class="form-group">
+                              <label class="form-label">No Kad Pengenalan</label>
+                              {{form.konRKtigaNokp}}
+                            </div>
+                          </div>
+                          <div class="col-sm-4 col-md-3">
+                            <div class="form-group">
+                              <label class="form-label">No Tel</label>
+                              {{form.konRKtigaNoTel}}
+                            </div>
+                          </div>
+
+                          <div class="col-sm-4 col-md-6">
+                            <div class="form-group">
+                              <label class="form-label">Nama Rakan Konsi (4)</label>
+                              {{form.konRKempat}}
+                            </div>
+                          </div>
+                          <div class="col-sm-4 col-md-3">
+                            <div class="form-group">
+                              <label class="form-label">No Kad Pengenalan</label>
+                              {{form.konRKempatNokp}}
+                            </div>
+                          </div>
+                          <div class="col-sm-4 col-md-3">
+                            <div class="form-group">
+                              <label class="form-label">No Tel</label>
+                              {{form.konRKempatNoTel}}
+                            </div>
+                          </div>
+                        </div>
+                      </section>
+                    </div>
+
+                    <div class="tab-pane fade" id="tab9">
+                      <span class="font-w-600 h4 text-secondary">Akaun Syarikat</span>
+                      <section>
+                        <div class="form-group">
+                          <label class="form-label">Bank</label>
+                          {{form.konNoAkaun}}
+                        </div>
+                        <div class="form-group">
+                          <label class="form-label">No Akaun</label>
+                          <div class="input-group">
+                            {{form.konNoAkaun}}
+                            <span class="input-group-append">
+                              <button class="btn btn-info" type="button">
+                                <i class="fa fa-cc-visa"></i> &nbsp;
+                                <i class="fa fa-cc-amex"></i> &nbsp;
+                                <i class="fa fa-cc-mastercard"></i>
+                              </button>
+                            </span>
+                          </div>
+                        </div>
+                      </section>
+                    </div>
+
+                    <div class="tab-pane fade" id="tab10">
+                      <span class="font-w-600 h4 text-secondary">Kawasan Operasi Syarikat & Prestasi</span>
+                      <section>
+                        <div class="row mt-3">
+                          <div class="col-sm-5 col-md-5">
+                            <div class="form-group">
+                              <label class="form-label">Kawasan Operasi</label>
+                              {{form.konKawOperasi}}
+                            </div>
+                          </div>
+                          <div class="col-sm-7 col-md-7"></div>
+
+                          <div class="col-sm-5 col-md-5">
+                            <div class="form-group">
+                              <label class="form-label">Prestasi</label>
+                              {{form.konPrestasi}}
+                            </div>
+                          </div>
+                        </div>
+                      </section>
+                    </div>
+
+                    <div class="tab-pane fade" id="tab11">
+                      <span class="font-w-600 h4 text-secondary">Jenis Permohonan</span>
+                      <section>
+                        <div class="row mt-3">
+                          <div class="col-sm-5 col-md-5">
+                            <div class="form-group">
+                              <label class="form-label">Permohonan Baru</label>
+                              {{form.konJPBaru}}
+                            </div>
+                          </div>
+                          <div class="col-sm-7 col-md-7"></div>
+
+                          <div class="col-sm-5 col-md-5">
+                            <div class="form-group">
+                              <label class="form-label">Pembaharuan</label>
+                              {{form.konJPPembaharuan}}
+                            </div>
+                          </div>
+
+                          <div class="col-sm-7 col-md-7"></div>
+                          <div class="col-sm-5 col-md-5">
+                            <div class="form-group">
+                              <label class="form-label">Lain-Lain</label>
+                              <input
+                                type="text"
+                                name="etc"
+                                class="form-control"
+                                placeholder="cth:012-12334456"
+                              />
+                            </div>
+                          </div>
+                          <div class="col-sm-7 col-md-7"></div>
+
+                          <div class="col-sm-5 col-md-5">
+                            <div class="form-group">
+                              <label class="form-label">Kategori</label>
+                              <select
+                                class="form-control custom-select select25"
+                                name="kategori"
+                              >
+                                <option value="Berdaftar">Kontraktor</option>
+                                <option value="Pembekal">Pembekal</option>
+                                <option value="Perkhidmatan">
+                                  Perkhidmatan
+                                </option>
+                                <option value="Pembekal/Kontraktor">
+                                  Pembekal/Kontraktor
+                                </option>
+                              </select>
+                            </div>
+                          </div>
+                        </div>
+                      </section>
+                    </div>
+
+                    <div class="tab-pane fade" id="tab12">
+                      <span class="font-w-600 h4 text-secondary"
+                        >Maklumat Permohonan</span
+                      >
+                      <section>
+                        <div class="row">
+                          <div class="col-sm-4 col-md-4">
+                            <div class="form-group">
+                              <label class="form-label"
+                                >Tarikh Permohonan</label
+                              >
+                              <input
+                                class="form-control fc-datepicker"
+                                name="tmohon"
+                                placeholder="MM/DD/YYYY"
+                                type="text"
+                              />
+                            </div>
+                          </div>
+                          <div class="col-sm-4 col-md-4">
+                            <div class="form-group">
+                              <label class="form-label"
+                                >Cas Perkhidmatan (RM)</label
+                              >
+                              <input
+                                type="text"
+                                name="casp"
+                                class="form-control"
+                                placeholder="RM 10"
+                              />
+                            </div>
+                          </div>
+                          <div class="col-sm-4 col-md-4">
+                            <div class="form-group">
+                              <label class="form-label">No Reset</label>
+                              <input
+                                type="text"
+                                name="noreset"
+                                class="form-control"
+                                placeholder="cth:JPS-2938HS"
+                              />
+                            </div>
+                          </div>
+
+                          <div class="col-sm-6 col-md-6">
+                            <div class="form-group">
+                              <label class="form-label"
+                                >No Sijil Pendaftaran</label
+                              >
+                              <input
+                                type="text"
+                                name="nosijilp"
+                                class="form-control"
+                              />
+                            </div>
+                          </div>
+                          <div class="col-sm-3 col-md-3">
+                            <div class="form-group">
+                              <label class="form-label"
+                                >Tarikh Sijil Dikeluarkan</label
+                              >
+                              <input
+                                class="form-control fc-datepicker"
+                                name="tsijilkeluar"
+                                placeholder="MM/DD/YYYY"
+                                type="text"
+                              />
+                            </div>
+                          </div>
+                          <div class="col-sm-3 col-md-3">
+                            <div class="form-group">
+                              <label class="form-label"
+                                >Tarikh Tamat Sijil</label
+                              >
+                              <input
+                                class="form-control fc-datepicker"
+                                name="tsijiltamat"
+                                placeholder="MM/DD/YYYY"
+                                type="text"
+                              />
+                            </div>
+                          </div>
+                        </div>
+                      </section>
+                    </div>
+
+                    <div class="tab-pane fade" id="tab13">
+                      <span class="font-w-600 h4 text-secondary"
+                        >Maklumat Permohonan</span
+                      >
+                      <section>
+                        <div class="row">
+                          <div class="col-sm-4 col-md-4">
+                            <div class="form-group">
+                              <label class="form-label">Disemak oleh</label>
+                              <select
+                                class="form-control custom-select select26"
+                                name="semakoleh"
+                              >
+                                <option value=""></option>
+                              </select>
+                            </div>
+                          </div>
+                          <div class="col-sm-4 col-md-4">
+                            <div class="form-group">
+                              <label class="form-label">Disahkan Oleh</label>
+                              <select
+                                class="form-control custom-select select26"
+                                name="saholeh"
+                              >
+                                <option value=""></option>
+                              </select>
+                            </div>
+                          </div>
+                          <div class="col-sm-4 col-md-4">
+                            <div class="form-group">
+                              <label class="form-label">Diluluskan Oleh</label>
+                              <select
+                                class="form-control custom-select select26"
+                                name="lulusoleh"
+                              >
+                                <option value=""></option>
+                              </select>
+                            </div>
+                          </div>
+
+                          <div class="col-sm-4 col-md-4">
+                            <div class="form-group">
+                              <label class="form-label">Jawatan Penyemak</label>
+                              <select
+                                class="form-control custom-select select26"
+                                name="jsemak"
+                              >
+                                <option value=""></option>
+                              </select>
+                            </div>
+                          </div>
+                          <div class="col-sm-4 col-md-4">
+                            <div class="form-group">
+                              <label class="form-label">Jawatan Pengurus</label>
+                              <select
+                                class="form-control custom-select select26"
+                                name="jurus"
+                              >
+                                <option value=""></option>
+                              </select>
+                            </div>
+                          </div>
+                          <div class="col-sm-4 col-md-4">
+                            <div class="form-group">
+                              <label class="form-label"
+                                >Jawatan Penglulus</label
+                              >
+                              <select
+                                class="form-control custom-select select26"
+                                name="julus"
+                              >
+                                <option value=""></option>
+                              </select>
+                            </div>
+                          </div>
+                        </div>
+                      </section>
+                    </div>
+
+                    <div class="tab-pane fade" id="tab14">
+                      <span class="font-w-600 h4 text-secondary">LPIPM</span>
+                      
+                        <section>
+
+                            <div class="row">
+                                <div class="col-sm-12 col-md-12">
+                                    <h4 class="mt-1 mb-4">Lembaga Pembangunan Industri Pembinaan Malaysia (LPIPM)
+                                    </h4>
+                                    <h6 class="mb-6">a) Sijil Perakuan Pendaftaran Kontraktror (PPK)</h6>
+                                </div>
+                                <div class="col-sm-6 col-md-6">
+                                    <div class="form-group">
+                                        <label class="form-label">No Pendaftaran</label>
+                                        <input type="text" id="txtpkk" name="lnodaftar" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="col-sm-3 col-md-3">
+                                    <div class="form-group">
+                                        <label class="form-label">Tempoh Sah Dari</label>
+                                        <input class="form-control fc-datepicker" name="tlpkksah" placeholder="MM/DD/YYYY" type="text">
+                                    </div>
+                                </div>
+                                <div class="col-sm-3 col-md-3">
+                                    <div class="form-group">
+                                        <label class="form-label">Hingga</label>
+                                        <input class="form-control fc-datepicker" name="tlpkktamat" placeholder="MM/DD/YYYY" type="text">
+                                    </div>
+                                </div>
+
+                                <div class="col-sm-3 col-md-3">
+                                    <div class="form-group">
+                                        <label class="form-label">Gred</label>
+                                        <select class="form-control custom-select select27" name="lpkkgredsatu">
+                                            <option value="none">Tiada</option>
+                                            <option value="G1">G1</option>
+                                            <option value="G2">G2</option>
+                                            <option value="G3">G3</option>
+                                            <option value="G4">G4</option>
+                                            <option value="G5">G5</option>
+                                            <option value="G6">G6</option>
+                                            <option value="G7">G7</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="col-sm-3 col-md-3">
+                                    <div class="form-group">
+                                        <label class="form-label">Kategori</label>
+                                        <select class="form-control custom-select select27" name="lpkkcatsatu">
+                                            <option value="none">Tiada</option>
+                                            <option value="B">B</option>
+                                            <option value="CE">CE</option>
+                                            <option value="ME">ME</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="col-sm-6 col-md-6">
+                                    <div class="form-group">
+                                        <label class="form-label">Pengkhususan</label>
+                                        <input type="text" name="lpkkkhusussatu" class="form-control" placeholder="cth:G1, G5, B, CE">
+                                    </div>
+                                </div>
+
+                                <div class="col-sm-3 col-md-3">
+                                    <div class="form-group">
+                                        <label class="form-label">Gred</label>
+                                        <select class="form-control custom-select select27" name="lpkkgreddua">
+                                            <option value="none">Tiada</option>
+                                            <option value="G1">G1</option>
+                                            <option value="G2">G2</option>
+                                            <option value="G3">G3</option>
+                                            <option value="G4">G4</option>
+                                            <option value="G5">G5</option>
+                                            <option value="G6">G6</option>
+                                            <option value="G7">G7</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="col-sm-3 col-md-3">
+                                    <div class="form-group">
+                                        <label class="form-label">Kategori</label>
+                                        <select class="form-control custom-select select27" name="lpkkcatdua">
+                                            <option value="none">Tiada</option>
+                                            <option value="B">B</option>
+                                            <option value="CE">CE</option>
+                                            <option value="ME">ME</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="col-sm-6 col-md-6">
+                                    <div class="form-group">
+                                        <label class="form-label">Pengkhususan</label>
+                                        <input type="text" name="lpkkkhususdua" class="form-control" placeholder="cth:G1, G5, B, CE">
+                                    </div>
+                                </div>
+
+                                <div class="col-sm-3 col-md-3">
+                                    <div class="form-group">
+                                        <label class="form-label">Gred</label>
+                                        <select class="form-control custom-select select27" name="lpkkgredtiga">
+                                            <option value="none">Tiada</option>
+                                            <option value="G1">G1</option>
+                                            <option value="G2">G2</option>
+                                            <option value="G3">G3</option>
+                                            <option value="G4">G4</option>
+                                            <option value="G5">G5</option>
+                                            <option value="G6">G6</option>
+                                            <option value="G7">G7</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="col-sm-3 col-md-3">
+                                    <div class="form-group">
+                                        <label class="form-label">Kategori</label>
+                                        <select class="form-control custom-select select27" name="lpkkcattiga">
+                                            <option value="none">Tiada</option>
+                                            <option value="B">B</option>
+                                            <option value="CE">CE</option>
+                                            <option value="ME">ME</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="col-sm-6 col-md-6">
+                                    <div class="form-group">
+                                        <label class="form-label">Pengkhususan</label>
+                                        <input type="text" name="lpkkkhusustiga" class="form-control" placeholder="cth:G1, G5, B, CE">
+                                    </div>
+                                </div>
+
+                                <div class="col-sm-12 col-md-12">
+                                    <h6 class="mt-4 mb-6">b) Sijil Perolehan Kerja Kerajaan (SPKK)</h6>
+                                </div>
+                                <div class="col-sm-6 col-md-6">
+                                    <div class="form-group">
+                                        <label class="form-label">No Pendaftaran</label>
+                                        <input type="text" id="txtspkk" name="lspkkdaftar" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="col-sm-3 col-md-3">
+                                    <div class="form-group">
+                                        <label class="form-label">Tempoh Sah Dari</label>
+                                        <input class="form-control fc-datepicker" name="tlspkksah" placeholder="MM/DD/YYYY" type="text">
+                                    </div>
+                                </div>
+                                <div class="col-sm-3 col-md-3">
+                                    <div class="form-group">
+                                        <label class="form-label">Hingga</label>
+                                        <input class="form-control fc-datepicker" name="tlspkktamat" placeholder="MM/DD/YYYY" type="text">
+                                    </div>
+                                </div>
+
+                                <div class="col-sm-3 col-md-3">
+                                    <div class="form-group">
+                                        <label class="form-label">Gred</label>
+                                        <select class="form-control custom-select select27" name="lspkkgredsatu">
+                                            <option value="none">Tiada</option>
+                                            <option value="G1">G1</option>
+                                            <option value="G2">G2</option>
+                                            <option value="G3">G3</option>
+                                            <option value="G4">G4</option>
+                                            <option value="G5">G5</option>
+                                            <option value="G6">G6</option>
+                                            <option value="G7">G7</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="col-sm-3 col-md-3">
+                                    <div class="form-group">
+                                        <label class="form-label">Kategori</label>
+                                        <select class="form-control custom-select select27" name="lspkkcatsatu">
+                                            <option value="none">Tiada</option>
+                                            <option value="B">B</option>
+                                            <option value="CE">CE</option>
+                                            <option value="ME">ME</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="col-sm-6 col-md-6">
+                                    <div class="form-group">
+                                        <label class="form-label">Pengkhususan</label>
+                                        <input type="text" name="lspkkkhusussatu" class="form-control" placeholder="cth:G1, G5, B, CE">
+                                    </div>
+                                </div>
+
+                                <div class="col-sm-3 col-md-3">
+                                    <div class="form-group">
+                                        <label class="form-label">Gred</label>
+                                        <select class="form-control custom-select select27" name="lspkkgreddua">
+                                            <option value="none">Tiada</option>
+                                            <option value="G1">G1</option>
+                                            <option value="G2">G2</option>
+                                            <option value="G3">G3</option>
+                                            <option value="G4">G4</option>
+                                            <option value="G5">G5</option>
+                                            <option value="G6">G6</option>
+                                            <option value="G7">G7</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="col-sm-3 col-md-3">
+                                    <div class="form-group">
+                                        <label class="form-label">Kategori</label>
+                                        <select class="form-control custom-select select27" name="lspkkcatdua">
+                                            <option value="none">Tiada</option>
+                                            <option value="B">B</option>
+                                            <option value="CE">CE</option>
+                                            <option value="ME">ME</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="col-sm-6 col-md-6">
+                                    <div class="form-group">
+                                        <label class="form-label">Pengkhususan</label>
+                                        <input type="text" name="lspkkkhususdua" class="form-control" placeholder="cth:G1, G5, B, CE">
+                                    </div>
+                                </div>
+
+                                <div class="col-sm-3 col-md-3">
+                                    <div class="form-group">
+                                        <label class="form-label">Gred</label>
+                                        <select class="form-control custom-select select27" name="lspkkgredtiga">
+                                            <option value="none">Tiada</option>
+                                            <option value="G1">G1</option>
+                                            <option value="G2">G2</option>
+                                            <option value="G3">G3</option>
+                                            <option value="G4">G4</option>
+                                            <option value="G5">G5</option>
+                                            <option value="G6">G6</option>
+                                            <option value="G7">G7</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="col-sm-3 col-md-3">
+                                    <div class="form-group">
+                                        <label class="form-label">Kategori</label>
+                                        <select class="form-control custom-select select27" name="lspkkcattiga">
+                                            <option value="none">Tiada</option>
+                                            <option value="B">B</option>
+                                            <option value="CE">CE</option>
+                                            <option value="ME">ME</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="col-sm-6 col-md-6">
+                                    <div class="form-group">
+                                        <label class="form-label">Pengkhususan</label>
+                                        <input type="text" name="lspkkkhusustiga" class="form-control" placeholder="cth:G1, G5, B, CE">
+                                    </div>
+                                </div>
+
+
+                            </div>
+                        </section>
+                   
+                    </div>
+
+
+                    
+                    <div class="tab-pane fade" id="tab15">
+                      <span class="font-w-600 h4 text-secondary"
+                        >Pusat Khidmat Kontraktor (PKK)</span
+                      >
+                           <section>
+
+                            <div class="row">
+                                <div class="col-sm-12 col-md-12">
+
+                                    <h6 class="mb-6">a) Sijil Taraf Bumiputra (STB)</h6>
+                                </div>
+                                <div class="col-sm-8 col-md-8">
+                                    <div class="form-group">
+                                        <label class="form-label">No Pendaftaran</label>
+                                        <input type="text" name="stbnosijil" id="stbsah" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="col-sm-4 col-md-4"></div>
+                                <div class="col-sm-4 col-md-4">
+                                    <div class="form-group">
+                                        <label class="form-label">Tempoh Sah Dari</label>
+                                        <input class="form-control fc-datepicker" name="stbsah" placeholder="MM/DD/YYYY" type="text">
+                                    </div>
+                                </div>
+
+                                <div class="col-sm-4 col-md-4">
+                                    <div class="form-group">
+                                        <label class="form-label">Hingga</label>
+                                        <input class="form-control fc-datepicker" name="stbtamat" placeholder="MM/DD/YYYY" type="text">
+                                    </div>
+                                </div>
+
+
+                                <div class="col-sm-4 col-md-4">
+                                    <div class="form-group">
+                                        <label class="form-label">Gred Pendaftaran</label>
+                                         <select class="form-control custom-select select27" name="stbgred">
+                                            <option value="none">Tiada</option>
+                                            <option value="G1">G1</option>
+                                            <option value="G2">G2</option>
+                                            <option value="G3">G3</option>
+                                            <option value="G4">G4</option>
+                                            <option value="G5">G5</option>
+                                            <option value="G6">G6</option>
+                                            <option value="G7">G7</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+
+                            </div>
+                        </section>
+                    </div>
+
+                       
+                    <div class="tab-pane fade" id="tab16">
+                      <span class="font-w-600 h4 text-secondary"
+                        >SSM</span
+                      >
+                              <section>
+
+                            <div class="row">
+                                <div class="col-sm-12 col-md-12">
+
+                                    <h6 class="mb-6">SSM</h6>
+                                </div>
+                                <div class="col-sm-8 col-md-8">
+                                    <div class="form-group">
+                                        <label class="form-label">No Pendaftaran</label>
+                                        <input type="text" name="sijilssm" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="col-sm-4 col-md-4"></div>
+                                <div class="col-sm-4 col-md-4">
+                                    <div class="form-group">
+                                        <label class="form-label">Tempoh Sah Dari</label>
+                                     
+										<input class="form-control fc-datepicker" name="ssmsah" placeholder="MM/DD/YYYY" type="text">
+                                    </div>
+                                </div>
+
+                                <div class="col-sm-4 col-md-4">
+                                    <div class="form-group">
+                                        <label class="form-label">Hingga</label>
+                                      
+										<input class="form-control fc-datepicker" name="ssmtamat" placeholder="MM/DD/YYYY" type="text">
+                                    </div>
+                                </div>
+
+                            </div>
+                        </section>
+                    </div>
+
+
+                     <div class="tab-pane fade" id="tab17">
+                      <span class="font-w-600 h4 text-secondary"
+                        >SST</span
+                      >
+                            <section>
+
+                            <div class="row">
+                                <div class="col-sm-12 col-md-12">
+
+                                    <h6 class="mb-6">SST</h6>
+                                </div>
+                                <div class="col-sm-8 col-md-8">
+                                    <div class="form-group">
+                                        <label class="form-label">No Pendaftaran</label>
+                                        <input type="text" name="sijilsst" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="col-sm-4 col-md-4"></div>
+                                <div class="col-sm-4 col-md-4">
+                                    <div class="form-group">
+                                        <label class="form-label">Tempoh Sah Dari</label>
+                                      
+										<input class="form-control fc-datepicker" name="sstsah" placeholder="MM/DD/YYYY" type="text">
+										
+                                    </div>
+                                </div>
+
+                                <div class="col-sm-4 col-md-4">
+                                    <div class="form-group">
+                                        <label class="form-label">Hingga</label>
+                               
+										<input class="form-control fc-datepicker" name="ssttamat" placeholder="MM/DD/YYYY" type="text">
+                                    </div>
+                                </div>
+
+
+
+                            </div>
+                        </section>
+                    </div>
+
+                           <div class="tab-pane fade" id="tab18">
+                      <span class="font-w-600 h4 text-secondary"
+                        >JPS</span
+                      >
+                                <section>
+
+                            <div class="row">
+                                <div class="col-sm-12 col-md-12">
+
+                                    <h6 class="mb-6">a) Sijil Perakuan Pendaftaran Pembekal/Kontraktor(SPPPK)</h6>
+                                </div>
+                                <div class="col-sm-8 col-md-8">
+                                    <div class="form-group">
+                                        <label class="form-label">No Pendaftaran</label>
+                                        <input type="text" name="jpsno" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="col-sm-4 col-md-4"></div>
+                                <div class="col-sm-4 col-md-4">
+                                    <div class="form-group">
+                                        <label class="form-label">Tempoh Sah Dari</label>
+                                       <input class="form-control fc-datepicker" name="jpssah" placeholder="MM/DD/YYYY" type="text">
+                                    </div>
+                                </div>
+
+                                <div class="col-sm-4 col-md-4">
+                                    <div class="form-group">
+                                        <label class="form-label">Hingga</label>
+                                        <input class="form-control fc-datepicker" name="jpstamat" placeholder="MM/DD/YYYY" type="text">
+                                    </div>
+                                </div>
+
+
+                                <div class="col-sm-4 col-md-4">
+                                    <div class="form-group">
+                                        <label class="form-label">Gred Pendaftaran</label>
+                                        <select class="form-control custom-select select27" name="jpsgred">
+                                            <option value="none">Tiada</option>
+                                            <option value="Kontraktor">Kontraktor</option>
+											<option value="Pembekal">Pembekal</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </section>
+                    </div>
+
+
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- END: Card DATA-->
+  </div>
+</main>
+
+<!-- END: Content-->
+
+{% endblock content %}

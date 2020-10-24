@@ -101,6 +101,9 @@ class Kontraktor(models.Model):
     sijilJPSTamat = models.CharField(max_length=50, blank=True) 
     sijilJPSGred = models.CharField(max_length=50, blank=True)
 
+    def __str__(self):
+        return self.konNama
+
 
 class Projek:
     pass
