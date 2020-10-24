@@ -1,58 +1,129 @@
-   <!-- START: Footer-->
+	<!--Footer-->
+	{% load static  %}
+			<footer class="footer">
+				<div class="container">
+					<div class="row align-items-center flex-row-reverse">
+						<div class="col-md-12 col-sm-12 mt-3 mt-lg-0 text-center">
+							Copyright © 2020 <a href="#">Dashtic</a>. Designed by <a href="#">Spruko Technologies Pvt.Ltd</a> All rights reserved.
+						</div>
+					</div>
+				</div>
+			</footer>
+			<!-- End Footer-->
 
-        {% load static %}
-        <footer class="site-footer">
-            2020 © PICK
-        </footer>
-        <!-- END: Footer-->
+		</div>
+
+		<!-- Back to top -->
+		<a href="#top" id="back-to-top">
+			<svg class="svg-icon" xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M4 12l1.41 1.41L11 7.83V20h2V7.83l5.58 5.59L20 12l-8-8-8 8z"/></svg>
+		</a>
+
+		
+		<!-- Jquery js-->
+		<script src="{% static 'theme/js/vendors/jquery-3.4.0.min.js' %} "></script>
+
+		<!-- Bootstrap4 js-->
+		<script src="{% static 'theme/plugins/bootstrap/popper.min.js' %} "></script>
+		<script src="{% static 'theme/plugins/bootstrap/js/bootstrap.min.js' %} "></script>
+
+		<!--Othercharts js-->
+		<script src="{% static 'theme/plugins/othercharts/jquery.sparkline.min.js' %} "></script>
+
+		<!-- Circle-progress js-->
+		<script src="{% static 'theme/js/vendors/circle-progress.min.js' %} "></script>
+
+		<!-- Jquery-rating js-->
+		<script src="{% static 'theme/plugins/rating/jquery.rating-stars.js' %} "></script>
+
+		<!--Horizontal js-->
+		<script src="{% static 'theme/plugins/horizontal-menu/horizontal.js' %} "></script>
+
+		<!-- ECharts js -->
+		<script src="{% static 'theme/plugins/echarts/echarts.js' %} "></script>
+
+		<!-- Peitychart js-->
+		<script src="{% static 'theme/plugins/peitychart/jquery.peity.min.js' %} "></script>
+		<script src="{% static 'theme/plugins/peitychart/peitychart.init.js' %} "></script>
+
+		<!-- Apexchart js-->
+		<script src="{% static 'theme/js/apexcharts.js' %} "></script>
+
+		<!--Moment js-->
+		<script src="{% static 'theme/plugins/moment/moment.js' %} "></script>
+
+		<!-- Daterangepicker js-->
+		<script src="{% static 'theme/plugins/bootstrap-daterangepicker/daterangepicker.js' %} "></script>
+		<script src="{% static 'theme/js/daterange.js' %} "></script>
 
 
-        <!-- START: Back to top-->
-        <a href="#" class="scrollup text-center"> 
-            <i class="icon-arrow-up"></i>
-        </a>
-        <!-- END: Back to top-->
 
 
-        <!-- START: Template JS-->
-        <script src="{% static 'theme/dists/vendors/jquery/jquery-3.3.1.min.js' %}"></script>
-        <script src="{% static 'theme/dists/vendors/jquery-ui/jquery-ui.min.js' %}"></script>
-        <script src="{% static 'theme/dists/vendors/moment/moment.js' %}"></script>
-        <script src="{% static 'theme/dists/vendors/bootstrap/js/bootstrap.bundle.min.js' %}"></script>    
-        <script src="{% static 'theme/dists/vendors/slimscroll/jquery.slimscroll.min.js' %}"></script>
-        <!-- END: Template JS-->
+		<!-- Index js-->
+		<script src="{% static 'theme/js/index1.js' %} "></script>
 
-        <!-- START: APP JS-->
-        <script src="{% static 'theme/dists/js/app.js' %}"></script>
-        <!-- END: APP JS-->
+		<!-- Data tables js-->
+		<script src="{% static 'theme/plugins/datatable/js/jquery.dataTables.js' %} "></script>
+		<script src="{% static 'theme/plugins/datatable/js/dataTables.bootstrap4.js' %} "></script>
+		<script src="{% static 'theme/plugins/datatable/js/dataTables.buttons.min.js' %} "></script>
+		<script src="{% static 'theme/plugins/datatable/js/buttons.bootstrap4.min.js' %} "></script>
+		<script src="{% static 'theme/plugins/datatable/js/jszip.min.js' %} "></script>
+		<script src="{% static 'theme/plugins/datatable/js/pdfmake.min.js' %} "></script>
+		<script src="{% static 'theme/plugins/datatable/js/vfs_fonts.js' %} "></script>
+		<script src="{% static 'theme/plugins/datatable/js/buttons.html5.min.js' %} "></script>
+		<script src="{% static 'theme/plugins/datatable/js/buttons.print.min.js' %} "></script>
+		<script src="{% static 'theme/plugins/datatable/js/buttons.colVis.min.js' %} "></script>
+		<script src="{% static 'theme/plugins/datatable/dataTables.responsive.min.js' %} "></script>
+		<script src="{% static 'theme/plugins/datatable/responsive.bootstrap4.min.js' %} "></script>
+		<script src="{% static 'theme/js/datatables.js' %} "></script>
 
-        <!-- START: Page Vendor JS-->
-        <script src="{% static 'theme/dists/vendors/raphael/raphael.min.js' %}"></script>
-        <script src="{% static 'theme/dists/vendors/morris/morris.min.js' %}"></script>
-        <script src="{% static 'theme/dists/vendors/chartjs/Chart.min.js' %}"></script>
-        <script src="{% static 'theme/dists/vendors/starrr/starrr.js' %}"></script>
-        <script src="{% static 'theme/dists/vendors/jquery-flot/jquery.canvaswrapper.js' %}"></script>
-        <script src="{% static 'theme/dists/vendors/jquery-flot/jquery.colorhelpers.js' %}"></script>
-        <script src="{% static 'theme/dists/vendors/jquery-flot/jquery.flot.js' %}"></script>
-        <script src="{% static 'theme/dists/vendors/jquery-flot/jquery.flot.saturated.js' %}"></script>
-        <script src="{% static 'theme/dists/vendors/jquery-flot/jquery.flot.browser.js' %}"></script>
-        <script src="{% static 'theme/dists/vendors/jquery-flot/jquery.flot.drawSeries.js' %}"></script>
-        <script src="{% static 'theme/dists/vendors/jquery-flot/jquery.flot.uiConstants.js' %}"></script>
-        <script src="{% static 'theme/dists/vendors/jquery-flot/jquery.flot.legend.js' %}"></script>
-        <script src="{% static 'theme/dists/vendors/jquery-flot/jquery.flot.pie.js' %}"></script>        
-        <script src="{% static 'theme/dists/vendors/chartjs/Chart.min.js' %}"></script>  
-        <script src="{% static 'theme/dists/vendors/jquery-jvectormap/jquery-jvectormap-2.0.3.min.js' %}"></script>
-        <script src="{% static 'theme/dists/vendors/jquery-jvectormap/jquery-jvectormap-world-mill.js' %}"></script>
-        <script src="{% static 'theme/dists/vendors/jquery-jvectormap/jquery-jvectormap-de-merc.js' %}"></script>
-        <script src="{% static 'theme/dists/vendors/jquery-jvectormap/jquery-jvectormap-us-aea.js' %}"></script>
-        <script src="{% static 'theme/dists/vendors/apexcharts/apexcharts.min.js' %}"></script>
-        <script  src="{% static 'theme/dists/vendors/lineprogressbar/jquery.lineProgressbar.js' %}"></script>
-        <script  src="{% static 'theme/dists/vendors/lineprogressbar/jquery.barfiller.js' %}"></script>
-        <!-- END: Page Vendor JS-->
+		
+		<!-- Jquery.steps js -->
+		<script src="{% static 'theme/plugins/jquery-steps/jquery.steps.min.js' %} "></script>
+		<script src="{% static 'theme/plugins/parsleyjs/parsley.min.js' %} "></script>
 
-        <!-- START: Page JS-->
-        <script src="{% static 'theme/dists/js/home.script.js' %}"></script>
-        <!-- END: Page JS-->
-    </body>
-    <!-- END: Body-->
-</html>
+		
+		<script src="{% static 'theme/plugins/accordion-Wizard-Form/jquery.accordion-wizard.min.js' %} "></script>
+		<script src="{% static 'theme/js/form-wizard.js' %} "></script>
+		<script src="{% static 'theme/js/form-wizard2.js' %} "></script>
+
+		<!--Counters -->
+		<script src="{% static 'theme/plugins/counters/counterup.min.js' %} "></script>
+		<script src="{% static 'theme/plugins/counters/waypoints.min.js' %} "></script>
+
+		
+		
+		<!-- Datepicker js -->
+		<script src="{% static 'theme/plugins/date-picker/date-picker.js' %} "></script>
+		<script src="{% static 'theme/plugins/date-picker/jquery-ui.js' %} "></script>
+		<script src="{% static 'theme/plugins/input-mask/jquery.maskedinput.js' %} "></script>
+
+		<!-- Form Advanced Element -->
+		<script src="{% static 'theme/js/formelementadvnced.js' %} "></script>
+		<script src="{% static 'theme/js/form-elements.js' %} "></script>
+		<script src="{% static 'theme/js/file-upload.js' %} "></script>
+
+
+
+		<!-- simplebar JS -->
+		<script src="{% static 'theme/plugins/simplebar/js/simplebar.min.js' %} "></script>
+
+		<!--Chart js -->
+		<script src="{% static 'theme/plugins/chart/chart.bundle.js' %} "></script>
+		<script src="{% static 'theme/plugins/chart/utils.js' %} "></script>
+
+		<!--Select2 js -->
+		<script src="{% static 'theme/plugins/select2/select2.full.min.js' %} "></script>
+		<script src="{% static 'theme/js/select2.js' %} "></script>
+
+			<!-- Sweet alert js -->
+		<script src="{% static 'theme/plugins/sweet-alert/jquery.sweet-modal.min.js' %} "></script>
+		<script src="{% static 'theme/plugins/sweet-alert/sweetalert.min.js' %} "></script>
+		<script src="{% static 'theme/js/sweet-alert.js' %} "></script>
+
+		
+		<!-- Accordion js-->
+		<script src="{% static 'theme/plugins/accordion/accordion.min.js' %} "></script>
+		<script src="{% static 'theme/js/accordion.js' %} "></script>
+
+		<!-- Custom js-->
+		<script src="{% static 'theme/js/custom.js' %} "></script>

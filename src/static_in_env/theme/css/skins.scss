@@ -1,0 +1,445 @@
+@import "../scss/variables";
+
+
+/*--Default Body--*/
+
+body {
+    &.default-body {
+      background: $background;
+  
+      &.dark-mode {
+        background: $dark-theme;
+      }
+    }
+  
+    &.card-shadow {
+      &.default-body {
+        background: #eff0f6;
+      }
+  
+      &.white-body {
+        background: $white;
+      }
+    }
+  
+    &.white-body {
+      background: $white;
+  
+      .card {
+        border: 1px solid #e8eaf7;
+      }
+  
+      &.dark-mode {
+        background: #10163a;
+  
+        .card {
+          border: 1px solid $white-1;
+        }
+      }
+    }
+  
+    &.card-shadow.light-dark-body {
+      background: #edf3f7;
+    }
+	&.card-shadow.dark-mode {
+		background:#1c2248;
+	}
+	&.card-shadow .header.top-header{
+		box-shadow:none;
+		border-bottom: 1px solid #eff0f6;
+	}
+	&.card-shadow .horizontalMenucontainer .header.top-header{
+		box-shadow:none;
+		border-bottom: 0px solid #eff0f6;
+	}
+	&.card-shadow .horizontal-main{
+		box-shadow:none;
+	}
+	&.card-shadow .app-sidebar{
+		box-shadow:none;
+	}
+    &.light-dark-body {
+      background: #edf3f7;
+  
+      &.dark-mode {
+        background: #1c2248;
+      }
+    }
+  
+    &.light-card .card {
+      background: #f4f5fc;
+    }
+  
+    &.card-shadow {
+      background: #eff0f6;
+  
+      .card {
+        box-shadow: none !important;
+      }
+    }
+  
+    &.card-radius .card {
+      border-radius: 0;
+    }
+  }
+  
+  /*--White Body--*/
+  
+  /*--Light Dark Body--*/
+  
+  /*---default Horizontal--*/
+  
+  .default-horizontal {
+    .horizontal-main {
+      background: $white;
+      background: $white;
+    }
+  
+    .hor-icon {
+      color: #8e98db !important;
+      fill: #d2d6f1 !important;
+    }
+  
+    .horizontalMenu > .horizontalMenu-list > li {
+      > a {
+        color: $color;
+  
+        &.active {
+          color: $primary;
+          text-decoration: none;
+          background: #f4f5fc;
+        }
+  
+        border-left: 1px solid rgb(239, 240, 246);
+      }
+  
+      &:last-child > a {
+        border-right: 1px solid rgb(239, 240, 246);
+      }
+  
+      > a {
+        &:hover .hor-icon {
+          color: $primary !important;
+          fill: #d2d6f1;
+        }
+  
+        &.active .hor-icon, &:hover {
+          color: $primary !important;
+        }
+      }
+    }
+  }
+  @media only screen and (max-width: 991px){
+	.default-horizontal.dark-mode .horizontal-main{
+		background: #10163a;
+	}
+	.default-horizontal.dark-mode .horizontalMenu > .horizontalMenu-list {
+		background:$white;
+	}
+	.default-horizontal.dark-mode .horizontalMenu > .horizontalMenu-list > li {
+		background-color: $white;
+	}
+	.default-horizontal.dark-mode .horizontalMenu > .horizontalMenu-list > li > a{
+		color:$color;
+		background-color: $white;
+	}
+	.default-horizontal.dark-mode .horizontalMenu > .horizontalMenu-list > li > ul.sub-menu{
+		color:$color;
+		background-color: $white;
+	}
+	.default-horizontal.dark-mode .horizontalMenu > .horizontalMenu-list > li > ul.sub-menu > li > a{
+		color:$color;
+	}
+	.default-horizontal.dark-mode .mega-menubg{
+		color:$color;
+		background-color: $white !important;
+	}
+	.default-horizontal.dark-mode .horizontalMenu > .horizontalMenu-list > li > .horizontal-megamenu .link-list li a{
+		color:$color;
+	}
+	.default-horizontal.dark-mode .horizontalMenu > .horizontalMenu-list > li > .horizontalMenu-click > i{
+		color:$black-5;
+	}
+	.default-horizontal.light-mode .horizontal-main{
+		background: $white;
+	}
+	.default-horizontal.light-mode .horizontalMenu > .horizontalMenu-list {
+		background:$white;
+	}
+	.default-horizontal.light-mode .horizontalMenu > .horizontalMenu-list > li {
+		background-color: $white;
+	}
+	.default-horizontal.light-mode .horizontalMenu > .horizontalMenu-list > li > a{
+		color:$color;
+		background-color: $white;
+	}
+	.default-horizontal.light-mode .horizontalMenu > .horizontalMenu-list > li > ul.sub-menu{
+		color:$color;
+		background-color: $white;
+	}
+	.default-horizontal.light-mode .horizontalMenu > .horizontalMenu-list > li > ul.sub-menu > li > a{
+		color:$color;
+	}
+	.default-horizontal.light-mode .mega-menubg{
+		color:$color;
+		background-color: $white !important;
+	}
+	.default-horizontal.light-mode .horizontalMenu > .horizontalMenu-list > li > .horizontal-megamenu .link-list li a{
+		color:$color;
+	}
+	.default-horizontal.light-mode .horizontalMenu > .horizontalMenu-list > li > .horizontalMenu-click > i{
+		color:$black-5;
+	}
+}
+  
+  /*---dark Horizontal--*/
+  .dark-horizontal .horizontalMenu > .horizontalMenu-list > li:hover a .hor-icon{
+	color: $white-8 !important;
+      fill: $white-2;
+  }
+  .dark-horizontal {
+    .horizontal-main {
+      background: #10163a;
+      background: #10163a;
+    }
+  
+    .hor-icon {
+      color: $white-8;
+      fill: $white-2;
+    }
+  
+    .horizontalMenu > .horizontalMenu-list > li {
+      > a {
+        color: $white-8;
+  
+        &.active {
+          color: $white;
+          text-decoration: none;
+          background: rgba(255,255,255,0.04);
+        }
+  
+        border-left: 1px solid rgb(32, 38, 71);
+      }
+  
+      &:last-child > a {
+        border-right: 1px solid rgb(32, 38, 71);
+      }
+  
+      > a {
+        &:hover .hor-icon {
+          color: rgb(255, 255, 255) !important;
+          fill: $white-5;
+        }
+  
+        &.active .hor-icon {
+          color: rgb(255, 255, 255) !important;
+        }
+  
+        &:hover {
+          color: $white !important;
+        }
+      }
+    }
+  }
+   @media only screen and (max-width: 991px){
+	.dark-horizontal.dark-mode .horizontal-main{
+		background: #10163a;
+	}
+	.dark-horizontal.dark-mode .horizontalMenu > .horizontalMenu-list {
+		background:#10163a;
+	}
+	.dark-horizontal.dark-mode .horizontalMenu > .horizontalMenu-list > li {
+		background-color: #10163a;
+	}
+	.dark-horizontal.dark-mode .horizontalMenu > .horizontalMenu-list > li > a{
+		color:$white-8;
+		background-color: #10163a;
+	}
+	.dark-horizontal.dark-mode .horizontalMenu > .horizontalMenu-list > li > ul.sub-menu{
+		color:$white-8;
+		background-color: #10163a;
+	}
+	.dark-horizontal.dark-mode .horizontalMenu > .horizontalMenu-list > li > ul.sub-menu > li > a{
+		color:$white-8;
+	}
+	.dark-horizontal.dark-mode .mega-menubg{
+		color:$white-8;
+		background-color: #10163a !important;
+	}
+	.dark-horizontal.dark-mode .horizontalMenu > .horizontalMenu-list > li > .horizontal-megamenu .link-list li a{
+		color:$white-8;
+	}
+	.dark-horizontal.dark-mode .horizontalMenu > .horizontalMenu-list > li > .horizontalMenu-click > i{
+		color:$white-5;
+	}
+	.dark-horizontal.light-mode .horizontal-main{
+		background: #10163a;
+	}
+	.dark-horizontal.light-mode .horizontalMenu > .horizontalMenu-list {
+		background:#10163a;
+	}
+	.dark-horizontal.light-mode .horizontalMenu > .horizontalMenu-list > li {
+		background-color: #10163a;
+	}
+	.dark-horizontal.light-mode .horizontalMenu > .horizontalMenu-list > li > a{
+		color:$white-8;
+		background-color: #10163a;
+	}
+	.dark-horizontal.light-mode .horizontalMenu > .horizontalMenu-list > li > ul.sub-menu{
+		color:$white-8;
+		background-color: #10163a;
+	}
+	.dark-horizontal.light-mode .horizontalMenu > .horizontalMenu-list > li > ul.sub-menu > li > a{
+		color:$white-8;
+	}
+	.dark-horizontal.light-mode .mega-menubg{
+		color:$white-8;
+		background-color: #10163a !important;
+	}
+	.dark-horizontal.light-mode .horizontalMenu > .horizontalMenu-list > li > .horizontal-megamenu .link-list li a{
+		color:$white-8;
+	}
+	.dark-horizontal.light-mode .horizontalMenu > .horizontalMenu-list > li > .horizontalMenu-click > i{
+		color:$white-5;
+	}
+}
+  
+  /*---color Horizontal--*/
+  .color-horizontal .horizontalMenu > .horizontalMenu-list > li:hover a .hor-icon{
+	color: $white-8 !important;
+      fill: $white-2;
+  }
+  .color-horizontal {
+    .horizontal-main {
+      background: $primary;
+      background: $primary;
+    }
+  
+    .hor-icon {
+      color: $white-8 !important;
+      fill: $white-2;
+    }
+  
+    .horizontalMenu > .horizontalMenu-list > li {
+      > a {
+        color: $white-8;
+  
+        &.active {
+          color: $white;
+          text-decoration: none;
+          background: rgba(255, 255, 255, 0.04);
+        }
+		&.hover  {
+			.hor-icon {
+			  color: $white-8 !important;
+			  fill: $white-2;
+			}
+		}
+        border-left: 1px solid rgb(87, 101, 201);
+      }
+  
+      &:last-child > a {
+        border-right: 1px solid rgb(87, 101, 201);
+      }
+  
+      > a {
+        &:hover .hor-icon {
+          color: rgb(255, 255, 255) !important;
+          fill: $white-5;
+        }
+  
+        &.active .hor-icon {
+          color: rgb(255, 255, 255) !important;
+        }
+  
+        &:hover {
+          color: $white !important;
+        }
+      }
+    }
+  }
+    @media only screen and (max-width: 991px){
+	.color-horizontal.dark-mode .horizontal-main{
+		background: #10163a;
+	}
+	.color-horizontal.dark-mode .horizontalMenu > .horizontalMenu-list {
+		background:$primary;
+	}
+	.color-horizontal.dark-mode .horizontalMenu > .horizontalMenu-list > li {
+		background-color: $primary;
+	}
+	.color-horizontal.dark-mode .horizontalMenu > .horizontalMenu-list > li > a{
+		color:$white-8 !important;
+		background-color: $primary;
+	}
+	.color-horizontal.dark-mode .horizontalMenu > .horizontalMenu-list > li > ul.sub-menu{
+		color:$white-8;
+		background-color: $primary;
+	}
+	.color-horizontal.dark-mode .horizontalMenu > .horizontalMenu-list > li > ul.sub-menu > li > a{
+		color:$white-8;
+	}
+	.color-horizontal.dark-mode .mega-menubg{
+		color:$white-8;
+		background-color: $primary !important;
+	}
+	.color-horizontal.dark-mode .horizontalMenu > .horizontalMenu-list > li > .horizontal-megamenu .link-list li a{
+		color:$white-8;
+	}
+	.color-horizontal.dark-mode .horizontalMenu > .horizontalMenu-list > li > .horizontalMenu-click > i{
+		color:$white-5;
+	}
+	.color-horizontal.light-mode .horizontal-main{
+		background: $primary;
+	}
+	.color-horizontal.light-mode .horizontalMenu > .horizontalMenu-list {
+		background:$primary;
+	}
+	.color-horizontal.light-mode .horizontalMenu > .horizontalMenu-list > li {
+		background-color: $primary;
+	}
+	.color-horizontal.light-mode .horizontalMenu > .horizontalMenu-list > li > a{
+		color:$white-8 !important;
+		background-color:$primary;
+	}
+	.color-horizontal.light-mode .horizontalMenu > .horizontalMenu-list > li > ul.sub-menu{
+		color:$white-8;
+		background-color: $primary;
+	}
+	.color-horizontal.light-mode .horizontalMenu > .horizontalMenu-list > li > ul.sub-menu > li > a{
+		color:$white-8;
+	}
+	.color-horizontal.light-mode .mega-menubg{
+		color:$white-8;
+		background-color: $primary !important;
+	}
+	.color-horizontal.light-mode .horizontalMenu > .horizontalMenu-list > li > .horizontal-megamenu .link-list li a{
+		color:$white-8;
+	}
+	.color-horizontal.light-mode .horizontalMenu > .horizontalMenu-list > li > .horizontalMenu-click > i{
+		color:$white-5;
+	}
+}
+	
+@media only screen and (max-width: 767px) and (min-width:568px){
+	.app.light-mode .app-header .header-brand .header-brand-img.mobile-logo {
+		display:none;
+	}
+	.app.light-mode .app-header .header-brand .header-brand-img.darkmobile-logo {
+		display:none;
+	}
+	.app.light-mode .app-header .header-brand .header-brand-img.desktop-lgo {
+		display:block !important;
+	}
+	.app.light-mode .app-header .header-brand .header-brand-img.dark-logo{
+		display:none;
+	}
+}
+@media only screen and (max-width: 567px) {
+	.app.light-mode .app-header .header-brand .header-brand-img.desktop-lgo{
+		display:none !important;
+	}
+	.app.light-mode .app-header .header-brand .header-brand-img.mobile-logo {
+		display:block !important;
+	}
+}

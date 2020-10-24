@@ -47,22 +47,31 @@ class KontraktroForm(forms.ModelForm):
             ('Tidak','Tidak'),
         )
 
+        katergorikontraktor = (
+    
+            ('',''),
+            ('Kontraktor','Kontraktor'),
+            ('Pembekal','Pembekal'),
+            ('Perkhidmatan','Perkhidmatan'),
+            ('Pembekal/Kontraktor','Pembekal/Kontraktor'),
+        )
+
         konNama = forms.CharField(widget=forms.TextInput(attrs={'class':'form-control','placeholder':'cht:Syarikat ABC'}))
         konImage = forms.FileField()
         konAlamat = forms.CharField(widget=forms.TextInput(attrs={'class':'form-control','placeholder':'cth:N0 1821 Lorong Peruda 1'}))
         konAlamatExtS = forms.CharField(widget=forms.TextInput(attrs={'class':'form-control','placeholder':'cth:Taman Peruda'}) )
         konAlamatExtD = forms.CharField(widget=forms.TextInput(attrs={'class':'form-control','placeholder':'cth:Bakar Arang'}) )
-        konPoskod = forms.CharField(widget=forms.TextInput(attrs={'class':'form-control','placeholder':'eg:08000'}) )
+        konPoskod = forms.CharField(widget=forms.TextInput(attrs={'class':'form-control ','placeholder':'eg:08000'}) )
         konBandar = forms.CharField(widget=forms.TextInput(attrs={'class':'form-control','placeholder':'eg:Sungai Petani'}) )
         konDaerah = forms.CharField(widget=forms.TextInput(attrs={'class':'form-control','placeholder':'eg:Kuala Muda'}) )
-        konNegeri = forms.ChoiceField(choices=negeri, required=False, widget=forms.Select(attrs={'class':'form-control','placholder':'negeri'}))
+        konNegeri = forms.ChoiceField(choices=negeri, required=False, widget=forms.Select(attrs={'class':'form-control custom-select select2','placholder':'negeri'}))
         konTel = forms.CharField(widget=forms.TextInput(attrs={'class':'form-control','placeholder':'04-XXXXXXX"'}) )
         konEmail = forms.CharField(widget=forms.TextInput(attrs={'class':'form-control','placeholder':'cth:adk@gmail.com'}))
         konFax = forms.CharField(widget=forms.TextInput(attrs={'class':'form-control','placeholder':'cth:010-1234567'}) )
         konBank = forms.CharField(widget=forms.TextInput(attrs={'class':'form-control','placeholder':'cth:Maybank, RHB Bank, CIMB Bank'}) )
         konNoAkaun = forms.CharField(widget=forms.TextInput(attrs={'class':'form-control','placeholder':'No akaun bank terkini'}) )
-        konKawOperasi = forms.ChoiceField(choices=operasi, required=False, widget=forms.Select(attrs={'class':'form-control','placholder':'kawasan operasi'}))
-        konPrestasi = forms.ChoiceField(choices=prestasi, required=False, widget=forms.Select(attrs={'class':'form-control','placholder':'prestasi'}))
+        konKawOperasi = forms.ChoiceField(choices=operasi, required=False, widget=forms.Select(attrs={'class':'form-control custom-select select21','placholder':'kawasan operasi'}))
+        konPrestasi = forms.ChoiceField(choices=prestasi, required=False, widget=forms.Select(attrs={'class':'form-control custom-select select22','placholder':'prestasi'}))
         #maklumat pengurus
         konPengurus = forms.CharField(widget=forms.TextInput(attrs={'class':'form-control','placeholder':'eg:Ahmad bin Hassan'}))
         konNoKPPengurus = forms.CharField(widget=forms.TextInput(attrs={'class':'form-control','placeholder':'eg:72XXXX-00-XXXX'}) )
@@ -84,17 +93,17 @@ class KontraktroForm(forms.ModelForm):
         konRKempatNokp = forms.CharField(widget=forms.TextInput(attrs={'class':'form-control','placeholder':'cth:83XXXX-XX-XXXX'}))
         konRKempatNoTel = forms.CharField(widget=forms.TextInput(attrs={'class':'form-control','placeholder':'cth:012-12334456'}))
         #Jenis Permohonan
-        konJPBaru = forms.ChoiceField(choices=yesorno, required=False, widget=forms.Select(attrs={'class':'form-control','placholder':'baru'}))
-        konJPPembaharuan = forms.ChoiceField(choices=yesorno, required=False, widget=forms.Select(attrs={'class':'form-control','placholder':'baru'}))
-        konJPLainLain = forms.CharField(widget=forms.TextInput(attrs={'class':'form-control','placeholder':'none'}))
-        konJPKategori = forms.CharField(widget=forms.TextInput(attrs={'class':'form-control','placeholder':'none'}))
+        konJPBaru = forms.ChoiceField(choices=yesorno, required=False, widget=forms.Select(attrs={'class':'form-control custom-select select23 ','placholder':'baru'}))
+        konJPPembaharuan = forms.ChoiceField(choices=yesorno, required=False, widget=forms.Select(attrs={'class':'form-control custom-select select24','placholder':'baru'}))
+        konJPLainLain = forms.CharField(widget=forms.TextInput(attrs={'class':'form-control','placeholder':'lain-lain'}))
+        konJPKategori = forms.ChoiceField(choices=katergorikontraktor, required=False, widget=forms.Select(attrs={'class':'form-control custom-select select25','placholder':'baru'}))
         #malumat Permohonan]
-        konMPTarikhMohon = forms.CharField(widget=forms.TextInput(attrs={'class':'form-control','placeholder':'none'}) )
-        konMPCas = forms.CharField(widget=forms.TextInput(attrs={'class':'form-control','placeholder':'none'}))
-        konMPNoResit = forms.CharField(widget=forms.TextInput(attrs={'class':'form-control','placeholder':'none'})) 
-        konMPNoSijil = forms.CharField(widget=forms.TextInput(attrs={'class':'form-control','placeholder':'none'}))
-        konMPtarikhkeluar = forms.CharField(widget=forms.TextInput(attrs={'class':'form-control','placeholder':'none'})) 
-        konMPtarikhtamat = forms.CharField(widget=forms.TextInput(attrs={'class':'form-control','placeholder':'none'}))
+        konMPTarikhMohon = forms.CharField(widget=forms.TextInput(attrs={'class':'form-control','placeholder':'MM/DD/YYYY'}) )
+        konMPCas = forms.CharField(widget=forms.TextInput(attrs={'class':'form-control','placeholder':'10.00'}))
+        konMPNoResit = forms.CharField(widget=forms.TextInput(attrs={'class':'form-control','placeholder':'cth:JPS-2938HS'})) 
+        konMPNoSijil = forms.CharField(widget=forms.TextInput(attrs={'class':'form-control','placeholder':'JPS0293us932'}))
+        konMPtarikhkeluar = forms.CharField(widget=forms.TextInput(attrs={'class':'form-control','placeholder':'MM/DD/YYYY'})) 
+        konMPtarikhtamat = forms.CharField(widget=forms.TextInput(attrs={'class':'form-control','placeholder':'MM/DD/YYYY'}))
         #Disemak
         konMPdisemak = forms.CharField(widget=forms.TextInput(attrs={'class':'form-control','placeholder':'none'}))
         konMPjawatansemak = forms.CharField(widget=forms.TextInput(attrs={'class':'form-control','placeholder':'none'}))

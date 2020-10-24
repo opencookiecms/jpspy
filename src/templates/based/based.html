@@ -1,12 +1,11 @@
 <!DOCTYPE html>
-
-<html>
+<html lang="en" dir="ltr">
  
     {% include 'based/header.html' %}
-    <body id="main-container" class="default semi-dark" style="--primarycolor:#17b3a3;">
-
-    {% include 'based/menu.html' %}
-    {% include 'based/nav.html' %}
+    <body class="light-mode">
+    {% include 'based/pagesload.html' %}
+    {% include 'based/topnav.html' %}
+     {% include 'based/nav.html' %}
 
     {% block content %}
     {% endblock content %}
