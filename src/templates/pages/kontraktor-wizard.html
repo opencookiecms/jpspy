@@ -327,20 +327,19 @@
                                 <div class="col-sm-4 col-md-4">
                                     <div class="form-group">
                                         <label class="form-label">Tarikh Permohonan</label>
-                                        <input class="form-control fc-datepicker" name="tmohon" placeholder="MM/DD/YYYY" type="text">
+                                        {{form.konMPTarikhMohon}}
                                     </div>
                                 </div>
                                 <div class="col-sm-4 col-md-4">
                                     <div class="form-group">
                                         <label class="form-label">Cas Perkhidmatan (RM)</label>
-                                        <input type="text" name="casp" class="form-control" placeholder="RM 10">
+                                        {{form.konMPCas}}
                                     </div>
                                 </div>
                                 <div class="col-sm-4 col-md-4">
                                     <div class="form-group">
                                         <label class="form-label">No Reset</label>
-                                        <input type="text" name="noreset" class="form-control"
-                                            placeholder="cth:JPS-2938HS">
+                                        {{form.konMPNoResit}}
                                     </div>
                                 </div>
                               
@@ -348,19 +347,19 @@
                                 <div class="col-sm-6 col-md-6">
                                     <div class="form-group">
                                         <label class="form-label">No Sijil Pendaftaran</label>
-                                        <input type="text" name="nosijilp" class="form-control">
+                                        {{form.konMPNoSijil}}
                                     </div>
                                 </div>
                                 <div class="col-sm-3 col-md-3">
                                     <div class="form-group">
                                         <label class="form-label">Tarikh Sijil Dikeluarkan</label>
-                                        <input class="form-control fc-datepicker" name="tsijilkeluar" placeholder="MM/DD/YYYY" type="text">
+                                        {{form.konMPtarikhkeluar}}
                                     </div>
                                 </div>
                                 <div class="col-sm-3 col-md-3">
                                     <div class="form-group">
                                         <label class="form-label">Tarikh Tamat Sijil</label>
-                                        <input class="form-control fc-datepicker" name="tsijiltamat" placeholder="MM/DD/YYYY" type="text">
+                                        {{form.konMPtarikhtamat}}
                                     </div>
                                 </div>
                                
@@ -374,92 +373,38 @@
                                 <div class="col-sm-4 col-md-4">
                                     <div class="form-group">
                                         <label class="form-label">Disemak oleh</label>
-                                        <select class="form-control custom-select select26" name="semakoleh">
-                                        <option value=""></option>
-                                        <?php
-
-                                            foreach($jpsofficer as $row)
-                                            {
-                                              echo '<option value="'.$row->NamaO.'">'.$row->NamaO.'</option>';
-                                            } 
-                                        ?> 
-                                        </select>
+                                       
                                     </div>
                                 </div>
                                 <div class="col-sm-4 col-md-4">
                                     <div class="form-group">
                                         <label class="form-label">Disahkan Oleh</label>
-                                        <select class="form-control custom-select select26" name="saholeh">
-                                        <option value=""></option>
-                                        <?php
-
-                                            foreach($jpsofficer as $row)
-                                            {
-                                              echo '<option value="'.$row->NamaO.'">'.$row->NamaO.'</option>';
-                                            } 
-                                        ?> 
-                                        </select>
+                                      
                                     </div>
                                 </div>
                                 <div class="col-sm-4 col-md-4">
                                     <div class="form-group">
                                         <label class="form-label">Diluluskan Oleh</label>
-                                        <select class="form-control custom-select select26" name="lulusoleh">
-                                        <option value=""></option>
-                                        <?php
-
-                                            foreach($jpsofficer as $row)
-                                            {
-                                              echo '<option value="'.$row->NamaO.'">'.$row->NamaO.'</option>';
-                                            } 
-                                        ?> 
-                                        </select>
+                                      
                                     </div>
                                 </div>
 
                                 <div class="col-sm-4 col-md-4">
                                     <div class="form-group">
                                         <label class="form-label">Jawatan Penyemak</label>
-                                        <select class="form-control custom-select select26" name="jsemak">
-                                        <option value=""></option>
-                                        <?php
-
-                                            foreach($jpsofficer as $row)
-                                            {
-                                              echo '<option value="'.$row->JawatanO.'">'.$row->JawatanO.'</option>';
-                                            } 
-                                        ?> 
-                                        </select>
+                                     
                                     </div>
                                 </div>
                                 <div class="col-sm-4 col-md-4">
                                     <div class="form-group">
                                         <label class="form-label">Jawatan Pengurus</label>
-                                        <select class="form-control custom-select select26" name="jurus">
-                                        <option value=""></option>
-                                        <?php
-
-                                            foreach($jpsofficer as $row)
-                                            {
-                                              echo '<option value="'.$row->JawatanO.'">'.$row->JawatanO.'</option>';
-                                            } 
-                                        ?> 
-                                        </select>
+                                     
                                     </div>
                                 </div>
                                 <div class="col-sm-4 col-md-4">
                                     <div class="form-group">
                                         <label class="form-label">Jawatan Penglulus</label>
-                                        <select class="form-control custom-select select26" name="julus">
-                                        <option value=""></option>
-                                        <?php
-
-                                            foreach($jpsofficer as $row)
-                                            {
-                                              echo '<option value="'.$row->JawatanO.'">'.$row->JawatanO.'</option>';
-                                            } 
-                                        ?> 
-                                        </select>
+                                     
                                     </div>
                                 </div>
 

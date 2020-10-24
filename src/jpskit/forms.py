@@ -54,6 +54,25 @@ class KontraktroForm(forms.ModelForm):
             ('Pembekal','Pembekal'),
             ('Perkhidmatan','Perkhidmatan'),
             ('Pembekal/Kontraktor','Pembekal/Kontraktor'),
+        )    
+        gredkontraktor = (
+    
+            ('Tiada','Tiada'),
+            ('G1','G1'),
+            ('G2','G2'),
+            ('G3','G3'),
+            ('G4','G4'),
+            ('G5','G5'),
+            ('G6','G6'),
+            ('G7','G7')   
+        )
+
+        catkontraktor = (
+    
+            ('Tiada','Tiada'),
+            ('B','B'),
+            ('CE','CE'),
+            ('ME','ME'), 
         )
 
         konNama = forms.CharField(widget=forms.TextInput(attrs={'class':'form-control','placeholder':'cht:Syarikat ABC'}))
@@ -98,12 +117,12 @@ class KontraktroForm(forms.ModelForm):
         konJPLainLain = forms.CharField(widget=forms.TextInput(attrs={'class':'form-control','placeholder':'lain-lain'}))
         konJPKategori = forms.ChoiceField(choices=katergorikontraktor, required=False, widget=forms.Select(attrs={'class':'form-control custom-select select25','placholder':'baru'}))
         #malumat Permohonan]
-        konMPTarikhMohon = forms.CharField(widget=forms.TextInput(attrs={'class':'form-control','placeholder':'MM/DD/YYYY'}) )
+        konMPTarikhMohon = forms.CharField(widget=forms.TextInput(attrs={'class':'form-control fc-datepicker','placeholder':'MM/DD/YYYY'}) )
         konMPCas = forms.CharField(widget=forms.TextInput(attrs={'class':'form-control','placeholder':'10.00'}))
         konMPNoResit = forms.CharField(widget=forms.TextInput(attrs={'class':'form-control','placeholder':'cth:JPS-2938HS'})) 
         konMPNoSijil = forms.CharField(widget=forms.TextInput(attrs={'class':'form-control','placeholder':'JPS0293us932'}))
-        konMPtarikhkeluar = forms.CharField(widget=forms.TextInput(attrs={'class':'form-control','placeholder':'MM/DD/YYYY'})) 
-        konMPtarikhtamat = forms.CharField(widget=forms.TextInput(attrs={'class':'form-control','placeholder':'MM/DD/YYYY'}))
+        konMPtarikhkeluar = forms.CharField(widget=forms.TextInput(attrs={'class':'form-control fc-datepicker','placeholder':'MM/DD/YYYY'})) 
+        konMPtarikhtamat = forms.CharField(widget=forms.TextInput(attrs={'class':'form-control fc-datepicker','placeholder':'MM/DD/YYYY'}))
         #Disemak
         konMPdisemak = forms.CharField(widget=forms.TextInput(attrs={'class':'form-control','placeholder':'none'}))
         konMPjawatansemak = forms.CharField(widget=forms.TextInput(attrs={'class':'form-control','placeholder':'none'}))
