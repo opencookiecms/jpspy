@@ -34,7 +34,9 @@
                         </div>
                     </div>
 
-                   <?php  echo form_open_multipart('kontraktor-baru', 'id="form"'); ?>
+                  
+                   <form action='{% url 'kontraktor/daftar-baru' %}' method='POST' id='form'  enctype="multipart/form-data" >
+                    {% csrf_token %}
                     <div id="wizard1" class="p-4">
                         <h3>Maklumat Syarikat</h3>
                         <section>
@@ -373,38 +375,39 @@
                                 <div class="col-sm-4 col-md-4">
                                     <div class="form-group">
                                         <label class="form-label">Disemak oleh</label>
-                                       
+                                        {{form.konMPdisemak}}
+
                                     </div>
                                 </div>
                                 <div class="col-sm-4 col-md-4">
                                     <div class="form-group">
                                         <label class="form-label">Disahkan Oleh</label>
-                                      
+                                        {{form.konMPdisah}}
                                     </div>
                                 </div>
                                 <div class="col-sm-4 col-md-4">
                                     <div class="form-group">
                                         <label class="form-label">Diluluskan Oleh</label>
-                                      
+                                         {{form.konMPlulus}}
                                     </div>
                                 </div>
 
                                 <div class="col-sm-4 col-md-4">
                                     <div class="form-group">
                                         <label class="form-label">Jawatan Penyemak</label>
-                                     
+                                        {{form.konMPjawatansemak}}
                                     </div>
                                 </div>
                                 <div class="col-sm-4 col-md-4">
                                     <div class="form-group">
                                         <label class="form-label">Jawatan Pengurus</label>
-                                     
+                                        {{form.konMPjawatansah}}
                                     </div>
                                 </div>
                                 <div class="col-sm-4 col-md-4">
                                     <div class="form-group">
                                         <label class="form-label">Jawatan Penglulus</label>
-                                     
+                                        {{form.konMPjawatanlulus}}
                                     </div>
                                 </div>
 
@@ -425,124 +428,82 @@
                                 <div class="col-sm-6 col-md-6">
                                     <div class="form-group">
                                         <label class="form-label">No Pendaftaran</label>
-                                        <input type="text" id="txtpkk" name="lnodaftar" class="form-control">
+                                        {{form.sijilPPKNoPendaftaran}}
                                     </div>
                                 </div>
                                 <div class="col-sm-3 col-md-3">
                                     <div class="form-group">
                                         <label class="form-label">Tempoh Sah Dari</label>
-                                        <input class="form-control fc-datepicker" name="tlpkksah" placeholder="MM/DD/YYYY" type="text">
+                                        {{form.sijilPPKSahDari}}
                                     </div>
                                 </div>
                                 <div class="col-sm-3 col-md-3">
                                     <div class="form-group">
                                         <label class="form-label">Hingga</label>
-                                        <input class="form-control fc-datepicker" name="tlpkktamat" placeholder="MM/DD/YYYY" type="text">
+                                        {{form.sijilPPKTamat}}
                                     </div>
                                 </div>
 
                                 <div class="col-sm-3 col-md-3">
                                     <div class="form-group">
                                         <label class="form-label">Gred</label>
-                                        <select class="form-control custom-select select27" name="lpkkgredsatu">
-                                            <option value="none">Tiada</option>
-                                            <option value="G1">G1</option>
-                                            <option value="G2">G2</option>
-                                            <option value="G3">G3</option>
-                                            <option value="G4">G4</option>
-                                            <option value="G5">G5</option>
-                                            <option value="G6">G6</option>
-                                            <option value="G7">G7</option>
-                                        </select>
+                                        {{form.sijilPPKGredSatu}}
                                     </div>
                                 </div>
 
                                 <div class="col-sm-3 col-md-3">
                                     <div class="form-group">
                                         <label class="form-label">Kategori</label>
-                                        <select class="form-control custom-select select27" name="lpkkcatsatu">
-                                            <option value="none">Tiada</option>
-                                            <option value="B">B</option>
-                                            <option value="CE">CE</option>
-                                            <option value="ME">ME</option>
-                                        </select>
+                                        {{form.sijilPPKKatSatu}}
                                     </div>
                                 </div>
 
                                 <div class="col-sm-6 col-md-6">
                                     <div class="form-group">
                                         <label class="form-label">Pengkhususan</label>
-                                        <input type="text" name="lpkkkhusussatu" class="form-control" placeholder="cth:G1, G5, B, CE">
+                                        {{form.sijilPPKKhuSatu}}
                                     </div>
                                 </div>
 
                                 <div class="col-sm-3 col-md-3">
                                     <div class="form-group">
                                         <label class="form-label">Gred</label>
-                                        <select class="form-control custom-select select27" name="lpkkgreddua">
-                                            <option value="none">Tiada</option>
-                                            <option value="G1">G1</option>
-                                            <option value="G2">G2</option>
-                                            <option value="G3">G3</option>
-                                            <option value="G4">G4</option>
-                                            <option value="G5">G5</option>
-                                            <option value="G6">G6</option>
-                                            <option value="G7">G7</option>
-                                        </select>
+                                        {{form.sijilPPKGredDua}}
                                     </div>
                                 </div>
 
                                 <div class="col-sm-3 col-md-3">
                                     <div class="form-group">
                                         <label class="form-label">Kategori</label>
-                                        <select class="form-control custom-select select27" name="lpkkcatdua">
-                                            <option value="none">Tiada</option>
-                                            <option value="B">B</option>
-                                            <option value="CE">CE</option>
-                                            <option value="ME">ME</option>
-                                        </select>
+                                        {{form.sijilPPKKatDua}}
                                     </div>
                                 </div>
 
                                 <div class="col-sm-6 col-md-6">
                                     <div class="form-group">
                                         <label class="form-label">Pengkhususan</label>
-                                        <input type="text" name="lpkkkhususdua" class="form-control" placeholder="cth:G1, G5, B, CE">
+                                         {{form.sijilPPKKhuDua}}
                                     </div>
                                 </div>
 
                                 <div class="col-sm-3 col-md-3">
                                     <div class="form-group">
                                         <label class="form-label">Gred</label>
-                                        <select class="form-control custom-select select27" name="lpkkgredtiga">
-                                            <option value="none">Tiada</option>
-                                            <option value="G1">G1</option>
-                                            <option value="G2">G2</option>
-                                            <option value="G3">G3</option>
-                                            <option value="G4">G4</option>
-                                            <option value="G5">G5</option>
-                                            <option value="G6">G6</option>
-                                            <option value="G7">G7</option>
-                                        </select>
+                                        {{form.sijilPPKGredTiga}}
                                     </div>
                                 </div>
 
                                 <div class="col-sm-3 col-md-3">
                                     <div class="form-group">
                                         <label class="form-label">Kategori</label>
-                                        <select class="form-control custom-select select27" name="lpkkcattiga">
-                                            <option value="none">Tiada</option>
-                                            <option value="B">B</option>
-                                            <option value="CE">CE</option>
-                                            <option value="ME">ME</option>
-                                        </select>
+                                        {{form.sijilPPKKatTiga}}
                                     </div>
                                 </div>
 
                                 <div class="col-sm-6 col-md-6">
                                     <div class="form-group">
                                         <label class="form-label">Pengkhususan</label>
-                                        <input type="text" name="lpkkkhusustiga" class="form-control" placeholder="cth:G1, G5, B, CE">
+                                        {{form.sijilPPKKhuTiga}}
                                     </div>
                                 </div>
 
@@ -552,124 +513,82 @@
                                 <div class="col-sm-6 col-md-6">
                                     <div class="form-group">
                                         <label class="form-label">No Pendaftaran</label>
-                                        <input type="text" id="txtspkk" name="lspkkdaftar" class="form-control">
+                                        {{form.sijilSPKKNoPendaftaran}}
                                     </div>
                                 </div>
                                 <div class="col-sm-3 col-md-3">
                                     <div class="form-group">
                                         <label class="form-label">Tempoh Sah Dari</label>
-                                        <input class="form-control fc-datepicker" name="tlspkksah" placeholder="MM/DD/YYYY" type="text">
+                                        {{form.sijilSPKKSahDari}}
                                     </div>
                                 </div>
                                 <div class="col-sm-3 col-md-3">
                                     <div class="form-group">
                                         <label class="form-label">Hingga</label>
-                                        <input class="form-control fc-datepicker" name="tlspkktamat" placeholder="MM/DD/YYYY" type="text">
+                                        {{form.sijilSPKKTamat}}
                                     </div>
                                 </div>
 
                                 <div class="col-sm-3 col-md-3">
                                     <div class="form-group">
                                         <label class="form-label">Gred</label>
-                                        <select class="form-control custom-select select27" name="lspkkgredsatu">
-                                            <option value="none">Tiada</option>
-                                            <option value="G1">G1</option>
-                                            <option value="G2">G2</option>
-                                            <option value="G3">G3</option>
-                                            <option value="G4">G4</option>
-                                            <option value="G5">G5</option>
-                                            <option value="G6">G6</option>
-                                            <option value="G7">G7</option>
-                                        </select>
+                                        {{form.sijilSPKKGredSatu}}
                                     </div>
                                 </div>
 
                                 <div class="col-sm-3 col-md-3">
                                     <div class="form-group">
                                         <label class="form-label">Kategori</label>
-                                        <select class="form-control custom-select select27" name="lspkkcatsatu">
-                                            <option value="none">Tiada</option>
-                                            <option value="B">B</option>
-                                            <option value="CE">CE</option>
-                                            <option value="ME">ME</option>
-                                        </select>
+                                        {{form.sijilSPKKKatSatu}}
                                     </div>
                                 </div>
 
                                 <div class="col-sm-6 col-md-6">
                                     <div class="form-group">
                                         <label class="form-label">Pengkhususan</label>
-                                        <input type="text" name="lspkkkhusussatu" class="form-control" placeholder="cth:G1, G5, B, CE">
+                                        {{form.sijilSPKKKhuSatu}}
                                     </div>
                                 </div>
 
                                 <div class="col-sm-3 col-md-3">
                                     <div class="form-group">
                                         <label class="form-label">Gred</label>
-                                        <select class="form-control custom-select select27" name="lspkkgreddua">
-                                            <option value="none">Tiada</option>
-                                            <option value="G1">G1</option>
-                                            <option value="G2">G2</option>
-                                            <option value="G3">G3</option>
-                                            <option value="G4">G4</option>
-                                            <option value="G5">G5</option>
-                                            <option value="G6">G6</option>
-                                            <option value="G7">G7</option>
-                                        </select>
+                                        {{form.sijilSPKKGredDua}}
                                     </div>
                                 </div>
 
                                 <div class="col-sm-3 col-md-3">
                                     <div class="form-group">
                                         <label class="form-label">Kategori</label>
-                                        <select class="form-control custom-select select27" name="lspkkcatdua">
-                                            <option value="none">Tiada</option>
-                                            <option value="B">B</option>
-                                            <option value="CE">CE</option>
-                                            <option value="ME">ME</option>
-                                        </select>
+                                        {{form.sijilSPKKKatDua}}
                                     </div>
                                 </div>
 
                                 <div class="col-sm-6 col-md-6">
                                     <div class="form-group">
                                         <label class="form-label">Pengkhususan</label>
-                                        <input type="text" name="lspkkkhususdua" class="form-control" placeholder="cth:G1, G5, B, CE">
+                                        {{form.sijilSPKKKhuDua}}
                                     </div>
                                 </div>
 
                                 <div class="col-sm-3 col-md-3">
                                     <div class="form-group">
                                         <label class="form-label">Gred</label>
-                                        <select class="form-control custom-select select27" name="lspkkgredtiga">
-                                            <option value="none">Tiada</option>
-                                            <option value="G1">G1</option>
-                                            <option value="G2">G2</option>
-                                            <option value="G3">G3</option>
-                                            <option value="G4">G4</option>
-                                            <option value="G5">G5</option>
-                                            <option value="G6">G6</option>
-                                            <option value="G7">G7</option>
-                                        </select>
+                                       {{form.sijilSPKKGredTiga}}
                                     </div>
                                 </div>
 
                                 <div class="col-sm-3 col-md-3">
                                     <div class="form-group">
                                         <label class="form-label">Kategori</label>
-                                        <select class="form-control custom-select select27" name="lspkkcattiga">
-                                            <option value="none">Tiada</option>
-                                            <option value="B">B</option>
-                                            <option value="CE">CE</option>
-                                            <option value="ME">ME</option>
-                                        </select>
+                                       {{form.sijilSPKKKatTiga}}
                                     </div>
                                 </div>
 
                                 <div class="col-sm-6 col-md-6">
                                     <div class="form-group">
                                         <label class="form-label">Pengkhususan</label>
-                                        <input type="text" name="lspkkkhusustiga" class="form-control" placeholder="cth:G1, G5, B, CE">
+                                        {{form.sijilSPKKKhuTiga}}
                                     </div>
                                 </div>
 
@@ -691,21 +610,21 @@
                                 <div class="col-sm-8 col-md-8">
                                     <div class="form-group">
                                         <label class="form-label">No Pendaftaran</label>
-                                        <input type="text" name="stbnosijil" id="stbsah" class="form-control">
+                                        {{form.sijilSTBNoPendaftaran}}
                                     </div>
                                 </div>
                                 <div class="col-sm-4 col-md-4"></div>
                                 <div class="col-sm-4 col-md-4">
                                     <div class="form-group">
                                         <label class="form-label">Tempoh Sah Dari</label>
-                                        <input class="form-control fc-datepicker" name="stbsah" placeholder="MM/DD/YYYY" type="text">
+                                        {{form.sijilSTBSahDari}}
                                     </div>
                                 </div>
 
                                 <div class="col-sm-4 col-md-4">
                                     <div class="form-group">
                                         <label class="form-label">Hingga</label>
-                                        <input class="form-control fc-datepicker" name="stbtamat" placeholder="MM/DD/YYYY" type="text">
+                                        {{form.sijilSTBTamat}}
                                     </div>
                                 </div>
 
@@ -713,16 +632,7 @@
                                 <div class="col-sm-4 col-md-4">
                                     <div class="form-group">
                                         <label class="form-label">Gred Pendaftaran</label>
-                                         <select class="form-control custom-select select27" name="stbgred">
-                                            <option value="none">Tiada</option>
-                                            <option value="G1">G1</option>
-                                            <option value="G2">G2</option>
-                                            <option value="G3">G3</option>
-                                            <option value="G4">G4</option>
-                                            <option value="G5">G5</option>
-                                            <option value="G6">G6</option>
-                                            <option value="G7">G7</option>
-                                        </select>
+                                        {{form.sijilSTBGred}}
                                     </div>
                                 </div>
 
@@ -742,7 +652,7 @@
                                 <div class="col-sm-8 col-md-8">
                                     <div class="form-group">
                                         <label class="form-label">No Pendaftaran</label>
-                                        <input type="text" name="sijilssm" class="form-control">
+                                        {{form.sijilSSMNoPendaftaran}}
                                     </div>
                                 </div>
                                 <div class="col-sm-4 col-md-4"></div>
@@ -750,7 +660,7 @@
                                     <div class="form-group">
                                         <label class="form-label">Tempoh Sah Dari</label>
                                      
-										<input class="form-control fc-datepicker" name="ssmsah" placeholder="MM/DD/YYYY" type="text">
+										{{form.sijilSSMSahDari}}
                                     </div>
                                 </div>
 
@@ -758,7 +668,7 @@
                                     <div class="form-group">
                                         <label class="form-label">Hingga</label>
                                       
-										<input class="form-control fc-datepicker" name="ssmtamat" placeholder="MM/DD/YYYY" type="text">
+										{{form.sijilSSMTamat}}
                                     </div>
                                 </div>
 
@@ -778,7 +688,7 @@
                                 <div class="col-sm-8 col-md-8">
                                     <div class="form-group">
                                         <label class="form-label">No Pendaftaran</label>
-                                        <input type="text" name="sijilsst" class="form-control">
+                                        {{form.sijilSSTNoPendaftaran}}
                                     </div>
                                 </div>
                                 <div class="col-sm-4 col-md-4"></div>
@@ -786,7 +696,7 @@
                                     <div class="form-group">
                                         <label class="form-label">Tempoh Sah Dari</label>
                                       
-										<input class="form-control fc-datepicker" name="sstsah" placeholder="MM/DD/YYYY" type="text">
+										{{form.sijilSSTSahDari}}
 										
                                     </div>
                                 </div>
@@ -795,7 +705,7 @@
                                     <div class="form-group">
                                         <label class="form-label">Hingga</label>
                                
-										<input class="form-control fc-datepicker" name="ssttamat" placeholder="MM/DD/YYYY" type="text">
+										{{form.sijilSSTTamat}}
                                     </div>
                                 </div>
 
@@ -817,21 +727,21 @@
                                 <div class="col-sm-8 col-md-8">
                                     <div class="form-group">
                                         <label class="form-label">No Pendaftaran</label>
-                                        <input type="text" name="jpsno" class="form-control">
+                                        {{form.sijilJPSNoPendaftaran}}
                                     </div>
                                 </div>
                                 <div class="col-sm-4 col-md-4"></div>
                                 <div class="col-sm-4 col-md-4">
                                     <div class="form-group">
                                         <label class="form-label">Tempoh Sah Dari</label>
-                                       <input class="form-control fc-datepicker" name="jpssah" placeholder="MM/DD/YYYY" type="text">
+                                       {{form.sijilJPSSahDari}}
                                     </div>
                                 </div>
 
                                 <div class="col-sm-4 col-md-4">
                                     <div class="form-group">
                                         <label class="form-label">Hingga</label>
-                                        <input class="form-control fc-datepicker" name="jpstamat" placeholder="MM/DD/YYYY" type="text">
+                                       {{form.sijilJPSTamat}}
                                     </div>
                                 </div>
 
@@ -839,11 +749,7 @@
                                 <div class="col-sm-4 col-md-4">
                                     <div class="form-group">
                                         <label class="form-label">Gred Pendaftaran</label>
-                                        <select class="form-control custom-select select27" name="jpsgred">
-                                            <option value="none">Tiada</option>
-                                            <option value="Kontraktor">Kontraktor</option>
-											<option value="Pembekal">Pembekal</option>
-                                        </select>
+                                      {{form.sijilJPSGred}}
                                     </div>
                                 </div>
 

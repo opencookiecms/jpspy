@@ -16,9 +16,12 @@ from jpskit.views import(
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', index, name='index'),
-    path('kontraktor/dashboard', kontraktordash, name='kontraktor'),
-    path('kontraktor/senarai', kontraktorlist, name="kontraktor"),
-    path('kontraktor/daftar-baru', kontraktordaftar, name="kontraktor"),
+    path('kontraktor/dashboard', kontraktordash, name='kontraktor/dashboard'),
+    path('kontraktor/senarai', kontraktorlist, name="kontraktor/senarai"),
+    path('kontraktor/daftar-baru', kontraktordaftar, name="kontraktor/daftar-baru"),
+
+    #registerpath
+    path('kontraktor-add', kontraktordaftar, name="kontraktor-add"),
 
 ]
 

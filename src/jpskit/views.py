@@ -16,6 +16,11 @@ def kontraktordaftar(request):
     form = KontraktroForm(request.POST or None, request.FILES or None)
     if form.is_valid():
         form.save()
+        form = KontraktroForm()
+        
+    else:
+        print(form)
+
     
     context = {
         'form':form
