@@ -1,5 +1,7 @@
 from django.shortcuts import render
+import datetime
 from django.http import StreamingHttpResponse, HttpResponse, HttpResponseServerError
+from .models import Kontraktor
 from .forms import KontraktroForm
 
 def index(request):
@@ -9,7 +11,16 @@ def kontraktordash(request):
     return render(request, 'pages/kontraktor-dashboard.html')
 
 def kontraktorlist(request):
-    return render(request, 'pages/kontraktor-list.html')
+
+    timecurrent = datetime.date.today().strftime('%d/%m/%Y')
+
+    data = {
+        'kontraktor':Kontraktor.objects.all(),
+        'total':Kontraktor.objects.all().count(),
+        'dateend' : timecurrent
+    }
+
+    return render(request, 'pages/kontraktor-list.html',data)
 
 def kontraktordaftar(request):
 
@@ -19,7 +30,7 @@ def kontraktordaftar(request):
         form = KontraktroForm()
         
     else:
-        print(form)
+        print("no data was post yet")
 
     
     context = {
