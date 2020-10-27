@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_list_or_404, redirect, reverse
 import datetime
 from django.http import StreamingHttpResponse, HttpResponse, HttpResponseServerError
 from .models import Kontraktor
@@ -8,7 +8,16 @@ def index(request):
     return render(request, 'pages/maindashboard.html')
 
 def kontraktordash(request):
-    return render(request, 'pages/kontraktor-dashboard.html')
+
+    timecurrent = datetime.date.today().strftime('%d/%m/%Y')
+
+    data = {
+        'kontraktor':Kontraktor.objects.all(),
+        'total':Kontraktor.objects.all().count(),
+        'dateend' : timecurrent
+    }
+
+    return render(request, 'pages/kontraktor-dashboard.html',data)
 
 def kontraktorlist(request):
 
@@ -37,4 +46,37 @@ def kontraktordaftar(request):
         'form':form
     }
     return render(request, 'pages/kontraktor-wizard.html',context )
+
+
+def kontraktoredit(request, id):
+    dataobj = Kontraktor.objects.get(id=id)
+    form = KontraktroForm(request.POST or None, request.FILES or None, instance=dataobj)
+    if form.is_valid():
+        form.save()
+    else:
+        print(form)
+     
+    
+    data = {
+        'form':form
+    }
+
+    return render(request, 'pages/kontraktor-edit.html',data)
+
+def kontraktordelete(request, id):
+    dataobj = Kontraktor.objects.get(id=id)
+    dataobj.delete()
+
+    if dataobj:
+        return redirect('kontraktor/senarai')
+    else:
+        return render(request, 'pages/kontraktor-list.html')
+
+def ordersebutharga(request):
+    return render(request, 'pages/order-add.html')
+
+
+    
+
+  
 

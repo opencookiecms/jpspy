@@ -108,7 +108,7 @@
                                                             {% endif %}
 														</td>
 														<td>
-														<a href="<?php echo site_url('kontraktor-update/'.$row->kontraktorId)?>" class="btn btn-primary" role="button"><i class="fa fa-edit" aria-hidden="true"></i></a> <a href="<?php echo site_url('kontraktor/cetak/'.$row->kontraktorId)?>" class="btn btn-info" role="button"><i class="fa fa-print" aria-hidden="true"></i></a>  <a href="" class="btn btn-danger" role="button"><i class="fa fa-times" aria-hidden="true"></i></a>  
+														<a href="{% url 'kontraktor/edit' row.id %}" class="btn btn-primary" role="button"><i class="fa fa-edit" aria-hidden="true"></i></a> <a href="" class="btn btn-info" role="button"><i class="fa fa-print" aria-hidden="true"></i></a>  <a href="{% url 'kontraktor-delete' row.id %}" class="btn btn-danger" role="button"><i class="fa fa-times" aria-hidden="true"></i></a>  
 														</td>
 													</tr>
 												{% endfor %}

@@ -1,8 +1,8 @@
 from django.db import models
 from django.contrib.auth.models import User
+from .datacontroller import project
 
 # Create your models here.
-
 class UserProfile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
 
@@ -117,8 +117,15 @@ class Kontraktor(models.Model):
         return self.konNama
 
 
+
 class Projek:
     pass
+
+class Order(models.Model):
+    o_sebutharga  = models.CharField(max_length=150, null=True, blank=True)
+    o_tarikh  = models.CharField(max_length=50, null=True, blank=True)
+    o_permilik  = models.CharField(max_length=150, null=True, blank=True)
+    o_jenis = models.CharField(max_length=50, null=True, blank=True)
 
 class MR1:
     pass
