@@ -29,6 +29,7 @@ urlpatterns = [
     #registerpath
     path('kontraktor-add', kontraktordaftar, name="kontraktor-add"),
 
+
 ]
 
 

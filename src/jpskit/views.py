@@ -2,7 +2,7 @@ from django.shortcuts import render, get_list_or_404, redirect, reverse
 import datetime
 from django.http import StreamingHttpResponse, HttpResponse, HttpResponseServerError
 from .models import Kontraktor
-from .forms import KontraktroForm
+from .forms import KontraktroForm, OrderForm
 
 def index(request):
     return render(request, 'pages/maindashboard.html')
@@ -73,7 +73,18 @@ def kontraktordelete(request, id):
         return render(request, 'pages/kontraktor-list.html')
 
 def ordersebutharga(request):
-    return render(request, 'pages/order-add.html')
+
+    form = OrderForm(request.POST or None)
+    if form.is_valid():
+        form.save()
+        form = OrderForm()
+    else:
+        print("the data was no save")
+    
+    data = {
+        'form':form
+    }
+    return render(request, 'pages/order-add.html',data)
 
 
     
