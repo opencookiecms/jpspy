@@ -2,14 +2,17 @@
 <html lang="en" dir="ltr">
  
     {% include 'based/header.html' %}
-    <body class="light-mode">
+   	<body class="main-body app sidebar-mini dark-leftmenu">
+   
     {% include 'based/pagesload.html' %}
+    {% include 'based/nav.html' %}
+   
+	<div class="main-content">
     {% include 'based/topnav.html' %}
-     {% include 'based/nav.html' %}
-
     {% block content %}
     {% endblock content %}
-   
+    </div>
+    <!-- main-content close -->
     {% include 'based/footer.html' %}
     </body>
 </html>

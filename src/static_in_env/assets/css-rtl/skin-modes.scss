@@ -1,0 +1,218 @@
+.dark-leftmenu {
+    .main-sidebar-header {
+      background: #2b334a;
+    }
+  
+    .app-sidebar {
+      background: #2b334a;
+      border-top: 1px solid #efedf5;
+      box-shadow: 0 0 10px rgba(20, 28, 43, 0.8);
+    }
+  
+    .nav-search .form-control {
+      color: #fff;
+      background-color: #1e2740 !important;
+      border: 1px solid rgba(226, 232, 245, 0.08);
+    }
+  
+    .main-logo {
+      &.dark-theme {
+        display: block;
+      }
+  
+      display: none;
+    }
+  
+    .logo-1, .desktop-logo.active.logo-light {
+      display: none;
+    }
+  
+    .side-menu__item {
+      border-top: 1px dashed rgba(220, 231, 245, 0.1);
+      color: rgba(255, 255, 255, 0.7);
+    }
+  
+    .slide.is-expanded:before {
+      background: rgba(227, 231, 237, 0.1);
+    }
+  
+    .slide-menu .slide-item:before {
+      border-color: #6d7582;
+    }
+  
+    .main-sidebar-header {
+      border-bottom: 1px solid rgba(222, 228, 236, 0.1);
+      border-left: 1px solid rgba(222, 228, 236, 0.03);
+    }
+  
+    .main-sidebar-loggedin {
+      .media-body h6 {
+        color: #fff;
+      }
+  
+      border-bottom: 1px solid rgba(222, 228, 236, 0.1);
+    }
+  
+    .nav-search .input-group-text {
+      color: #fff;
+      background-color: rgba(255, 255, 255, 0.2);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-right: 0;
+    }
+  
+    .main-sidebar-loggedin .main-img-user::after {
+      box-shadow: 0 0 0 2px rgb(43, 51, 74);
+    }
+  }
+  
+  @media (min-width: 768px) {
+    .dark-leftmenu {
+      &.sidebar-mini.sidenav-toggled {
+        &.sidenav-toggled1 .logo-dark.desktop-logo .main-logo.dark-theme {
+          display: block;
+        }
+  
+        .main-sidebar-header {
+          .logo-icon {
+            display: block;
+  
+            &.dark-theme {
+              display: block;
+            }
+          }
+  
+          .icon-light .logo-icon {
+            display: none;
+          }
+        }
+      }
+  
+      &.sidenav-toggled.sidenav-toggled1 {
+        .main-sidebar-header .logo-icon.dark-theme {
+          display: none;
+        }
+  
+        .main-sidebar-loggedin {
+          border-bottom: 1px solid rgba(222, 228, 236, 0.1);
+        }
+      }
+    }
+  }
+  
+  @media (max-width: 767px) {
+    .dark-leftmenu {
+      .main-logo, .logo-1, .desktop-logo.active.logo-light {
+        display: block;
+      }
+  
+      .main-sidebar-loggedin {
+        border-bottom: 1px solid rgba(222, 228, 236, 0.1) !important;
+      }
+    }
+  }
+  
+  .dark-theme.light-leftmenu {
+    .main-sidebar-header {
+      background: #fff;
+      border-bottom: 1px solid #dee4ec;
+    }
+  
+    .app-sidebar {
+      background: #fff;
+      border-top: 1px solid #efedf5;
+      box-shadow: 0 0 10px rgba(28, 39, 60, 0.2);
+    }
+  
+    .form-control {
+      color: #596882;
+      background-color: #fff;
+      border: 1px solid #e2e8f5;
+    }
+  
+    .main-logo {
+      &.dark-theme {
+        display: none;
+      }
+  
+      display: block;
+    }
+  
+    .logo-1, .desktop-logo.active.logo-light {
+      display: block;
+    }
+  
+    .side-menu__item {
+      border-top: 1px dashed #dce7f5;
+      color: #000;
+    }
+  
+    .slide.is-expanded:before {
+      background: #e3e7ed;
+    }
+  
+    .slide-menu .slide-item:before {
+      border-color: #bec5d0;
+    }
+  
+    .main-sidebar-header {
+      border-bottom: 1px solid #dee4ec;
+      border-left: 1px solid rgba(222, 228, 236, 0.03);
+    }
+  
+    .main-sidebar-loggedin {
+      .media-body h6 {
+        color: #1c273c;
+      }
+  
+      border-bottom: 1px solid #dee4ec;
+    }
+  
+    .nav-search .input-group-text {
+      color: #596882;
+      background-color: #e3e7ed;
+      border: 1px solid #e2e8f5;
+      border-right: 0;
+    }
+  
+    .main-sidebar-loggedin .main-img-user::after {
+      box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.95);
+    }
+  
+    .angle {
+      color: #585e65;
+    }
+  
+    .form-control::placeholder {
+      color: #bec6d5 !important;
+    }
+  }
+  
+  @media (min-width: 768px) {
+    .dark-theme.light-leftmenu.sidebar-mini.sidenav-toggled {
+      &.sidenav-toggled1 .main-sidebar-header .logo-light .main-logo {
+        display: block;
+      }
+  
+      .main-sidebar-header {
+        .icon-dark .logo-icon.dark-theme {
+          display: none;
+        }
+  
+        .icon-light .logo-icon {
+          display: block;
+        }
+      }
+    }
+  }
+  
+  @media (max-width: 767px) {
+    .dark-theme.light-leftmenu {
+      .main-logo, .logo-1, .desktop-logo.active.logo-light {
+        display: none;
+      }
+  
+      .main-sidebar-loggedin {
+        border-bottom: 1px solid #dee4ec !important;
+      }
+    }
+  }

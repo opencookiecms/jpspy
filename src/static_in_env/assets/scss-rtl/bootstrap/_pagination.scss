@@ -1,0 +1,147 @@
+/* ###### Pagination  ###### */
+
+.pagination {
+    display: flex;
+    padding-right: 0;
+    list-style: none;
+    border-radius: 3px;
+  }
+  
+  .pagination-lg {
+    .page-link {
+      padding: 0.75rem 1.5rem;
+      font-size: 1.09375rem;
+      line-height: 1.5;
+    }
+  
+    .page-item {
+      &:first-child .page-link {
+        border-top-left-radius: 0.3rem;
+        border-bottom-left-radius: 0.3rem;
+      }
+  
+      &:last-child .page-link {
+        border-top-right-radius: 0.3rem;
+        border-bottom-right-radius: 0.3rem;
+      }
+    }
+  }
+  
+  .pagination-sm {
+    .page-link {
+      padding: 0.25rem 0.5rem;
+      font-size: 0.76562rem;
+      line-height: 1.5;
+    }
+  
+    .page-item {
+      &:first-child .page-link {
+        border-top-left-radius: 0.2rem;
+        border-bottom-left-radius: 0.2rem;
+      }
+  
+      &:last-child .page-link {
+        border-top-right-radius: 0.2rem;
+        border-bottom-right-radius: 0.2rem;
+      }
+    }
+  }
+  
+  .pagination-dark {
+    .page-item.active .page-link {
+      background-color: $primary;
+      color: $white;
+    }
+  
+    .page-link {
+      font-weight: 400;
+      background-color: $white-05;
+      color: $white-8;
+  
+      &:hover, &:focus {
+        color: $white;
+        background-color: $white-08;
+      }
+    }
+  }
+  
+  .page-prev .page-link, .page-next .page-link {
+     width:auto !important;
+     padding:0 10px;
+  }
+
+  
+  .pagination-primary .page-item.active .page-link {
+    background-color: $primary;
+  }
+  
+  .pagination-success .page-item.active .page-link {
+    background-color: $success;
+  }
+  
+  .pagination-circled {
+    .page-item {
+      + .page-item {
+        margin-right: 5px;
+      }
+  
+      &:first-child .page-link, &:last-child .page-link {
+        border-radius: 100%;
+      }
+    }
+  
+    .page-link {
+      padding: 0;
+      width: 40px;
+      border-radius: 100%;
+    }
+  }
+  
+  .page-item {
+    &:first-child .page-link, &:last-child .page-link {
+      border-radius: 0;
+    }
+  
+    + .page-item {
+      margin-right: 1px;
+    }
+  
+    &.active .page-link {
+      background-color: $primary;
+    }
+  }
+  
+  .page-link {
+    color: #2d303a;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 38px;
+    border-width: 0;
+    background-color: #c9d1de;
+    margin-left: 0;
+    font-weight: 500;
+  
+    i {
+      font-size: 18px;
+      line-height: 0;
+	  transform:rotate(180deg);
+    }
+  
+    &:hover, &:focus {
+      color: $gray-900;
+      background-color: $gray-300;
+    }
+  }
+  
+  .dataTables_paginate .pagination  .page-link {
+    background-color: transparent;
+  }
+  
+  .pagination .page-link {
+    background-color: #c8cfda;
+	}
+  
+  /* ###### Pagination  ###### */
