@@ -3,6 +3,8 @@ import datetime
 from django.http import StreamingHttpResponse, HttpResponse, HttpResponseServerError
 from .models import Kontraktor
 from .forms import KontraktroForm, OrderForm
+from django.db.models import Q
+from django.db.models import Count
 
 def index(request):
     return render(request, 'pages/maindashboard.html')
@@ -12,9 +14,16 @@ def kontraktordash(request):
     timecurrent = datetime.date.today().strftime('%d/%m/%Y')
 
     data = {
+        'titleboard':'Kontraktor Dashboard',
         'kontraktor':Kontraktor.objects.all(),
         'total':Kontraktor.objects.all().count(),
-        'dateend' : timecurrent
+        'dateend' : timecurrent,
+        'distict' : Kontraktor.objects.aggregate(
+            kualamuda = Count('pk',filter=Q(konKawOperasi='Kuala Muda')),
+            sik = Count('pk',filter=Q(konKawOperasi='Sik')),
+            baling = Count('pk',filter=Q(konKawOperasi='Baling')),
+            kedah = Count('pk',filter=Q(konKawOperasi='Kedah')),
+        ),
     }
 
     return render(request, 'pages/kontraktor-dashboard.html',data)

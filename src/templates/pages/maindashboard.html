@@ -1,662 +1,491 @@
-
 {% extends 'based/based.html' %}
 {% block content %}
-
-				<!-- container opened -->
-				<div class="container-fluid">
-					<div class="breadcrumb-header justify-content-between">
-						<div>
-							<h4 class="content-title mb-2">Dashboard</h4>
-							<nav aria-label="breadcrumb">
-								<ol class="breadcrumb">
-									<li class="breadcrumb-item"><a href="#">Dashboard</a></li>
-									<li class="breadcrumb-item active" aria-current="page">Analytics &amp; Monitoring</li>
-								</ol>
-							</nav>
-						</div>
-						<div class="my-auto breadcrumb-right">
-							<button class="btn btn-outline-primary mr-3"><span class="icon-label"><i class="fa fa-envelope mr-2"></i></span><span class="btn-text">Email </span></button>
-							<button class="btn btn-outline-danger mr-3"><span class="icon-label"><i class="fa fa-print mr-2"></i> </span><span class="btn-text">Print </span></button>
-							<button class="btn btn-success mr-0"><span class="icon-label"><i class="fa fa-download mr-2"></i> </span><span class="btn-text">Export </span></button>
-						</div>
-					</div>
-
-					<!-- row opened -->
-					<div class="row row-sm">
-						<div class="col-xl-3 col-lg-6 col-md-6 col-sm-12">
-							<div class="card">
-								<div class="card-body iconfont text-left">
-									<div class="d-flex justify-content-between">
-										<h4 class="card-title mb-3">Real time users</h4>
-										<i class="mdi mdi-dots-horizontal text-gray"></i>
-									</div>
-									<div class="d-flex mb-0">
-										<div class="">
-											<h4 class="mb-1 font-weight-bold">154<span class="text-success tx-13 ml-2">(+0.98%)</span></h4>
-											<p class="mb-2 tx-12 text-muted">Overview of Last month</p>
-										</div>
-										<div class="card-chart bg-primary-transparent brround ml-auto mt-0">
-											<i class="typcn typcn-group-outline text-primary tx-24"></i>
-										</div>
-									</div>
-
-									<div class="progress progress-sm mt-2">
-										<div aria-valuemax="100" aria-valuemin="0" aria-valuenow="70" class="progress-bar bg-primary wd-70p" role="progressbar"></div>
-									</div>
-									<small class="mb-0  text-muted">Monthly<span class="float-right text-muted">70%</span></small>
-								</div>
-							</div>
-						</div>
-						<div class="col-xl-3 col-lg-6 col-md-6 col-sm-12">
-							<div class="card">
-								<div class="card-body iconfont text-left">
-									<div class="d-flex justify-content-between">
-										<h4 class="card-title mb-3">Total visits</h4>
-										<i class="mdi mdi-dots-horizontal text-gray"></i>
-									</div>
-									<div class="d-flex mb-0">
-										<div class="">
-											<h4 class="mb-1 font-weight-bold">5274<span class="text-danger tx-13 ml-2">(-12.45%)</span></h4>
-											<p class="mb-2 tx-12 text-muted">Overview of Last month</p>
-										</div>
-										<div class="card-chart bg-pink-transparent brround ml-auto mt-0">
-											<i class="typcn typcn-chart-line-outline text-pink tx-24"></i>
-										</div>
-									</div>
-
-									<div class="progress progress-sm mt-2">
-										<div aria-valuemax="100" aria-valuemin="0" aria-valuenow="70" class="progress-bar bg-pink wd-50p" role="progressbar"></div>
-									</div>
-									<small class="mb-0  text-muted">Monthly<span class="float-right text-muted">50%</span></small>
-								</div>
-							</div>
-						</div>
-						<div class="col-xl-3 col-lg-6 col-md-6 col-sm-12">
-							<div class="card">
-								<div class="card-body iconfont text-left">
-									<div class="d-flex justify-content-between">
-										<h4 class="card-title mb-3">Bounce Rate</h4>
-										<i class="mdi mdi-dots-horizontal text-gray"></i>
-									</div>
-									<div class="d-flex mb-0">
-										<div class="">
-											<h4 class="mb-1   font-weight-bold">76.3%<span class="text-success tx-13 ml-2">(+13.52%)</span></h4>
-											<p class="mb-2 tx-12 text-muted">Overview of Last month</p>
-										</div>
-										<div class="card-chart bg-teal-transparent brround ml-auto mt-0">
-											<i class="typcn typcn-chart-bar-outline text-teal tx-20"></i>
-										</div>
-									</div>
-
-									<div class="progress progress-sm mt-2">
-										<div aria-valuemax="100" aria-valuemin="0" aria-valuenow="70" class="progress-bar bg-teal wd-60p" role="progressbar"></div>
-									</div>
-									<small class="mb-0  text-muted">Monthly<span class="float-right text-muted">60%</span></small>
-								</div>
-							</div>
-						</div>
-						<div class="col-xl-3 col-lg-6 col-md-6 col-sm-12">
-							<div class="card">
-								<div class="card-body iconfont text-left">
-									<div class="d-flex justify-content-between">
-										<h4 class="card-title mb-3">Visits Duration</h4>
-										<i class="mdi mdi-dots-horizontal text-gray"></i>
-									</div>
-									<div class="d-flex mb-0">
-										<div class="">
-											<h4 class="mb-1 font-weight-bold">5m 24s<span class="text-success tx-13 ml-2">(+19.5%)</span></h4>
-											<p class="mb-2 tx-12 text-muted">Overview of Last month</p>
-										</div>
-										<div class="card-chart bg-purple-transparent brround ml-auto mt-0">
-											<i class="typcn typcn-time  text-purple tx-24"></i>
-										</div>
-									</div>
-
-									<div class="progress progress-sm mt-2">
-										<div aria-valuemax="100" aria-valuemin="0" aria-valuenow="70" class="progress-bar bg-purple wd-40p" role="progressbar"></div>
-									</div>
-									<small class="mb-0  text-muted">Monthly<span class="float-right text-muted">40%</span></small>
+  <!-- Content Wrapper. Contains page content -->
+  {% load static %}
+  <div class="content-wrapper">
+	  <div class="container-full">
+		<!-- Main content -->
+		<section class="content">
+			<div class="row align-items-end">
+				<div class="col-xl-9 col-12">
+					<div class="box bg-primary-light pull-up">
+						<div class="box-body p-xl-0 mr-2">							
+							<div class="row align-items-center">
+								<div class="col-12 col-lg-3"><img src="{% static 'style/images/svg-icon/color-svg/custom-14.svg' %}" alt=""></div>
+								<div class="col-12 col-lg-9">
+									<h2>Hello Johen, Welcome Back!</h2>
+									<p class="text-dark mb-0 font-size-16">
+										Your course Overcoming the fear of public speaking was completed by 11 New users this week!
+									</p>
 								</div>
 							</div>
 						</div>
 					</div>
-					<!-- row closed -->
-
-					<!-- row opened -->
-					<div class="row row-sm">
-						<div class="col-md-12 col-xl-6">
-							<div class="card card-dashboard-audience-metrics">
-								<div class="card-header">
-									<div class="d-flex justify-content-between">
-										<h4 class="card-title">Audience Metrics</h4>
-										<i class="mdi mdi-dots-horizontal text-gray"></i>
-									</div>
-									<p class="mg-b-15 tx-gray-600 tx-12">Measures your user's sessions and page views metrics to your website for this month.. <a href="">Learn more</a></p>
-								</div>
-								<div class="card-body">
-									<div>
-										<h4>120,500</h4>
-										<label><span class="bg-primary"></span>Users</label>
-									</div>
-									<div>
-										<h4>360,108</h4>
-										<label><span class="bg-teal"></span>Page Views</label>
-									</div>
-									<div>
-										<h4>150,712</h4>
-										<label><span class="bg-pink"></span>Sessions</label>
-									</div>
-								</div><!-- card-top-content -->
-								<div class="chart-wrapper">
-									<div id="flotChart5" class="flot-chart"></div>
-								</div><!-- chart-wrapper -->
-							</div>
-							<div class="card overflow-hidden">
-								<div class="card-body row row-sm">
-									<div class="col-4 d-sm-flex align-items-center">
-										<div class="mg-sm-b-0 mg-sm-r-10">
-											<span class="peity-donut" data-peity='{ "fill": ["#7571f9", "rgba(158, 158, 158,0.3)"],  "innerRadius": 14, "radius": 20 }'>6/7</span>
-										</div>
-										<div>
-											<label class="tx-12 mb-0">% New Sessions</label>
-											<h4 class="mb-0 font-weight-bold">26.80%</h4>
-										</div>
-									</div><!-- col -->
-									<div class="col-4 d-sm-flex align-items-center">
-										<div class="mg-sm-b-0 mg-sm-r-10">
-											<span class="peity-donut" data-peity='{ "fill": ["#ffc107", "rgba(158, 158, 158,0.3)"],  "innerRadius": 14, "radius": 20 }'>5/7</span>
-										</div>
-										<div>
-											<label class="tx-12 mb-0">Pages/Session</label>
-											<h4 class="mb-0 font-weight-bold">1,465</h4>
-										</div>
-									</div>
-									<div class="col-4 d-sm-flex align-items-center">
-										<div class="mg-sm-b-0 mg-sm-r-10">
-											<span class="peity-donut" data-peity='{ "fill": ["#22c03c", "rgba(158, 158, 158,0.3)"],  "innerRadius": 14, "radius": 20 }'>4/7</span>
-										</div>
-										<div>
-											<label class="tx-12 mb-0">Pages/Session</label>
-											<h4 class="mb-0 font-weight-bold">1,005</h4>
-										</div>
-									</div><!-- col -->
-								</div><!-- card-body -->
-							</div>
-						</div>
-						<div class="col-lg-12 col-xl-6 col-md-12 col-sm-12">
-							<div class="card overflow-hidden">
-								<div class="card-body">
-									<div class="">
-										<div class="d-flex justify-content-between">
-											<h4 class="card-title">Acquisition</h4>
-											<i class="mdi mdi-dots-horizontal text-gray"></i>
-										</div>
-										<p class="tx-gray-600 mg-b-0 tx-12">Tells you where your visitors originated from, such as search engines, social networks or website referrals..<a href="">Learn more</a></p>
-									</div>
-									<div class="sales-details mb-5">
-										<div class="row mt-3">
-											<div class="col-xl-6 col-lg-6 col-md-6 col-sm-6">
-												<div class="d-flex">
-													<div class="card-chart bg-primary  mr-3">
-														<span class="peity-bar" data-peity='{"fill": ["#fff"], "width": 20, "height": 20 }'>6,4,7,5,7</span>
-													</div>
-													<div>
-														<label class="mb-0">Bounce Rate</label>
-														<h4 class="font-weight-bold">33.50%</h4>
-													</div>
-												</div>
-											</div>
-											<div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 mb-5">
-												<div class="d-flex">
-													<div class="card-chart bg-teal mr-3">
-														<span class="peity-bar" data-peity='{"fill": ["#fff"], "width": 21, "height": 20 }'>7,4,5,7,2</span>
-													</div>
-													<div>
-														<label class="mb-0">Sessions</label>
-														<h4 class="font-weight-bold">9,065</h4>
-													</div>
-												</div>
-											</div>
-										</div>
-									</div>
-									<div class="mt-4">
-										<div id="bar" class="sales-bar"> </div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-					<!-- row closed -->
-
-					<!-- row opened -->
-					<div class="row row-sm ">
-						<div class="col-md-6 col-lg-6 col-xl-4 col-sm-12">
-							<div class="card">
-								<div class="card-header pt-3">
-									<div class="d-flex justify-content-between">
-										<h4 class="card-title pt-1">Browser Usage</h4>
-										<i class="mdi mdi-dots-horizontal text-gray"></i>
-									</div>
-									<p class="tx-12 tx-gray-500 mb-0">Tells you where your visitors originated from, such as search engines, social networks or website referrals. <a href="">Learn more</a></p>
-								</div><!-- card-header -->
-								<div class="card-body p-0">
-									<div class="browser-stats">
-										<div class="d-flex align-items-center item  border-bottom">
-											<div class="d-flex">
-												<img src="../../assets/img/svgicons/chrome.svg" alt="browsers" class="ht-30 wd-30 mr-2">
-												<div class="">
-													<h6 class="">Chrome</h6>
-													<span class="sub-text">Mozilla Foundation, Inc.</span>
-												</div>
-											</div>
-											<div class="ml-auto my-auto">
-												<div class="d-flex">
-													<span class="mr-4 my-auto">35,502</span>
-													<span class="text-success fs-15"><i class="fe fe-arrow-up"></i>12.75%</span>
-												</div>
-											</div>
-										</div>
-										<div class="d-flex align-items-center item  border-bottom">
-											<div class="d-flex">
-												<img src="../../assets/img/svgicons/opera.svg" alt="browsers" class="ht-30 wd-30 mr-2">
-												<div class="">
-													<h6 class="">Opera</h6>
-													<span class="sub-text">Mozilla Foundation, Inc.</span>
-												</div>
-											</div>
-											<div class="ml-auto my-auto">
-												<div class="d-flex">
-													<span class="mr-4 my-auto">12,563</span>
-													<span class="text-danger"><i class="fe fe-arrow-down"></i>15.12%</span>
-												</div>
-											</div>
-										</div>
-										<div class="d-flex align-items-center item  border-bottom">
-											<div class="d-flex">
-												<img src="../../assets/img/svgicons/edge.svg" alt="browsers" class="ht-30 wd-30 mr-2">
-												<div class="">
-													<h6 class="">Edge</h6>
-													<span class="sub-text">Mozilla Foundation, Inc.</span>
-												</div>
-											</div>
-											<div class="ml-auto my-auto">
-												<div class="d-flex">
-													<span class="mr-4 mt-1">25,364</span>
-													<span class="text-success"><i class="fe fe-arrow-up"></i>24.37%</span>
-												</div>
-											</div>
-										</div>
-										<div class="d-flex align-items-center item  border-bottom">
-											<div class="d-flex">
-												<img src="../../assets/img/svgicons/firefox.svg" alt="browsers" class="ht-30 wd-30 mr-2">
-												<div class="">
-													<h6 class="">Firefox</h6>
-													<span class="sub-text">Mozilla Foundation, Inc.</span>
-												</div>
-											</div>
-											<div class="ml-auto my-auto">
-												<div class="d-flex">
-													<span class="mr-4 mt-1">14,635</span>
-													<span class="text-success"><i class="fe fe-arrow-up"></i>15,63%</span>
-												</div>
-											</div>
-										</div>
-										<div class="d-flex align-items-center item border-bottom">
-											<div class="d-flex">
-												<img src="../../assets/img/svgicons/uc-browser.svg" alt="browsers" class="ht-30 wd-30 mr-2">
-												<div class="">
-													<h6 class="">Ucbrowser</h6>
-													<span class="sub-text">Mozilla Foundation, Inc.</span>
-												</div>
-											</div>
-											<div class="ml-auto my-auto">
-												<div class="d-flex">
-													<span class="mr-4 mt-1">15,453</span>
-													<span class="text-danger"><i class="fe fe-arrow-down"></i>23.70%</span>
-												</div>
-											</div>
-										</div>
-										<div class="d-flex align-items-center item">
-											<div class="d-flex">
-												<img src="../../assets/img/svgicons/safari.svg" alt="browsers" class="ht-30 wd-30 mr-2">
-												<div class="">
-													<h6 class="">Safari</h6>
-													<span class="sub-text">Mozilla Foundation, Inc.</span>
-												</div>
-											</div>
-											<div class="ml-auto my-auto">
-												<div class="d-flex">
-													<span class="mr-4 mt-1">35,657</span>
-													<span class="text-danger"><i class="fe fe-arrow-down"></i>12.54%</span>
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div><!-- card -->
-						</div><!-- col -->
-						<div class="col-md-6 col-lg-6 col-xl-4 col-sm-12">
-							<div class="card">
-								<div class="card-header pb-0 pt-3">
-									<div class="d-flex justify-content-between">
-										<h4 class="card-title pt-1">Latest Ratings and Reviews</h4>
-										<i class="mdi mdi-dots-horizontal text-gray"></i>
-									</div>
-								</div>
-								<p class="tx-12 tx-gray-500 mb-0 pl-3 pr-3">A review is an evaluation of a publication, service, or company .<a href="">Learn more</a></p>
-								<div class="rating-scroll">
-									<div class="pl-3 pr-3 py-3 border-bottom">
-										<div class="media mt-0">
-											<div class="d-flex mr-3">
-												<a href="#">
-													<img class="media-object avatar brround w-7 h-7" alt="64x64" src="../../assets/img/faces/5.jpg">
-												</a>
-											</div>
-											<div class="media-body">
-												<div class="d-flex">
-													<h6 class="mt-0 mb-0 font-weight-semibold ">Joanne Scott</h6>
-													<span class="tx-12 ml-auto">
-														<i class="ion ion-md-star text-warning"></i>
-														<i class="ion ion-md-star text-warning"></i>
-														<i class="ion ion-md-star text-warning"></i>
-														<i class="ion ion-md-star text-warning"></i>
-														<i class="ion ion-md-star-half text-warning"></i>
-													</span>
-												</div>
-												<div class="d-flex">
-													<p class="tx-12 text-muted mb-0">long established fact..</p>
-													<small class="ml-auto text-right">5 reviews</small>
-												</div>
-
-											</div>
-										</div>
-									</div>
-									<div class="pl-3 pr-3 py-3 border-bottom">
-										<div class="media mt-0">
-											<div class="d-flex mr-3">
-												<a href="#">
-													<img class="media-object avatar brround w-7 h-7" alt="64x64" src="../../assets/img/faces/9.jpg">
-												</a>
-											</div>
-											<div class="media-body">
-												<div class="d-flex">
-													<h6 class="mt-0 mb-0 font-weight-semibold ">Cristobal Sharp</h6>
-													<span class="tx-12 ml-auto">
-														<i class="ion ion-md-star text-warning"></i>
-														<i class="ion ion-md-star text-warning"></i>
-														<i class="ion ion-md-star text-warning"></i>
-														<i class="ion ion-md-star-half text-warning"></i>
-														<i class="ion ion-md-star-outline text-warning"></i>
-													</span>
-												</div>
-												<div class="d-flex">
-													<p class="tx-12 text-muted mb-0">The point of using Lorem..</p>
-													<small class="ml-auto text-right">5 reviews</small>
-												</div>
-											</div>
-										</div>
-									</div>
-									<div class="pl-3 pr-3 py-3 border-bottom">
-										<div class="media mt-0">
-											<div class="d-flex mr-3">
-												<a href="#">
-													<img class="media-object avatar brround w-7 h-7" alt="64x64" src="../../assets/img/faces/4.jpg">
-												</a>
-											</div>
-											<div class="media-body">
-												<div class="d-flex">
-													<h6 class="mt-0 mb-0 font-weight-semibold ">Velma Wellons </h6>
-													<span class="tx-12 ml-auto">
-														<i class="ion ion-md-star text-warning"></i>
-														<i class="ion ion-md-star text-warning"></i>
-														<i class="ion ion-md-star text-warning"></i>
-														<i class="ion ion-md-star text-warning"></i>
-														<i class="ion ion-md-star-half text-warning"></i>
-													</span>
-												</div>
-												<div class="d-flex">
-													<p class="tx-12 text-muted mb-0">Various versions have..</p>
-													<small class="ml-auto text-right">5 reviews</small>
-												</div>
-
-											</div>
-										</div>
-									</div>
-									<div class="pl-3 pr-3 py-3 border-bottom">
-										<div class="media mt-0">
-											<div class="d-flex mr-3">
-												<a href="#">
-													<img class="media-object avatar brround w-7 h-7" alt="64x64" src="../../assets/img/faces/7.jpg">
-												</a>
-											</div>
-											<div class="media-body">
-												<div class="d-flex">
-													<h6 class="mt-0 mb-0 font-weight-semibold ">Cathie Madonna </h6>
-													<span class="tx-12 ml-auto">
-														<i class="ion ion-md-star text-warning"></i>
-														<i class="ion ion-md-star text-warning"></i>
-														<i class="ion ion-md-star text-warning"></i>
-														<i class="ion ion-md-star-half text-warning"></i>
-														<i class="ion ion-md-star-outline text-warning"></i>
-													</span>
-												</div>
-												<div class="d-flex">
-													<p class="tx-12 text-muted mb-0">long established fact..</p>
-													<small class="ml-auto text-right">5 reviews</small>
-												</div>
-
-											</div>
-										</div>
-									</div>
-									<div class="pl-3 pr-3 py-3 border-bottom">
-										<div class="media mt-0">
-											<div class="d-flex mr-3">
-												<a href="#">
-													<img class="media-object avatar brround w-7 h-7" alt="64x64" src="../../assets/img/faces/12.jpg">
-												</a>
-											</div>
-											<div class="media-body">
-												<div class="d-flex">
-													<h6 class="mt-0 mb-0 font-weight-semibold ">Aurelio Dahmer </h6>
-													<span class="tx-12 ml-auto">
-														<i class="ion ion-md-star text-warning"></i>
-														<i class="ion ion-md-star text-warning"></i>
-														<i class="ion ion-md-star text-warning"></i>
-														<i class="ion ion-md-star text-warning"></i>
-														<i class="ion ion-md-star-half text-warning"></i>
-													</span>
-												</div>
-												<div class="d-flex">
-													<p class="tx-12 text-muted mb-0">Ut enim ad minim veniam..</p>
-													<small class="ml-auto text-right">5 reviews</small>
-												</div>
-
-											</div>
-										</div>
-									</div>
-									<div class="pl-3 pr-3 py-3 border-bottom">
-										<div class="media mt-0">
-											<div class="d-flex mr-3">
-												<a href="#">
-													<img class="media-object avatar brround w-7 h-7" alt="64x64" src="../../assets/img/faces/13.jpg">
-												</a>
-											</div>
-											<div class="media-body">
-												<div class="d-flex">
-													<h6 class="mt-0 mb-1 font-weight-semibold ">Cyrus Macarthur </h6>
-													<span class="tx-12 ml-auto">
-														<i class="ion ion-md-star text-warning"></i>
-														<i class="ion ion-md-star text-warning"></i>
-														<i class="ion ion-md-star text-warning"></i>
-														<i class="ion ion-md-star-half text-warning"></i>
-														<i class="ion ion-md-star-outline text-warning"></i>
-													</span>
-												</div>
-												<div class="d-flex">
-													<p class="tx-12 text-muted mb-0">variations of passages..</p>
-													<small class="ml-auto text-right">5 reviews</small>
-												</div>
-
-											</div>
-										</div>
-									</div>
-									<div class="pl-3 pr-3 py-3 border-bottom">
-										<div class="media mt-0">
-											<div class="d-flex mr-3">
-												<a href="#">
-													<img class="media-object avatar brround w-7 h-7" alt="64x64" src="../../assets/img/faces/2.jpg">
-												</a>
-											</div>
-											<div class="media-body">
-												<div class="d-flex">
-													<h6 class="mt-0 mb-1 font-weight-semibold ">Bernardo Sykes </h6>
-													<span class="tx-12 ml-auto">
-														<i class="ion ion-md-star text-warning"></i>
-														<i class="ion ion-md-star text-warning"></i>
-														<i class="ion ion-md-star text-warning"></i>
-														<i class="ion ion-md-star-half text-warning"></i>
-														<i class="ion ion-md-star-outline text-warning"></i>
-													</span>
-												</div>
-												<div class="d-flex">
-													<p class="tx-12 text-muted mb-0">you are going to use..</p>
-													<small class="ml-auto text-right">5 reviews</small>
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="col-md-12 col-lg-12 col-xl-4 col-sm-12">
-							<div class="card overflow-hidden">
-								<div class="card-header pb-0 pt-3">
-									<div class="d-flex justify-content-between">
-										<h4 class="card-title pt-1">Sessions By Channel</h4>
-										<i class="mdi mdi-dots-horizontal text-gray"></i>
-									</div>
-									<p class="tx-12 tx-gray-500 mb-0">Sessions by channel is the number of sessions attributed to each channel grouping.<a href="">Learn more</a></p>
-								</div>
-								<div class="card-body">
-									<div class="row text-center">
-										<div class="col dash-1">
-											<p class="mb-0">Organic</p>
-											<h3 class="mb-0 ">80%</h3>
-										</div>
-										<div class="col dash-1">
-											<p class="mb-0">Direct</p>
-											<h3 class="mb-0 ">68%</h3>
-										</div>
-										<div class="col">
-											<p class="mb-0">Campagion</p>
-											<h3 class="mb-0 ">45%</h3>
-										</div>
-										<div class="col dash-1">
-											<p class="mb-0">Refferal</p>
-											<h3 class="mb-0 ">32%</h3>
-										</div>
-									</div>
-									<div class="chart-wrapper mt-3">
-										<canvas id="bar-chart-horizontal" class="ht-238"></canvas>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-					<!-- row close -->
-
-					<!-- row opened -->
-					<div class="row row-sm ">
-						<div class="col-xl-5 col-lg-12">
-							<div class="card">
-								<div class="card-header pt-3">
-									<div class="d-flex justify-content-between">
-										<h4 class="card-title pt-1">Customer Satisfaction</h4>
-										<i class="mdi mdi-dots-horizontal text-gray"></i>
-									</div>
-									<p class="tx-12 tx-gray-500 mb-0">Measures the quality or your support team’s efforts. It is important to monitor your customer satisfaction status... <a href="">Learn more</a></p>
-								</div>
-								<div class="card-body row pd-25 pt-2">
-									<div class="col-sm-8 col-md-7">
-										<div class="wd-100p ht-200" id="flotPie"></div>
-									</div>
-									<div class="col-sm-4 col-md-5 mg-t-30 mg-sm-t-0 my-auto">
-										<ul class="list-unstyled">
-											<li class="d-flex align-items-center"><span class="d-inline-block wd-10 ht-10 bg-purple mg-r-10"></span> Very Satisfied (26%)</li>
-											<li class="d-flex align-items-center mg-t-5"><span class="d-inline-block wd-10 ht-10 bg-primary mg-r-10"></span> Satisfied (39%)</li>
-											<li class="d-flex align-items-center mg-t-5"><span class="d-inline-block wd-10 ht-10 bg-teal mg-r-10"></span> Not Satisfied (20%)</li>
-											<li class="d-flex align-items-center mg-t-5 mb-0"><span class="d-inline-block wd-10 ht-10 bg-pink mg-r-10"></span> Satisfied (15%)</li>
-										</ul>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="col-lg-12 col-xl-7">
-							<div class="card ">
-								<div class="card-header pb-0 pt-3">
-									<div class="d-flex justify-content-between">
-										<h4 class="card-title pt-1">What pages do your users visit</h4>
-										<i class="mdi mdi-dots-horizontal text-gray"></i>
-									</div>
-									<p class="mb-0 tx-12 tx-gray-500">Part of this date range occurs before the new users metric had been calculated, so the old users metric is displayed.</p>
-								</div>
-								<div class="card-body">
-									<div class="table-responsive">
-										<table class="table mb-0 mg-b-0 text-md-nowrap table-bordered text-sm-nowrap text-lg-nowrap text-xl-nowrap">
-											<thead>
-												<tr>
-													<th class="wd-5p pd-t-6">&nbsp;</th>
-													<th class="wd-45p pd-t-6">Country</th>
-													<th class="pd-t-6">Entrances</th>
-													<th class="pd-t-6">Bounce Rate</th>
-													<th class="pd-t-6">Exits</th>
-												</tr>
-											</thead>
-											<tbody>
-												<tr>
-													<td><i class="flag-icon flag-icon-us flag-icon-squared"></i></td>
-													<td><strong>United States</strong></td>
-													<td><strong>134</strong> (1.51%)</td>
-													<td>33.58%</td>
-													<td>15.47%</td>
-												</tr>
-												<tr>
-													<td><i class="flag-icon flag-icon-gb flag-icon-squared"></i></td>
-													<td><strong>United Kingdom</strong></td>
-													<td><strong>290</strong> (3.30%)</td>
-													<td>9.22%</td>
-													<td>7.99%</td>
-												</tr>
-												<tr>
-													<td><i class="flag-icon flag-icon-in flag-icon-squared"></i></td>
-													<td><strong>India</strong></td>
-													<td><strong>250</strong> (3.00%)</td>
-													<td>20.75%</td>
-													<td>2.40%</td>
-												</tr>
-												<tr>
-													<td><i class="flag-icon flag-icon-ca flag-icon-squared"></i></td>
-													<td><strong>Canada</strong></td>
-													<td><strong>216</strong> (2.79%)</td>
-													<td>32.07%</td>
-													<td>15.09%</td>
-												</tr>
-												<tr>
-													<td><i class="flag-icon flag-icon-fr flag-icon-squared"></i></td>
-													<td><strong>France</strong></td>
-													<td><strong>216</strong> (2.79%)</td>
-													<td>32.07%</td>
-													<td>15.09%</td>
-												</tr>
-											</tbody>
-										</table>
-									</div><!-- table-responsive -->
-								</div>
-							</div><!-- card -->
-						</div>
-					</div>
-					<!-- row closed -->
 				</div>
-				<!-- Container closed -->
-	
-			{% endblock content %}
+				<div class="col-xl-3 col-12">
+					<div class="box bg-transparent no-shadow">
+						<div class="box-body p-xl-0 text-center">							
+							<h3 class="px-30 mb-20">Have More<br>knoledge to share?</h3>
+							<button type="button" class="waves-effect waves-light btn-block btn btn-primary"><i class="fa fa-plus mr-15"></i> Cheate New Course</button>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-12">														
+					<div class="box no-shadow mb-0 bg-transparent">
+						<div class="box-header no-border px-0">
+							<h4 class="box-title">Your Courses</h4>	
+							<ul class="box-controls pull-right d-md-flex d-none">
+							  <li>
+								<button class="btn btn-primary-light px-10">View All</button>
+							  </li>
+							  <li class="dropdown">
+								<button class="dropdown-toggle btn btn-primary-light px-10" data-toggle="dropdown" href="#" aria-expanded="false">Most Popular</button>										  
+								<div class="dropdown-menu dropdown-menu-right" style="">
+								  <a class="dropdown-item active" href="#">Today</a>
+								  <a class="dropdown-item" href="#">Yesterday</a>
+								  <a class="dropdown-item" href="#">Last week</a>
+								  <a class="dropdown-item" href="#">Last month</a>
+								</div>
+							  </li>
+							</ul>
+						</div>
+					</div>
+				</div>
+				<div class="col-xl-3 col-md-6 col-12">
+					<div class="box bg-secondary-light pull-up" style="background-image: url(../images/svg-icon/color-svg/st-1.svg); background-position: right bottom; background-repeat: no-repeat;">
+						<div class="box-body">	
+							<div class="flex-grow-1">	
+								<div class="d-flex align-items-center pr-2 justify-content-between">
+									<div class="d-flex">									
+										<span class="badge badge-primary mr-15">Active</span>
+										<span class="badge badge-primary mr-5"><i class="fa fa-lock"></i></span>
+										<span class="badge badge-primary"><i class="fa fa-clock-o"></i></span>
+									</div>
+									<div class="dropdown">
+										<a data-toggle="dropdown" href="#" class="px-10 pt-5"><i class="ti-more-alt"></i></a>
+										<div class="dropdown-menu dropdown-menu-right">
+										  <a class="dropdown-item" href="#"><i class="ti-import"></i> Import</a>
+										  <a class="dropdown-item" href="#"><i class="ti-export"></i> Export</a>
+										  <a class="dropdown-item" href="#"><i class="ti-printer"></i> Print</a>
+										  <div class="dropdown-divider"></div>
+										  <a class="dropdown-item" href="#"><i class="ti-settings"></i> Settings</a>
+										</div>
+									</div>						
+								</div>
+								<h4 class="mt-25 mb-5">It & Softwear</h4>
+								<p class="text-fade mb-0 font-size-12">45 Days Left</p>
+							</div>	
+						</div>					
+					</div>
+				</div>
+				<div class="col-xl-3 col-md-6 col-12">
+					<div class="box bg-secondary-light pull-up" style="background-image: url(../images/svg-icon/color-svg/st-2.svg); background-position: right bottom; background-repeat: no-repeat;">
+						<div class="box-body">	
+							<div class="flex-grow-1">	
+								<div class="d-flex align-items-center pr-2 justify-content-between">
+									<div class="d-flex">									
+										<span class="badge badge-dark mr-15">Finished</span>
+									</div>
+									<div class="dropdown">
+										<a data-toggle="dropdown" href="#" class="px-10 pt-5"><i class="ti-more-alt"></i></a>
+										<div class="dropdown-menu dropdown-menu-right">
+										  <a class="dropdown-item" href="#"><i class="ti-import"></i> Import</a>
+										  <a class="dropdown-item" href="#"><i class="ti-export"></i> Export</a>
+										  <a class="dropdown-item" href="#"><i class="ti-printer"></i> Print</a>
+										  <div class="dropdown-divider"></div>
+										  <a class="dropdown-item" href="#"><i class="ti-settings"></i> Settings</a>
+										</div>
+									</div>						
+								</div>
+								<h4 class="mt-25 mb-5">Programming</h4>
+								<p class="text-fade mb-0 font-size-12">1 Days Left</p>
+							</div>	
+						</div>					
+					</div>
+				</div>
+				<div class="col-xl-3 col-md-6 col-12">
+					<div class="box bg-secondary-light pull-up" style="background-image: url(../images/svg-icon/color-svg/st-3.svg); background-position: right bottom; background-repeat: no-repeat;">
+						<div class="box-body">	
+							<div class="flex-grow-1">	
+								<div class="d-flex align-items-center pr-2 justify-content-between">
+									<div class="d-flex">									
+										<span class="badge badge-primary mr-15">Active</span>
+										<span class="badge badge-primary mr-5"><i class="fa fa-lock"></i></span>
+									</div>
+									<div class="dropdown">
+										<a data-toggle="dropdown" href="#" class="px-10 pt-5"><i class="ti-more-alt"></i></a>
+										<div class="dropdown-menu dropdown-menu-right">
+										  <a class="dropdown-item" href="#"><i class="ti-import"></i> Import</a>
+										  <a class="dropdown-item" href="#"><i class="ti-export"></i> Export</a>
+										  <a class="dropdown-item" href="#"><i class="ti-printer"></i> Print</a>
+										  <div class="dropdown-divider"></div>
+										  <a class="dropdown-item" href="#"><i class="ti-settings"></i> Settings</a>
+										</div>
+									</div>						
+								</div>
+								<h4 class="mt-25 mb-5">Networking</h4>
+								<p class="text-fade mb-0 font-size-12">15 days Left</p>
+							</div>	
+						</div>					
+					</div>
+				</div>
+				<div class="col-xl-3 col-md-6 col-12">
+					<div class="box bg-secondary-light pull-up" style="background-image: url(../images/svg-icon/color-svg/st-4.svg); background-position: right bottom; background-repeat: no-repeat;">
+						<div class="box-body">	
+							<div class="flex-grow-1">	
+								<div class="d-flex align-items-center pr-2 justify-content-between">
+									<div class="d-flex">									
+										<span class="badge badge-warning-light mr-15">Paused</span>
+										<span class="badge badge-warning-light mr-5"><i class="fa fa-lock"></i></span>
+									</div>
+									<div class="dropdown">
+										<a data-toggle="dropdown" href="#" class="px-10 pt-5"><i class="ti-more-alt"></i></a>
+										<div class="dropdown-menu dropdown-menu-right">
+										  <a class="dropdown-item" href="#"><i class="ti-import"></i> Import</a>
+										  <a class="dropdown-item" href="#"><i class="ti-export"></i> Export</a>
+										  <a class="dropdown-item" href="#"><i class="ti-printer"></i> Print</a>
+										  <div class="dropdown-divider"></div>
+										  <a class="dropdown-item" href="#"><i class="ti-settings"></i> Settings</a>
+										</div>
+									</div>						
+								</div>
+								<h4 class="mt-25 mb-5">Network Security</h4>
+								<p class="text-fade mb-0 font-size-12">21 Days Left</p>
+							</div>	
+						</div>					
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-xl-4 col-12">
+					<div class="box">
+						<div class="box-body">
+							<p class="text-fade">Total Courses</p>
+							<h3 class="mt-0 mb-20">19 <small class="text-success"><i class="fa fa-arrow-up ml-15 mr-5"></i> 2 New</small></h3>
+							<div id="charts_widget_2_chart"></div>
+						</div>
+					</div>
+				</div>
+				<div class="col-xl-5 col-12">
+					<div class="box">
+						<div class="box-body">
+							<p class="text-fade">Hours spent</p>
+							<h3 class="mt-0 mb-20">21 h 30 min <small class="text-danger"><i class="fa fa-arrow-down ml-25 mr-5"></i> 15%</small></h3>
+							<div id="charts_widget_1_chart"></div>
+						</div>
+					</div>
+				</div>
+				<div class="col-xl-3 col-12">
+					<div class="box">
+						<div class="box-header with-border">
+							<h4 class="box-title">Working Hours</h4>
+							<ul class="box-controls pull-right d-md-flex d-none">
+							  <li class="dropdown">
+								<button class="dropdown-toggle btn btn-warning-light px-10" data-toggle="dropdown" href="#">Today</button>										  
+								<div class="dropdown-menu dropdown-menu-right">
+								  <a class="dropdown-item active" href="#">Today</a>
+								  <a class="dropdown-item" href="#">Yesterday</a>
+								  <a class="dropdown-item" href="#">Last week</a>
+								  <a class="dropdown-item" href="#">Last month</a>
+								</div>
+							  </li>
+							</ul>
+						</div>
+						<div class="box-body">
+							<div id="revenue5"></div>
+							<div class="d-flex justify-content-center">
+								<p class="d-flex align-items-center font-weight-600 mx-20"><span class="badge badge-xl badge-dot badge-warning mr-20"></span> Progress</p>
+								<p class="d-flex align-items-center font-weight-600 mx-20"><span class="badge badge-xl badge-dot badge-primary mr-20"></span> Done</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-12">														
+					<div class="box no-shadow mb-0 bg-transparent">
+						<div class="box-header no-border px-0">
+							<h4 class="box-title">Performance & Statistics</h4>	
+							<ul class="box-controls pull-right d-md-flex d-none">
+							  <li>
+								<button class="btn btn-primary-light px-10">View All</button>
+							  </li>
+							  <li class="dropdown">
+								<button class="dropdown-toggle btn btn-primary-light px-10" data-toggle="dropdown" href="#" aria-expanded="false">All Type</button>										  
+								<div class="dropdown-menu dropdown-menu-right" style="">
+								  <a class="dropdown-item active" href="#">Today</a>
+								  <a class="dropdown-item" href="#">Yesterday</a>
+								  <a class="dropdown-item" href="#">Last week</a>
+								  <a class="dropdown-item" href="#">Last month</a>
+								</div>
+							  </li>
+							</ul>
+						</div>
+					</div>
+				</div>
+				<div class="col-12">
+					<div class="row">
+						<div class="col-xl-8 col-12">
+							<div class="row">						
+								<div class="col-xl-5 col-lg-6 col-12">
+									<div class="box">
+										<div class="box-header">
+											<h4 class="box-title">Course completion</h4>
+											<ul class="box-controls pull-right d-md-flex d-none">
+											  <li>
+												<button class="btn btn-primary-light px-10">View All</button>
+											  </li>
+											</ul>
+										</div>
+										<div class="box-body">
+											<div class="mb-30">
+												<div class="d-flex align-items-center justify-content-between">
+													<div class="w-p85">
+														<div class="progress progress-sm mb-0">
+															<div class="progress-bar progress-bar-primary" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%">
+															</div>
+														</div>
+													</div>
+													<div>
+														<div>40%</div>
+													</div>
+												</div>
+												<div class="d-flex align-items-center justify-content-between">
+													<p class="mb-0 text-primary">In Progress</p>
+													<p class="text-fade mb-0">117 User</p>
+												</div>
+											</div>
+											<div class="mb-30">
+												<div class="d-flex align-items-center justify-content-between">
+													<div class="w-p85">
+														<div class="progress progress-sm mb-0">
+															<div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 20%">
+															</div>
+														</div>
+													</div>
+													<div>
+														<div>20%</div>
+													</div>
+												</div>
+												<div class="d-flex align-items-center justify-content-between">
+													<p class="mb-0 text-primary">Completed</p>
+													<p class="text-fade mb-0">74 User</p>
+												</div>
+											</div>
+											<div class="mb-30">
+												<div class="d-flex align-items-center justify-content-between">
+													<div class="w-p85">
+														<div class="progress progress-sm mb-0">
+															<div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="18" aria-valuemin="0" aria-valuemax="100" style="width: 18%">
+															</div>
+														</div>
+													</div>
+													<div>
+														<div>18%</div>
+													</div>
+												</div>
+												<div class="d-flex align-items-center justify-content-between">
+													<p class="mb-0 text-primary">Inactive</p>
+													<p class="text-fade mb-0">58 User</p>
+												</div>
+											</div>
+											<div class="mb-5">
+												<div class="d-flex align-items-center justify-content-between">
+													<div class="w-p85">
+														<div class="progress progress-sm mb-0">
+															<div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="7" aria-valuemin="0" aria-valuemax="100" style="width: 7%">
+															</div>
+														</div>
+													</div>
+													<div>
+														<div>07%</div>
+													</div>
+												</div>
+												<div class="d-flex align-items-center justify-content-between">
+													<p class="mb-0 text-primary">Expeired</p>
+													<p class="text-fade mb-0">11 User</p>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="col-xl-7 col-lg-6 col-12">
+									<div class="box bg-transparent no-shadow mb-20">
+										<div class="box-header no-border pb-0">
+											<h4 class="box-title">Lessons</h4>
+											<ul class="box-controls pull-right d-md-flex d-none">
+											  <li>
+												<button class="btn btn-primary-light px-10">View All</button>
+											  </li>
+											</ul>
+										</div>
+									</div>
+									<div class="box mb-15 pull-up">
+										<div class="box-body">
+											<div class="d-flex align-items-center justify-content-between">
+												<div class="d-flex align-items-center">
+													<div class="mr-15 bg-warning h-50 w-50 l-h-60 rounded text-center">
+														<span class="icon-Book-open font-size-24"><span class="path1"></span><span class="path2"></span></span>
+													</div>
+													<div class="d-flex flex-column font-weight-500">
+														<a href="#" class="text-dark hover-primary mb-1 font-size-16">Informatic Course</a>
+														<span class="text-fade">Johen Doe, 19 April</span>
+													</div>
+												</div>
+												<a href="#">
+													<span class="icon-Arrow-right font-size-24"><span class="path1"></span><span class="path2"></span></span>
+												</a>
+											</div>
+										</div>
+									</div>
+									<div class="box mb-15 pull-up">
+										<div class="box-body">
+											<div class="d-flex align-items-center justify-content-between">
+												<div class="d-flex align-items-center">
+													<div class="mr-15 bg-primary h-50 w-50 l-h-60 rounded text-center">
+														<span class="icon-Mail font-size-24"></span>
+													</div>
+													<div class="d-flex flex-column font-weight-500">
+														<a href="#" class="text-dark hover-primary mb-1 font-size-16">Live Drawing</a>
+														<span class="text-fade">Micak Doe, 12 June</span>
+													</div>
+												</div>
+												<a href="#">
+													<span class="icon-Arrow-right font-size-24"><span class="path1"></span><span class="path2"></span></span>
+												</a>
+											</div>
+										</div>
+									</div>
+									<div class="box mb-0 pull-up">
+										<div class="box-body">
+											<div class="d-flex align-items-center justify-content-between">
+												<div class="d-flex align-items-center">
+													<div class="mr-15 bg-danger h-50 w-50 l-h-60 rounded text-center">
+														<span class="icon-Book-open font-size-24"><span class="path1"></span><span class="path2"></span></span>
+													</div>
+													<div class="d-flex flex-column font-weight-500">
+														<a href="#" class="text-dark hover-primary mb-1 font-size-16">Contemporary Art</a>
+														<span class="text-fade">Potar doe, 27 July</span>
+													</div>
+												</div>
+												<a href="#">
+													<span class="icon-Arrow-right font-size-24"><span class="path1"></span><span class="path2"></span></span>
+												</a>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="col-12">
+									<div class="box bg-transparent no-shadow mb-0">
+										<div class="box-header no-border px-0">
+											<h4 class="box-title">Media for lessons</h4>							
+											<div class="box-controls pull-right d-md-flex d-none">
+											  <a href="#">View All</a>
+											</div>
+										</div>
+									</div>
+									<div class="box">
+										<div class="box-body py-10">
+											<div class="table-responsive">
+												<table class="table no-border mb-0">
+													<tbody>
+														<tr>
+															<td>
+																<div class="bg-danger h-50 w-50 l-h-50 rounded text-center">
+																  <p class="mb-0 font-size-20 font-weight-600">A1</p>
+																</div>
+															</td>
+															<td class="font-weight-600">Biology Course</td>
+															<td class="text-fade">StarterReplacement.pdf</td>
+															<td class="font-weight-500"><span class="badge badge-sm badge-dot badge-warning mr-10"></span>Only view</td>
+															<td class="text-fade">78 members</td>
+															<td class="font-weight-600">47 MB</td>
+														</tr>
+														<tr>
+															<td>
+																<div class="bg-info h-50 w-50 l-h-50 rounded text-center">
+																  <p class="mb-0 font-size-20 font-weight-600">B1</p>
+																</div>
+															</td>
+															<td class="font-weight-600">Contemporary Art</td>
+															<td class="text-fade">Loremipsum.doc</td>
+															<td class="font-weight-500 text-warning"><span class="badge badge-sm badge-dot badge-warning mr-10"></span>Edit available</td>
+															<td class="text-fade">78 members</td>
+															<td class="font-weight-600">78 MB</td>
+														</tr>
+														<tr>
+															<td>
+																<div class="bg-primary h-50 w-50 l-h-50 rounded text-center">
+																  <p class="mb-0 font-size-20 font-weight-600">C1</p>
+																</div>
+															</td>
+															<td class="font-weight-600">Programming Language</td>
+															<td class="text-fade">phpcore.mp3</td>
+															<td class="font-weight-500"><span class="badge badge-sm badge-dot badge-primary mr-10"></span>Only view</td>
+															<td class="text-fade">48 members</td>
+															<td class="font-weight-600">12 MB</td>
+														</tr>
+														<tr>
+															<td>
+																<div class="bg-success h-50 w-50 l-h-50 rounded text-center">
+																  <p class="mb-0 font-size-20 font-weight-600">A2</p>
+																</div>
+															</td>
+															<td class="font-weight-600">Geometry Course</td>
+															<td class="text-fade">dummyabz.pdf</td>
+															<td class="font-weight-500"><span class="badge badge-sm badge-dot badge-primary mr-10"></span>Only view</td>
+															<td class="text-fade">24 members</td>
+															<td class="font-weight-600">18 MB</td>
+														</tr>
+													</tbody>
+												</table>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-xl-4 col-12">
+							<div class="box">
+								<div class="box-body">							
+									<div id="calendar" class="dask evt-cal min-h-400"></div>
+								</div>
+							</div>
+							<a href="#" class="box bg-danger bg-hover-danger pull-up">
+								<div class="box-body">
+									<div class="d-flex align-items-center">
+										<div class="w-80 h-80 l-h-100 rounded-circle b-1 border-white text-center">
+											<span class="text-white icon-Cart2 font-size-40"><span class="path1"></span><span class="path2"></span></span>
+										</div>
+										<div class="ml-10">
+											<h4 class="text-white mb-0">+1 1234 456 789</h4>
+											<h5 class="text-white-50 mb-0">Toll Free</h5>
+										</div>
+									</div>							
+								</div>
+							</a>
+							<a href="#" class="box bg-primary bg-hover-primary pull-up">
+								<div class="box-body">
+									<div class="d-flex align-items-center">
+										<div class="w-80 h-80 l-h-100 rounded-circle b-1 border-white text-center">
+											<span class="text-white icon-Mail font-size-40"></span>
+										</div>
+										<div class="ml-10">
+											<h4 class="text-white mb-0">info@EduAdmin.com</h4>
+											<h5 class="text-white-50 mb-0">Free to Fill Us</h5>
+										</div>
+									</div>							
+								</div>
+							</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<!-- /.content -->
+	  </div>
+  </div>
+<!-- /.content-wrapper -->
+{% endblock content %}
