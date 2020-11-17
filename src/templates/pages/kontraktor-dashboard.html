@@ -1,7 +1,6 @@
 {% extends 'based/based.html' %}
 {% block content %}
-
-
+{% load mathfilters %}
   <div class="content-wrapper">
 	  <div class="container-full">
 		<!-- Main content -->
@@ -26,14 +25,15 @@
                                 <div class="box-body br-1 border-light">
                                     <div class="flexbox mb-1">
                                     <span>
-                                        <span class="icon-User font-size-40"><span class="path1"></span><span class="path2"></span></span><br>
+                                        <span class="icon-Layout-right-panel-2  font-size-40"><span class="path1"></span><span class="path2"></span></span><br>
                                         Kuala Muda
                                         
                                     </span>
-                                    <span class="text-primary font-size-40">{{distict.kualamuda}}</span>
+                                    <span class="text-primary font-size-40">{{distict.kualamuda}}</span><br>
+                                   
                                     </div>
                                     <div class="progress progress-xxs mt-10 mb-0">
-                                    <div class="progress-bar" role="progressbar" style="width:49%; height: 4px;" aria-valuenow="{{distict.kualamuda}}" aria-valuemin="0" aria-valuemax="100"></div>
+                                    <div class="progress-bar" role="progressbar" style="width:{{ distict.kualamuda|div:total|mul:100|floatformat:1 }}%; height: 4px;" aria-valuenow="{{distict.kualamuda}}" aria-valuemin="0" aria-valuemax="100"></div>
                                     </div>
                                 </div>
                                 </div>
@@ -43,7 +43,7 @@
                                 <div class="box-body br-1 border-light">
                                     <div class="flexbox mb-1">
                                     <span>
-                                        <span class="icon-Selected-file font-size-40"><span class="path1"></span><span class="path2"></span></span><br>
+                                        <span class="icon-Layout-top-panel-2 font-size-40"><span class="path1"></span><span class="path2"></span></span><br>
                                         Sik
                                     </span>
                                     <span class="text-info font-size-40">{{distict.sik}}</span>
@@ -59,7 +59,7 @@
                                 <div class="box-body br-1 border-light">
                                     <div class="flexbox mb-1">
                                     <span>
-                                        <span class="icon-Info-circle font-size-40"><span class="path1"></span><span class="path2"></span><span class="path3"></span></span><br>
+                                        <span class="icon-Layout-left-panel-2  font-size-40"><span class="path1"></span><span class="path2"></span><span class="path3"></span></span><br>
                                         Baling
                                     </span>
                                     <span class="text-warning font-size-40">{{distict.baling}}</span>
