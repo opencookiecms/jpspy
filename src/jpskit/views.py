@@ -13,6 +13,7 @@ def kontraktordash(request):
 
     timecurrent = datetime.date.today().strftime('%d/%m/%Y')
 
+
     data = {
         'titleboard':'Kontraktor Dashboard',
         'kontraktor':Kontraktor.objects.all(),
@@ -23,6 +24,10 @@ def kontraktordash(request):
             sik = Count('pk',filter=Q(konKawOperasi='Sik')),
             baling = Count('pk',filter=Q(konKawOperasi='Baling')),
             kedah = Count('pk',filter=Q(konKawOperasi='Kedah')),
+        ),
+        'totalactive':Kontraktor.objects.aggregate(
+            active = Count('pk', filter=Q(sijilJPSTamat__gte=timecurrent )),
+            deactive = Count('pk', filter=Q(sijilJPSTamat__lte=timecurrent)),
         ),
     }
 
