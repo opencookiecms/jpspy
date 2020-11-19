@@ -29,6 +29,11 @@ def kontraktordash(request):
             active = Count('pk', filter=Q(sijilJPSTamat__gte=timecurrent )),
             deactive = Count('pk', filter=Q(sijilJPSTamat__lte=timecurrent)),
         ),
+        'g1total':Kontraktor.objects.aggregate(
+            kualamuda = Count('pk', filter=Q(sijilPPKGredSatu='G1',konKawOperasi='Kuala Muda')),
+            sik = Count('pk', filter=Q(sijilPPKGredSatu='G1',konKawOperasi='Sik')),
+            baling = Count('pk', filter=Q(sijilPPKGredSatu='G1',konKawOperasi='Baling')),
+        ),
     }
 
     return render(request, 'pages/kontraktor-dashboard.html',data)
