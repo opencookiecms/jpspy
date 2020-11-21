@@ -33,10 +33,14 @@ def kontraktordash(request):
             kualamuda = Count('pk', filter=Q(sijilPPKGredSatu='G1',konKawOperasi='Kuala Muda')),
             sik = Count('pk', filter=Q(sijilPPKGredSatu='G1',konKawOperasi='Sik')),
             baling = Count('pk', filter=Q(sijilPPKGredSatu='G1',konKawOperasi='Baling')),
-            kualamudada = Count('pk', filter=Q(sijilPPKGredSatu='G1',konKawOperasi='Kuala Muda')),
-            sikda = Count('pk', filter=Q(sijilPPKGredSatu='G1',sijilJPSTamat__gte=timecurrent,konKawOperasi='Sik')),
-            balingda = Count('pk', filter=Q(sijilPPKGredSatu='G1',sijilJPSTamat__gte=timecurrent,konKawOperasi='Baling')),
-            kualamudag1active = Count('pk', filter=Q(sijilPPKGredSatu='G1',sijilJPSTamat__gte=timecurrent,konKawOperasi='Kuala Muda')),
+  
+            sikdactive = Count('pk', filter=Q(sijilPPKGredSatu='G1',sijilJPSTamat__gte=timecurrent,konKawOperasi='Sik')),
+            balingdactive = Count('pk', filter=Q(sijilPPKGredSatu='G1',sijilJPSTamat__gte=timecurrent,konKawOperasi='Baling')),
+            kualamudaactive = Count('pk', filter=Q(sijilPPKGredSatu='G1',sijilJPSTamat__gte=timecurrent,konKawOperasi='Kuala Muda')),
+
+            sikdntactive = Count('pk', filter=Q(sijilPPKGredSatu='G1',sijilJPSTamat__lte=timecurrent,konKawOperasi='Sik')),
+            balingdntactive = Count('pk', filter=Q(sijilPPKGredSatu='G1',sijilJPSTamat__lte=timecurrent,konKawOperasi='Baling')),
+            kualamudantactive = Count('pk', filter=Q(sijilPPKGredSatu='G1',sijilJPSTamat__lte=timecurrent,konKawOperasi='Kuala Muda')),
         ),
     }
 

@@ -43,6 +43,14 @@ class KontraktroForm(forms.ModelForm):
             ('Sarawak','Sarawak'),
         )
 
+        daerah = (
+            
+            ('Tiada','Tiada'),
+            ('Kuala Muda','Kuala Muda'),
+            ('Sik','Sik'),
+            ('Baling','Baling'),
+        )
+
         operasi = (
             ('Tiada','Tiada'),
             ('Kuala Muda','Kuala Muda'),
