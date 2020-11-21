@@ -53,7 +53,11 @@ def kontraktorlist(request):
     data = {
         'kontraktor':Kontraktor.objects.all(),
         'total':Kontraktor.objects.all().count(),
-        'dateend' : timecurrent
+        'dateend' : timecurrent,
+        'totalactive':Kontraktor.objects.aggregate(
+            active = Count('pk', filter=Q(sijilJPSTamat__gte=timecurrent )),
+            deactive = Count('pk', filter=Q(sijilJPSTamat__lte=timecurrent)),
+        ),
     }
 
     return render(request, 'pages/kontraktor-list.html',data)
