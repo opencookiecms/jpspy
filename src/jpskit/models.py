@@ -120,7 +120,7 @@ class Kontraktor(models.Model):
 
 
 
-class Projek:
+class Projek(models.Model):
     pass
 
 class Order(models.Model):
@@ -129,11 +129,18 @@ class Order(models.Model):
     o_permilik  = models.CharField(max_length=150, null=True, blank=True)
     o_jenis = models.CharField(max_length=50, null=True, blank=True)
 
-class MR1:
+class MR1(models.Model):
     pass
 
-class MR2:
+class MR2(models.Model):
     pass
 
-class MR3:
+class MR3(models.Model):
+    pass
+
+class LSK(models.Model):
+    pass
+class PSK(models.Model):
+    pass
+class SS(models.Model):
     pass
