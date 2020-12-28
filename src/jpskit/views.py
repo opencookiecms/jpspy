@@ -13,7 +13,7 @@ def kontraktordash(request):
 
     timecurrent = datetime.date.today().strftime('%d/%m/%Y')
 
-
+    
     data = {
         'titleboard':'Kontraktor Dashboard',
         'kontraktor':Kontraktor.objects.all(),
