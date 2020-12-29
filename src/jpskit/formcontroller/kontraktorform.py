@@ -1,5 +1,5 @@
 from django import forms
-from datacontroller import kontraktor
+from ..modelcontroller import kontraktor, userprofile
 
 class KontraktroForm(forms.ModelForm):
 
@@ -150,11 +150,11 @@ class KontraktroForm(forms.ModelForm):
         konMPtarikhtamat = forms.CharField(required=False, widget=forms.TextInput(attrs={'class':'form-control fc-datepicker','placeholder':'MM/DD/YYYY'}))
         #Disemak
         
-        konMPdisemak = forms.ModelChoiceField(required=False, queryset=UserProfile.objects.all(), widget=forms.Select(attrs={'class':'form-control custom-select select26'}))
+        konMPdisemak = forms.ModelChoiceField(required=False, queryset=userprofile.UserProfile.objects.all(), widget=forms.Select(attrs={'class':'form-control custom-select select26'}))
         konMPjawatansemak = forms.ChoiceField(choices=jawatan, required=False, widget=forms.Select(attrs={'class':'form-control custom-select select26 ','placholder':'baru'}))
-        konMPdisah = forms.ModelChoiceField(required=False, queryset=UserProfile.objects.all(), widget=forms.Select(attrs={'class':'form-control custom-select select26'}))
+        konMPdisah = forms.ModelChoiceField(required=False, queryset=userprofile.UserProfile.objects.all(), widget=forms.Select(attrs={'class':'form-control custom-select select26'}))
         konMPjawatansah  = forms.ChoiceField(choices=jawatan, required=False, widget=forms.Select(attrs={'class':'form-control custom-select select26 ','placholder':'baru'}))
-        konMPlulus = forms.ModelChoiceField(required=False, queryset=UserProfile.objects.all(), widget=forms.Select(attrs={'class':'form-control custom-select select26'}))
+        konMPlulus = forms.ModelChoiceField(required=False, queryset=userprofile.UserProfile.objects.all(), widget=forms.Select(attrs={'class':'form-control custom-select select26'}))
         konMPjawatanlulus = forms.ChoiceField(choices=jawatan, required=False, widget=forms.Select(attrs={'class':'form-control custom-select select26 ','placholder':'baru'}))
         #sijil Perakuan pendaftaran kontraktor (PPK)
         sijilPPKNoPendaftaran = forms.CharField(required=False, widget=forms.TextInput(attrs={'class':'form-control','placeholder':'none'}) )

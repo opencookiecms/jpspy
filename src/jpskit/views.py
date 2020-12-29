@@ -1,8 +1,8 @@
 from django.shortcuts import render, get_list_or_404, redirect, reverse
 import datetime
 from django.http import StreamingHttpResponse, HttpResponse, HttpResponseServerError
-from .datacontroller import kontraktor, dnoperolehan, order
-from .formcontroller import kontraktorform, noperolehanform, orderform
+from .modelcontroller import kontraktor,dnoperolehan,order,project,userprofile
+from .formcontroller import noperolehanform, kontraktorform
 from django.db.models import Q
 from django.db.models import Count
 
@@ -68,8 +68,7 @@ def kontraktordaftar(request):
     form = kontraktorform.KontraktroForm(request.POST or None, request.FILES or None)
     if form.is_valid():
         form.save()
-        form = kontraktorform.KontraktroForm()
-        
+        form = kontraktorform.KontraktroForm()        
     else:
         print("no data was post yet")
 

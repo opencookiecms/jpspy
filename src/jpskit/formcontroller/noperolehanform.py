@@ -1,5 +1,5 @@
 from django import forms
-from datacontroller import dnoperolehan
+from ..modelcontroller import dnoperolehan, userprofile
 
 
 
@@ -16,10 +16,11 @@ class DPerolehanForm(forms.ModelForm):
 
     )
 
+
     noperolehan = forms.CharField(required=False, widget=forms.TextInput(attrs={'class':'form-control','placeholder':'none'}))
     tarikh  = forms.CharField(required=False, widget=forms.TextInput(attrs={'class':'form-control fc-datepicker','placeholder':'MM/DD/YYYY'}))
     kaedahperolehan  = forms.ChoiceField(choices=kaedah, required=False, widget=forms.Select(attrs={'class':'form-control custom-select select28 ','placholder':'baru'}))
-    pegawaiselia  = forms.ModelChoiceField(required=False, queryset=UserProfile.objects.all(), widget=forms.Select(attrs={'class':'form-control custom-select select29'}))
+    pegawaiselia  = forms.ModelChoiceField(required=False, queryset= userprofile.UserProfile.objects.all(), widget=forms.Select(attrs={'class':'form-control custom-select select29'}))
 
     class Meta:
         model = dnoperolehan.NoPerolehan
