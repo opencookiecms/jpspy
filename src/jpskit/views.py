@@ -1,10 +1,11 @@
 from django.shortcuts import render, get_list_or_404, redirect, reverse
 import datetime
 from django.http import StreamingHttpResponse, HttpResponse, HttpResponseServerError
-from .models import Kontraktor
-from .forms import KontraktroForm, OrderForm, DPerolehanForm
+from .datacontroller import kontraktor, dnoperolehan, order
+from .formcontroller import kontraktorform, noperolehanform, orderform
 from django.db.models import Q
 from django.db.models import Count
+
 
 def index(request):
     return render(request, 'pages/maindashboard.html')
@@ -16,20 +17,20 @@ def kontraktordash(request):
     
     data = {
         'titleboard':'Kontraktor Dashboard',
-        'kontraktor':Kontraktor.objects.all(),
-        'total':Kontraktor.objects.all().count(),
+        'kontraktor':kontraktor.Kontraktor.objects.all(),
+        'total':kontraktor.Kontraktor.objects.all().count(),
         'dateend' : timecurrent,
-        'distict' : Kontraktor.objects.aggregate(
+        'distict' : kontraktor.Kontraktor.objects.aggregate(
             kualamuda = Count('pk',filter=Q(konKawOperasi='Kuala Muda')),
             sik = Count('pk',filter=Q(konKawOperasi='Sik')),
             baling = Count('pk',filter=Q(konKawOperasi='Baling')),
             kedah = Count('pk',filter=Q(konKawOperasi='Kedah')),
         ),
-        'totalactive':Kontraktor.objects.aggregate(
+        'totalactive':kontraktor.Kontraktor.objects.aggregate(
             active = Count('pk', filter=Q(sijilJPSTamat__gte=timecurrent )),
             deactive = Count('pk', filter=Q(sijilJPSTamat__lte=timecurrent)),
         ),
-        'g1total':Kontraktor.objects.aggregate(
+        'g1total':kontraktor.Kontraktor.objects.aggregate(
             kualamuda = Count('pk', filter=Q(sijilPPKGredSatu='G1',konKawOperasi='Kuala Muda')),
             sik = Count('pk', filter=Q(sijilPPKGredSatu='G1',konKawOperasi='Sik')),
             baling = Count('pk', filter=Q(sijilPPKGredSatu='G1',konKawOperasi='Baling')),
@@ -49,12 +50,12 @@ def kontraktordash(request):
 def kontraktorlist(request):
 
     timecurrent = datetime.date.today().strftime('%d/%m/%Y')
-
+    
     data = {
-        'kontraktor':Kontraktor.objects.all(),
-        'total':Kontraktor.objects.all().count(),
+        'kontraktor':kontraktor.Kontraktor.objects.all(),
+        'total':kontraktor.Kontraktor.objects.all().count(),
         'dateend' : timecurrent,
-        'totalactive':Kontraktor.objects.aggregate(
+        'totalactive':kontraktor.Kontraktor.objects.aggregate(
             active = Count('pk', filter=Q(sijilJPSTamat__gte=timecurrent )),
             deactive = Count('pk', filter=Q(sijilJPSTamat__lte=timecurrent)),
         ),
@@ -63,11 +64,11 @@ def kontraktorlist(request):
     return render(request, 'pages/kontraktor-list.html',data)
 
 def kontraktordaftar(request):
-
-    form = KontraktroForm(request.POST or None, request.FILES or None)
+    
+    form = kontraktorform.KontraktroForm(request.POST or None, request.FILES or None)
     if form.is_valid():
         form.save()
-        form = KontraktroForm()
+        form = kontraktorform.KontraktroForm()
         
     else:
         print("no data was post yet")
@@ -80,8 +81,8 @@ def kontraktordaftar(request):
 
 
 def kontraktoredit(request, id):
-    dataobj = Kontraktor.objects.get(id=id)
-    form = KontraktroForm(request.POST or None, request.FILES or None, instance=dataobj)
+    dataobj = kontraktor.Kontraktor.objects.get(id=id)
+    form = kontraktorform.KontraktroForm(request.POST or None, request.FILES or None, instance=dataobj)
     if form.is_valid():
         form.save()
     else:
@@ -95,7 +96,7 @@ def kontraktoredit(request, id):
     return render(request, 'pages/kontraktor-edit.html',data)
 
 def kontraktordelete(request, id):
-    dataobj = Kontraktor.objects.get(id=id)
+    dataobj = kontraktor.Kontraktor.objects.get(id=id)
     dataobj.delete()
 
     if dataobj:
@@ -104,11 +105,11 @@ def kontraktordelete(request, id):
         return render(request, 'pages/kontraktor-list.html')
 
 def ordersebutharga(request):
-
-    form = OrderForm(request.POST or None)
+    
+    form = orderform.OrderForm(request.POST or None)
     if form.is_valid():
         form.save()
-        form = OrderForm()
+        form = orderform.OrderForm()
     else:
         print("the data was no save")
     
@@ -122,11 +123,11 @@ def dnoperolehan(request):
     return render(request, 'pages/noperolehan-dashboard.html')
 
 def daftarnoperolehan(request):
-
-    form = DPerolehanForm(request.POST or None)
+    
+    form = noperolehanform.DPerolehanForm(request.POST or None)
     if form.is_valid():
         form.save()
-        form = DPerolehanForm()
+        form = noperolehanform.DPerolehanForm()
         
     else:
         print("no data was post yet")
