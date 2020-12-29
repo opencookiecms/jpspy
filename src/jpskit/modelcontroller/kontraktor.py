@@ -100,6 +100,7 @@ class Kontraktor(models.Model):
     sijilJPSSahDari = models.CharField(max_length=50, null=True, blank=True)
     sijilJPSTamat = models.CharField(max_length=50, null=True, blank=True) 
     sijilJPSGred = models.CharField(max_length=50, null=True, blank=True)
+    
 
     def __str__(self):
         return self.konNama
