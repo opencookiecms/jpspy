@@ -1,6 +1,4 @@
 from django.db import models
-from django.contrib.auth.models import User
-
 
 class Order(models.Model):
     o_sebutharga  = models.CharField(max_length=150, null=True, blank=True)

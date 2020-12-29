@@ -1,45 +1,44 @@
-{% extends 'based/based.html' %} 
-{% block content %}
 
-<div class="app-content page-body">
-    <div class="container">
+  {% extends 'based/based.html' %}
+  {% block content %}
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+	  <div class="container-full">
+		<!-- Content Header (Page header) -->
+		<div class="content-header">
+			<div class="d-flex align-items-center">
+				<div class="mr-auto">
+					<h3 class="page-title">Daftar baru Kontraktor</h3>
+					<div class="d-inline-block align-items-center">
+						<nav>
+							<ol class="breadcrumb">
+								<li class="breadcrumb-item"><a href="#"><i class="mdi mdi-home-outline"></i></a></li>
+								<li class="breadcrumb-item" aria-current="page">Kontraktor</li>
+								<li class="breadcrumb-item active" aria-current="page">Daftar Baru</li>
+							</ol>
+						</nav>
+					</div>
+				</div>
+				
+			</div>
+		</div>	  
 
-        <!--Page header-->
-        <div class="page-header">
-            <div class="page-leftheader">
-                <h4 class="page-title">Pendaftaran Kontraktor Baru</h4>
-            </div>
-            <div class="page-rightheader ml-auto d-lg-flex d-none">
-                <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="#" class="d-flex"><svg class="svg-icon"
-                                xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24">
-                                <path d="M0 0h24v24H0V0z" fill="none" />
-                                <path d="M12 3L2 12h3v8h6v-6h2v6h6v-8h3L12 3zm5 15h-2v-6H9v6H7v-7.81l5-4.5 5 4.5V18z" />
-                                <path d="M7 10.19V18h2v-6h6v6h2v-7.81l-5-4.5z" opacity=".3" /></svg><span
-                                class="breadcrumb-icon"> Home</span></a></li>
-                    <li class="breadcrumb-item"><a href="#">Pages</a></li>
-                    <li class="breadcrumb-item"><a href="#">Elements</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">Form-Elements</li>
-                </ol>
-            </div>
-        </div>
-        <!--End Page header-->
-        <!-- Row -->
-        <div class="row ">
-            <div class="col-md-12">
-                <div class="card">
-                    <div class="card-header">
-                        <div class="card-title">
-                            Pendaftaran
-                        </div>
-                    </div>
+		<!-- Main content -->
+		<section class="content">
 
-                  
-                   <form action='.' method='POST' id='form'  enctype="multipart/form-data" >
-                    {% csrf_token %}
-                    <div id="wizard1" class="p-4">
-                        <h3>Maklumat Syarikat</h3>
-                        <section>
+		  <!-- vertical wizard -->
+		  <div class="box box-default">
+			<div class="box-header with-border">
+			  <h4 class="box-title">Borang Kontrakor</h4>
+			  <h6 class="box-subtitle">You can find the <a href="http://www.jquery-steps.com" target="_blank">offical website</a></h6>
+			</div>
+			<!-- /.box-header -->
+			<div class="box-body wizard-content">
+                <form action='.' class="tab-wizard vertical wizard-circle" id="form" method='POST' enctype="multipart/form-data" >
+                {% csrf_token %}
+					<!-- Step 1 -->
+					<h6>Maklumat Syarikat</h6>
+					   <section>
                             <div class="row">
 
                                 <div class="col-sm-6 col-md-6">
@@ -151,8 +150,10 @@
                                 </div>
                             </div>
                         </section>
-                        <h3>Maklumat Rakan Kongsi</h3>
-                        <section>
+			
+                    <!-- Step 1 -->
+					<h6>Maklumat Rakan Konsi</h6>
+					  <section>
                             <div class="row">
 
                                 <div class="col-sm-4 col-md-6">
@@ -237,8 +238,10 @@
 
                             </div>
                         </section>
-                        <h3>Akaun Syarikat</h3>
-                        <section>
+					
+					<!-- Step 2 -->
+					<h6>Akaun Syarikat</h6>
+			        <section>
                             <div class="form-group">
                                 <label class="form-label">Bank</label>
                                 {{form.konBank}}
@@ -255,10 +258,9 @@
                                 </div>
                             </div>
 
-                        </section>
-
-
-                        <h3>Kawasan Operasi Syarikat</h3>
+                    </section>
+					<!-- Step 3 -->
+			       <h6>Kawasan Operasi Syarikat</h6>
                         <section>
                             <div class="row">
 
@@ -269,7 +271,7 @@
                                         {{form.konKawOperasi}}
                                     </div>
                                 </div>
-                                <div class="col-sm-7 col-md-7"></div>
+                                  <div class="col-sm-7 col-md-7"></div>   
 
                                 <div class="col-sm-5 col-md-5">
                                     <div class="form-group">
@@ -280,8 +282,9 @@
 
                             </div>
 
-                        </section>
-                        <h3>Jenis Permohonan</h3>
+                 </section>
+					<!-- Step 4 -->
+			    <h6>Jenis Permohonan</h6>
                         <section>
                             <div class="row">
 
@@ -322,7 +325,7 @@
                             </div>
 
                         </section>
-                        <h3>Maklumat Pemohon</h3>
+                            <h6>Maklumat Pemohon</h6>
                         <section>
                             <div class="row">
 
@@ -368,7 +371,7 @@
 
                             </div>
                         </section>
-                        <h3>Disemak Oleh</h3>
+                             <h6>Disemak Oleh</h6>
                         <section>
                             <div class="row">
 
@@ -414,8 +417,8 @@
 
                             </div>
                         </section>
-                        <!--sss->$-->
-                        <h3>LPIPM</h3>
+
+                         <h6>LPIPM</h6>
 
                         <section>
 
@@ -598,8 +601,7 @@
 
                         <!--dfdf-->
 
-                        <h3>Pusat Khidmat Kontraktor (PKK)</h3>
-
+                        <h6>Pusat Khidmat Kontraktor (PKK)</h6>
                         <section>
 
                             <div class="row">
@@ -640,7 +642,7 @@
                             </div>
                         </section>
                         <!--ssm-->
-                        <h3>Suruhanjaya Syarikat Malaysia (SSM)</h3>
+                        <h6>Suruhanjaya Syarikat Malaysia (SSM)</h6>
 
                         <section>
 
@@ -676,7 +678,7 @@
                         </section>
 
                         <!--GST-->
-                        <h3>SST</h3>
+                        <h6>SST</h6>
 
                         <section>
 
@@ -715,7 +717,7 @@
                         </section>
 
                         <!--JPS-->
-                        <h3>JPS</h3>
+                        <h6>JPS</h6>
 
                         <section>
 
@@ -755,17 +757,18 @@
 
                             </div>
                         </section>
-                      </form>                       
-                    </div>
+				</form>
+			</div>
+			<!-- /.box-body -->
+		  </div>
+		  <!-- /.box -->
+		  <!-- /.box -->
 
-                </div>
-            </div>
-        </div>
-        <!--/Row -->
-    </div>
-</div><!-- end app-content-->
-</div>
-</div>
-</div>
+		</section>
+		<!-- /.content -->
+	  </div>
+  </div>
+  <!-- /.content-wrapper -->
 
-{% endblock content %}
+    {% endblock content %}
+  

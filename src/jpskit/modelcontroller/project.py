@@ -7,4 +7,4 @@ class Projek(models.Model):
     vendor = models.ForeignKey(kontraktor.Kontraktor, on_delete=models.CASCADE)
 
     def __str__(self):
-        return self.user.first_name
+        return self.title

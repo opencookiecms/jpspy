@@ -7,31 +7,28 @@ from django.conf import settings
 
 from jpskit.views import(
     index,
-    kontraktordash,
-    kontraktorlist,
-    kontraktordaftar,
-    kontraktoredit,
-    kontraktordelete,
-    ordersebutharga,
-    dnoperolehan,
-    daftarnoperolehan
+)
+
+from jpskit.viewcontroller import (
+    perolehanviews,
+    kontraktorviews,
+    orderviews
 )
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', index, name='index'),
-    path('kontraktor/dashboard', kontraktordash, name='kontraktor/dashboard'),
-    path('kontraktor/senarai', kontraktorlist, name="kontraktor/senarai"),
-    path('kontraktor/daftar-baru', kontraktordaftar, name="kontraktor/daftar-baru"),
-    path('kontraktor/edit/<int:id>/',kontraktoredit, name="kontraktor/edit"),
-    path('kontraktor-delete/<int:id>',kontraktordelete, name="kontraktor-delete"),
-    path('sebutharga/order', ordersebutharga, name="sebutharga/order"),
-    path('noperolehan/dashboard', dnoperolehan, name="noperolehan/dashboard"),
+    path('kontraktor', kontraktorviews.kontraktordash, name='kontraktor'),
+    path('kontraktor/senarai', kontraktorviews.kontraktorlist, name="kontraktor/senarai"),
+    path('kontraktor/daftar-baru', kontraktorviews.kontraktordaftar, name="kontraktor/daftar-baru"),
+    path('kontraktor/edit/<int:id>/',kontraktorviews.kontraktoredit, name="kontraktor/edit"),
+    path('kontraktor-delete/<int:id>',kontraktorviews.kontraktordelete, name="kontraktor-delete"),
 
-    #registerpath
-    path('kontraktor-add', kontraktordaftar, name="kontraktor-add"),
-    path('noperolehan/daftar',daftarnoperolehan, name="noperolehan/daftar")
+    path('sebutharga/order', orderviews.ordersebutharga, name="sebutharga/order"),
+    path('noperolehan/dashboard', perolehanviews.dnoperolehan, name="noperolehan/dashboard"),
+
+    path('noperolehan/daftar',perolehanviews.daftarnoperolehan, name="noperolehan/daftar")
 
 
 ]
