@@ -1,0 +1,99 @@
+{% extends 'based/based.html' %}
+{% block content %}
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+	  <div class="container-full">
+		<!-- Content Header (Page header) -->
+		<div class="content-header">
+			<div class="d-flex align-items-center">
+				<div class="mr-auto">
+					<h3 class="page-title">Pendaftaran No. Perolehan</h3>
+					<div class="d-inline-block align-items-center">
+						<nav>
+							<ol class="breadcrumb">
+								<li class="breadcrumb-item"><a href="#"><i class="mdi mdi-home-outline"></i></a></li>
+								<li class="breadcrumb-item" aria-current="page">Borang</li>
+								<li class="breadcrumb-item active" aria-current="page">No perolehan</li>
+							</ol>
+						</nav>
+					</div>
+				</div>
+				
+			</div>
+		</div>	  
+
+		<!-- Main content -->
+		<section class="content">
+			<div class="row">			  
+				<div class="col-lg-8 col-12">
+                	<form class="form" action='{% url 'noperolehan/daftar' %}' method="POST">
+					  <div class="box">
+				
+						<!-- /.box-header -->
+					
+                          {% csrf_token %}
+							<div class="box-body">
+								<h4 class="box-title text-primary"><i class="ti-user mr-15"></i>Maklumat No Perolehan</h4>
+								<hr class="my-15">
+								<div class="row">
+								  <div class="col-md-8">
+									<div class="form-group">
+									  <label>No Perolehan</label>
+								
+                                      {{form.noperolehan}}
+									</div>
+								  </div>
+                                  <div class="col-md-4">
+									<div class="form-group">
+									  <label>Tarikh</label>
+									  {{form.tarikh}}
+									</div>
+								  </div>
+								</div>
+						
+								<h4 class="box-title text-primary mt-20"><i class="ti-save mr-15"></i> Kaedah dan Pegawai Selia</h4>
+								<hr class="my-15">
+							
+								<div class="row">
+								  <div class="col-md-6">
+									<div class="form-group">
+									  <label>Kaedah</label>
+								      {{form.kaedahperolehan}}
+									</div>
+								  </div>
+						
+								</div>
+                                <div class="row">
+                                	<div class="col-md-6">
+									<div class="form-group">
+									  <label>Pegawai Selia</label>
+                                      {{form.pegawaiselia}}
+									</div>
+								  </div>
+                                </div>
+							
+							
+							</div>
+							<!-- /.box-body -->
+							<div class="box-footer">
+								<button type="button" class="btn btn-rounded btn-warning btn-outline mr-1">
+								  <i class="ti-trash"></i> Cancel
+								</button>
+								<button type="submit"  class="btn btn-rounded btn-primary btn-outline">
+								  <i class="ti-save-alt"></i> Save
+								</button>
+							</div>  
+					
+					  </div>
+					  <!-- /.box -->	
+                          	</form>		
+				</div>  
+		    </div>
+        
+	
+		</section>
+		<!-- /.content -->
+	  </div>
+  </div>
+  <!-- /.content-wrapper -->
+  {% endblock content %}

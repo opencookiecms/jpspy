@@ -1,5 +1,5 @@
 from django import forms
-from .models import Kontraktor, UserProfile, Order
+from .models import Kontraktor, NoPerolehan, UserProfile, Order
 
 jenissebutharga = (
     ('Lantikan Terus','Lantikan Terus'),
@@ -215,7 +215,7 @@ class KontraktroForm(forms.ModelForm):
         sijilSSMSahDari = forms.CharField(required=False, widget=forms.TextInput(attrs={'class':'form-control fc-datepicker','placeholder':'MM/DD/YYYY'}))
         sijilSSMTamat = forms.CharField(required=False, widget=forms.TextInput(attrs={'class':'form-control fc-datepicker','placeholder':'MM/DD/YYYY'}))
         #sijilSST
-        sijilSSTNoPendaftaran = forms.CharField(required=False, widget=forms.TextInput(attrs={'class':'form-control','placeholder':'none'}) )
+        sijilSSTNoPendaftaran = forms.CharField(required=False, widget=forms.TextInput(attrs={'class':'form-control','placeholder':'none'}))
         sijilSSTSahDari = forms.CharField(required=False, widget=forms.TextInput(attrs={'class':'form-control fc-datepicker','placeholder':'MM/DD/YYYY'}))
         sijilSSTTamat = forms.CharField(required=False, widget=forms.TextInput(attrs={'class':'form-control fc-datepicker','placeholder':'MM/DD/YYYY'}))
         #sijilJPS
@@ -325,3 +325,31 @@ class KontraktroForm(forms.ModelForm):
                 'sijilJPSTamat', 
                 'sijilJPSGred'
             ]
+
+
+class DPerolehanForm(forms.ModelForm):
+
+
+    kaedah = (
+    
+        ('Tiada','Tiada'),
+        ('Lantikan Terus','Lantikan Terus'),
+        ('Sebutharga','Sebutharga'),
+        ('Undi','Undi')
+
+    )
+
+    
+    noperolehan = forms.CharField(required=False, widget=forms.TextInput(attrs={'class':'form-control','placeholder':'none'}))
+    tarikh  = forms.CharField(required=False, widget=forms.TextInput(attrs={'class':'form-control fc-datepicker','placeholder':'MM/DD/YYYY'}))
+    kaedahperolehan  = forms.ChoiceField(choices=kaedah, required=False, widget=forms.Select(attrs={'class':'form-control custom-select select28 ','placholder':'baru'}))
+    pegawaiselia  = forms.ModelChoiceField(required=False, queryset=UserProfile.objects.all(), widget=forms.Select(attrs={'class':'form-control custom-select select29'}))
+
+    class Meta:
+        model = NoPerolehan
+        fields = [
+            'noperolehan',
+            'tarikh',
+            'kaedahperolehan',
+            'pegawaiselia'
+        ]
