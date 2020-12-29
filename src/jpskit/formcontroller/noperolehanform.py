@@ -1,11 +1,7 @@
 from django import forms
 from ..modelcontroller import dnoperolehan, userprofile
 
-
-
-
 class DPerolehanForm(forms.ModelForm):
-
 
     kaedah = (
     
@@ -15,7 +11,6 @@ class DPerolehanForm(forms.ModelForm):
         ('Undi','Undi')
 
     )
-
 
     noperolehan = forms.CharField(required=False, widget=forms.TextInput(attrs={'class':'form-control','placeholder':'none'}))
     tarikh  = forms.CharField(required=False, widget=forms.TextInput(attrs={'class':'form-control fc-datepicker','placeholder':'MM/DD/YYYY'}))
