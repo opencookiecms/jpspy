@@ -57,6 +57,17 @@ $(function() {
         minimumResultsForSearch: Infinity,
         width: 300
     });
+
+    $('.select28').select2({
+        minimumResultsForSearch: Infinity,
+
+    });
+
+    $('.select29').select2({
+        minimumResultsForSearch: Infinity,
+
+    });
+
     //Datemask dd/mm/yyyy
     $('#datemask').inputmask('dd/mm/yyyy', { 'placeholder': 'dd/mm/yyyy' });
     //Datemask2 mm/dd/yyyy

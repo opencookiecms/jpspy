@@ -2,7 +2,7 @@ from django.shortcuts import render, get_list_or_404, redirect, reverse
 import datetime
 from django.http import StreamingHttpResponse, HttpResponse, HttpResponseServerError
 from .models import Kontraktor
-from .forms import KontraktroForm, OrderForm
+from .forms import KontraktroForm, OrderForm, DPerolehanForm
 from django.db.models import Q
 from django.db.models import Count
 
@@ -116,6 +116,27 @@ def ordersebutharga(request):
         'form':form
     }
     return render(request, 'pages/order-add.html',data)
+
+
+def dnoperolehan(request):
+    return render(request, 'pages/noperolehan-dashboard.html')
+
+def daftarnoperolehan(request):
+
+    form = DPerolehanForm(request.POST or None)
+    if form.is_valid():
+        form.save()
+        form = DPerolehanForm()
+        
+    else:
+        print("no data was post yet")
+
+    
+    context = {
+        'form':form
+    }
+
+    return render(request, 'pages/perolehan-daftar.html',context)
 
 
     

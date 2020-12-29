@@ -12,7 +12,9 @@ from jpskit.views import(
     kontraktordaftar,
     kontraktoredit,
     kontraktordelete,
-    ordersebutharga
+    ordersebutharga,
+    dnoperolehan,
+    daftarnoperolehan
 )
 
 
@@ -25,9 +27,11 @@ urlpatterns = [
     path('kontraktor/edit/<int:id>/',kontraktoredit, name="kontraktor/edit"),
     path('kontraktor-delete/<int:id>',kontraktordelete, name="kontraktor-delete"),
     path('sebutharga/order', ordersebutharga, name="sebutharga/order"),
+    path('noperolehan/dashboard', dnoperolehan, name="noperolehan/dashboard"),
 
     #registerpath
     path('kontraktor-add', kontraktordaftar, name="kontraktor-add"),
+    path('noperolehan/daftar',daftarnoperolehan, name="noperolehan/daftar")
 
 
 ]
