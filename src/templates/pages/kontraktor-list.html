@@ -49,7 +49,7 @@
 						        <tbody>
                                 {% for row in kontraktor %}
 													<tr>
-														<td>{{row.id}}</td>
+														<td>{{forloop.counter}}</td>
 														<td>gambar</td>
 														<td><a href="">{{row.konNama}}</a></td>
 														<td>{{row.konPengurus}}</td>

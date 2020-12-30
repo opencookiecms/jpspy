@@ -1,5 +1,5 @@
 from django import forms
-from ..modelcontroller import dnoperolehan, userprofile
+from ..modelcontroller import dfnoperolehan, userprofile
 
 class DPerolehanForm(forms.ModelForm):
 
@@ -18,7 +18,7 @@ class DPerolehanForm(forms.ModelForm):
     pegawaiselia  = forms.ModelChoiceField(required=False, queryset= userprofile.UserProfile.objects.all(), widget=forms.Select(attrs={'class':'form-control custom-select select29'}))
 
     class Meta:
-        model = dnoperolehan.NoPerolehan
+        model = dfnoperolehan.NoPerolehan
         fields = [
             'noperolehan',
             'tarikh',

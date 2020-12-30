@@ -156,25 +156,26 @@
 										<tr>
 											<th>Bil</th>
 											<th>No Perolehan</th>
-											<th>Tarikah</th>
+											<th>Tarikh</th>
 											<th>Keadah Perolehan</th>
 											<th>Pengawai Penyelia</th>
 										
 										</tr>
 									</thead>
 									<tbody>
+									 {% for row in semua %}
 										<tr>
-											<td>1011</td>
+											<td>{{forloop.counter}}</td>
 											<td>
-												<a href="javascript:void(0)">Sophia</a>
+											    {{row.noperolehan}}
 											</td>
-											<td>sophia@gmail.com</td>
-											<td>How to customize the template?</td>
-											<td><span class="badge badge-warning">New</span> </td>
+											<td>{{row.tarikh}}</td>
+											<td>{{row.kaedahperolehan}}</td>
+											<td><span class="badge badge-warning">{{row.pegawaiselia}}</span> </td>
 											
 										
 										</tr>
-								
+									{% endfor %}
 									</tbody>
 								</table>
 							</div>
@@ -182,9 +183,35 @@
 						</div>
 						<div class="tab-pane" id="profile2" role="tabpanel">
 							<div class="p-15">
-								<h4>Fusce porta eros a nisl varius, non molestie metus mollis. Pellentesque tincidunt ante sit amet ornare lacinia.</h4>
-								<p>Duis cursus eros lorem, pretium ornare purus tincidunt eleifend. Etiam quis justo vitae erat faucibus pharetra. Morbi in ullamcorper diam. Morbi lacinia, sem vitae dignissim cursus, massa nibh semper magna, nec pellentesque lorem nisl quis ex.</p>
-								<h3>Donec vitae laoreet neque, id convallis ante.</h3>
+							 <div class="table-responsive">
+								<table id="example" class="table mt-0 table-hover no-wrap table-borderless" data-page-size="10">
+									<thead>
+										<tr>
+											<th>Bil</th>
+											<th>No Perolehan</th>
+											<th>Tarikh</th>
+											<th>Keadah Perolehan</th>
+											<th>Pengawai Penyelia</th>
+										
+										</tr>
+									</thead>
+									<tbody>
+									 {% for row in sebutharga %}
+										<tr>
+											<td>{{forloop.counter}}</td>
+											<td>
+											    {{row.noperolehan}}
+											</td>
+											<td>{{row.tarikh}}</td>
+											<td>{{row.kaedahperolehan}}</td>
+											<td><span class="badge badge-warning">{{row.pegawaiselia}}</span> </td>
+											
+										
+										</tr>
+									{% endfor %}
+									</tbody>
+								</table>
+							</div>
 							</div>
 						</div>
 						<div class="tab-pane" id="messages2" role="tabpanel">

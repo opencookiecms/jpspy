@@ -1,14 +1,21 @@
 from django.shortcuts import render, get_list_or_404, redirect, reverse
 import datetime
 from django.http import StreamingHttpResponse, HttpResponse, HttpResponseServerError
-from ..modelcontroller import kontraktor,dnoperolehan,order,project,userprofile
-from ..formcontroller import noperolehanform, kontraktorform
+from ..modelcontroller import dfnoperolehan
+from ..formcontroller import noperolehanform
 from django.db.models import Q
 from django.db.models import Count
 
 
 def dnoperolehan(request):
-    return render(request, 'pages/noperolehan-dashboard.html')
+
+    context = {
+        'semua':dfnoperolehan.NoPerolehan.objects.all(),
+        'sebutharga':dfnoperolehan.NoPerolehan.objects.filter(kaedahperolehan="Sebutharga"),
+        'lt':dfnoperolehan.NoPerolehan.objects.filter(kaedahperolehan="Lantikan Terus"),
+        'undi':dfnoperolehan.NoPerolehan.objects.filter(kaedahperolehan="Undi")
+    }
+    return render(request, 'pages/noperolehan-dashboard.html',context)
 
 
 
@@ -28,3 +35,4 @@ def daftarnoperolehan(request):
     }
 
     return render(request, 'pages/perolehan-daftar.html',context)
+
