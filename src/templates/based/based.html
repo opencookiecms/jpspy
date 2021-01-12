@@ -2,17 +2,19 @@
 <html lang="en">
 
     {% include 'based/head.html' %}
-   	<body class="hold-transition light-skin sidebar-mini theme-primary">
+    <body class="hold-transition light-skin sidebar-mini theme-primary fixed">
     <div class="wrapper">
     <div id="loader"></div>
+
     {% include 'based/header.html' %}
-    {% include 'based/sidemenu.html' %}
+    {% include 'based/nav.html' %}
     {% block content %}
     {% endblock content %}
+    
     {% include 'based/footer.html' %}
+    <!-- Add the sidebar's background. This div must be placed immediately after the control sidebar -->
     <div class="control-sidebar-bg"></div>
     </div>
     {% include 'based/scripts.html' %}
-    
     </body>
 </html>
