@@ -1,10 +1,14 @@
 from django.db import models
 from ..modelcontroller import kontraktor
+from ..modelcontroller import dfnoperolehan
+from django.contrib.auth.models import User
+
 class Projek(models.Model):
 
-    title = models.CharField(max_length=50, null=True, blank=True)
-    tarikh = models.CharField(max_length=50, null=True, blank=True)
-    vendor = models.ForeignKey(kontraktor.Kontraktor, on_delete=models.CASCADE)
+    tajukkerja = models.CharField(max_length=50, null=True, blank=True)
+    daerah = models.CharField(max_length=50, null=True, blank=True)
+    pegawaiselia = models.ForeignKey(User, on_delete=models.CASCADE)
+    nosebuthargalink = models.ForeignKey(dfnoperolehan.NoPerolehan, on_delete=models.CASCADE)
 
     def __str__(self):
-        return self.title
+        return self.tajukkerja

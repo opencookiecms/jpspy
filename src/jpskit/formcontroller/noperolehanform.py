@@ -15,7 +15,7 @@ class DPerolehanForm(forms.ModelForm):
     noperolehan = forms.CharField(required=False, widget=forms.TextInput(attrs={'class':'form-control','type':'text','value':'hale'}))
     tarikh  = forms.CharField(required=False, widget=forms.TextInput(attrs={'class':'form-control fc-datepicker','placeholder':'MM/DD/YYYY'}))
     kaedahperolehan  = forms.ChoiceField(choices=kaedah, required=False, widget=forms.Select(attrs={'class':'form-control custom-select select28 ','placholder':'baru'}))
-    pegawaiselia  = forms.ModelChoiceField(required=False, queryset= userprofile.UserProfile.objects.all(), widget=forms.Select(attrs={'class':'form-control custom-select select29'}))
+    #pegawaiselia  = forms.ModelChoiceField(required=False, queryset= userprofile.UserProfile.objects.all(), widget=forms.Select(attrs={'class':'form-control custom-select select29'}))
 
     class Meta:
         model = dfnoperolehan.NoPerolehan
