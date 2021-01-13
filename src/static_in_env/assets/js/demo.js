@@ -316,3 +316,21 @@ $(function () {
 	
 });// End of use strict
 
+$(function(){
+  'use strict'
+  // Datepicker
+  $('.fc-datepicker').datepicker({
+  showOtherMonths: true,
+  selectOtherMonths: true,
+  dateFormat: 'dd/mm/yy'
+
+  });
+
+  $('#datepickerNoOfMonths').datepicker({
+  showOtherMonths: true,
+  selectOtherMonths: true,
+  numberOfMonths: 2
+  });
+
+});
+
