@@ -12,6 +12,7 @@ from jpskit.views import(
 from jpskit.viewcontroller import (
     perolehanviews,
     kontraktorviews,
+    projekview,
 
 )
 
@@ -26,7 +27,9 @@ urlpatterns = [
     path('kontraktor-delete/<int:id>',kontraktorviews.kontraktordelete, name="kontraktor-delete"),
 
     path('noperolehan', perolehanviews.dnoperolehan, name="noperolehan"),
-    path('noperolehan/daftar',perolehanviews.daftarnoperolehan, name="noperolehan/daftar")
+    path('noperolehan/daftar',perolehanviews.daftarnoperolehan, name="noperolehan/daftar"),
+
+    path('projek/daftar',projekview.daftarprojek, name="projek/daftar")
 
 
 ]

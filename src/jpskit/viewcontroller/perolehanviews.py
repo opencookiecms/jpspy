@@ -28,6 +28,7 @@ def daftarnoperolehan(request):
         
     else:
         print("no data was post yet")
+        print(form)
 
     
     context = {

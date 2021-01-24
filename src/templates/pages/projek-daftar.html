@@ -1,0 +1,506 @@
+
+  {% extends 'based/based.html' %}
+  {% block content %}
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+	  <div class="container-full">
+		<!-- Content Header (Page header) -->
+		<div class="content-header">
+			<div class="d-flex align-items-center">
+				<div class="mr-auto">
+					<h3 class="page-title">Daftar Maklumat Perolehan</h3>
+					<div class="d-inline-block align-items-center">
+						<nav>
+							<ol class="breadcrumb">
+								<li class="breadcrumb-item"><a href="#"><i class="mdi mdi-home-outline"></i></a></li>
+								<li class="breadcrumb-item" aria-current="page">Kontraktor</li>
+								<li class="breadcrumb-item active" aria-current="page">Daftar Baru</li>
+							</ol>
+						</nav>
+					</div>
+				</div>
+				
+			</div>
+		</div>	  
+
+		<!-- Main content -->
+		<section class="content">
+
+		  <!-- vertical wizard -->
+		  <div class="box box-default">
+			<div class="box-header with-border">
+			  <h4 class="box-title">Borang Maklumat Perolehan</h4>
+			  <h6 class="box-subtitle">You can find the <a href="http://www.jquery-steps.com" target="_blank">offical website</a></h6>
+			</div>
+			<!-- /.box-header -->
+			<div class="box-body wizard-content">
+                <form action='{% url 'kontraktor/daftar-baru' %}' class="tab-wizard vertical wizard-circle" id="form" method='POST' enctype="multipart/form-data" >
+                {% csrf_token %}
+					<!-- Step 1 -->
+					<h6>Langkah Satu</h6>
+					   <section>
+                            <div class="row">
+								<div class="box-body">
+								<h4 class="box-title text-primary"><i class="ti-user mr-15"></i>Borang Daftar Perolehan</h4>
+								<hr class="my-15">
+								<div class="row">
+								  <div class="col-md-8">
+									<div class="form-group">
+									 <input type="hidden" name="{{form.nosebuthargaid.name}}" class="form-control" id="{{form.nosebuthargaid.id_for_label}}"/>
+									  <label>No Perolehan</label>
+									  <div class="input-group">
+                                       <input type="text" name="" class="form-control" id="nosebuts" readonly/>
+									  
+									  <span class="input-group-append">
+									  	<button class="btn btn-primary btn-sm" type="button" data-toggle="modal" data-target=".bs-example-modal-lg" >Select</button>
+									  </span>
+									  </div>
+									</div>
+								  </div>
+                                  <div class="col-md-4">
+									<div class="form-group">
+									  <label>Tarikh</label>
+									  <input type="text" name="" class="form-control" id="datedate" readonly/>
+									</div>
+								  </div>
+								</div>
+						
+								<h4 class="box-title text-primary mt-20"><i class="ti-save mr-15"></i> Maklumat No Perolehan</h4>
+								<hr class="my-15">
+							
+								<div class="row">
+								  <div class="col-md-6">
+									<div class="form-group">
+									  <label>Kaedah</label>
+								       <input type="text" name="" class="form-control" id="kaedah" readonly/>
+									</div>
+								  </div>
+						
+								</div>
+								<div class="row">
+								  <div class="col-md-8">
+									<div class="form-group">
+									  <label>Tajuk Kerja</label>
+								       {{form.tajukkerja}}
+									</div>
+								  </div>
+						
+								</div>
+                                <div class="row">
+                                	<div class="col-md-6">
+									<div class="form-group">
+									  <label>Daerah</label>
+                                      {{form.daerah}}
+				
+									</div>
+								  </div>
+                                </div>
+
+								<div class="row">
+                                	<div class="col-md-6">
+									<div class="form-group">
+									  <label>Pegawai Selia</label>
+                                       <input type="text" name="" class="form-control" id="selia" readonly/>
+				
+									</div>
+								  </div>
+                                </div>
+							
+							
+							</div>
+                        </div>
+							    <!-- /.modal -->
+
+							<div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" style="display: none;">
+									<div class="modal-dialog modal-lg">
+										<div class="modal-content">
+											<div class="modal-header">
+												<h4 class="modal-title" id="myLargeModalLabel">Senarai No. Perolehan</h4>
+												<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+											</div>
+											<div class="modal-body">
+											 <div class="table-responsive">
+												<table id="tickets" class="table mt-0 table-hover no-wrap table-borderless" data-page-size="10">
+													<thead>
+													<tr>
+														<th>
+														Bil
+														</th>
+														<th width:20>
+														Tindakkan
+														</th>
+														<th>
+														No Sebutharga
+														</th>
+														<th>
+														Pemilik
+														</th>
+														<th>
+														Tarikh
+														</th>
+														<th>
+														Jenis
+														</th>
+													</tr>
+													</thead>
+													<tbody>
+													{% for row in sebutharga %}
+														<tr>
+														<td class="py-1">{{forloop.counter}}</td>
+														<td class="py-1"><button id="buttonselect" value="{{row.id}}" class="waves-effect waves-light btn mb-5 bg-gradient-primary" data-dismiss="modal">Select</button></td>
+														<td class="py-1"><span>{{row.noperolehan}}<span></td> <!--Show data in list view-->
+														<td class="py-1"><span>{{row.pegawaiselia.first_name}}<span></td> <!--Show data in list view-->
+														<td class="py-1"><span>{{row.tarikh}}<span></td> <!--Show data in list view-->
+														<td class="py-1"><span>{{row.kaedahperolehan}}<span></td> <!--Show data in list view-->
+														</tr>
+
+													{% endfor %}
+													</tbody>
+												</table>
+												</div>
+											</div>
+											<div class="modal-footer">
+												<button type="button" class="btn btn-danger text-left" data-dismiss="modal">Close</button>
+											</div>
+										</div>
+										<!-- /.modal-content -->
+									</div>
+									<!-- /.modal-dialog -->
+								</div>
+							<!-- /.modal -->
+                        </section>
+			
+                    <!-- Step 1 -->
+					<h6>Langkah Dua</h6>
+					  <section>
+					  	    <div class="row">
+								<div class="box-body">
+								<h4 class="box-title text-primary"><i class="ti-agenda mr-15"></i>Kategori Pendaftaran</h4>
+								<hr class="my-15">
+								<div class="row">
+								  <div class="col-md-3">
+									<div class="form-group">
+									 <input type="hidden" name="{{form.nosebuthargaid.name}}" class="form-control" id="{{form.nosebuthargaid.id_for_label}}"/>
+									  <label>Gred</label>
+                                       {{form.pgred}}
+									</div>
+								  </div>
+                                  <div class="col-md-3">
+									<div class="form-group">
+									  <label>Ketegori</label>
+									  {{form.pkategori}}
+									</div>
+								  </div>
+								</div>
+						
+								<h4 class="box-title text-primary mt-20"><i class="ti-save mr-15"></i>Pengkhususan</h4>
+								<hr class="my-15">
+							
+								<div class="row">
+								  <div class="col-md-2">
+									<div class="form-group">
+									
+								       {{form.pkhususan1}}
+									</div>
+								  </div>
+								  <div class="col-md-2">
+									<div class="form-group">
+								
+								       {{form.pkhususan2}}
+									</div>
+								  </div>
+								    <div class="col-md-2">
+									<div class="form-group">
+									
+								      {{form.pkhususan3}}
+									</div>
+								  </div>
+						
+								</div>
+								<div class="row">
+								  <div class="col-md-3">
+									<div class="form-group">
+									  <label>Taraf</label>
+								        {{form.ptaraf}}
+									</div>
+								  </div>
+						
+								</div>
+                                <div class="row">
+                                	<div class="col-md-6">
+									<div class="form-group">
+									  <label>Daerah</label>
+                                      {{form.daerah}}
+				
+									</div>
+								  </div>
+                                </div>
+
+								<div class="row">
+                                	<div class="col-md-3">
+									<div class="form-group">
+									  <label>Tempoh Siap Kerja</label>
+                                      {{form.ptempohsiap}}
+				
+									</div>
+								  </div>
+								<div class="col-md-3">
+									<div class="form-group">
+									  <label>Tempoh Siap Kerja</label>
+                                      {{form.pweekormonth}}
+				
+									</div>
+								  </div>
+                                </div>
+
+								<h4 class="box-title text-primary mt-20"><i class="ti-calendar mr-15"></i>Harga Dokumen & Tarikh</h4>
+								<hr class="my-15">
+
+								<div class="row">
+                               	  <div class="col-md-3">
+									<div class="form-group">
+									  <label>Harga Dokumen Sebutharga (RM)</label>
+									  <div class="input-group">
+                                       {{form.hargadukumen}}
+									  
+									  <span class="input-group-append">
+									  	<button class="btn btn-primary btn-sm" type="button">RM</button>
+									  </span>
+									  </div>
+									</div>
+								  </div>
+							 	  <div class="col-md-3">
+									<div class="form-group">
+									  
+									  
+									  <label>**Makluman</label>
+									  <div class="input-group">
+											<div class="input-group-append bg-dark border-dark">
+											<span class="input-group-text bg-transparent text-white">(Minimum RM10 | Maksimum RM50)</span>
+											</div>
+										</div>
+									</div>
+								  </div>
+                                </div>
+
+								
+								<div class="row">
+                                   <div class="col-md-3">
+									<div class="form-group">
+									  <label>Tarikh Notis Dikeluarkan</label>
+                                      {{form.tarikhnotis}}
+				
+									</div>
+								  </div>
+                              </div>
+
+							<div class="row">
+                               	  <div class="col-md-3">
+									<div class="form-group">
+									  <label>Tarikh Lawat Tapak/Taklimat</label>
+									  <div class="input-group">
+                                       <input type="text" class="form-control" id="harilawat">
+									  
+									  <span class="input-group-append">
+									  	 <span class="input-group-text">Hari</span>
+									  </span>
+									  </div>
+									</div>
+								  </div>
+								 <div class="col-md-3">
+									<div class="form-group">
+									  <label>Tarikh</label>
+                                     {{form.tariklawattapak}}
+				
+									</div>
+								  </div>
+                                </div>
+
+										<div class="row">
+                               	  <div class="col-md-3">
+									<div class="form-group">
+									  <label>Tarikh Dokumen Mula Dijual</label>
+									  <div class="input-group">
+                                       <input type="text" class="form-control" id="harimulajual">
+									  
+									  <span class="input-group-append">
+									  	 <span class="input-group-text">Hari</span>
+									  </span>
+									  </div>
+									</div>
+								  </div>
+								 <div class="col-md-3">
+									<div class="form-group">
+									  <label>Tarikh</label>
+									  {{form.tarikhdukemenjual}}
+				
+									</div>
+								  </div>
+                                </div>
+
+										<div class="row">
+                               	  <div class="col-md-3">
+									<div class="form-group">
+									  <label>Tarikh Akhir Dokumen Dijual</label>
+									  <div class="input-group">
+                                       <input type="text" class="form-control" id="hariakhirjual">
+									  
+									  <span class="input-group-append">
+									  	 <span class="input-group-text">Hari</span>
+									  </span>
+									  </div>
+									</div>
+								  </div>
+								 <div class="col-md-3">
+									<div class="form-group">
+									  <label>Tarikh</label>
+									  {{form.tarikhakhirdukemenjual}}
+                     
+				
+									</div>
+								  </div>
+                                </div>
+
+								<div class="row">
+                               	  <div class="col-md-3">
+									<div class="form-group">
+									  <label>Tarikh Sebutharga Ditutup</label>
+									  <div class="input-group">
+                                       <input type="text" class="form-control" id="haritutup">
+									  
+									  <span class="input-group-append">
+									  	 <span class="input-group-text">Hari</span>
+									  </span>
+									  </div>
+									</div>
+								  </div>
+								 <div class="col-md-3">
+									<div class="form-group">
+									  <label>Tarikh</label>
+									  {{form.tarikhtutupsebutharga}}
+                            
+				
+									</div>
+								  </div>
+                                </div>
+
+							     <h4 class="box-title text-primary mt-20"><i class="ti-user mr-15"></i>Pengesahan</h4>
+								<hr class="my-15">
+
+								<div class="row">
+                               	  <div class="col-md-4">
+									<div class="form-group">
+									  <label>Jurutera Dearah</label>
+                                       {{form.pjuruteradearah}}
+									</div>
+								  </div>
+						
+                                </div>
+
+								
+								<div class="row">
+                               	  <div class="col-md-4">
+									<div class="form-group">
+									  <label>Jurutera</label>
+                                       {{form.pjurutera}}
+									</div>
+								  </div>
+						
+                                </div>
+
+								<div class="row">
+                               	  <div class="col-md-4">
+									<div class="form-group">
+									  <label>Penolong Jurutera Kanan JA36</label>
+                                       {{form.pjuruterakanan36}}
+									</div>
+								  </div>
+						
+                                </div>
+
+								<div class="row">
+                               	  <div class="col-md-4">
+									<div class="form-group">
+									  <label>Penolong Jurutera JA29</label>
+                                       {{form.pjurutera29}}
+									</div>
+								  </div>
+						
+                                </div>
+
+								
+								<div class="row">
+                               	  <div class="col-md-4">
+									<div class="form-group">
+									  <label>Kod Vot (Tanpa Space)</label>
+                                       {{form.kodvot}}
+									</div>
+								  </div>
+						
+                                </div>
+
+									
+								<div class="row">
+                               	  <div class="col-md-4">
+									<div class="form-group">
+									  <label>Peruntukan</label>
+                                       {{form.peruntukan}}
+									</div>
+								  </div>
+						
+                                </div>
+								<div class="row">
+								<div class="col-md-4">
+									<div class="form-group">
+									  <label>Peruntukan Semasa (RM)</label>
+									  <div class="input-group">
+                                       {{form.peruntukansemasa}}
+									  
+									  <span class="input-group-append">
+									  	 <span class="input-group-text">RM</span>
+									  </span>
+									  </div>
+									</div>
+								  </div>
+							</div>
+						</div>
+                        </div>
+                         
+                      </section>
+					
+					<!-- Step 2 -->
+					<h6>Langkah Tiga</h6>
+			        <section>
+                            <div class="form-group">
+                                <label class="form-label">Bank</label>
+                                {{form.konBank}}
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">No Akaun</label>
+                                <div class="input-group">
+                                    {{form.konNoAkaun}}
+                                    <span class="input-group-append">
+                                        <button class="btn btn-info" type="button"><i class="fa fa-cc-visa"></i>
+                                            &nbsp; <i class="fa fa-cc-amex"></i> &nbsp;
+                                            <i class="fa fa-cc-mastercard"></i></button>
+                                    </span>
+                                </div>
+                            </div>
+
+                    </section>
+			
+				</form>
+			</div>
+			<!-- /.box-body -->
+		  </div>
+		  <!-- /.box -->
+		  <!-- /.box -->
+
+		</section>
+		<!-- /.content -->
+	  </div>
+  </div>
+  <!-- /.content-wrapper -->
+
+    {% endblock content %}
+  

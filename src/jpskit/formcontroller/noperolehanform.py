@@ -1,5 +1,9 @@
 from django import forms
 from ..modelcontroller import dfnoperolehan, userprofile
+from django.contrib.auth.models import User
+
+
+
 
 class DPerolehanForm(forms.ModelForm):
 
@@ -11,12 +15,14 @@ class DPerolehanForm(forms.ModelForm):
         ('Undi','Undi')
 
     )
-
+    #"widget=forms.NumberInput
     noperolehan = forms.CharField(required=False, widget=forms.TextInput(attrs={'class':'form-control','type':'text','value':'hale'}))
     tarikh  = forms.CharField(required=False, widget=forms.TextInput(attrs={'class':'form-control fc-datepicker','placeholder':'MM/DD/YYYY'}))
     kaedahperolehan  = forms.ChoiceField(choices=kaedah, required=False, widget=forms.Select(attrs={'class':'form-control custom-select select28 ','placholder':'baru'}))
-    #pegawaiselia  = forms.ModelChoiceField(required=False, queryset= userprofile.UserProfile.objects.all(), widget=forms.Select(attrs={'class':'form-control custom-select select29'}))
-    #pegawaiselia = forms.CharField(required=False, widget=forms.TextInput(attrs={'class':'form-control','type':'text','value':'hale'}))
+    pegawaiselia  = forms.ModelChoiceField(required=False, queryset=User.objects.all(), widget=forms.Select(attrs={'class':'form-control custom-select select29'}))
+    
+    #pegawaiselia = forms.CharField(required=False, widget=forms.TextInput(attrs={'class':'form-control','type':'text'}))
+    
 
     class Meta:
         model = dfnoperolehan.NoPerolehan
