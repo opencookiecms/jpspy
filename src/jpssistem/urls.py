@@ -16,7 +16,6 @@ from jpskit.viewcontroller import (
 
 )
 
-
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', index, name='index'),
@@ -25,15 +24,10 @@ urlpatterns = [
     path('kontraktor/daftar-baru', kontraktorviews.kontraktordaftar, name="kontraktor/daftar-baru"),
     path('kontraktor/edit/<int:id>/',kontraktorviews.kontraktoredit, name="kontraktor/edit"),
     path('kontraktor-delete/<int:id>',kontraktorviews.kontraktordelete, name="kontraktor-delete"),
-
     path('noperolehan', perolehanviews.dnoperolehan, name="noperolehan"),
     path('noperolehan/daftar',perolehanviews.daftarnoperolehan, name="noperolehan/daftar"),
-
     path('projek/daftar',projekview.daftarprojek, name="projek/daftar")
-
-
 ]
-
 
 if settings.DEBUG:
     urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
