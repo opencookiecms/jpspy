@@ -34,7 +34,7 @@
 			</div>
 			<!-- /.box-header -->
 			<div class="box-body wizard-content">
-                <form action='{% url 'kontraktor/daftar-baru' %}' class="tab-wizard vertical wizard-circle" id="form" method='POST' enctype="multipart/form-data" >
+                <form action='{% url 'projek/daftar' %}' class="tab-wizard vertical wizard-circle" id="form" method='POST' enctype="multipart/form-data" >
                 {% csrf_token %}
 					<!-- Step 1 -->
 					<h6>Langkah Satu</h6>
@@ -46,6 +46,7 @@
 								<div class="row">
 								  <div class="col-md-8">
 									<div class="form-group">
+								
 									 <input type="hidden" name="{{form.nosebuthargaid.name}}" class="form-control" id="{{form.nosebuthargaid.id_for_label}}"/>
 									  <label>No Perolehan</label>
 									  <div class="input-group">
@@ -126,6 +127,9 @@
 														<th>
 														Bil
 														</th>
+														<th>
+														ID
+														</th>
 														<th width:20>
 														Tindakkan
 														</th>
@@ -147,6 +151,7 @@
 													{% for row in sebutharga %}
 														<tr>
 														<td class="py-1">{{forloop.counter}}</td>
+														<td class="py-1">{{row.id}}</td>
 														<td class="py-1"><button id="buttonselect" value="{{row.id}}" class="waves-effect waves-light btn mb-5 bg-gradient-primary" data-dismiss="modal">Select</button></td>
 														<td class="py-1"><span>{{row.noperolehan}}<span></td> <!--Show data in list view-->
 														<td class="py-1"><span>{{row.pegawaiselia.first_name}}<span></td> <!--Show data in list view-->
@@ -180,7 +185,7 @@
 								<div class="row">
 								  <div class="col-md-3">
 									<div class="form-group">
-									 <input type="hidden" name="{{form.nosebuthargaid.name}}" class="form-control" id="{{form.nosebuthargaid.id_for_label}}"/>
+								
 									  <label>Gred</label>
                                        {{form.pgred}}
 									</div>
@@ -470,24 +475,118 @@
 					
 					<!-- Step 2 -->
 					<h6>Langkah Tiga</h6>
-			        <section>
-                            <div class="form-group">
-                                <label class="form-label">Bank</label>
-                                {{form.konBank}}
-                            </div>
-                            <div class="form-group">
-                                <label class="form-label">No Akaun</label>
-                                <div class="input-group">
-                                    {{form.konNoAkaun}}
-                                    <span class="input-group-append">
-                                        <button class="btn btn-info" type="button"><i class="fa fa-cc-visa"></i>
-                                            &nbsp; <i class="fa fa-cc-amex"></i> &nbsp;
-                                            <i class="fa fa-cc-mastercard"></i></button>
-                                    </span>
-                                </div>
-                            </div>
+			   		  <section>
+					  	    <div class="row">
+								<div class="box-body">
+						
 
-                    </section>
+								<h4 class="box-title text-primary"><i class="ti-save mr-15"></i>Lokasi & Sistem</h4>
+								<hr class="my-15">
+							
+								<div class="row">
+								  <div class="col-md-2">
+									<div class="form-group">
+										<label>Latitud (N) &#176</label>
+								       {{form.latitud1}}
+									</div>
+								  </div>
+								  <div class="col-md-2">
+									<div class="form-group">
+										<label>Latitud (N) '</label>
+								       {{form.latitud2}}
+									</div>
+								  </div>
+								    <div class="col-md-2">
+									<div class="form-group">
+									  <label>Latitud (N) "</label>
+								      {{form.latitud3}}
+									</div>
+								  </div>
+						
+								</div>
+								<div class="row">
+								  <div class="col-md-2">
+									<div class="form-group">
+										<label>Longitud (E) &#176</label>
+								       {{form.longlitud1}}
+									</div>
+								  </div>
+								  <div class="col-md-2">
+									<div class="form-group">
+										<label>Longitud (E) '</label>
+								       {{form.longlitud2}}
+									</div>
+								  </div>
+								    <div class="col-md-2">
+									<div class="form-group">
+									  <label>Longitud (E) "</label>
+								      {{form.longlitud3}}
+									</div>
+								  </div>
+						
+								</div>
+							
+                            
+								<h4 class="box-title text-primary mt-20"><i class="ti-calendar mr-15"></i>Sungai</h4>
+								<hr class="my-15">
+
+								<div class="row">
+                               	  <div class="col-md-4">
+									<div class="form-group">
+									  <label>Lembangan Sungai</label>
+									  <div class="input-group">
+                                       {{form.lembangansungai}}
+									  
+									  <span class="input-group-append">
+									  	<button class="btn btn-primary btn-sm" type="button">Pilih</button>
+									  </span>
+									  </div>
+									</div>
+								  </div>
+				
+                                </div>
+
+
+								<div class="row">
+                              	 <div class="col-md-3">
+									<div class="form-group">
+									  <label>Sistem</label>
+									  {{form.sistem}}
+				
+									</div>
+								  </div>
+								 <div class="col-md-3">
+									<div class="form-group">
+									  <label>Subsistem</label>
+									  {{form.subsistem}}
+				
+									</div>
+								  </div>
+                                </div>
+
+									<div class="row">
+                              	 <div class="col-md-3">
+									<div class="form-group">
+									  <label>Komponen</label>
+									  {{form.komponen}}
+				
+									</div>
+								  </div>
+								 <div class="col-md-3">
+									<div class="form-group">
+									  <label>Dimensi</label>
+									  {{form.dimensi}}
+				
+									</div>
+								  </div>
+                                </div>
+
+
+	
+						</div>
+                        </div>
+                         
+                      </section>
 			
 				</form>
 			</div>

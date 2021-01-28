@@ -350,20 +350,39 @@ $(function() {
 $('.table tbody').on('click', '#buttonselect', function() {
 
     var currow = $(this).closest('tr');
-    var idss = currow.find('#buttonselect').val();
-    var col1 = currow.find('td:eq(2)').text();
-    var selia = currow.find('td:eq(3)').text();
-    var jenis = currow.find('td:eq(5)').text();
-    var tmohon = currow.find('td:eq(4)').text();
+    var ids = currow.find('td:eq(1)').text();
+    var col1 = currow.find('td:eq(3)').text();
+    var selia = currow.find('td:eq(4)').text();
+    var jenis = currow.find('td:eq(6)').text();
+    var tmohon = currow.find('td:eq(5)').text();
 
     var result = col1;
-    document.getElementById("id_nosebuthargaid").value = idss;
 
+    $('#id_nosebuthargaid').val(ids)
     $("#nosebuts").val(result);
     $("#selia").val(selia);
     $('#kaedah').val(jenis);
     $('#datedate').val(tmohon);
 })
+
+$('.table tbody').on('click', '#buttonkontraktor', function() {
+
+    var currow = $(this).closest('tr');
+    var ids = currow.find('td:eq(1)').text();
+    var konname = currow.find('td:eq(3)').text();
+    var daerah = currow.find('td:eq(4)').text();
+    var negeri = currow.find('td:eq(6)').text();
+    var nopkk = currow.find('td:eq(5)').text();
+
+    var result = col1;
+
+    $('#id_nosebuthargaid').val(ids)
+    $("#nosebuts").val(result);
+    $("#selia").val(selia);
+    $('#kaedah').val(jenis);
+    $('#datedate').val(tmohon);
+})
+
 
 
 //auto calculate date 

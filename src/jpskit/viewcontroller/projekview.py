@@ -13,6 +13,7 @@ def daftarprojek(request):
     if form.is_valid():
         form.save()
         form = projekform.Projekform()
+        return redirect('projek/senarai')  
         
     else:
         print("no data was post yet")
@@ -25,4 +26,12 @@ def daftarprojek(request):
     }
 
     return render(request, 'pages/projek-daftar.html',context)
+
+def senaraiprojek(request):
+
+    data = {
+        'senaraiprojek':project.Projek.objects.all()
+    }
+
+    return render(request, 'pages/projek-senarai.html',data)
 

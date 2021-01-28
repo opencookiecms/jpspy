@@ -38,7 +38,7 @@ class Projek(models.Model):
     subsistem = models.CharField(max_length=50, null=True, blank=True)
     komponen = models.CharField(max_length=50, null=True, blank=True)
     dimensi = models.CharField(max_length=50, null=True, blank=True)
-    nosebuthargaid = models.ForeignKey(dfnoperolehan.NoPerolehan, on_delete=models.CASCADE)
+    nosebuthargaid = models.ForeignKey(dfnoperolehan.NoPerolehan, blank=True, null=True, on_delete = models.SET_NULL)
 
     def __str__(self):
         return self.tajukkerja
@@ -51,8 +51,14 @@ class isSungai(models.Model):
     sg_noshet = models.CharField(max_length=50, null=True, blank=True)
     sg_norujukan = models.CharField(max_length=50, null=True, blank=True)
 
+
     def __str__(self):
         return self.sg_name
+
+    
+    class Meta: 
+        # Add verbose name 
+        verbose_name_plural = 'Sungai'
 
 class sistem(models.Model):
     sistemname = models.CharField(max_length=50, null=True, blank=True)

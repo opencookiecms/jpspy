@@ -66,7 +66,8 @@ def kontraktordaftar(request):
     form = kontraktorform.KontraktroForm(request.POST or None, request.FILES or None)
     if form.is_valid():
         form.save()
-        form = kontraktorform.KontraktroForm()        
+        form = kontraktorform.KontraktroForm()
+        
     else:
         print("no data was post yet")
 
