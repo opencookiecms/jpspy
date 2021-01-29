@@ -370,17 +370,18 @@ $('.table tbody').on('click', '#buttonkontraktor', function() {
     var currow = $(this).closest('tr');
     var ids = currow.find('td:eq(1)').text();
     var konname = currow.find('td:eq(3)').text();
-    var daerah = currow.find('td:eq(4)').text();
-    var negeri = currow.find('td:eq(6)').text();
+    var alamat = currow.find('td:eq(4)').text();
+    var daerah = currow.find('td:eq(6)').text();
+    var negeri = currow.find('td:eq(7)').text();
     var nopkk = currow.find('td:eq(5)').text();
 
-    var result = col1;
 
-    $('#id_nosebuthargaid').val(ids)
-    $("#nosebuts").val(result);
-    $("#selia").val(selia);
-    $('#kaedah').val(jenis);
-    $('#datedate').val(tmohon);
+    $('#id_mrksatukontraktor').val(ids)
+    $("#kontraktorname").val(konname);
+    $("#pkkno").val(nopkk);
+    $('#alamats').val(alamat);
+    $('#deerah').val(daerah);
+    $('#negeri').val(negeri);
 })
 
 

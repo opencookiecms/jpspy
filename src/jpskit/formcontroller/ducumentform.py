@@ -29,7 +29,7 @@ class MRK1Form(forms.ModelForm):
     mrksatunoinden = forms.CharField(required=False, widget=forms.TextInput(attrs={'class':'form-control','type':'text','placeholder':'No Inden'}))
     mrksatugred = forms.ChoiceField(choices=gred, required=False, widget=forms.Select(attrs={'class':'form-control custom-select select28 ','placholder':'baru'}))
     mrksatukategori  = forms.ChoiceField(choices=kategori, required=False, widget=forms.Select(attrs={'class':'form-control custom-select select28 ','placholder':'baru'}))
-    mrksatupengkhususan = forms.ChoiceField(choices="", required=False, widget=forms.Select(attrs={'class':'form-control custom-select select28 ','placholder':'baru'}))
+    mrksatupengkhususan = forms.CharField(required=False, widget=forms.TextInput(attrs={'class':'form-control','type':'text','placeholder':'No Inden'}))
     mrksatutarikhmula = forms.CharField(required=False, widget=forms.TextInput(attrs={'class':'form-control fc-datepicker','placeholder':'MM/DD/YYYY'}))
     mrksatutarikhjangkasiap = forms.CharField(required=False, widget=forms.TextInput(attrs={'class':'form-control fc-datepicker','placeholder':'MM/DD/YYYY'}))
 
@@ -59,22 +59,19 @@ class MRK1Form(forms.ModelForm):
 class MRKDuaForm(forms.ModelForm):
 
 
-    mrkduakerjajadual  = forms.CharField(required=False, widget=forms.TextInput(attrs={'class':'form-control','type':'text','placeholder':'No Inden'}))
+    mrkduakerjajadual  = forms.CharField(required=False, widget=forms.TextInput(attrs={'class':'form-control','type':'text','placeholder':'Kemajuan Kerja '}))
     mrkduakerjasebenartarikh = forms.CharField(required=False, widget=forms.TextInput(attrs={'class':'form-control fc-datepicker','placeholder':'MM/DD/YYYY'}))
-    mrkduakerjasebenar = forms.CharField(required=False, widget=forms.TextInput(attrs={'class':'form-control','type':'text','placeholder':'No Inden'}))
-    mrkduakemajuan = forms.CharField(required=False, widget=forms.TextInput(attrs={'class':'form-control','type':'text','placeholder':'No Inden'}))
-    mrkduabayarankemajuan = forms.CharField(required=False, widget=forms.TextInput(attrs={'class':'form-control','type':'text','placeholder':'No Inden'}))
-    mrkduamodal = forms.CharField(required=False, widget=forms.TextInput(attrs={'class':'form-control','type':'text','placeholder':'No Inden'}))
-    mkrduabahan = forms.CharField(required=False, widget=forms.TextInput(attrs={'class':'form-control','type':'text','placeholder':'No Inden'}))
-    mrkduapekerja = forms.CharField(required=False, widget=forms.TextInput(attrs={'class':'form-control','type':'text','placeholder':'No Inden'}))
-    mrkduatapak = forms.CharField(required=False, widget=forms.TextInput(attrs={'class':'form-control','type':'text','placeholder':'No Inden'}))
-    mrkduacuaca = forms.CharField(required=False, widget=forms.TextInput(attrs={'class':'form-control','type':'text','placeholder':'No Inden'}))
-    mrkduadisebabkan = forms.CharField(required=False, widget=forms.TextInput(attrs={'class':'form-control','type':'text','placeholder':'No Inden'}))
-    mrkdualainlain = forms.CharField(required=False, widget=forms.TextInput(attrs={'class':'form-control','type':'text','placeholder':'No Inden'}))
+    mrkduakerjasebenar = forms.CharField(required=False, widget=forms.TextInput(attrs={'class':'form-control','type':'text','placeholder':'Kerja Sebenar'}))
+    mrkduakemajuan = forms.CharField(required=False, widget=forms.TextInput(attrs={'class':'form-control','type':'text','placeholder':'Kemajuan Semasa'}))
+    mrkduabayarankemajuan = forms.CharField(required=False, widget=forms.TextInput(attrs={'class':'form-control','type':'text','placeholder':'0.00'}))
+
+
+    mrkduadisebabkanoleh = forms.CharField(required=False, widget=forms.Textarea(attrs={'class':'form-control','type':'text','placeholder':'Tajuk Kerja','rows':'5'}))
+    mrkdualainlain = forms.CharField(required=False, widget=forms.Textarea(attrs={'class':'form-control','type':'text','placeholder':'Tajuk Kerja','rows':'5'}))
     mrkdualanjutmasa = forms.CharField(required=False, widget=forms.TextInput(attrs={'class':'form-control','type':'text','placeholder':'No Inden'}))
     mrkdualanjutdari = forms.CharField(required=False, widget=forms.TextInput(attrs={'class':'form-control fc-datepicker','placeholder':'MM/DD/YYYY'}))
     mrkdualanjutsehingga = forms.CharField(required=False, widget=forms.TextInput(attrs={'class':'form-control fc-datepicker','placeholder':'MM/DD/YYYY'}))
-    mrkduadisebabkan = forms.CharField(required=False, widget=forms.TextInput(attrs={'class':'form-control','type':'text','placeholder':'No Inden'}))
+    mrkduadisebabkan = forms.CharField(required=False, widget=forms.Textarea(attrs={'class':'form-control','type':'text','placeholder':'Tajuk Kerja','rows':'5'}))
     mrkduaLAD = forms.CharField(required=False, widget=forms.TextInput(attrs={'class':'form-control','type':'text','placeholder':'No Inden'}))
     mrkduaLADdari = forms.CharField(required=False, widget=forms.TextInput(attrs={'class':'form-control fc-datepicker','placeholder':'MM/DD/YYYY'}))
     mrkduaLADSehingga = forms.CharField(required=False, widget=forms.TextInput(attrs={'class':'form-control fc-datepicker','placeholder':'MM/DD/YYYY'}))
@@ -99,7 +96,7 @@ class MRKDuaForm(forms.ModelForm):
             'mrkduapekerja',
             'mrkduatapak',
             'mrkduacuaca',
-            'mrkduadisebabkan',
+            'mrkduadisebabkanoleh',
             'mrkdualainlain',
             'mrkdualanjutmasa',
             'mrkdualanjutdari',
@@ -113,5 +110,31 @@ class MRKDuaForm(forms.ModelForm):
             'mrkduatarikhlaporan',
             'mrkduanosebutharga',
             'mrksatulink'
+        ]
+
+class LSKForm(forms.ModelForm):
+
+    class Meta:
+        model = document.Laporansiapkerja
+        fields = [
+            'lskhargasebenar',
+            'lsklanjutmasa',
+            'lskkerjasiap',
+            'lskperuntukan',
+            'lsklaporan',
+            'lsktarikhperakui',
+            'lskketuabahagian',
+            'lskjawatanketuabahagian',
+            'lskjuruteraj41',
+            'lskjawatanj41',
+            'lskjuruteradaerah',
+            'lskjawatanjuruteradaerah',
+            'lskperkeso',
+            'lskjenisinsurancesatu',
+            'lsknoinsurancesatu',
+            'lskjenisinsurancedua',
+            'lsknoinsurancedua',
+            'lsknosebutharga',
+            'lskmrksatulink',
         ]
    

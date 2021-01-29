@@ -38,7 +38,7 @@ class MRKDua(models.Model):
     mrkduapekerja = models.CharField(max_length=50, null=True, blank=True)
     mrkduatapak = models.CharField(max_length=50, null=True, blank=True)
     mrkduacuaca = models.CharField(max_length=50, null=True, blank=True)
-    mrkduadisebabkan = models.CharField(max_length=200, null=True, blank=True)
+    mrkduadisebabkanoleh = models.CharField(max_length=200, null=True, blank=True)
     mrkdualainlain = models.CharField(max_length=200, null=True, blank=True)
     mrkdualanjutmasa = models.CharField(max_length=50, null=True, blank=True)
     mrkdualanjutdari = models.CharField(max_length=50, null=True, blank=True)
@@ -59,7 +59,37 @@ class MRKDua(models.Model):
 
 
 class Laporansiapkerja(models.Model):
+    
+    lskhargasebenar  = models.CharField(max_length=50, null=True, blank=True)
+    lsklanjutmasa  = models.CharField(max_length=50, null=True, blank=True)
+    lskkerjasiap  = models.CharField(max_length=50, null=True, blank=True)
+    lskperuntukan  = models.CharField(max_length=50, null=True, blank=True)
+    lsklaporan  = models.CharField(max_length=200, null=True, blank=True)
+    lsktarikhperakui  = models.CharField(max_length=50, null=True, blank=True)
+    lskketuabahagian  = models.CharField(max_length=50, null=True, blank=True)
+    lskjawatanketuabahagian  = models.CharField(max_length=50, null=True, blank=True)
+    lskjuruteraj41  = models.CharField(max_length=50, null=True, blank=True)
+    lskjawatanj41  = models.CharField(max_length=50, null=True, blank=True)
+    lskjuruteradaerah  = models.CharField(max_length=50, null=True, blank=True)
+    lskjawatanjuruteradaerah  = models.CharField(max_length=50, null=True, blank=True)
+    lskperkeso  = models.CharField(max_length=50, null=True, blank=True)
+    lskjenisinsurancesatu  = models.CharField(max_length=50, null=True, blank=True)
+    lsknoinsurancesatu  = models.CharField(max_length=50, null=True, blank=True)
+    lskjenisinsurancedua  = models.CharField(max_length=50, null=True, blank=True)
+    lsknoinsurancedua  = models.CharField(max_length=50, null=True, blank=True)
+    lsknosebutharga  = models.CharField(max_length=50, null=True, blank=True)
+    lskmrksatulink  = models.CharField(max_length=50, null=True, blank=True)
+
+    class Meta:
+        verbose_name_plural = 'Laporan Siap Kerja'
+
+
+class MRKTiga(models.Model):
     pass
+
+
+
+
 
 
 

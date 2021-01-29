@@ -29,7 +29,8 @@ urlpatterns = [
     path('noperolehan/daftar',perolehanviews.daftarnoperolehan, name="noperolehan/daftar"),
     path('projek/daftar',projekview.daftarprojek, name="projek/daftar"),
     path('projek/senarai',projekview.senaraiprojek, name="projek/senarai"),
-    path('dokumen/mrksatu/daftar/<int:idperolehan>', documentviews.mrkoneregister, name="dokumen/mrksatu/daftar")
+    path('dokumen/mrksatu/daftar/<int:idperolehan>', documentviews.mrkoneregister, name="dokumen/mrksatu/daftar"),
+    path('dokumen/mrkdua/daftar/<int:idperolehan>', documentviews.mrktworegister, name="dokumen/mrkdua/daftar"),
 ]
 
 if settings.DEBUG:

@@ -1,4 +1,5 @@
 from django.db import models
+from django.urls import reverse
 from ..modelcontroller import kontraktor, dfnoperolehan
 
 
@@ -42,6 +43,7 @@ class Projek(models.Model):
 
     def __str__(self):
         return self.tajukkerja
+
 
 class isSungai(models.Model):
     sg_name = models.CharField(max_length=50, null=True, blank=True)
