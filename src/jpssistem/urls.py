@@ -31,6 +31,7 @@ urlpatterns = [
     path('projek/senarai',projekview.senaraiprojek, name="projek/senarai"),
     path('dokumen/mrksatu/daftar/<int:idperolehan>', documentviews.mrkoneregister, name="dokumen/mrksatu/daftar"),
     path('dokumen/mrkdua/daftar/<int:idperolehan>', documentviews.mrktworegister, name="dokumen/mrkdua/daftar"),
+    path('dokumen/lsk/daftar/<int:idperolehan>', documentviews.laporansiapkerja, name="dokumen/lsk/daftar"),
 ]
 
 if settings.DEBUG:

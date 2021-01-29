@@ -77,15 +77,38 @@ class Laporansiapkerja(models.Model):
     lsknoinsurancesatu  = models.CharField(max_length=50, null=True, blank=True)
     lskjenisinsurancedua  = models.CharField(max_length=50, null=True, blank=True)
     lsknoinsurancedua  = models.CharField(max_length=50, null=True, blank=True)
-    lsknosebutharga  = models.CharField(max_length=50, null=True, blank=True)
-    lskmrksatulink  = models.CharField(max_length=50, null=True, blank=True)
+    lsknosebutharga  = models.ForeignKey(dfnoperolehan.NoPerolehan, blank=True, null=True, on_delete = models.SET_NULL)
+    lskmrksatulink  = models.ForeignKey(MRKSatu, blank=True, null=True, on_delete = models.SET_NULL)
 
     class Meta:
         verbose_name_plural = 'Laporan Siap Kerja'
 
 
 class MRKTiga(models.Model):
-    pass
+
+    mrktigabina = models.CharField(max_length=50, null=True, blank=True)
+    mrktigatadbir = models.CharField(max_length=50, null=True, blank=True)
+    mrktigakemajuan = models.CharField(max_length=50, null=True, blank=True)
+    mkrtigamutukerangka = models.CharField(max_length=50, null=True, blank=True)
+    mrktigamutukerja = models.CharField(max_length=50, null=True, blank=True)
+    mrktigamutukemasan = models.CharField(max_length=50, null=True, blank=True)
+    mrktigamutukerjaluar = models.CharField(max_length=50, null=True, blank=True)
+    mrktigapegawasan = models.CharField(max_length=50, null=True, blank=True)
+    mrkcatat1 = models.CharField(max_length=150, null=True, blank=True)
+    mrkcatat2 = models.CharField(max_length=150, null=True, blank=True)
+    mrkcatat3 = models.CharField(max_length=150, null=True, blank=True)
+    mrkcatat4 = models.CharField(max_length=150, null=True, blank=True)
+    mrkcatat5 = models.CharField(max_length=150, null=True, blank=True)
+    mrkcatat6 = models.CharField(max_length=150, null=True, blank=True)
+    mrkcatat7 = models.CharField(max_length=150, null=True, blank=True)
+    mrkcatat8 = models.CharField(max_length=150, null=True, blank=True)
+    mrktigasokongan = models.CharField(max_length=200, null=True, blank=True)
+    mrktigatarikh = models.CharField(max_length=50, null=True, blank=True)
+    mrktigasebutharga = models.ForeignKey(dfnoperolehan.NoPerolehan, blank=True, null=True, on_delete = models.SET_NULL)
+    marktigamrksatu = models.ForeignKey(MRKSatu, blank=True, null=True, on_delete = models.SET_NULL)
+
+    class Meta:
+        verbose_name_plural = 'MRK 3'
 
 
 

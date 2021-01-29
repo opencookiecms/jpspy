@@ -114,6 +114,35 @@ class MRKDuaForm(forms.ModelForm):
 
 class LSKForm(forms.ModelForm):
 
+    ins = (
+        ('Tiada','Tiada'),
+        ('PL','PL | Public Liability'),
+        ('AR','AR | All Risk'),
+        ('IK','IK | Insurans Kerja'),
+
+    )
+
+    lskhargasebenar = forms.CharField(required=False, widget=forms.TextInput(attrs={'class':'form-control','type':'text','placeholder':'0.00'}))
+    lsklanjutmasa = forms.CharField(required=False, widget=forms.TextInput(attrs={'class':'form-control fc-datepicker','placeholder':'MM/DD/YYYY'}))
+    lskkerjasiap = forms.CharField(required=False, widget=forms.TextInput(attrs={'class':'form-control fc-datepicker','placeholder':'MM/DD/YYYY'}))
+    lskperuntukan = forms.CharField(required=False, widget=forms.TextInput(attrs={'class':'form-control','type':'text','placeholder':'contoh:- B13-28209'}))
+    lsklaporan = forms.CharField(required=False, widget=forms.Textarea(attrs={'class':'form-control','type':'text','placeholder':'Laporan Kerja','rows':'5'}))
+    lsktarikhperakui = forms.CharField(required=False, widget=forms.TextInput(attrs={'class':'form-control fc-datepicker','placeholder':'MM/DD/YYYY'}))
+
+    lskketuabahagian = forms.CharField(required=False, widget=forms.TextInput(attrs={'class':'form-control','type':'text','placeholder':'0.00'}))
+    lskjawatanketuabahagian = forms.CharField(required=False, widget=forms.TextInput(attrs={'class':'form-control','type':'text','placeholder':'0.00'}))
+    lskjuruteraj41 = forms.CharField(required=False, widget=forms.TextInput(attrs={'class':'form-control','type':'text','placeholder':'0.00'}))
+    lskjawatanj41 = forms.CharField(required=False, widget=forms.TextInput(attrs={'class':'form-control','type':'text','placeholder':'0.00'})) 
+    lskjuruteradaerah = forms.CharField(required=False, widget=forms.TextInput(attrs={'class':'form-control','type':'text','placeholder':'0.00'}))
+    lskjawatanjuruteradaerah = forms.CharField(required=False, widget=forms.TextInput(attrs={'class':'form-control','type':'text','placeholder':'0.00'}))
+
+    lskperkeso = forms.CharField(required=False, widget=forms.TextInput(attrs={'class':'form-control','type':'text','placeholder':'Perkeso'}))
+    lskjenisinsurancesatu = forms.ChoiceField(choices=ins, required=False, widget=forms.Select(attrs={'class':'form-control custom-select select28 ','placholder':'baru'}))
+    lsknoinsurancesatu = forms.CharField(required=False, widget=forms.TextInput(attrs={'class':'form-control','type':'text','placeholder':'INS192773823'}))
+    lskjenisinsurancedua =  forms.ChoiceField(choices=ins, required=False, widget=forms.Select(attrs={'class':'form-control custom-select select28 ','placholder':'baru'}))
+    lsknoinsurancedua = forms.CharField(required=False, widget=forms.TextInput(attrs={'class':'form-control','type':'text','placeholder':'INS287366223'}))
+
+
     class Meta:
         model = document.Laporansiapkerja
         fields = [
@@ -136,5 +165,46 @@ class LSKForm(forms.ModelForm):
             'lsknoinsurancedua',
             'lsknosebutharga',
             'lskmrksatulink',
+        ]
+
+
+class MRKtigaForm(forms.ModelForm):
+
+
+    mrkcatat1 = forms.CharField(required=False, widget=forms.TextInput(attrs={'class':'form-control','type':'text','placeholder':'catatatan'}))
+    mrkcatat2 = forms.CharField(required=False, widget=forms.TextInput(attrs={'class':'form-control','type':'text','placeholder':'catatatan'}))
+    mrkcatat3 = forms.CharField(required=False, widget=forms.TextInput(attrs={'class':'form-control','type':'text','placeholder':'catatatan'}))
+    mrkcatat4 = forms.CharField(required=False, widget=forms.TextInput(attrs={'class':'form-control','type':'text','placeholder':'catatatan'}))
+    mrkcatat5 = forms.CharField(required=False, widget=forms.TextInput(attrs={'class':'form-control','type':'text','placeholder':'catatatan'}))
+    mrkcatat6 = forms.CharField(required=False, widget=forms.TextInput(attrs={'class':'form-control','type':'text','placeholder':'catatatan'}))
+    mrkcatat7 = forms.CharField(required=False, widget=forms.TextInput(attrs={'class':'form-control','type':'text','placeholder':'catatatan'}))
+    mrkcatat8 = forms.CharField(required=False, widget=forms.TextInput(attrs={'class':'form-control','type':'text','placeholder':'catatatan'}))
+    mrktigasokongan = forms.CharField(required=False, widget=forms.Textarea(attrs={'class':'form-control','type':'text','placeholder':'Tajuk Kerja','rows':'5'}))
+    mrktigatarikh = forms.CharField(required=False, widget=forms.TextInput(attrs={'class':'form-control fc-datepicker','placeholder':'MM/DD/YYYY'}))
+ 
+
+    class Meta:
+        modal = document.MRKTiga
+        fields = [
+            'mrktigabina', 
+            'mrktigatadbir',
+            'mrktigakemajuan', 
+            'mkrtigamutukerangka', 
+            'mrktigamutukerja', 
+            'mrktigamutukemasan', 
+            'mrktigamutukerjaluar', 
+            'mrktigapegawasan', 
+            'mrkcatat1', 
+            'mrkcatat2', 
+            'mrkcatat3', 
+            'mrkcatat4', 
+            'mrkcatat5', 
+            'mrkcatat6', 
+            'mrkcatat7', 
+            'mrkcatat8',
+            'mrktigasokongan', 
+            'mrktigatarikh', 
+            'mrktigasebutharga', 
+            'marktigamrksatu',
         ]
    

@@ -5,6 +5,7 @@ from ..modelcontroller import document,dfnoperolehan,kontraktor,project
 from ..formcontroller import ducumentform
 from django.db.models import Q
 from django.db.models import Count
+from django.contrib.auth.models import User
 
 
 def mrkoneregister(request, idperolehan):
@@ -26,7 +27,7 @@ def mrkoneregister(request, idperolehan):
         'kontraktor':kontraktor.Kontraktor.objects.all(),
         'kursus':document.MRKKursus.objects.all()
     }
-    return render(request, 'pages/mrksatu-reg.html',context )
+    return render(request, 'pages/mrksatu.html',context )
 
 def mrktworegister(request, idperolehan):
 
@@ -47,8 +48,26 @@ def mrktworegister(request, idperolehan):
     }
 
     
-    return render(request, 'pages/mrkdua-reg.html',context)
+    return render(request, 'pages/mrkdua.html',context)
 
 def laporansiapkerja(request, idperolehan ):
-    return render(request, 'pages/lsk-reg.html')
+
+    form = ducumentform.LSKForm(request.POST or None)
+    if form.is_valid():
+        form.save()
+        form = ducumentform.LSKForm()
+        return redirect('projek/senarai')
+    else:
+        print("no data was save")
+        print(form)
+
+    context = {
+        'form':form,
+        'mrksatufecth':document.MRKSatu.objects.get(mrksatunosebutharga=idperolehan),
+        'projek':project.Projek.objects.get(nosebuthargaid=idperolehan),
+        'userlist':User.objects.all()
+    }
+
+    return render(request, 'pages/lsk.html',context)
+
     
