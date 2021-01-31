@@ -29,9 +29,10 @@ urlpatterns = [
     path('noperolehan/daftar',perolehanviews.daftarnoperolehan, name="noperolehan/daftar"),
     path('projek/daftar',projekview.daftarprojek, name="projek/daftar"),
     path('projek/senarai',projekview.senaraiprojek, name="projek/senarai"),
-    path('dokumen/mrksatu/daftar/<int:idperolehan>', documentviews.mrkoneregister, name="dokumen/mrksatu/daftar"),
-    path('dokumen/mrkdua/daftar/<int:idperolehan>', documentviews.mrktworegister, name="dokumen/mrkdua/daftar"),
-    path('dokumen/lsk/daftar/<int:idperolehan>', documentviews.laporansiapkerja, name="dokumen/lsk/daftar"),
+    path('dokumen/mrksatu/<int:idperolehan>', documentviews.mrkone, name="dokumen/mrksatu"),
+    path('dokumen/mrkdua/<int:idperolehan>', documentviews.mrktwo, name="dokumen/mrkdua"),
+    path('dokumen/lsk/<int:idperolehan>', documentviews.laporansiapkerja, name="dokumen/lsk"),
+    path('dokumen/mrktiga/<int:idperolehan>', documentviews.mrktiga, name="dokumen/mrktiga"),
 ]
 
 if settings.DEBUG:

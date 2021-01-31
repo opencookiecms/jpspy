@@ -184,7 +184,7 @@ class MRKtigaForm(forms.ModelForm):
  
 
     class Meta:
-        modal = document.MRKTiga
+        model = document.MRKTiga
         fields = [
             'mrktigabina', 
             'mrktigatadbir',

@@ -26,7 +26,7 @@
 		<section class="content">
 			<div class="row">			  
 				<div class="col-lg-8 col-12">
-                	<form class="form" action='{% url 'dokumen/lsk/daftar' idperolehan=mrksatufecth.mrksatunosebutharga.id  %}' method="POST">
+                	<form class="form" action='{% url 'dokumen/lsk' idperolehan=mrksatufecth.mrksatunosebutharga.id  %}' method="POST">
 					  <div class="box">
 				
 						<!-- /.box-header -->
@@ -41,6 +41,8 @@
                                     <div class="form-group row">
                                         <div class="col-sm-6">
                                         <label class="tl">No Pendaftaran PKK</label>
+                                        <input type="text" class="form-control" name="{{form.lsknosebutharga.name}}" value="{{mrksatufecth.mrksatunosebutharga.id }}"/>
+                                        <input type="text" class="form-control" name="{{form.lskmrksatulink.name}}" value="{{mrksatufecth.id}}"/>
                                         <input type="text" class="form-control" value="{{mrksatufecth.mrksatukontraktor.sijilPPKNoPendaftaran}}" placeholder="No Pendaftaran PKK" readonly>
                                         </div>
                                         <div class="col-sm-6">

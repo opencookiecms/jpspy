@@ -1,0 +1,342 @@
+{% extends 'based/based.html' %}
+{% block content %}
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+	  <div class="container-full">
+		<!-- Content Header (Page header) -->
+		<div class="content-header">
+			<div class="d-flex align-items-center">
+				<div class="mr-auto">
+					<h3 class="page-title">MRK 03</h3>
+					<div class="d-inline-block align-items-center">
+						<nav>
+							<ol class="breadcrumb">
+								<li class="breadcrumb-item"><a href="#"><i class="mdi mdi-home-outline"></i></a></li>
+								<li class="breadcrumb-item" aria-current="page">Borang</li>
+								<li class="breadcrumb-item active" aria-current="page">No perolehan</li>
+							</ol>
+						</nav>
+					</div>
+				</div>
+				
+			</div>
+		</div>	  
+
+		<!-- Main content -->
+		<section class="content">
+			<div class="row">			  
+				<div class="col-lg-8 col-12">
+                	<form class="form" action='{% url 'dokumen/mrktiga' idperolehan=mrksatufecth.mrksatunosebutharga.id  %}' method="POST">
+					  <div class="box">
+                       {% csrf_token %}
+						<div class="box-body">
+						<h4 class="box-title text-primary"><i class="ti-user mr-15"></i>Maklumat Rekod Kerja - MRK 03</h4>
+						<hr class="my-15">
+                        <div class="row">
+                           <div class="col-md-12">
+                            <div class="form-group row">
+                                <div class="col-sm-6">
+                                <label class="tl">No Pendaftaran PKK</label>
+                    
+                                <input type="text" class="form-control" name="{{form.marktigamrksatu.name}}" value="{{mrksatufecth.id}}"/>
+                                <input type="text" class="form-control" name="{{form.mrktigasebutharga.name}}" value="{{mrksatufecth.mrksatunosebutharga.id}}"/>
+                                <input type="text" class="form-control ts" value="" placeholder="No Pendaftaran PKK" readonly>
+                                </div>
+                            </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                        <div class="col-md-12">
+                        <div class="form-group row">
+                            <div class="col-sm-6">
+                            <label class="tl">Nama Kontraktor</label>
+                            <input type="text" class="form-control ts"  placeholder="Nama Kontraktor" value="" readonly>
+                            </div>
+                        </div>
+                        </div>
+                      </div>
+                      <div class="row">
+                            <div class="col-md-12">
+                            <div class="form-group row">
+                                <div class="col-sm-6">
+                                <label class="tl">No Kontrak / No Sebutharga</label>
+                                <input type="text" class="form-control ts" placeholder="No Kontrak"  readonly>
+                                </div>
+                            </div>
+                            </div>
+                      </div>
+                     <div class="row">
+                        <div class="col-md-12">
+                        <div class="form-group row">
+                            <div class="col-sm-6">
+                            <label class="tl">No Inden/Pesanan Tempatan:</label>
+                            <input type="text" class="form-control ts" placeholder="No Inden" value="" readonly>
+                       
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                        <div class="form-group row">
+                            <div class="col-sm-6">
+                            <label class="tl">Tajuk Kerja:</label>
+                                <textarea rows="5" type="text" readonly  class="form-control ts"  placeholder="Tajuk Kerja"></textarea>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                        <div class="form-group row">
+                            <div class="col-sm-3">
+                            <label class="tl">Tarikh Mula:</label>
+                            <input type="text" data-toggle="datepicker" class="form-control ts"  value="" placeholder="Tarikh Mula" readonly>
+                            </div>
+                            <div class="col-sm-3">
+                            <label class="tl">Tarikh Jangka Siap:</label>
+                                <input type="text" data-toggle="datepicker" class="form-control ts"  value="" readonly>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                        <div class="form-group row">
+                            <div class="col-sm-3">
+                            <label class="tl">Dilanjutkan Masa:</label>
+                            <input type="text" data-toggle="datepicker" class="form-control ts"  value="" readonly>
+                            </div>
+                            <div class="col-sm-3">
+                            <label class="tl">Tarikh Siap Sebenar:</label>
+                            <input type="text" data-toggle="datepicker" class="form-control ts"  readonly>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                        <div class="form-group row">
+                            <div class="col-sm-3">
+                            <label class="tl">Kos Projek RM:</label>
+                            <div class="input-group">
+                                <div class="input-group-prepend bg-primary border-primary">
+                                <span class="input-group-text bg-transparent text-white">RM</span>
+                                </div>
+                                <input type="text" class="form-control ts"  placeholder="RM" readonly>
+
+                            </div>
+                            </div>
+                            <div class="col-sm-3">
+                            <label class="tl">Kos Sebenar RM:</label>
+                            <div class="input-group">
+                                <div class="input-group-prepend bg-primary border-primary">
+                                <span class="input-group-text bg-transparent text-white">RM</span>
+                                </div>
+                                <input type="text" class="form-control ts" placeholder="RM" readonly>
+                            </div>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+								
+
+
+
+                    
+	
+					<h4 class="box-title text-primary mt-20"><i class="ti-save mr-15"></i>L.A.D Dikenakan</h4>
+					<hr class="my-15">
+
+                    <div class="row">
+                        <div class="col-md-12">
+                        <div class="form-group row">
+                            <div class="col-sm-4">
+                            <label class="tl">Dari:</label>
+                                <input type="text" data-toggle="datepicker" class="form-control ts"  readonly>
+                            </div>
+                            <div class="col-sm-4">
+                            <label class="tl">Sehingga</label>
+                            <input type="text" data-toggle="datepicker" class="form-control ts" readonly>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-12">
+                        <div class="form-group row">
+                            <div class="col-sm-4">
+                            <label class="tl">L.A.D Dikenakan:</label>
+                            <div class="input-group">
+                                <div class="input-group-prepend bg-primary border-primary">
+                                <span class="input-group-text bg-transparent text-white">RM</span>
+                                </div>
+                                <input type="text" class="form-control ts"  readonly>
+                            </div>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+            
+							
+
+                    <h4 class="box-title text-primary mt-20"><i class="ti-save mr-15"></i>Kerja Tergendala Kerana Masalah: Tandakan ( / ) Pada Ruang Berkenaan.</h4>
+					<hr class="my-15">
+
+       
+                    <div class="row">
+                       
+                    <div class="col-md-12">
+                        <table class="tg table table-striped">
+                        <colgroup>
+                        <col style="width: 200px">
+                        <col style="width: 90px">
+                        <col style="width: 90px">
+                        <col style="width: 150px">
+                        <col style="width: 150px">
+                        <col style="width: 230px">
+                        </colgroup>
+                        <thead class="bg-dark">
+                        <tr>
+                        <th style="text-align:center"></th>
+                        <th style="text-align:center">Terbaik</th>
+                        <th style="text-align:center">Baik</th>
+                        <th style="text-align:center">Sederhana</th>
+                        <th style="text-align:center">Tidak Memuaskan</th>
+                        <th style="text-align:center">Catatan</th>
+                        </tr>
+                        </thead>
+                        <tr>
+                        <td>Pengurusan Tapak Bina</td>
+                        <td style="text-align:center"><input type="radio" id="radio_1" class="radio-col-success" name="{{form.mrktigabina.name}}" value="90% - Keatas"><label for="radio_1"></label></td>
+                        <td style="text-align:center"><input type="radio" id="radio_2" class="radio-col-primary" name="{{form.mrktigabina.name}}" value="75% - 89%" ><label for="radio_2"></label></td>
+                        <td style="text-align:center"><input type="radio" id="radio_3" class="radio-col-warning" name="{{form.mrktigabina.name}}" value="50% - 74%"><label for="radio_3"></label></td>
+                        <td style="text-align:center"><input type="radio" id="radio_4" class="radio-col-danger" name="{{form.mrktigabina.name}}" value="50% kebawah"><label for="radio_4"></label> </td>
+                        <td style="text-align:center">{{form.mrkcatat1}}</td>
+
+                        </tr>
+                        <tr>
+                        <td>Pentadbiran</td>
+                        <td style="text-align:center"><input type="radio"  id="radio_5" class="radio-col-success" name="{{form.mrktigatadbir.name}}" value="90% - Keatas"><label for="radio_5"></label></td>
+                        <td style="text-align:center"><input type="radio"  id="radio_6" class="radio-col-primary" name="{{form.mrktigatadbir.name}}" value="75% - 89%"><label for="radio_6"></label> </td>
+                        <td style="text-align:center"><input type="radio"  id="radio_7" class="radio-col-warning" name="{{form.mrktigatadbir.name}}" value="50% - 74%"><label for="radio_7"></label> </td>
+                        <td style="text-align:center"><input type="radio"  id="radio_8" class="radio-col-danger" name="{{form.mrktigatadbir.name}}" value="50% kebawah"><label for="radio_8"></label> </td>
+                        <td style="text-align:center">{{form.mrkcatat2}}</td>
+                        </tr>
+                        <tr>
+                        <td>Perancagan/Kemajuan</td>
+                        <td style="text-align:center"><input type="radio" id="radio_9" class="radio-col-success" name="{{form.mrktigakemajuan.name}}" value="90% - Keatas"><label for="radio_9"></label></td>
+                        <td style="text-align:center"><input type="radio" id="radio_10" class="radio-col-primary" name="{{form.mrktigakemajuan.name}}" value="75% - 89%"><label for="radio_10"></label></td>
+                        <td style="text-align:center"><input type="radio" id="radio_11" class="radio-col-warning" name="{{form.mrktigakemajuan.name}}" value="50% - 74%"><label for="radio_11"></label> </td>
+                        <td style="text-align:center"><input type="radio" id="radio_12" class="radio-col-danger" name="{{form.mrktigakemajuan.name}}" value="50% kebawah"><label for="radio_12"></label> </td>
+                        <td style="text-align:center">{{form.mrkcatat3}}</td>
+                        </tr>
+                        <tr>
+                        <td>Mutu Kerangka</td>
+                        <td style="text-align:center"><input type="radio" id="radio_13" class="radio-col-success" name="{{form.mkrtigamutukerangka.name}}" value="90% - Keatas"><label for="radio_13"></label></td>
+                        <td style="text-align:center"><input type="radio" id="radio_14" class="radio-col-primary" name="{{form.mkrtigamutukerangka.name}}" value="75% - 89%"><label for="radio_14"></label> </td>
+                        <td style="text-align:center"><input type="radio" id="radio_15" class="radio-col-warning" name="{{form.mkrtigamutukerangka.name}}" value="50% - 74%"><label for="radio_15"></label> </td>
+                        <td style="text-align:center"><input type="radio" id="radio_16" class="radio-col-danger" name="{{form.mkrtigamutukerangka.name}}" value="50% kebawah"> <label for="radio_16"></label></td>
+                        <td style="text-align:center">{{form.mrkcatat4}}</td>
+                        </tr>
+                        <tr>
+                        <td>Mutu Kerja-Kerja</td>
+                        <td style="text-align:center"><input type="radio" id="radio_17" class="radio-col-success" name="{{form.mrktigamutukerja.name}}" value="90% - Keatas"><label for="radio_17"></label></td>
+                        <td style="text-align:center"><input type="radio" id="radio_18" class="radio-col-primary" name="{{form.mrktigamutukerja.name}}" value="75% - 89%"> <label for="radio_18"></label></td>
+                        <td style="text-align:center"><input type="radio" id="radio_19" class="radio-col-warning" name="{{form.mrktigamutukerja.name}}" value="50% - 74%"><label for="radio_19"></label> </td>
+                        <td style="text-align:center"><input type="radio" id="radio_20" class="radio-col-danger" name="{{form.mrktigamutukerja.name}}" value="50% kebawah"><label for="radio_20"></label></td>
+                        <td style="text-align:center">{{form.mrkcatat5}}</td>
+                        </tr>
+                        <tr>
+                        <td>Mutu Kemasan</td>
+                        <td style="text-align:center"><input type="radio" id="radio_21" class="radio-col-success" name="{{form.mrktigamutukemasan.name}}" value="90% - Keatas"><label for="radio_21"></label></td>
+                        <td style="text-align:center"><input type="radio" id="radio_22" class="radio-col-primary" name="{{form.mrktigamutukemasan.name}}" value="75% - 89%"><label for="radio_22"></label></td>
+                        <td style="text-align:center"><input type="radio" id="radio_23" class="radio-col-warning" name="{{form.mrktigamutukemasan.name}}" value="50% - 74%"><label for="radio_23"></label></td>
+                        <td style="text-align:center"><input type="radio" id="radio_24" class="radio-col-danger" name="{{form.mrktigamutukemasan.name}}" value="50% kebawah"><label for="radio_24"></label></td>
+                        <td style="text-align:center">{{form.mrkcatat6}}</td>
+                        </tr>
+                        <tr>
+                        <td>Mutu Kerja-Kerja Luar</td>
+                        <td style="text-align:center"><input type="radio" id="radio_25" class="radio-col-success" name="{{form.mrktigamutukerjaluar.name}}" value="90% - Keatas"><label for="radio_25"></label></td>
+                        <td style="text-align:center"><input type="radio" id="radio_26" class="radio-col-primary" name="{{form.mrktigamutukerjaluar.name}}" value="75% - 89%"><label for="radio_26"></label></td>
+                        <td style="text-align:center"><input type="radio" id="radio_27" class="radio-col-warning" name="{{form.mrktigamutukerjaluar.name}}" value="50% - 74%"><label for="radio_27"></label></td>
+                        <td style="text-align:center"><input type="radio" id="radio_28" class="radio-col-danger" name="{{form.mrktigamutukerjaluar.name}}" value="50% kebawah"><label for="radio_28"></label></td>
+                        <td style="text-align:center">{{form.mrkcatat7}}</td>
+                        </tr>
+                        <tr>
+                        <td>Pengawasan Kontraktor</td>
+                        <td style="text-align:center"><input type="radio" id="radio_29" class="radio-col-success" name="{{form.mrktigapegawasan.name}}" value="90% - Keatas"><label for="radio_29"></label></td>
+                        <td style="text-align:center"><input type="radio" id="radio_30" class="radio-col-primary" name="{{form.mrktigapegawasan.name}}" value="75% - 89%"><label for="radio_30"></label></td>
+                        <td style="text-align:center"><input type="radio" id="radio_31" class="radio-col-warning" name="{{form.mrktigapegawasan.name}}" value="50% - 74%"><label for="radio_31"></label></td>
+                        <td style="text-align:center"><input type="radio" id="radio_32" class="radio-col-danger" name="{{form.mrktigapegawasan.name}}" value="50% kebawah"><label for="radio_32"></label> </td>
+                        <td style="text-align:center">{{form.mrkcatat8}}</td>
+                        </tr>
+                        </table>
+                    </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-12">
+                        <div class="form-group row">
+                            <div class="col-sm-8">
+                            <label class="tl">Sokongan / Ulasan:</label>
+                                {{form.mrktigasokongan}}
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-12">
+                        <div class="form-group row">
+                            <div class="col-sm-4">
+                           
+                            <label class="tl">Pegawai</label>
+                            <input type="text" class="form-control ts"  placeholder="Pegawai" value="" readonly>
+                
+                            </div>
+                            <div class="col-sm-4">
+                         
+                            <label>Jawatan</label>
+                            <input type="text" class="form-control ts"  placeholder="Jawatan" value=""  readonly>
+                            </div>
+                        </div>
+                        </div>
+                     </div>
+
+                    <div class="row">
+                        <div class="col-md-12">
+                        <div class="form-group row">
+                            <div class="col-sm-4">
+                            <label class="tl">Tarikh</label>
+                            {{form.mrktigatarikh}}
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+
+        
+
+            
+        
+							
+						</div>
+						<!-- /.box-body -->
+						<div class="box-footer">
+							<button type="button" class="btn btn-rounded btn-warning btn-outline mr-1"><i class="ti-trash"></i> Cancel</button>
+				            <button type="submit"  class="btn btn-rounded btn-primary btn-outline"><i class="ti-save-alt"></i> Save</button>
+						</div>  
+					
+					  </div>
+					  <!-- /.box -->	
+                    </form>		
+				</div>  
+		    </div>
+        
+	
+		</section>
+		<!-- /.content -->
+	  </div>
+  </div>
+  <!-- /.content-wrapper -->
+  {% endblock content %}

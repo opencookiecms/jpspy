@@ -26,7 +26,7 @@
 		<section class="content">
 			<div class="row">			  
 				<div class="col-lg-8 col-12">
-                	<form class="form" action='{% url 'dokumen/mrksatu/daftar' idperolehan=sebutharga.nosebuthargaid.id  %}' method="POST">
+                	<form class="form" action='{% url 'dokumen/mrksatu' idperolehan=sebutharga.nosebuthargaid.id  %}' method="POST">
 					  <div class="box">
 				
 						<!-- /.box-header -->
@@ -47,7 +47,7 @@
 
                                 <div class="row">
 								  <div class="col-md-8">
-                                  <input type="text" class="form-control" name="{{form.mrksatukontraktor.name}}" id="{{form.mrksatukontraktor.id_for_label}}"/>
+                                  <input type="text" class="form-control" value="{{mrksatu.mrksatukontraktor.id}}" name="{{form.mrksatukontraktor.name}}" id="{{form.mrksatukontraktor.id_for_label}}"/>
 									<div class="form-group">
 								
 
@@ -55,7 +55,7 @@
 									  <div class="input-group">
                                       
                                        
-                                       <input type="text" name="" class="form-control" id="kontraktorname" readonly/>
+                                       <input type="text" value="{{mrksatu.mrksatukontraktor.konNama}}" class="form-control" id="kontraktorname" readonly/>
 									  
 									  <span class="input-group-append">
 									  	<button class="btn btn-primary btn-sm" type="button" data-toggle="modal" data-target=".bs-example-modal-lg" >Select</button>
@@ -69,7 +69,7 @@
 								  <div class="col-md-8">
 									<div class="form-group">
 									  <label>No Pendaftaran PKK</label>
-                                      <input type="text" class="form-control" id="pkkno" readonly/>
+                                      <input type="text" value="{{mrksatu.mrksatukontraktor.sijilPPKNoPendaftaran}}" class="form-control" id="pkkno" readonly/>
 									</div>
 								  </div>
 								</div>
