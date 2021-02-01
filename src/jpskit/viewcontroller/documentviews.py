@@ -99,6 +99,27 @@ def mrktiga(request, idperolehan):
     }
 
     return render(request, 'pages/mrktiga.html',context)
+
+def psk(request, idperolehan):
+    dataobject = document.PSK.objects.filter(psknosebutharga=idperolehan).first()
+    form = ducumentform.PSKForm(request.POST or None, instance=dataobject)
+    if form.is_valid():
+        form.save()
+        form = ducumentform.PSKForm()
+        return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
+    else:
+        print("data was not save yet")
+        print(form)
+
+    context = {
+        'form':form,
+        'mrksatufecth':document.MRKSatu.objects.get(mrksatunosebutharga=idperolehan),
+        'projek':project.Projek.objects.get(nosebuthargaid=idperolehan),
+        'userlist':User.objects.all()
+    }
+    
+
+    return render(request, 'pages/psk.html',context)
      
  
         

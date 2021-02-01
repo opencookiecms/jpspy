@@ -1,0 +1,175 @@
+{% extends 'based/based.html' %}
+{% block content %}
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+	  <div class="container-full">
+		<!-- Content Header (Page header) -->
+		<div class="content-header">
+			<div class="d-flex align-items-center">
+				<div class="mr-auto">
+					<h3 class="page-title">Perakuan Siap Kerja</h3>
+					<div class="d-inline-block align-items-center">
+						<nav>
+							<ol class="breadcrumb">
+								<li class="breadcrumb-item"><a href="#"><i class="mdi mdi-home-outline"></i></a></li>
+								<li class="breadcrumb-item" aria-current="page">Borang</li>
+								<li class="breadcrumb-item active" aria-current="page">No perolehan</li>
+							</ol>
+						</nav>
+					</div>
+				</div>
+				
+			</div>
+		</div>	  
+
+		<!-- Main content -->
+		<section class="content">
+			<div class="row">			  
+				<div class="col-lg-10 col-12">
+                	<form class="form" action='{% url 'dokumen/psk' idperolehan=mrksatufecth.mrksatunosebutharga.id %}' method="POST">
+					  <div class="box">
+				
+						<!-- /.box-header -->
+					   
+                    {% csrf_token %}
+					<div class="box-body">
+					<h4 class="box-title text-primary"><i class="ti-user mr-15"></i>Maklumat Dokument -PSK</h4>
+					<hr class="my-15">
+
+                    <div class="row">
+                        <div class="col-md-12">
+                        <div class="form-group row">
+                            <div class="col-sm-8">
+                            <label class="tl">Nama Pemborong</label>
+                            <input type="text" class="form-control" name="{{form.pskmrksatulink.name}}" value="{{mrksatufecth.id}}"/>
+                            <input type="text" class="form-control" name="{{form.psknosebutharga.name}}" value="{{mrksatufecth.mrksatunosebutharga.id}}"/>
+                            <input type="text" class="form-control ts"  placeholder="Nama Pemborong" readonly>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                        <div class="form-group row">
+                            <div class="col-sm-8">
+                            <label class="tl">Alamat</label>
+                            <textarea rows="5" type="text" class="form-control ts" placeholder="Alamat" readonly></textarea>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                        <div class="form-group row">
+                            <div class="col-sm-4">
+                            <label class="tl">Fail Rujukan</label>
+                            <input type="text" class="form-control ts" readonly>
+                            </div>
+                            <div class="col-sm-4">
+                            <label class="tl">No Sebutharga</label>
+                            <input type="text" class="form-control ts"  readonly>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                        <div class="form-group row">
+                            <div class="col-sm-8">
+                            <label class="tl">Butiran Kerja:</label>
+                            <textarea rows="5" type="text" readonly class="form-control ts" ></textarea>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                     <div class="col-md-12">
+                        <div class="form-group row">
+                            <div class="col-sm-4">
+                            <label class="tl">Inden No</label>
+                            <input type="text" class="form-control ts" readonly>
+                       
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-12">
+                        <div class="form-group row">
+                            <div class="col-sm-4">
+                            <label class="tl">Tarikh Siap Sebenar:</label>
+                            {{form.psktarikhsiapsebenar}}
+                            </div>
+                            <div class="col-sm-4">
+                            <label class="tl">Tarikh Ambil Milik:</label>
+                            {{form.psktarikhambilmilik}}
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-12">
+                        <div class="form-group row">
+                            <div class="col-sm-4">
+                            <label class="tl">Tarikh Mula Tanggungan Kecacatan </label>
+                            {{form.psktarikhmulatanggug}}
+                            </div>
+                            <div class="col-sm-4">
+                            <label class="tl">Tarikh Tamat Tanggungan Kecacatan</label>
+                            {{form.psktarikhtamattanggung}}
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group row">
+                                <div class="col-sm-2">
+                                        <a class="btn btn-secondary mr-2 btn-rounded" target="_blank" href="">Surat PSK 01</a>
+                                </div>
+                                <div class="col-sm-3">
+                                        <h5>Sebutharga > RM50,000 </h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                     <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group row">
+                            <div class="col-sm-2">
+                                    <a class="btn btn-primary mr-2 btn-rounded" target="_blank" href="">Surat PSK 02</a>
+                            </div>
+                            <div class="col-sm-3">
+                                    <h5>Sebutharga < RM50,000</h5>
+                            </div>
+                        </div>
+                    </div>
+                    </div>
+                    
+
+						
+						
+							
+
+							
+							
+						</div>
+							<!-- /.box-body -->
+						<div class="box-footer">
+							<button type="button" class="btn btn-rounded btn-warning btn-outline mr-1"><i class="ti-trash"></i> Cancel</button>
+							<button type="submit"  class="btn btn-rounded btn-primary btn-outline"><i class="ti-save-alt"></i> Save</button>
+						</div>  
+					
+					  </div>
+					  <!-- /.box -->	
+                  </form>		
+				</div>  
+		    </div>
+        
+	
+		</section>
+		<!-- /.content -->
+	  </div>
+  </div>
+  <!-- /.content-wrapper -->
+  {% endblock content %}

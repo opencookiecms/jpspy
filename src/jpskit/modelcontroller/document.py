@@ -110,6 +110,19 @@ class MRKTiga(models.Model):
     class Meta:
         verbose_name_plural = 'MRK 3'
 
+class PSK(models.Model):
+
+    psktarikhsiapsebenar = models.CharField(max_length=50, null=True, blank=True)
+    psktarikhambilmilik = models.CharField(max_length=50, null=True, blank=True)
+    psktarikhmulatanggug = models.CharField(max_length=50, null=True, blank=True)
+    psktarikhtamattanggung = models.CharField(max_length=50, null=True, blank=True)
+    psknosebutharga = models.ForeignKey(dfnoperolehan.NoPerolehan, blank=True, null=True, on_delete = models.SET_NULL)
+    pskmrksatulink = models.ForeignKey(MRKSatu, blank=True, null=True, on_delete = models.SET_NULL)
+
+
+    class Meta:
+        verbose_name_plural = "Perakuan Siap Kerja"
+
 
 
 

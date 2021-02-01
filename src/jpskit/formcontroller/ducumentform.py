@@ -207,4 +207,23 @@ class MRKtigaForm(forms.ModelForm):
             'mrktigasebutharga', 
             'marktigamrksatu',
         ]
+
+class PSKForm(forms.ModelForm):
+
+    psktarikhsiapsebenar = forms.CharField(required=False, widget=forms.TextInput(attrs={'class':'form-control fc-datepicker','placeholder':'MM/DD/YYYY'}))
+    psktarikhambilmilik = forms.CharField(required=False, widget=forms.TextInput(attrs={'class':'form-control fc-datepicker','placeholder':'MM/DD/YYYY'}))
+    psktarikhmulatanggug = forms.CharField(required=False, widget=forms.TextInput(attrs={'class':'form-control fc-datepicker','placeholder':'MM/DD/YYYY'}))
+    psktarikhtamattanggung = forms.CharField(required=False, widget=forms.TextInput(attrs={'class':'form-control fc-datepicker','placeholder':'MM/DD/YYYY'}))
+
+
+    class Meta:
+        model = document.PSK
+        fields = [
+            'psktarikhsiapsebenar',
+            'psktarikhambilmilik',
+            'psktarikhmulatanggug',
+            'psktarikhtamattanggung',
+            'psknosebutharga',
+            'pskmrksatulink',
+        ]
    

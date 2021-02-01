@@ -33,6 +33,7 @@ urlpatterns = [
     path('dokumen/mrkdua/<int:idperolehan>', documentviews.mrktwo, name="dokumen/mrkdua"),
     path('dokumen/lsk/<int:idperolehan>', documentviews.laporansiapkerja, name="dokumen/lsk"),
     path('dokumen/mrktiga/<int:idperolehan>', documentviews.mrktiga, name="dokumen/mrktiga"),
+    path('dokumen/psk/<int:idperolehan>', documentviews.psk, name="dokumen/psk"),
 ]
 
 if settings.DEBUG:
