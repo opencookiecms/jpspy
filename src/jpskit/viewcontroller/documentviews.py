@@ -120,6 +120,49 @@ def psk(request, idperolehan):
     
 
     return render(request, 'pages/psk.html',context)
+
+
+def ssv(request, idperolehan):
+    dataobject = document.SenaraiSemakan.objects.filter(ssnosebutharga=idperolehan).first()
+    form = ducumentform.SenaraiSemakanForm(request.POST or None, instance=dataobject)
+    if form.is_valid():
+        form.save()
+        form = ducumentform.SenaraiSemakanForm()
+        return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
+    else:
+        print("data was not save yet")
+        print(form)
+
+    context = {
+        'form':form,
+        'mrksatufecth':document.MRKSatu.objects.get(mrksatunosebutharga=idperolehan),
+        'projek':project.Projek.objects.get(nosebuthargaid=idperolehan),
+        'userlist':User.objects.all()
+    }
+    
+
+    return render(request, 'pages/senaraisemakan.html',context)
+
+def psmkview(request, idperolehan):
+    dataobject = document.PSMK.objects.filter(psmknosebutharga=idperolehan).first()
+    form = ducumentform.Psmkform(request.POST or None, instance=dataobject)
+ 
+    if form.is_valid():
+        form.save()
+        form = ducumentform.Psmkform()
+        return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
+    else:
+        print("data was not save yet")
+        print(form)
+    
+    context = {
+        'form':form,
+        'mrksatufecth':document.MRKSatu.objects.get(mrksatunosebutharga=idperolehan),
+        'projek':project.Projek.objects.get(nosebuthargaid=idperolehan),
+        'userlist':User.objects.all()
+    }
+
+    return render(request, 'pages/psmk.html',context)
      
  
         
