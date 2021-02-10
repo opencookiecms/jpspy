@@ -1,0 +1,310 @@
+{% extends 'based/based.html' %}
+{% block content %}
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+	  <div class="container-full">
+		<!-- Content Header (Page header) -->
+		<div class="content-header">
+			<div class="d-flex align-items-center">
+				<div class="mr-auto">
+					<h3 class="page-title">Laporan Siap Kerja</h3>
+					<div class="d-inline-block align-items-center">
+						<nav>
+							<ol class="breadcrumb">
+								<li class="breadcrumb-item"><a href="#"><i class="mdi mdi-home-outline"></i></a></li>
+								<li class="breadcrumb-item" aria-current="page">Borang</li>
+								<li class="breadcrumb-item active" aria-current="page">No perolehan</li>
+							</ol>
+						</nav>
+					</div>
+				</div>
+				
+			</div>
+		</div>	  
+
+		<!-- Main content -->
+		<section class="content">
+			<div class="row">			 
+               
+				<div class="col-lg-10 col-12">
+                	<form class="form" action='{% url 'dokumen/psmk' idperolehan=mrksatufecth.mrksatunosebutharga.id  %}' method="POST">
+					  <div class="box">
+				
+						<!-- /.box-header -->
+					
+                          {% csrf_token %}
+							<div class="box-body">
+							<h4 class="box-title text-primary"><i class="ti-user mr-15"></i>Perakuan</h4>
+							<hr class="my-15">
+
+							<h4 class="box-title text-primary mt-20"><i class="ti-save mr-15"></i>Laporan Pegawai Penjaga</h4>
+							<hr class="my-15">
+
+                            <div class="row">
+                                <div class="col-md-12 tl">
+                                <div class="form-group row">
+                                
+                               
+                                    <div class="col-sm-8">
+                                    <label>Nama Pemborong</label>
+                                    <input type="text" class="form-control" name="{{form.psmknosebutharga.name}}" value="{{mrksatufecth.mrksatunosebutharga.id }}"/>
+                                    <input type="text" class="form-control" name="{{form.psmkmrksatulink.name}}" value="{{mrksatufecth.id}}"/> 
+                                    <input type="text" class="form-control ts" value="" readonly>
+                                    </div>
+                                </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                            <div class="col-md-12 tl">
+                                <div class="form-group row">
+                                    <div class="col-sm-8">
+                                    <label>Alamat Pemborong</label>
+                                    <textarea rows="4" type="text" class="form-control ts" readonly></textarea>
+                                    </div>
+                                </div>
+                                </div>
+                          </div>
+                          <div class="row">
+                            <div class="col-md-12 tl">
+                            <div class="form-group row">
+                                <div class="col-sm-4">
+                                <label>No Rujukan</label>
+                                    <input type="text" class="form-control ts" readonly>
+                                </div>
+                                <div class="col-sm-4 tl">
+                                <label>No Kontrak / No Sebutharga</label>
+                                <input type="text" class="form-control ts" readonly>
+                                </div>
+                            </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                        <div class="col-md-12 tl">
+                            <div class="form-group row">
+                                <div class="col-sm-8">
+                                <label>Tajuk Kerja</label>
+                                <textarea rows="5" type="text" class="form-control ts"readonly></textarea>
+                                </div>
+                            </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                        <div class="col-md-12 tl">
+                            <div class="form-group row">
+                                <div class="col-sm-4">
+                                <label>Tarikh Mula Tanggungan Kecacatan</label>
+                                <input type="text" data-toggle="datepicker" class="form-control ts" readonly>
+                                </div>
+                                <div class="col-sm-4 tl">
+                                <label>Tarikh Tamat Tanggungan Kecacatan</label>
+                                    <input type="text" data-toggle="datepicker" class="form-control ts"  readonly>
+                                </div>
+                            </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                          <div class="col-md-12 tl">
+                            <div class="form-group row">
+                                <div class="col-sm-4">
+                                <label>Gred</label>
+                                     <input type="text" class="form-control ts" readonly>
+                                </div>
+                                <div class="col-sm-4 tl">
+                                <label>Kategori</label>
+                             <input type="text" class="form-control ts" readonly>
+                                </div>
+                                <div class="col-sm-4 tl">
+                                <label>Pengkhususan</label>
+                               <input type="text" class="form-control ts" readonly>
+                                </div>
+                            </div>
+                            </div>
+                        </div>
+                        <h4 class="box-title text-primary mt-20"><i class="ti-save mr-15"></i>Kewangan & Jaminan Insurans</h4>
+						<hr class="my-15">
+
+                        <div class="row">
+                        <div class="col-md-12 tl">
+                            <div class="form-group row">
+                            <label class="col-sm-1 col-form-label">(a) # :</label>
+                            <label class="col-sm-3 col-form-label">(i)** No Kewangan Jaminan Bank/Insuran</label>
+                             <div class="col-sm-3">
+                            {{form.psmknojaminanbanka}}
+                             </div>
+                          
+                            </div>
+                        </div>
+                        </div>
+                        <div class="row">
+                        <div class="col-md-12 tl">
+                            <div class="form-group row">
+                            <label class="col-sm-1 col-form-label"></label>
+                            <label class="col-sm-3 col-form-label">Harga</label>
+                            <div class="col-sm-3">
+                                <div class="input-group">
+                                <div class="input-group-prepend bg-primary border-primary">
+                                    <span class="input-group-text bg-transparent text-white">RM</span>
+                                </div>
+                                {{form.psmkhargajaminana}}
+                                </div>
+                            </div>
+                            </div>
+                        </div>
+                        </div>
+                        <div class="row">
+                        <div class="col-md-12 tl">
+                            <div class="form-group row">
+                            <label class="col-sm-1 col-form-label"></label>
+                            <label class="col-sm-3 col-form-label">(ii) ** Baki Wang Jaminan Perlaksanaan</label>
+                            <div class="col-sm-3">
+                                <div class="input-group">
+                                <div class="input-group-prepend bg-primary border-primary">
+                                    <span class="input-group-text bg-transparent text-white">RM</span>
+                                </div>
+                                {{form.psmkbakiwangjaminana}}
+                                </div>
+                            </div>
+                            </div>
+                        </div>
+                        </div>
+
+                        	<hr class="my-15">
+                          <div class="row">
+                        <div class="col-md-12 tl">
+                            <div class="form-group row">
+                            <label class="col-sm-1 col-form-label">(b) # :</label>
+                            <label class="col-sm-3 col-form-label">(i) ** No Kewangan Jaminan Bank/Insuran</label>
+                             <div class="col-sm-3">
+                            {{form.psmknojaminanbankab}}
+                             </div>
+                          
+                            </div>
+                        </div>
+                        </div>
+                        <div class="row">
+                        <div class="col-md-12 tl">
+                            <div class="form-group row">
+                            <label class="col-sm-1 col-form-label"></label>
+                            <label class="col-sm-3 col-form-label">Harga</label>
+                            <div class="col-sm-3">
+                                <div class="input-group">
+                                <div class="input-group-prepend bg-primary border-primary">
+                                    <span class="input-group-text bg-transparent text-white">RM</span>
+                                </div>
+                                {{form.psmkhargajaminanb}}
+                                </div>
+                            </div>
+                            </div>
+                        </div>
+                        </div>
+                        <div class="row">
+                        <div class="col-md-12 tl">
+                            <div class="form-group row">
+                            <label class="col-sm-1 col-form-label"></label>
+                            <label class="col-sm-3 col-form-label">** Wang Jaminan Perlaksanaan</label>
+                            <div class="col-sm-3">
+                                <div class="input-group">
+                                <div class="input-group-prepend bg-primary border-primary">
+                                    <span class="input-group-text bg-transparent text-white">RM</span>
+                                </div>
+                                 {{form.psmkbakiwangjaminanb}}
+                                </div>
+                            </div>
+                            </div>
+                        </div>
+                        </div>
+                        <hr class="my-15">
+                        <div class="row">
+                        <div class="col-md-12 tl">
+                            <div class="form-group row">
+                            <label class="col-sm-1 col-form-label"></label>
+                            <label class="col-sm-3 col-form-label">(ii) ** Tambahan Kos Bon Perlaksanaan</label>
+                            <div class="col-sm-3">
+                                <div class="input-group">
+                                <div class="input-group-prepend bg-primary border-primary">
+                                    <span class="input-group-text bg-transparent text-white">RM</span>
+                                </div>
+                                 {{form.psmkkosbon}}
+                                </div>
+                            </div>
+                            </div>
+                        </div>
+                        </div>
+                        <div class="row">
+                        <div class="col-md-12 tl">
+                            <div class="form-group row">
+                            <label class="col-sm-1 col-form-label"></label>
+                            <label class="col-sm-3 col-form-label">** Baki Kos Bon Perlaksanaan</label>
+                            <div class="col-sm-3">
+                                <div class="input-group">
+                                <div class="input-group-prepend bg-primary border-primary">
+                                    <span class="input-group-text bg-transparent text-white">RM</span>
+                                </div>
+                               
+                                  {{form.psmkbakikos}}
+                                </div>
+                            </div>
+                            </div>
+                        </div>
+                        </div>
+                         <hr class="my-15">
+                              <div class="row">
+                            <div class="col-md-12 tl">
+                            <div class="form-group row">
+                                <div class="col-sm-4">
+                                <label>Pegawai Penguasa</label>
+                                    <select name="{{form.psmkpegawaipenguasa.name}}" class="form-control custom-select select28" id="">
+                                        <option value="Tiada">Tiada</option>
+										
+                                        {% for row in userlist %}
+                                        <option value="{{row.first_name}}">{{row.first_name}}</option>
+                                        {% endfor %}
+
+                                    </select>
+				
+                                </div>
+                                <div class="col-sm-4 tl">
+                                <label>Jawatan</label>
+                                    <select name="{{form.psmkjawatan.name}}" class="form-control custom-select select28" id="">
+                                        <option value="Tiada">Tiada</option>
+										
+                                        {% for row in userlist %}
+                                        <option value="{{row.userprofile.jawatan}}">{{row.userprofile.jawatan}}</option>
+                                        {% endfor %}
+
+                                    </select>
+                                </div>
+                            </div>
+                            </div>
+                        </div>
+              
+
+
+                     
+            
+						
+							
+						</div>
+							<!-- /.box-body -->
+							<div class="box-footer">
+								<button type="button" class="btn btn-rounded btn-warning btn-outline mr-1">
+								  <i class="ti-trash"></i> Cancel
+								</button>
+								<button type="submit"  class="btn btn-rounded btn-primary btn-outline">
+								  <i class="ti-save-alt"></i> Save
+								</button>
+							</div>  
+					
+					  </div>
+					  <!-- /.box -->	
+                          	</form>		
+				</div>  
+		    </div>
+        
+	
+		</section>
+		<!-- /.content -->
+	  </div>
+  </div>
+  <!-- /.content-wrapper -->
+  {% endblock content %}

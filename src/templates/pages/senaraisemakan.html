@@ -1,0 +1,254 @@
+{% extends 'based/based.html' %}
+{% block content %}
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+	  <div class="container-full">
+		<!-- Content Header (Page header) -->
+		<div class="content-header">
+			<div class="d-flex align-items-center">
+				<div class="mr-auto">
+					<h3 class="page-title">Senarai Semakan</h3>
+					<div class="d-inline-block align-items-center">
+						<nav>
+							<ol class="breadcrumb">
+								<li class="breadcrumb-item"><a href="#"><i class="mdi mdi-home-outline"></i></a></li>
+								<li class="breadcrumb-item" aria-current="page">Borang</li>
+								<li class="breadcrumb-item active" aria-current="page">No perolehan</li>
+							</ol>
+						</nav>
+					</div>
+				</div>
+				
+			</div>
+		</div>	  
+
+		<!-- Main content -->
+		<section class="content">
+			<div class="row">			  
+				<div class="col-lg-10 col-12">
+                	<form class="form" action='{% url 'dokumen/mrktiga' idperolehan=mrksatufecth.mrksatunosebutharga.id  %}' method="POST">
+					  <div class="box">
+                       {% csrf_token %}
+						<div class="box-body">
+						<h4 class="box-title text-primary"><i class="ti-user mr-15"></i>Senarai Semakan</h4>
+						<hr class="my-15">
+                    
+                        <div class="row">
+                                <input type="text" class="form-control" name="{{form.marktigamrksatu.name}}" value="{{mrksatufecth.id}}"/>
+                                <input type="text" class="form-control" name="{{form.mrktigasebutharga.name}}" value="{{mrksatufecth.mrksatunosebutharga.id}}"/>
+                                
+                            <div class="col-md-3 tls">
+                                <div class="form-group">
+                                <div class="form-radio form-radio-flat">
+                                    <label class="form-check-label">
+                                 
+                                    <input type="checkbox" id="md_checkbox_1" class="chk-col-success"><label for="md_checkbox_1"><h5 class="text-gray font-weight-500">I. Inden/Nota Minta</h5>cd</label>
+                                    </label>
+                                </div>
+
+                                </div>
+                            </div>
+                            <div class="col-md-3 tls">
+                                <div class="form-group">
+                                <div class="form-radio form-radio-flat">
+                                    <label class="form-check-label">
+                                     <input type="checkbox" id="md_checkbox_2" class="chk-col-success"><label for="md_checkbox_2">II. Laporan Siap Kerja</label>
+                             
+                                    </label>
+                                </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3 tls">
+                                <div class="form-group">
+                                    <div class="form-radio form-radio-flat">
+                                        <label class="form-check-label">
+                                        <input type="checkbox" id="md_checkbox_3" class="chk-col-success"><label for="md_checkbox_3">III. Tuntutan Invois</label>
+                                 
+                                        </label>
+                                </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-3 tls">
+                                <div class="form-group">
+                                <div class="form-radio form-radio-flat">
+                                    <label class="form-check-label">
+                                    <input type="checkbox" id="md_checkbox_4" class="chk-col-success"><label for="md_checkbox_4">IV .Sebutharga/Lantikan Terus</label> 
+                                    </label>
+                                </div>
+
+                                </div>
+                            </div>
+                            <div class="col-md-3 tls">
+                                <div class="form-group">
+                                <div class="form-radio form-radio-flat">
+                                    <label class="form-check-label">
+                                    <input type="checkbox" id="md_checkbox_5" class="chk-col-success"><label for="md_checkbox_5">V.Penerimaan Tawaran</label>
+                                 
+                                    </label>
+                                </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3 tls">
+                                <div class="form-group">
+                                    <div class="form-radio form-radio-flat">
+                                        <label class="form-check-label">
+                                         <input type="checkbox" id="md_checkbox_6" class="chk-col-success"><label for="md_checkbox_6">VI. Jadual Sebutarga</label>
+                                   
+                                        </label>
+                                </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-3 tls">
+                                <div class="form-group">
+                                <div class="form-radio form-radio-flat">
+                                    <label class="form-check-label">
+                                    <input type="checkbox" id="md_checkbox_7" class="chk-col-success"><label for="md_checkbox_7">VII. Kertas Taklimat Sebutharga</label>
+                                 
+                                    </label>
+                                </div>
+
+                                </div>
+                            </div>
+                            <div class="col-md-3 tls">
+                                <div class="form-group">
+                                <div class="form-radio form-radio-flat">
+                                    <label class="form-check-label">
+                                    <input type="checkbox" id="md_checkbox_8" class="chk-col-success"><label for="md_checkbox_8">VIII. Dokumen Sebutharga</label>
+                                   
+                                    </label>
+                                </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3 tls">
+                                <div class="form-group">
+                                    <div class="form-radio form-radio-flat">
+                                        <label class="form-check-label">
+                                        <input type="checkbox" id="md_checkbox_9" class="chk-col-success"><label for="md_checkbox_9">IX. Permohonan Lanjut Masa</label>
+                                        
+                                        </label>
+                                </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="row">
+                            <div class="col-md-3 tls">
+                                <div class="form-group">
+                                <div class="form-radio form-radio-flat">
+                                    <label class="form-check-label">
+                                    <input type="checkbox" id="md_checkbox_10" class="chk-col-success"><label for="md_checkbox_10">X. Salinan Akaun Bank</label>
+                                   
+                                    </label>
+                                </div>
+
+                                </div>
+                            </div>
+                            <div class="col-md-3 tls">
+                                <div class="form-group">
+                                <div class="form-radio form-radio-flat">
+                                    <label class="form-check-label">
+                                    <input type="checkbox" id="md_checkbox_11" class="chk-col-success"><label for="md_checkbox_11">XI. CIDB Malaysia</label>
+                                
+                                    </label>
+                                </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3 tls">
+                                <div class="form-group">
+                                    <div class="form-radio form-radio-flat">
+                                        <label class="form-check-label">
+                                        <input type="checkbox" id="md_checkbox_12" class="chk-col-success"><label for="md_checkbox_12">XII. PKK</label>
+                                   
+                                        </label>
+                                </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                        <div class="col-md-3 tls">
+                            <div class="form-group">
+                            <div class="form-radio form-radio-flat">
+                                <label class="form-check-label">
+                                 <input type="checkbox" id="md_checkbox_13" class="chk-col-success"><label for="md_checkbox_13">XIII. SSM</label>
+                            
+                                </label>
+                            </div>
+
+                            </div>
+                        </div>
+                        <div class="col-md-3 tls">
+                            <div class="form-group">
+                            <div class="form-radio form-radio-flat">
+                                <label class="form-check-label">
+                                <input type="checkbox" id="md_checkbox_14" class="chk-col-success"><label for="md_checkbox_14">XIV Kementerian Kewangan</label>
+                             
+                                </label>
+                            </div>
+                            </div>
+                        </div>
+                        </div>
+
+                        <h4 class="box-title text-primary mt-20"><i class="ti-user mr-15"></i>Insurans</h4>
+						<hr class="my-15">
+
+                        <div class="row">
+                            <div class="col-md-12 tls">
+                                <div class="form-group">
+                                <div class="form-radio form-radio-flat">
+                                    <label class="form-check-label">
+                                     <input type="checkbox" id="md_checkbox_15" class="chk-col-success"><label class="" for="md_checkbox_15"><h5 class="text-gray font-weight-500">Insuran: Perkeso/Workmen/Public Liability/Kerja</h5></label>
+                                   
+                                    </label>
+                                </div>
+
+                                </div>
+                            </div>
+                            
+                        </div>
+                        <h4 class="box-title text-primary mt-20"><i class="ti-user mr-15"></i>Gambar</h4>
+						<hr class="my-15">
+
+                        <div class="row">
+                            <div class="col-md-3 tls">
+                                <div class="form-group">
+                                <div class="form-radio form-radio-flat">
+                                    <label class="form-check-label">
+                                     <input type="checkbox" id="md_checkbox_16" class="chk-col-success"><label for="md_checkbox_16">Gambar</label>
+                                   
+                                    </label>
+                                </div>
+
+                                </div>
+                            </div>
+                            
+                        </div>
+                                
+           
+
+	
+						</div>
+						<!-- /.box-body -->
+						<div class="box-footer">
+							<button type="button" class="btn btn-rounded btn-warning btn-outline mr-1"><i class="ti-trash"></i> Cancel</button>
+				            <button type="submit"  class="btn btn-rounded btn-primary btn-outline"><i class="ti-save-alt"></i> Save</button>
+						</div>  
+					
+					  </div>
+					  <!-- /.box -->	
+                    </form>		
+				</div>  
+		    </div>
+        
+	
+		</section>
+		<!-- /.content -->
+	  </div>
+  </div>
+  <!-- /.content-wrapper -->
+  {% endblock content %}

@@ -123,6 +123,81 @@ class PSK(models.Model):
     class Meta:
         verbose_name_plural = "Perakuan Siap Kerja"
 
+class SenaraiSemakan(models.Model):
+
+    ssinden = models.CharField(max_length=10, null=True, blank=True)
+    sslsk = models.CharField(max_length=10, null=True, blank=True)
+    ssti = models.CharField(max_length=10, null=True, blank=True)
+    sssebutharga = models.CharField(max_length=10, null=True, blank=True)
+    sspt = models.CharField(max_length=10, null=True, blank=True)
+    ssjs = models.CharField(max_length=10, null=True, blank=True)
+    sskts = models.CharField(max_length=10, null=True, blank=True)
+    ssds = models.CharField(max_length=10, null=True, blank=True)
+    ssplm = models.CharField(max_length=10, null=True, blank=True)
+    ssab = models.CharField(max_length=10, null=True, blank=True)
+    sscidb = models.CharField(max_length=10, null=True, blank=True)
+    sspkk = models.CharField(max_length=10, null=True, blank=True)
+    ssssm = models.CharField(max_length=10, null=True, blank=True)
+    sskk = models.CharField(max_length=10, null=True, blank=True)
+    ssinsurance = models.CharField(max_length=10, null=True, blank=True)
+    ssgambar = models.CharField(max_length=10, null=True, blank=True)
+    ssnosebutharga = models.ForeignKey(dfnoperolehan.NoPerolehan, blank=True, null=True, on_delete = models.SET_NULL)
+    ssmrksatulink = models.ForeignKey(MRKSatu, blank=True, null=True, on_delete = models.SET_NULL)
+
+    class Meta:
+        verbose_name_plural = "Senarai Semakan"
+
+class PSMK(models.Model):
+
+    psmknojaminanbanka = models.CharField(max_length=50, null=True, blank=True)
+    psmkhargajaminana = models.CharField(max_length=50, null=True, blank=True)
+    psmkbakiwangjaminana = models.CharField(max_length=50, null=True, blank=True)
+    psmknojaminanbankab = models.CharField(max_length=50, null=True, blank=True)
+    psmkhargajaminanb = models.CharField(max_length=50, null=True, blank=True)
+    psmkbakiwangjaminanb = models.CharField(max_length=50, null=True, blank=True)
+    psmkkosbon = models.CharField(max_length=50, null=True, blank=True)
+    psmkbakikos = models.CharField(max_length=50, null=True, blank=True)
+    psmkpegawaipenguasa = models.CharField(max_length=50, null=True, blank=True)
+    psmkjawatan = models.CharField(max_length=50, null=True, blank=True)
+    psmknosebutharga = models.ForeignKey(dfnoperolehan.NoPerolehan, blank=True, null=True, on_delete = models.SET_NULL)
+    psmkmrksatulink = models.ForeignKey(MRKSatu, blank=True, null=True, on_delete = models.SET_NULL)
+
+    class Meta:
+        verbose_name_plural = "Perakuan Siap Membaiki Kecacatan"
+
+class SuratPJaminanbank(models.Model):
+
+    rujukanbank  = models.CharField(max_length=50, null=True, blank=True)
+    namabank = models.CharField(max_length=50, null=True, blank=True)
+    alamatbank = models.CharField(max_length=200, null=True, blank=True)
+    alamatpemborongsurat = models.CharField(max_length=200, null=True, blank=True)
+    jbankknosebutharga = models.ForeignKey(dfnoperolehan.NoPerolehan, blank=True, null=True, on_delete = models.SET_NULL)
+    jbankmrksatulink = models.ForeignKey(MRKSatu, blank=True, null=True, on_delete = models.SET_NULL)
+
+    class Meta:
+        verbose_name_plural = "Surat Pelepasan Jaminan Bank"
+
+class Perakuanpwjp(models.Model):
+    rujukantuan = models.CharField(max_length=50, null=True, blank=True)
+    rujukankami = models.CharField(max_length=50, null=True, blank=True)
+    namarujukan = models.CharField(max_length=150, null=True, blank=True)
+    alamatrujukan = models.CharField(max_length=200, null=True, blank=True)
+    koswjp = models.CharField(max_length=50, null=True, blank=True)
+    wjppegawai = models.CharField(max_length=50, null=True, blank=True)
+    wjpjawatan = models.CharField(max_length=50, null=True, blank=True)
+    wjpknosebutharga = models.ForeignKey(dfnoperolehan.NoPerolehan, blank=True, null=True, on_delete = models.SET_NULL)
+    wjpmrksatulink = models.ForeignKey(MRKSatu, blank=True, null=True, on_delete = models.SET_NULL)
+
+     
+    class Meta:
+        verbose_name_plural = "PPWJP"
+
+
+
+
+
+
+
 
 
 

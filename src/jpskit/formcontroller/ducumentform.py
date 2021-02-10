@@ -226,4 +226,61 @@ class PSKForm(forms.ModelForm):
             'psknosebutharga',
             'pskmrksatulink',
         ]
+
+
+class SenaraiSemakanForm(forms.ModelForm):
+
+    class Meta:
+        model = document.SenaraiSemakan
+        fields = [
+            'ssinden', 
+            'sslsk', 
+            'ssti',
+            'sssebutharga', 
+            'sspt', 
+            'ssjs',
+            'sskts', 
+            'ssds',
+            'ssplm',
+            'ssab', 
+            'sscidb', 
+            'sspkk', 
+            'ssssm', 
+            'sskk', 
+            'ssinsurance',
+            'ssgambar',
+            'ssnosebutharga', 
+            'ssmrksatulink',
+        ]
+
+class Psmkform(forms.ModelForm):
+
+    psmknojaminanbanka = forms.CharField(required=False, widget=forms.TextInput(attrs={'class':'form-control','type':'text','placeholder':'No Kewangan Jaminan Bank/Insuran'}))
+    psmkhargajaminana = forms.CharField(required=False, widget=forms.TextInput(attrs={'class':'form-control','type':'text','placeholder':'0.00'}))
+    psmkbakiwangjaminana = forms.CharField(required=False, widget=forms.TextInput(attrs={'class':'form-control','type':'text','placeholder':'0.00'}))
+    psmknojaminanbankab = forms.CharField(required=False, widget=forms.TextInput(attrs={'class':'form-control','type':'text','placeholder':'No Kewangan Jaminan Bank/Insuran'}))
+    psmkhargajaminanb = forms.CharField(required=False, widget=forms.TextInput(attrs={'class':'form-control','type':'text','placeholder':'0.00'}))
+    psmkbakiwangjaminanb = forms.CharField(required=False, widget=forms.TextInput(attrs={'class':'form-control','type':'text','placeholder':'0.00'}))
+    psmkkosbon = forms.CharField(required=False, widget=forms.TextInput(attrs={'class':'form-control','type':'text','placeholder':'0.00'}))
+    psmkbakikos = forms.CharField(required=False, widget=forms.TextInput(attrs={'class':'form-control','type':'text','placeholder':'0.00'}))
+
+
+    class Meta:
+        model = document.PSMK
+        fields = [
+
+            'psmknojaminanbanka',
+            'psmkhargajaminana',
+            'psmkbakiwangjaminana',
+            'psmknojaminanbankab',
+            'psmkhargajaminanb',
+            'psmkbakiwangjaminanb',
+            'psmkkosbon',
+            'psmkbakikos',
+            'psmkpegawaipenguasa',
+            'psmkjawatan',
+            'psmknosebutharga',
+            'psmkmrksatulink',
+
+        ]
    

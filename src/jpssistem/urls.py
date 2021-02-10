@@ -34,6 +34,8 @@ urlpatterns = [
     path('dokumen/lsk/<int:idperolehan>', documentviews.laporansiapkerja, name="dokumen/lsk"),
     path('dokumen/mrktiga/<int:idperolehan>', documentviews.mrktiga, name="dokumen/mrktiga"),
     path('dokumen/psk/<int:idperolehan>', documentviews.psk, name="dokumen/psk"),
+    path('dokumen/senaraisemakan/<int:idperolehan>', documentviews.ssv, name="dokumen/senaraisemakan"),
+    path('dokumen/psmk/<int:idperolehan>',documentviews.psmkview, name="dokumen/psmk"),
 ]
 
 if settings.DEBUG:
