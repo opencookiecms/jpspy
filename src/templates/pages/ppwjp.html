@@ -1,0 +1,204 @@
+{% extends 'based/based.html' %}
+{% block content %}
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+	  <div class="container-full">
+		<!-- Content Header (Page header) -->
+		<div class="content-header">
+			<div class="d-flex align-items-center">
+				<div class="mr-auto">
+					<h3 class="page-title">Perakuan Pemulangan Wang Jaminan Perlaksanaana</h3>
+					<div class="d-inline-block align-items-center">
+						<nav>
+							<ol class="breadcrumb">
+								<li class="breadcrumb-item"><a href="#"><i class="mdi mdi-home-outline"></i></a></li>
+								<li class="breadcrumb-item" aria-current="page">Borang</li>
+								<li class="breadcrumb-item active" aria-current="page">No perolehan</li>
+							</ol>
+						</nav>
+					</div>
+				</div>
+				
+			</div>
+		</div>	  
+
+		<!-- Main content -->
+		<section class="content">
+			<div class="row">			 
+               
+				<div class="col-lg-10 col-12">
+                	<form class="form" action='{% url 'dokumen/smrk' idperolehan=mrksatufecth.mrksatunosebutharga.id   %}' method="POST">
+					  <div class="box">
+				
+						<!-- /.box-header -->
+					
+                          {% csrf_token %}
+							<div class="box-body">
+							<h4 class="box-title text-primary"><i class="ti-user mr-15"></i>Perakuan Pemulangan Wang Jaminan Perlaksanaan</h4>
+							<hr class="my-15">
+
+                                  <div class="row">
+              <div class="col-md-12 tl">
+                <div class="form-group row">
+                  <label class="col-sm-3 col-form-label">Nama Pemborong</label>
+                  <div class="col-sm-7">
+                        <input type="text" class="form-control" name="{{form.wjpmrksatulink.name}}" value="{{mrksatufecth.id}}"/>
+                                        <input type="text" class="form-control" name="{{form.wjpknosebutharga.name}}" value="{{mrksatufecth.mrksatunosebutharga.id}}"/>
+                  <input type="text" class="form-control ts" name="namaborong" readonly>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-12 tl">
+                <div class="form-group row">
+                  <label class="col-sm-3 col-form-label">No Kontrak \ No Sebutharga</label>
+                  <div class="col-sm-7">
+                  <input type="text" class="form-control ts" name="nokon" readonly>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-12 tl">
+                <div class="form-group row">
+                  <label class="col-sm-3 col-form-label">Rujukan Tuan</label>
+                  <div class="col-sm-7">
+                  {{form.rujukantuan}}
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-12 tl">
+                <div class="form-group row">
+                  <label class="col-sm-3 col-form-label">Rujukan Kami</label>
+                  <div class="col-sm-7">
+                  {{form.rujukankami}}
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-md-12 tl">
+                <div class="form-group row">
+                  <label class="col-sm-3 col-form-label">Nama Rujukan</label>
+                  <div class="col-sm-7">
+                  {{form.namarujukan}}
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+            <div class="row">
+              <div class="col-md-12 tl">
+                <div class="form-group row">
+                  <label class="col-sm-3 col-form-label">Alamat Rujukan</label>
+                  <div class="col-sm-7">
+                  {{form.alamatrujukan}}
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-md-12 tl">
+                <div class="form-group row">
+                  <label class="col-sm-3 col-form-label">Kepada</label>
+                  <div class="col-sm-7">
+                  <input type="text" class="form-control ts" readonly>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-md-12 tl">
+                <div class="form-group row">
+                  <label class="col-sm-3 col-form-label">Alamat</label>
+                  <div class="col-sm-7">
+                  <textarea rows="5" type="text" readonly class="form-control ts" placeholder="Alamat"></textarea>
+                  </div>
+                </div>
+              </div>
+            </div>
+               <div class="row">
+              <div class="col-md-12 tl">
+                <div class="form-group row">
+                  <label class="col-sm-3 col-form-label">Kos WJP</label>
+                  <div class="col-sm-5">
+                    <div class="input-group">
+                      <div class="input-group-prepend bg-success border-primary">
+                        <span class="input-group-text bg-transparent text-white">RM</span>
+                      </div>
+                      {{form.koswjp}}
+                   
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-12 tl">
+                  <div class="form-group row">
+                    <label class="col-sm-3 col-form-label">Pegawai Penguasa</label>
+                      <div class="col-sm-3">
+                             <select name="{{form.wjpjawatan.name}}" class="form-control custom-select select28" id="">
+                                                <option value="Tiada">Tiada</option>
+                                                
+                                                {% for row in userlist %}
+                                                <option value="{{row.first_name}}">{{row.first_name}}</option>
+                                                {% endfor %}
+
+                                            </select>
+                      </div>
+                      <label class="col-sm-1 col-form-label">Jawatan</label>
+                        <div class="col-sm-3">
+                      {{form.wjpjawatan}}
+                        </div>
+                    </div>
+               </div>
+            </div>
+
+            <div class="row">
+              <div class="col-md-12 tl">
+                <div class="form-group row">
+                  <label class="col-sm-3 col-form-label">Tajuk Kerja</label>
+                  <div class="col-sm-7">
+                  <textarea rows="5" type="text" class="form-control ts"  readonly></textarea>
+                  </div>
+                </div>
+              </div>
+            </div>
+                        
+                   
+
+              
+			
+                    
+						    </div>
+							<!-- /.box-body -->
+							<div class="box-footer">
+								<button type="button" class="btn btn-rounded btn-warning btn-outline mr-1">
+								  <i class="ti-trash"></i> Cancel
+								</button>
+								<button type="submit"  class="btn btn-rounded btn-primary btn-outline">
+								  <i class="ti-save-alt"></i> Save
+								</button>
+							</div>  
+					
+					  </div>
+					  <!-- /.box -->	
+                          	</form>		
+				</div>  
+		    </div>
+        
+	
+		</section>
+		<!-- /.content -->
+	  </div>
+  </div>
+  <!-- /.content-wrapper -->
+  {% endblock content %}
