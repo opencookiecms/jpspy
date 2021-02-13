@@ -283,4 +283,98 @@ class Psmkform(forms.ModelForm):
             'psmkmrksatulink',
 
         ]
+
+class JaminanBankForm(forms.ModelForm):
+
+    rujukanbank  = forms.CharField(required=False, widget=forms.TextInput(attrs={'class':'form-control','type':'text','placeholder':'Rujukan Bank'}))
+    namabank = forms.CharField(required=False, widget=forms.TextInput(attrs={'class':'form-control','type':'text','placeholder':'contoh:Bank Islam, Maybank'}))
+    alamatbank  = forms.CharField(required=False, widget=forms.Textarea(attrs={'class':'form-control','type':'text','placeholder':'Alamat bank','rows':'5'}))
+    alamatpemborongsurat  = forms.CharField(required=False, widget=forms.Textarea(attrs={'class':'form-control','type':'text','placeholder':'Alamat Pemborong','rows':'5'}))
+
+    class Meta:
+        model = document.SuratPJaminanbank
+        fields = [
+            'rujukanbank', 
+            'namabank',
+            'alamatbank', 
+            'alamatpemborongsurat',
+            'jbankknosebutharga',
+            'jbankmrksatulink',
+        ]
+
+class PwjpForm(forms.ModelForm):
+
+    jawatan = (
+        ('Penolong Jurutera JA29','Penolong Jurutera JA29'),
+        ('Penolong Jurutera JA36','Penolong Jurutera JA36'),
+        ('Jurutera ( Kuala Muda/Sik )','Jurutera ( Kuala Muda/Sik )'),
+        ('urutera ( Baling )','urutera ( Baling )'),
+        ('Jurutera Daerah<','Jurutera Daerah'),
+        ('Penolong Jurutera JA38','Penolong Jurutera JA38'),
+    )
+    rujukantuan  = forms.CharField(required=False, widget=forms.TextInput(attrs={'class':'form-control','type':'text','placeholder':'Rujukan Tuan'}))
+    rujukankami = forms.CharField(required=False, widget=forms.TextInput(attrs={'class':'form-control','type':'text','placeholder':'Rujukan Kami'}))
+    namarujukan = forms.CharField(required=False, widget=forms.TextInput(attrs={'class':'form-control','type':'text','placeholder':'Akauntan Negara'}))
+    alamatrujukan = forms.CharField(required=False, widget=forms.Textarea(attrs={'class':'form-control','type':'text','placeholder':'Alamat','rows':'5'}))
+    koswjp = forms.CharField(required=False, widget=forms.TextInput(attrs={'class':'form-control','type':'text','placeholder':'0.00'}))
+    wjpjawatan = forms.ChoiceField(choices=jawatan, required=False, widget=forms.Select(attrs={'class':'form-control custom-select select28 ','placholder':'baru'}))
+
+    
+
+
+    class Meta:
+        model = document.Perakuanpwjp
+        fields = [
+            'rujukantuan',
+            'rujukankami',
+            'namarujukan',
+            'alamatrujukan', 
+            'koswjp', 
+            'wjppegawai', 
+            'wjpjawatan',
+            'wjpknosebutharga',
+            'wjpmrksatulink', 
+        ]
+
+class SuratMRKForm(forms.ModelForm):
+
+    jawatan = (
+        ('Tiada','Tiada'),
+        ('Penolong Jurutera JA29','Penolong Jurutera JA29'),
+        ('Penolong Jurutera JA36','Penolong Jurutera JA36'),
+        ('Jurutera ( Kuala Muda/Sik )','Jurutera ( Kuala Muda/Sik )'),
+        ('urutera ( Baling )','urutera ( Baling )'),
+        ('Jurutera Daerah<','Jurutera Daerah'),
+        ('Penolong Jurutera JA38','Penolong Jurutera JA38'),
+    )
+
+    jenisborang = (
+        ('Tiada','Tiada'),
+        ('MRK 01','MRK 01'),
+        ('MRK 02','MRK 02'),
+        ('MRK 03','MRK 03'),
+    )
+
+    smrkrujukantuan = forms.CharField(required=False, widget=forms.TextInput(attrs={'class':'form-control','type':'text','placeholder':'Rujukan Tuan'}))
+    smrktarikh  = forms.CharField(required=False, widget=forms.TextInput(attrs={'class':'form-control fc-datepicker','placeholder':'MM/DD/YYYY'}))
+    smrkjenisborang  = forms.ChoiceField(choices=jenisborang, required=False, widget=forms.Select(attrs={'class':'form-control custom-select select28 ','placholder':'baru'}))
+    smrknamarujukan  = forms.CharField(required=False, widget=forms.TextInput(attrs={'class':'form-control','type':'text','placeholder':'Nama Rujukan'}))
+    smkralamatrujukan  = forms.CharField(required=False, widget=forms.Textarea(attrs={'class':'form-control','type':'text','placeholder':'Alamat Rujukan','rows':'5'}))
+    smrkjawatan = forms.ChoiceField(choices=jawatan, required=False, widget=forms.Select(attrs={'class':'form-control custom-select select28 ','placholder':'baru'}))
+
+
+    class Meta:
+        model = document.SuratMRK
+        fields = [
+            'smrkrujukantuan',
+            'smrktarikh', 
+            'smrkjenisborang', 
+            'smrknamarujukan', 
+            'smkralamatrujukan', 
+            'smrkpegawai', 
+            'smrkjawatan', 
+            'smrkknosebutharga', 
+            'smrkmrksatulink', 
+        ]
+
    

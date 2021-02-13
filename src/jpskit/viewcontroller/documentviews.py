@@ -163,6 +163,73 @@ def psmkview(request, idperolehan):
     }
 
     return render(request, 'pages/psmk.html',context)
+
+def jaminanbankv(request, idperolehan):
+    dataobject = document.SuratPJaminanbank.objects.filter(jbankknosebutharga=idperolehan).first()
+    form = ducumentform.JaminanBankForm(request.POST or None, instance=dataobject)
+
+    if form.is_valid():
+        form.save()
+        form = ducumentform.JaminanBankForm()
+        return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
+    else:
+        print("data was not save")
+        print(form)
+    
+    
+    context = {
+        'form':form,
+        'mrksatufecth':document.MRKSatu.objects.get(mrksatunosebutharga=idperolehan),
+        'projek':project.Projek.objects.get(nosebuthargaid=idperolehan),
+        'userlist':User.objects.all()
+    }
+
+    return render(request, 'pages/jaminanbank.html',context)
+
+def pwjpview(request, idperolehan):
+    dataobject = document.Perakuanpwjp.objects.filter(wjpknosebutharga=idperolehan).first()
+    form = ducumentform.PwjpForm(request.POST or None, instance=dataobject)
+
+    if form.is_valid():
+        form.save()
+        form = ducumentform.PwjpForm()
+        return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
+    else:
+        print("data was not save")
+        print(form)
+    
+    
+    context = {
+        'form':form,
+        'mrksatufecth':document.MRKSatu.objects.get(mrksatunosebutharga=idperolehan),
+        'projek':project.Projek.objects.get(nosebuthargaid=idperolehan),
+        'userlist':User.objects.all()
+    }
+
+    return render(request, 'pages/ppwjp.html',context)
+
+
+def smrkview(request, idperolehan):
+    dataobject = document.SuratMRK.objects.filter(smrkknosebutharga=idperolehan).first()
+    form = ducumentform.SuratMRKForm(request.POST or None, instance=dataobject)
+
+    if form.is_valid():
+        form.save()
+        form = ducumentform.SuratMRKForm()
+        return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
+    else:
+        print("data was not save")
+        print(form)
+    
+    
+    context = {
+        'form':form,
+        'mrksatufecth':document.MRKSatu.objects.get(mrksatunosebutharga=idperolehan),
+        'projek':project.Projek.objects.get(nosebuthargaid=idperolehan),
+        'userlist':User.objects.all()
+    }
+
+    return render(request, 'pages/smrk.html',context)
      
  
         
