@@ -377,4 +377,66 @@ class SuratMRKForm(forms.ModelForm):
             'smrkmrksatulink', 
         ]
 
-   
+
+class SuratKhasForm(forms.ModelForm):
+
+    jawatan = (
+        ('Tiada','Tiada'),
+        ('Penolong Jurutera JA29','Penolong Jurutera JA29'),
+        ('Penolong Jurutera JA36','Penolong Jurutera JA36'),
+        ('Jurutera ( Kuala Muda/Sik )','Jurutera ( Kuala Muda/Sik )'),
+        ('urutera ( Baling )','urutera ( Baling )'),
+        ('Jurutera Daerah<','Jurutera Daerah'),
+        ('Penolong Jurutera JA38','Penolong Jurutera JA38'),
+    )
+
+    khasrujukantuan = forms.CharField(required=False, widget=forms.TextInput(attrs={'class':'form-control','type':'text','placeholder':'Rujukan Tuan'}))
+    khasnamarujukan = forms.CharField(required=False, widget=forms.TextInput(attrs={'class':'form-control','type':'text','placeholder':'Rujukan Tuan'}))
+    khasalamatrujukan = forms.CharField(required=False, widget=forms.Textarea(attrs={'class':'form-control','type':'text','placeholder':'Alamat Rujukan','rows':'5'}))
+    khasjawatan = forms.ChoiceField(choices=jawatan, required=False, widget=forms.Select(attrs={'class':'form-control custom-select select28 ','placholder':'baru'}))
+
+    class Meta:
+        model = document.SuratKhas
+        fields = [
+            'khasrujukantuan', 
+            'khasnamarujukan',
+            'khasalamatrujukan', 
+            'khaspegawai', 
+            'khasjawatan',
+            'khasknosebutharga',
+            'khasmrksatulink', 
+        ]
+
+class SuratBonForm(forms.ModelForm):
+
+    jawatan = (
+        ('Tiada','Tiada'),
+        ('Penolong Jurutera JA29','Penolong Jurutera JA29'),
+        ('Penolong Jurutera JA36','Penolong Jurutera JA36'),
+        ('Jurutera ( Kuala Muda/Sik )','Jurutera ( Kuala Muda/Sik )'),
+        ('urutera ( Baling )','urutera ( Baling )'),
+        ('Jurutera Daerah<','Jurutera Daerah'),
+        ('Penolong Jurutera JA38','Penolong Jurutera JA38'),
+    )
+
+    bonkepada = forms.CharField(required=False, widget=forms.TextInput(attrs={'class':'form-control','type':'text','placeholder':'Rujukan Tuan'}))
+    bonalamatsatu = forms.CharField(required=False, widget=forms.Textarea(attrs={'class':'form-control','type':'text','placeholder':'Alamat Rujukan','rows':'5'}))
+    bonmelalui = forms.CharField(required=False, widget=forms.TextInput(attrs={'class':'form-control','type':'text','placeholder':'Melalui'}))
+    bonalamatdua = forms.CharField(required=False, widget=forms.Textarea(attrs={'class':'form-control','type':'text','placeholder':'Alamat Rujukan','rows':'5'}))
+    bonwanjaminan = forms.CharField(required=False, widget=forms.TextInput(attrs={'class':'form-control','type':'text','placeholder':'0.00'}))
+    bonjawatan = forms.ChoiceField(choices=jawatan, required=False, widget=forms.Select(attrs={'class':'form-control custom-select select28 ','placholder':'baru'}))
+
+
+    class Meta:
+        model = document.SuratPelepasanBon
+        fields = [
+            'bonkepada', 
+            'bonalamatsatu',
+            'bonmelalui', 
+            'bonalamatdua', 
+            'bonwanjaminan', 
+            'bonpegawai',
+            'bonjawatan',
+            'bonknosebutharga', 
+            'bonmrksatulink',
+        ]

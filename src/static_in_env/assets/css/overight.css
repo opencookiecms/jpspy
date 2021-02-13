@@ -1,0 +1,14 @@
+.theme-primary .flex-column>li>a.nav-link.aktif {
+    border-left-color: #0052cc;
+}
+
+.theme-primary .nav-pills>li>a.aktif {
+    border-top-color: #0052cc;
+    color: #172b4c;
+}
+
+.nav-pills .nav-link.aktif,
+.nav-pills .show>.nav-link {
+    color: #fff;
+    background-color: #c8d6e5;
+}

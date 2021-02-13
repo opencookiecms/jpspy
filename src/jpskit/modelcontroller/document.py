@@ -198,7 +198,7 @@ class SuratMRK(models.Model):
     smrktarikh  = models.CharField(max_length=50, null=True, blank=True)
     smrkjenisborang  = models.CharField(max_length=50, null=True, blank=True)
     smrknamarujukan  = models.CharField(max_length=50, null=True, blank=True)
-    smkralamatrujukan  = models.CharField(max_length=50, null=True, blank=True)
+    smkralamatrujukan  = models.CharField(max_length=200, null=True, blank=True)
     smrkpegawai = models.CharField(max_length=50, null=True, blank=True)
     smrkjawatan = models.CharField(max_length=50, null=True, blank=True)
     smrkknosebutharga = models.ForeignKey(dfnoperolehan.NoPerolehan, blank=True, null=True, on_delete = models.SET_NULL)
@@ -208,9 +208,10 @@ class SuratMRK(models.Model):
         verbose_name_plural = "Surat MRK"
 
 class SuratKhas(models.Model):
+
     khasrujukantuan = models.CharField(max_length=50, null=True, blank=True)
     khasnamarujukan = models.CharField(max_length=50, null=True, blank=True)
-    khasalamatrujukan = models.CharField(max_length=50, null=True, blank=True)
+    khasalamatrujukan = models.CharField(max_length=200, null=True, blank=True)
     khaspegawai = models.CharField(max_length=50, null=True, blank=True)
     khasjawatan = models.CharField(max_length=50, null=True, blank=True)
     khasknosebutharga = models.ForeignKey(dfnoperolehan.NoPerolehan, blank=True, null=True, on_delete = models.SET_NULL)
@@ -218,6 +219,21 @@ class SuratKhas(models.Model):
 
     class Meta:
         verbose_name_plural = "Surat Khas"
+
+class SuratPelepasanBon(models.Model):
+
+    bonkepada = models.CharField(max_length=50, null=True, blank=True)
+    bonalamatsatu = models.CharField(max_length=50, null=True, blank=True)
+    bonmelalui = models.CharField(max_length=50, null=True, blank=True)
+    bonalamatdua = models.CharField(max_length=50, null=True, blank=True)
+    bonwanjaminan = models.CharField(max_length=50, null=True, blank=True)
+    bonpegawai = models.CharField(max_length=50, null=True, blank=True)
+    bonjawatan = models.CharField(max_length=50, null=True, blank=True)
+    bonknosebutharga = models.ForeignKey(dfnoperolehan.NoPerolehan, blank=True, null=True, on_delete = models.SET_NULL)
+    bonmrksatulink = models.ForeignKey(MRKSatu, blank=True, null=True, on_delete = models.SET_NULL)
+
+    class Meta:
+        verbose_name_plural = "Surat Bon"
 
 
 

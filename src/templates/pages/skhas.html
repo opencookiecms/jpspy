@@ -1,0 +1,239 @@
+{% extends 'based/based.html' %}
+{% block content %}
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+	  <div class="container-full">
+		<!-- Content Header (Page header) -->
+		<div class="content-header">
+			<div class="d-flex align-items-center">
+				<div class="mr-auto">
+					<h3 class="page-title">Surat Kebenaran Khas (Permohonan Pengkhususan)</h3>
+					<div class="d-inline-block align-items-center">
+						<nav>
+							<ol class="breadcrumb">
+								<li class="breadcrumb-item"><a href="#"><i class="mdi mdi-home-outline"></i></a></li>
+								<li class="breadcrumb-item" aria-current="page">Borang</li>
+								<li class="breadcrumb-item active" aria-current="page">No perolehan</li>
+							</ol>
+						</nav>
+					</div>
+				</div>
+				
+			</div>
+		</div>	  
+
+		<!-- Main content -->
+		<section class="content">
+			<div class="row">			 
+               
+				<div class="col-lg-9 col-12">
+                	<form class="form" action='{% url 'dokumen/smrk' idperolehan=mrksatufecth.mrksatunosebutharga.id   %}' method="POST">
+					  <div class="box">
+				
+						<!-- /.box-header -->
+					
+                          {% csrf_token %}
+							<div class="box-body">
+							<h4 class="box-title text-primary"><i class="ti-user mr-15"></i>Surat Khas</h4>
+							<hr class="my-15">
+
+                            <div class="row">
+                                <div class="col-md-12 tl">
+                                    <div class="form-group row">
+                                    <label class="col-sm-2 col-form-label">Rujukan Tuan</label>
+                                    <div class="col-sm-6">
+                                    <input type="hidden" class="form-control" name="{{form.khasknosebutharga.name}}" value="{{mrksatufecth.mrksatunosebutharga.id }}"/>
+                                    <input type="hidden" class="form-control" name="{{form.khasmrksatulink.name}}" value="{{mrksatufecth.id}}"/> 
+                                        {{form.khasrujukantuan}}
+                                    </div>
+                                    </div>
+                                </div>
+                                </div>
+                                <div class="row">
+                                <div class="col-md-12 tl">
+                                    <div class="form-group row">
+                                    <label class="col-sm-2 col-form-label">Rujukan Kami</label>
+                                    <div class="col-sm-6">
+                                    <input type="text" class="form-control ts" readonly>
+                                    </div>
+                                    </div>
+                                </div>
+                                </div>
+                                        <div class="row">
+                                <div class="col-md-12 tl">
+                                    <div class="form-group row">
+                                    <label class="col-sm-2 col-form-label">No Sebutharga</label>
+                                    <div class="col-sm-6">
+                                        <input type="text" class="form-control ts" readonly>
+                                    
+                                    </div>
+                                    </div>
+                                </div>
+                                </div>
+                                <div class="row">
+                                <div class="col-md-12 tl">
+                                    <div class="form-group row">
+                                    <label class="col-sm-2 col-form-label">Nama Kontraktor</label>
+                                    <div class="col-sm-6">
+                                    <input type="text" class="form-control ts" readonly>
+                                    </div>
+                                    </div>
+                                </div>
+                                </div>
+                            <div class="row">
+                                <div class="col-md-12 tl">
+                                    <div class="form-group row">
+                                    <label class="col-sm-2 col-form-label">Nama Rujukan</label>
+                                    <div class="col-sm-7">
+                                    {{form.khasnamarujukan}}
+                                    </div>
+                                    </div>
+                                </div>
+                                </div>
+
+                                <div class="row">
+                                <div class="col-md-12 tl">
+                                    <div class="form-group row">
+                                    <label class="col-sm-2 col-form-label">Alamat Rujukan</label>
+                                    <div class="col-sm-7">
+                                    {{form.khasalamatrujukan}}
+                                    </div>
+                                    </div>
+                                </div>
+                                </div>
+                                <div class="row">
+                                <div class="col-md-12 tl">
+                                    <div class="form-group row">
+                                    <label class="col-sm-2 col-form-label">Tajuk Projek</label>
+                                    <div class="col-sm-6">
+                                    <textarea rows="5" type="text" class="form-control ts"  readonly></textarea>
+                                    </div>
+                                    </div>
+                                </div>
+                                </div>
+                                <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group row">
+
+                                    <label class="col-sm-2 col-form-label">Gred</label>
+                                    <div class="col-sm-2">
+                                        <input type="text" class="form-control ts"  readonly>
+                                    
+                                    </div>
+                                    <label class="col-sm-2 col-form-label">Kategori</label>
+                                    <div class="col-sm-2">
+                                        <input type="text" class="form-control ts"  readonly>
+                                    
+                                    </div>
+                                    <label class="col-sm-2 col-form-label">Pengkhususan</label>
+                                    <div class="col-sm-2">
+                                        <input type="text" class="form-control ts"  readonly>
+                                    </div>
+                                    </div>
+                                </div>
+                                </div>
+
+                                <div class="row">
+                                <div class="col-md-12 tl">
+                                    <div class="form-group row">
+
+                                    <label class="col-sm-2 col-form-label">Pegawai Penguasa</label>
+                                    <div class="col-sm-3">
+                                           <select name="{{form.psmkpegawaipenguasa.name}}" class="form-control custom-select select28" id="">
+                                        <option value="Tiada">Tiada</option>
+										
+                                        {% for row in userlist %}
+                                        <option value="{{row.first_name}}">{{row.first_name}}</option>
+                                        {% endfor %}
+
+                                    </select>
+                                    </div>
+                                    <label class="col-sm-1 col-form-label">Jawatan</label>
+                                    <div class="col-sm-2">
+                                    {{form.khasjawatan}}
+                                    </div>
+                                    </div>
+                                </div>
+                                </div>
+                                <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group row">
+                                        <div class="col-sm-3">
+                                                <a class="btn btn-dark mr-2 btn-rounded" target="_blank" href="<?php echo site_url('report/Report_Khas01/'.$get_detail[0]->projek_id)?>">Surat Khas 01</a>
+                                        </div>
+                                        <div class="col-sm-2">
+                                                <h5>Jenis Surat Khas 01</h5>
+                                        </div>
+                                    </div>
+                                </div>
+                                </div>
+                                <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group row">
+                                        <div class="col-sm-3">
+                                                <a class="btn btn-dark mr-2 btn-rounded" target="_blank" href="<?php echo site_url('report/report_khas02/'.$get_detail[0]->projek_id)?>">Surat Khas 02</a>
+                                        </div>
+                                        <div class="col-sm-2">
+                                                <h5>Jenis Surat Khas 02</h5>
+                                        </div>
+                                    </div>
+                                </div>
+                                </div>
+                                            
+
+              
+			
+                    
+						    </div>
+							<!-- /.box-body -->
+							<div class="box-footer">
+								<button type="button" class="btn btn-rounded btn-warning btn-outline mr-1">
+								  <i class="ti-trash"></i> Cancel
+								</button>
+								<button type="submit"  class="btn btn-rounded btn-primary btn-outline">
+								  <i class="ti-save-alt"></i> Save
+								</button>
+							</div>  
+					
+					  </div>
+					  <!-- /.box -->	
+                          	</form>		
+				</div>  
+                               <div class="col-lg-3">
+                    	  <div class="box">
+					<div class="box-header with-border">
+					  <h4 class="box-title">Labels</h4>
+					  <ul class="box-controls pull-right">
+						<li><a class="box-btn-slide" href="#"></a></li>	
+					  </ul>
+					</div>
+					<div class="box-body no-padding mailbox-nav">
+					  <ul class="nav nav-pills flex-column">
+						<li class="nav-item"><a class="nav-link" href="#"><i class="fa fa-folder-o text-dark"></i>MRK 01</a></li>
+						<li class="nav-item"><a class="nav-link" href="#"><i class="fa fa-folder-o text-dark"></i> MRK 02</a></li>
+						<li class="nav-item"><a class="nav-link" href="#"><i class="fa fa-folder-o text-dark"></i> Laporan Siap Kerja</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#"><i class="fa fa-folder-o text-dark"></i> MRK 03</a></li>
+						<li class="nav-item"><a class="nav-link" href="#"><i class="fa fa-folder-o text-dark"></i>Perakuan Siap Kerja</a></li>
+						<li class="nav-item"><a class="nav-link" href="#"><i class="fa fa-folder-o text-dark "></i> Senarai Semakan</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#"><i class="fa fa-folder-o"></i>Perakuan Siap Membaiki Kecacatan</a></li>
+						<li class="nav-item"><a class="nav-link" href="#"><i class="fa fa-folder-o text-dark"></i>Pelepasan Jaminan Bank</a></li>
+						<li class="nav-item"><a class="nav-link" href="#"><i class="fa fa-folder-o text-dark"></i>Perakuan Pemulangan WJP</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#"><i class="fa fa-folder-o text-dark"></i> Surat Maklumat Rekod Kerja</a></li>
+						<li class="nav-item"><a class="nav-link aktif" href="#"><i class="fa fa-folder-open-o text-dark"></i> Surat Kebenaran Khas</a></li>
+						<li class="nav-item"><a class="nav-link" href="#"><i class="fa fa-folder-o text-dark"></i> Surat Pelepasan WJP</a></li>
+					  </ul>
+					</div>
+					<!-- /.box-body -->
+				  </div>
+                
+
+                </div>
+		    </div>
+        
+	
+		</section>
+		<!-- /.content -->
+	  </div>
+  </div>
+  <!-- /.content-wrapper -->
+  {% endblock content %}

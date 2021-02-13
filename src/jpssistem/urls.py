@@ -39,6 +39,8 @@ urlpatterns = [
     path('dokumen/jaminanbank/<int:idperolehan>',documentviews.jaminanbankv, name="dokumen/jaminanbank"),
     path('dokumen/ppwjp/<int:idperolehan>',documentviews.pwjpview, name="dokumen/ppwjp"),
     path('dokumen/smrk/<int:idperolehan>',documentviews.smrkview, name="dokumen/smrk"),
+    path('dokumen/skhas/<int:idperolehan>',documentviews.skhasview, name="dokumen/skhas"),
+    path('dokumen/suratbon/<int:idperolehan>',documentviews.sbonview, name="dokumen/suratbon"),
 ]
 
 if settings.DEBUG:

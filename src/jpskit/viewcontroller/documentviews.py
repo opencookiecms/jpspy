@@ -230,6 +230,51 @@ def smrkview(request, idperolehan):
     }
 
     return render(request, 'pages/smrk.html',context)
+
+def skhasview(request, idperolehan):
+    dataobject = document.SuratKhas.objects.filter(khasknosebutharga=idperolehan).first()
+    form = ducumentform.SuratKhasForm(request.POST or None, instance=dataobject)
+
+    if form.is_valid():
+        form.save()
+        form = ducumentform.SuratKhasForm()
+        return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
+    else:
+        print("data was not save")
+        print(form)
+    
+    
+    context = {
+        'form':form,
+        'mrksatufecth':document.MRKSatu.objects.get(mrksatunosebutharga=idperolehan),
+        'projek':project.Projek.objects.get(nosebuthargaid=idperolehan),
+        'userlist':User.objects.all()
+    }
+
+    return render(request, 'pages/skhas.html',context)
+
+
+def sbonview(request, idperolehan):
+    dataobject = document.SuratPelepasanBon.objects.filter(bonknosebutharga=idperolehan).first()
+    form = ducumentform.SuratBonForm(request.POST or None, instance=dataobject)
+
+    if form.is_valid():
+        form.save()
+        form = ducumentform.SuratBonForm()
+        return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
+    else:
+        print("data was not save")
+        print(form)
+    
+    
+    context = {
+        'form':form,
+        'mrksatufecth':document.MRKSatu.objects.get(mrksatunosebutharga=idperolehan),
+        'projek':project.Projek.objects.get(nosebuthargaid=idperolehan),
+        'userlist':User.objects.all()
+    }
+
+    return render(request, 'pages/sbon.html',context)
      
  
         
