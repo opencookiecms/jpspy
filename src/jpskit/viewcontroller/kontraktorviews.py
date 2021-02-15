@@ -45,6 +45,13 @@ def kontraktordash(request):
 
     return render(request, 'pages/kontraktor-dashboard.html',data)
 
+def kontraktorprofile(request, kontrakid):
+
+    data = {
+        'kontraktor':kontraktor.Kontraktor.objects.get(pk=kontrakid),
+    }
+    return render(request, 'pages/kontraktor-profile.html',data)
+
 def kontraktorlist(request):
 
     timecurrent = datetime.date.today().strftime('%d/%m/%Y')

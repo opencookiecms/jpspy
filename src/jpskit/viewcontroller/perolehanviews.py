@@ -13,7 +13,13 @@ def dnoperolehan(request):
         'semua':dfnoperolehan.NoPerolehan.objects.all(),
         'sebutharga':dfnoperolehan.NoPerolehan.objects.filter(kaedahperolehan="Sebutharga"),
         'lt':dfnoperolehan.NoPerolehan.objects.filter(kaedahperolehan="Lantikan Terus"),
-        'undi':dfnoperolehan.NoPerolehan.objects.filter(kaedahperolehan="Undi")
+        'undi':dfnoperolehan.NoPerolehan.objects.filter(kaedahperolehan="Undi"),
+        'total':dfnoperolehan.NoPerolehan.objects.all().count(),
+        'kelas':dfnoperolehan.NoPerolehan.objects.aggregate(
+            sebutharga = Count('pk', filter=Q(kaedahperolehan='Sebutharga')),
+            lt = Count('pk', filter=Q(kaedahperolehan='Lantikan Terus')),
+            undi = Count('pk', filter=Q(kaedahperolehan='Undi')),
+        )
     }
     return render(request, 'pages/noperolehan-dashboard.html',context)
 

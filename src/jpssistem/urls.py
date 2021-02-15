@@ -22,6 +22,7 @@ urlpatterns = [
     path('', index, name='index'),
     path('kontraktor', kontraktorviews.kontraktordash, name='kontraktor'),
     path('kontraktor/senarai', kontraktorviews.kontraktorlist, name="kontraktor/senarai"),
+    path('kontraktor/profile/<int:kontrakid>', kontraktorviews.kontraktorprofile, name="kontraktor/profile"),
     path('kontraktor/daftar-baru', kontraktorviews.kontraktordaftar, name="kontraktor/daftar-baru"),
     path('kontraktor/edit/<int:id>/',kontraktorviews.kontraktoredit, name="kontraktor/edit"),
     path('kontraktor-delete/<int:id>',kontraktorviews.kontraktordelete, name="kontraktor-delete"),
