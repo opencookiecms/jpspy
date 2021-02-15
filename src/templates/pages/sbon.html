@@ -8,7 +8,7 @@
 		<div class="content-header">
 			<div class="d-flex align-items-center">
 				<div class="mr-auto">
-					<h3 class="page-title">Surat Kebenaran Khas (Permohonan Pengkhususan)</h3>
+					<h3 class="page-title">Surat Pelepasan Bon Jaminan Perlaksanaan</h3>
 					<div class="d-inline-block align-items-center">
 						<nav>
 							<ol class="breadcrumb">
@@ -28,7 +28,7 @@
 			<div class="row">			 
                
 				<div class="col-lg-9 col-12">
-                	<form class="form" action='{% url 'dokumen/smrk' idperolehan=mrksatufecth.mrksatunosebutharga.id   %}' method="POST">
+                	<form class="form" action='{% url 'dokumen/suratbon' idperolehan=mrksatufecth.mrksatunosebutharga.id   %}' method="POST">
 					  <div class="box">
 				
 						<!-- /.box-header -->
@@ -41,10 +41,10 @@
                             <div class="row">
                             <div class="col-md-12 tl">
                                 <div class="form-group row">
-                                <label class="col-sm-2 col-form-label">Kepada</label>
+                                <label class="col-sm-2 col-form-label"><h5 class="text-secondary font-weight-500 mb-2">Kepada</h5></label>
                                 <div class="col-sm-6">
-                                <input type="hidden" class="form-control" name="{{form.khasknosebutharga.name}}" value="{{mrksatufecth.mrksatunosebutharga.id }}"/>
-                                <input type="hidden" class="form-control" name="{{form.khasmrksatulink.name}}" value="{{mrksatufecth.id}}"/> 
+                                <input type="hidden" class="form-control" name="{{form.bonknosebutharga.name}}" value="{{mrksatufecth.mrksatunosebutharga.id }}"/>
+                                <input type="hidden" class="form-control" name="{{form.bonmrksatulink.name}}" value="{{mrksatufecth.id}}"/> 
                                 {{form.bonkepada}}
                                 </div>
                                 </div>
@@ -53,9 +53,9 @@
                             <div class="row">
                             <div class="col-md-12 tl">
                                 <div class="form-group row">
-                                <label class="col-sm-2 col-form-label">Alamat</label>
+                                <label class="col-sm-2 col-form-label"><h5 class="text-secondary font-weight-500 mb-2">Alamat</h5></label>
                                 <div class="col-sm-6">
-                                <textarea  rows="5" type="text" class="form-control ts" style="font-weight:bold;" id="alamat" name="alamat" placeholder="Alamat"><?php echo $get_detail[0]->swjp_alamat?></textarea>
+                                {{form.bonalamatsatu}}
                                 </div>
 
                                 </div>
@@ -64,13 +64,10 @@
                             <div class="row">
                             <div class="col-md-12 tl">
                                 <div class="form-group row">
-                                <label class="col-sm-2 col-form-label">Rujukan Tuan</label>
+                                <label class="col-sm-2 col-form-label"><h5 class="text-secondary font-weight-500 mb-2">Rujukan Tuan</h5></label>
                                 <div class="col-sm-6">
-                                    <input type="text" class="form-control ts" style="font-weight:bold;" id="rujukkami" name="rujuktuan" placeholder="Rujukan Kami" readonly value="<?php echo $get_detail[0]->df_nosebutharga?>">
-                                    <input type="hidden" name="noinden" value="<?php echo $get_detail[0]->mrk_noinden?>" readonly>
-                                    <input type="hidden" name="kodvot" value="<?php echo $get_detail[0]->df_kodvot?>" readonly>
-                                    <input type="hidden" name="hiddenid" value="<?php echo $get_detail[0]->mrksatuid?>" readonly>
-                                    <input type="hidden" name="hiddenids" value="<?php echo $get_detail[0]->projek_id?>" readonly>
+                                    <input type="text" class="form-control ts" readonly>
+
                                 </div>
                                 </div>
                             </div>
@@ -78,9 +75,9 @@
                             <div class="row">
                             <div class="col-md-12 tl">
                                 <div class="form-group row">
-                                <label class="col-sm-2 col-form-label">Rujukan Kami</label>
+                                <label class="col-sm-2 col-form-label"><h5 class="text-secondary font-weight-500 mb-2">Rujukan Kami</h5></label>
                                 <div class="col-sm-6">
-                                <input type="text" class="form-control ts" style="font-weight:bold;"  name="rujukankami" placeholder="No Kontraktor" readonly value="<?php echo $get_detail[0]->df_nosebutharga?>">
+                                <input type="text" class="form-control ts" readonly>
                                 </div>
                                 </div>
                             </div>
@@ -89,9 +86,9 @@
                             <div class="row">
                             <div class="col-md-12 tl">
                                 <div class="form-group row">
-                                <label class="col-sm-2 col-form-label">Nama Kontraktor</label>
+                                <label class="col-sm-2 col-form-label"><h5 class="text-secondary font-weight-500 mb-2">Nama Kontraktor</h5></label>
                                 <div class="col-sm-6">
-                                    <input type="text" class="form-control ts" style="font-weight:bold;" name="namakon" placeholder="Nama Kontraktor" readonly value="<?php echo $get_detail[0]->mrk_namakon?>">
+                                    <input type="text" class="form-control ts" readonly>
                                 </div>
                                 </div>
                             </div>
@@ -100,9 +97,9 @@
                             <div class="row">
                             <div class="col-md-12 tl">
                                 <div class="form-group row">
-                                <label class="col-sm-2 col-form-label">No. Kontraktor</label>
+                                <label class="col-sm-2 col-form-label"><h5 class="text-secondary font-weight-500 mb-2">No. Kontraktor</h5></label>
                                 <div class="col-sm-6">
-                                    <input type="text" class="form-control ts" style="font-weight:bold;"  name="nokon" placeholder="No Kontraktor" readonly value="<?php echo $get_detail[0]->mrk_nopkk?>">
+                                    <input type="text" class="form-control ts" readonly>
                                 </div>
                                 </div>
                             </div>
@@ -111,9 +108,9 @@
                             <div class="row">
                             <div class="col-md-12 tl">
                                 <div class="form-group row">
-                                <label class="col-sm-2 col-form-label">Melalui</label>
+                                <label class="col-sm-2 col-form-label"><h5 class="text-secondary font-weight-500 mb-2">Melalui</h5></label>
                                 <div class="col-sm-6">
-                                <input type="text" class="form-control ts" style="font-weight:bold;"  name="melalui" placeholder="Melalui" value="<?php echo $get_detail[0]->swjp_melalui?>">
+                                {{form.bonmelalui}}
                                 </div>
                                 </div>
                             </div>
@@ -122,9 +119,9 @@
                             <div class="row">
                             <div class="col-md-12 tl">
                                 <div class="form-group row">
-                                <label class="col-sm-2 col-form-label">Alamat</label>
+                                <label class="col-sm-2 col-form-label"><h5 class="text-secondary font-weight-500 mb-2">Alamat</h5></label>
                                 <div class="col-sm-6">
-                                <textarea rows="5" type="text" class="form-control ts" style="font-weight:bold;"  name="alamat1" placeholder="Alamat"><?php echo $get_detail[0]->swjp_alamatlalu?></textarea>
+                                {{form.bonalamatdua}}
                                 </div>
                                 </div>
                             </div>
@@ -133,13 +130,13 @@
                             <div class="row">
                             <div class="col-md-12 tl">
                                 <div class="form-group row">
-                                <label class="col-sm-2 col-form-label">Wang Jaminan Perlaksanaan</label>
+                                <label class="col-sm-2 col-form-label"><h5 class="text-secondary font-weight-500 mb-2">Wang Jaminan Perlaksanaan</h5></label>
                                 <div class="col-sm-4">
                                     <div class="input-group">
-                                    <div class="input-group-prepend bg-success border-primary">
+                                    <div class="input-group-prepend bg-primary border-primary">
                                         <span class="input-group-text bg-transparent text-white">RM</span>
                                     </div>
-                                    <input type="text" class="form-control ts" style="font-weight:bold;"  name="wangjaminan" placeholder="RM" value="<?php echo $get_detail[0]->swjp_wangjamin?>">
+                                    {{form.bonwanjaminan}}
                                     </div>
                                 </div>
                                 </div>
@@ -149,29 +146,20 @@
                             <div class="row">
                             <div class="col-md-12 tl">
                                 <div class="form-group row">
-                                <label class="col-sm-2 col-form-label">Pengawai Penguasa</label>
+                                <label class="col-sm-2 col-form-label"><h5 class="text-secondary font-weight-500 mb-2">Pengawai Penguasa</h5></label>
                                 <div class="col-sm-3">
-                                    <select class="form-control ts" style="font-weight:bold;"  name="pegawaikuasa" value="">
-                                        <option value="<?php echo $this->session->userdata("name")?>"><?php echo $this->session->userdata("name")?></option>
-                                    <?php foreach($get_user as $users){ ?>
-                                        <option value="<?php echo $users->jps_name?>"><?php echo $users->jps_name?></option>';
-                                        <?php } ?>
+                                             <select name="{{form.bonpegawai.name}}" class="form-control custom-select select28" id="">
+                                        <option value="Tiada">Tiada</option>
+										
+                                        {% for row in userlist %}
+                                        <option value="{{row.first_name}}">{{row.first_name}}</option>
+                                        {% endfor %}
+
                                     </select>
                                 </div>
-                                <label class="col-sm-1 col-form-label">Jawatan</label>
+                                <label class="col-sm-1 col-form-label"><h5 class="text-secondary font-weight-500 mb-2">Jawatan</h5></label>
                                 <div class="col-sm-3">
-                                <select class="form-control ts" style="font-weight:bold;"  name="jawatan" placeholder="Jawatan">
-                                        <option value="<?php echo $this->session->userdata("jawatan")?>"><?php echo $this->session->userdata("jawatan")?></option>
-                                        <option value="Jurutera Awan">Jurutera Awam</option>
-                                    <option value="Jurutera">Jurutera</option>
-                                    <option value="Penolong Jurutera">Penolong Jurutera</option>
-                                    <option value="Pegawai">Pegawai</option>
-                                    <option value="Penolong Pegawai">Penolong Pegawai</option>
-                                    <option value="Pembantu Tadbir">Pembantu Tadbir</option>
-                                    <option value="Pembantu Tadbir Kewangan">Pembantu Tadbir Kewangan</option>
-                                    <option value="Pembantu Awam">Pembantu Awam</option>
-                                    <option value="Pekerja AM">Pekerja AM</option>
-                                </select>
+                           {{form.bonjawatan}}
 
                                 </div>
                                 </div>
@@ -231,18 +219,18 @@
 					</div>
 					<div class="box-body no-padding mailbox-nav">
 					  <ul class="nav nav-pills flex-column">
-						<li class="nav-item"><a class="nav-link" href="#"><i class="fa fa-folder-o text-dark"></i>MRK 01</a></li>
-						<li class="nav-item"><a class="nav-link" href="#"><i class="fa fa-folder-o text-dark"></i> MRK 02</a></li>
-						<li class="nav-item"><a class="nav-link" href="#"><i class="fa fa-folder-o text-dark"></i> Laporan Siap Kerja</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#"><i class="fa fa-folder-o text-dark"></i> MRK 03</a></li>
-						<li class="nav-item"><a class="nav-link" href="#"><i class="fa fa-folder-o text-dark"></i>Perakuan Siap Kerja</a></li>
-						<li class="nav-item"><a class="nav-link" href="#"><i class="fa fa-folder-o text-dark "></i> Senarai Semakan</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#"><i class="fa fa-folder-o"></i>Perakuan Siap Membaiki Kecacatan</a></li>
-						<li class="nav-item"><a class="nav-link" href="#"><i class="fa fa-folder-o text-dark"></i>Pelepasan Jaminan Bank</a></li>
-						<li class="nav-item"><a class="nav-link" href="#"><i class="fa fa-folder-o text-dark"></i>Perakuan Pemulangan WJP</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#"><i class="fa fa-folder-o text-dark"></i> Surat Maklumat Rekod Kerja</a></li>
-						<li class="nav-item"><a class="nav-link" href="#"><i class="fa fa-folder-o text-dark"></i> Surat Kebenaran Khas</a></li>
-						<li class="nav-item"><a class="nav-link aktif" href="#"><i class="fa fa-folder-open-o text-dark"></i>Surat Pelepasan Bon Jaminan Perlaksanaan</a></li>
+						<li class="nav-item"><a class="nav-link" href="{% url 'dokumen/mrksatu' idperolehan=mrksatufecth.mrksatunosebutharga.id  %}"><i class="fa fa-folder-o text-dark"></i>MRK 01</a></li>
+						<li class="nav-item"><a class="nav-link" href="{% url 'dokumen/mrkdua' idperolehan=mrksatufecth.mrksatunosebutharga.id  %}"><i class="fa fa-folder-o text-dark"></i> MRK 02</a></li>
+						<li class="nav-item"><a class="nav-link" href="{% url 'dokumen/lsk' idperolehan=mrksatufecth.mrksatunosebutharga.id  %}"><i class="fa fa-folder-o text-dark"></i> Laporan Siap Kerja</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{% url 'dokumen/mrktiga' idperolehan=mrksatufecth.mrksatunosebutharga.id  %}"><i class="fa fa-folder-o text-dark"></i> MRK 03</a></li>
+						<li class="nav-item"><a class="nav-link" href="{% url 'dokumen/psk' idperolehan=mrksatufecth.mrksatunosebutharga.id  %}"><i class="fa fa-folder-o text-dark"></i>Perakuan Siap Kerja</a></li>
+						<li class="nav-item"><a class="nav-link" href="{% url 'dokumen/senaraisemakan' idperolehan=mrksatufecth.mrksatunosebutharga.id  %}"><i class="fa fa-folder-o text-dark "></i> Senarai Semakan</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{% url 'dokumen/psmk' idperolehan=mrksatufecth.mrksatunosebutharga.id  %}"><i class="fa fa-folder-o"></i>Perakuan Siap Membaiki Kecacatan</a></li>
+						<li class="nav-item"><a class="nav-link" href="{% url 'dokumen/jaminanbank' idperolehan=mrksatufecth.mrksatunosebutharga.id  %}"><i class="fa fa-folder-o text-dark"></i>Pelepasan Jaminan Bank</a></li>
+						<li class="nav-item"><a class="nav-link" href="{% url 'dokumen/ppwjp' idperolehan=mrksatufecth.mrksatunosebutharga.id  %}"><i class="fa fa-folder-o text-dark"></i>Perakuan Pemulangan WJP</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{% url 'dokumen/smrk' idperolehan=mrksatufecth.mrksatunosebutharga.id  %}"><i class="fa fa-folder-o text-dark"></i> Surat Maklumat Rekod Kerja</a></li>
+						<li class="nav-item"><a class="nav-link" href="{% url 'dokumen/skhas' idperolehan=mrksatufecth.mrksatunosebutharga.id  %}"><i class="fa fa-folder-o text-dark"></i> Surat Kebenaran Khas</a></li>
+						<li class="nav-item"><a class="nav-link aktif" href="{% url 'dokumen/suratbon' idperolehan=mrksatufecth.mrksatunosebutharga.id  %}"><i class="fa fa-folder-open-o text-dark"></i>Surat Pelepasan Bon Jaminan Perlaksanaan</a></li>
 					  </ul>
 					</div>
 					<!-- /.box-body -->

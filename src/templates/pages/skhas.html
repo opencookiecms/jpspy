@@ -27,7 +27,7 @@
 			<div class="row">			 
                
 				<div class="col-lg-9 col-12">
-                	<form class="form" action='{% url 'dokumen/smrk' idperolehan=mrksatufecth.mrksatunosebutharga.id   %}' method="POST">
+                	<form class="form" action='{% url 'dokumen/skhas' idperolehan=mrksatufecth.mrksatunosebutharga.id   %}' method="POST">
 					  <div class="box">
 				
 						<!-- /.box-header -->
@@ -40,7 +40,7 @@
                             <div class="row">
                                 <div class="col-md-12 tl">
                                     <div class="form-group row">
-                                    <label class="col-sm-2 col-form-label">Rujukan Tuan</label>
+                                    <label class="col-sm-2 col-form-label"><h5 class="text-secondary font-weight-500 mb-2">Rujukan Tuan</h5></label>
                                     <div class="col-sm-6">
                                     <input type="hidden" class="form-control" name="{{form.khasknosebutharga.name}}" value="{{mrksatufecth.mrksatunosebutharga.id }}"/>
                                     <input type="hidden" class="form-control" name="{{form.khasmrksatulink.name}}" value="{{mrksatufecth.id}}"/> 
@@ -52,7 +52,7 @@
                                 <div class="row">
                                 <div class="col-md-12 tl">
                                     <div class="form-group row">
-                                    <label class="col-sm-2 col-form-label">Rujukan Kami</label>
+                                    <label class="col-sm-2 col-form-label"><h5 class="text-secondary font-weight-500 mb-2">Rujukan Kami</h5></label>
                                     <div class="col-sm-6">
                                     <input type="text" class="form-control ts" readonly>
                                     </div>
@@ -62,7 +62,7 @@
                                         <div class="row">
                                 <div class="col-md-12 tl">
                                     <div class="form-group row">
-                                    <label class="col-sm-2 col-form-label">No Sebutharga</label>
+                                    <label class="col-sm-2 col-form-label"><h5 class="text-secondary font-weight-500 mb-2">No Sebutharga</h5></label>
                                     <div class="col-sm-6">
                                         <input type="text" class="form-control ts" readonly>
                                     
@@ -73,7 +73,7 @@
                                 <div class="row">
                                 <div class="col-md-12 tl">
                                     <div class="form-group row">
-                                    <label class="col-sm-2 col-form-label">Nama Kontraktor</label>
+                                    <label class="col-sm-2 col-form-label"><h5 class="text-secondary font-weight-500 mb-2">Nama Kontraktor</h5></label>
                                     <div class="col-sm-6">
                                     <input type="text" class="form-control ts" readonly>
                                     </div>
@@ -83,7 +83,7 @@
                             <div class="row">
                                 <div class="col-md-12 tl">
                                     <div class="form-group row">
-                                    <label class="col-sm-2 col-form-label">Nama Rujukan</label>
+                                    <label class="col-sm-2 col-form-label"><h5 class="text-secondary font-weight-500 mb-2">Nama Rujukan</h5></label>
                                     <div class="col-sm-7">
                                     {{form.khasnamarujukan}}
                                     </div>
@@ -94,7 +94,7 @@
                                 <div class="row">
                                 <div class="col-md-12 tl">
                                     <div class="form-group row">
-                                    <label class="col-sm-2 col-form-label">Alamat Rujukan</label>
+                                    <label class="col-sm-2 col-form-label"><h5 class="text-secondary font-weight-500 mb-2">Alamat Rujukan</h5></label>
                                     <div class="col-sm-7">
                                     {{form.khasalamatrujukan}}
                                     </div>
@@ -104,7 +104,7 @@
                                 <div class="row">
                                 <div class="col-md-12 tl">
                                     <div class="form-group row">
-                                    <label class="col-sm-2 col-form-label">Tajuk Projek</label>
+                                    <label class="col-sm-2 col-form-label"><h5 class="text-secondary font-weight-500 mb-2">Tajuk Projek</h5></label>
                                     <div class="col-sm-6">
                                     <textarea rows="5" type="text" class="form-control ts"  readonly></textarea>
                                     </div>
@@ -115,17 +115,17 @@
                                 <div class="col-md-12">
                                     <div class="form-group row">
 
-                                    <label class="col-sm-2 col-form-label">Gred</label>
+                                    <label class="col-sm-2 col-form-label"><h5 class="text-secondary font-weight-500 mb-2">Gred</h5></label>
                                     <div class="col-sm-2">
                                         <input type="text" class="form-control ts"  readonly>
                                     
                                     </div>
-                                    <label class="col-sm-2 col-form-label">Kategori</label>
+                                    <label class="col-sm-2 col-form-label"><h5 class="text-secondary font-weight-500 mb-2">Kategori</h5></label>
                                     <div class="col-sm-2">
                                         <input type="text" class="form-control ts"  readonly>
                                     
                                     </div>
-                                    <label class="col-sm-2 col-form-label">Pengkhususan</label>
+                                    <label class="col-sm-2 col-form-label"><h5 class="text-secondary font-weight-500 mb-2">Pengkhususan</h5></label>
                                     <div class="col-sm-2">
                                         <input type="text" class="form-control ts"  readonly>
                                     </div>
@@ -137,9 +137,9 @@
                                 <div class="col-md-12 tl">
                                     <div class="form-group row">
 
-                                    <label class="col-sm-2 col-form-label">Pegawai Penguasa</label>
+                                    <label class="col-sm-2 col-form-label"><h5 class="text-secondary font-weight-500 mb-2">Pegawai Penguasa</h5></label>
                                     <div class="col-sm-3">
-                                           <select name="{{form.psmkpegawaipenguasa.name}}" class="form-control custom-select select28" id="">
+                                           <select name="{{form.khaspegawai.name}}" class="form-control custom-select select28" id="">
                                         <option value="Tiada">Tiada</option>
 										
                                         {% for row in userlist %}
@@ -148,7 +148,7 @@
 
                                     </select>
                                     </div>
-                                    <label class="col-sm-1 col-form-label">Jawatan</label>
+                                    <label class="col-sm-1 col-form-label"><h5 class="text-secondary font-weight-500 mb-2">Jawatan</h5></label>
                                     <div class="col-sm-2">
                                     {{form.khasjawatan}}
                                     </div>
@@ -209,18 +209,18 @@
 					</div>
 					<div class="box-body no-padding mailbox-nav">
 					  <ul class="nav nav-pills flex-column">
-						<li class="nav-item"><a class="nav-link" href="#"><i class="fa fa-folder-o text-dark"></i>MRK 01</a></li>
-						<li class="nav-item"><a class="nav-link" href="#"><i class="fa fa-folder-o text-dark"></i> MRK 02</a></li>
-						<li class="nav-item"><a class="nav-link" href="#"><i class="fa fa-folder-o text-dark"></i> Laporan Siap Kerja</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#"><i class="fa fa-folder-o text-dark"></i> MRK 03</a></li>
-						<li class="nav-item"><a class="nav-link" href="#"><i class="fa fa-folder-o text-dark"></i>Perakuan Siap Kerja</a></li>
-						<li class="nav-item"><a class="nav-link" href="#"><i class="fa fa-folder-o text-dark "></i> Senarai Semakan</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#"><i class="fa fa-folder-o"></i>Perakuan Siap Membaiki Kecacatan</a></li>
-						<li class="nav-item"><a class="nav-link" href="#"><i class="fa fa-folder-o text-dark"></i>Pelepasan Jaminan Bank</a></li>
-						<li class="nav-item"><a class="nav-link" href="#"><i class="fa fa-folder-o text-dark"></i>Perakuan Pemulangan WJP</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#"><i class="fa fa-folder-o text-dark"></i> Surat Maklumat Rekod Kerja</a></li>
-						<li class="nav-item"><a class="nav-link aktif" href="#"><i class="fa fa-folder-open-o text-dark"></i> Surat Kebenaran Khas</a></li>
-						<li class="nav-item"><a class="nav-link" href="#"><i class="fa fa-folder-o text-dark"></i> Surat Pelepasan WJP</a></li>
+						<li class="nav-item"><a class="nav-link" href="{% url 'dokumen/mrksatu' idperolehan=mrksatufecth.mrksatunosebutharga.id  %}"><i class="fa fa-folder-o text-dark"></i>MRK 01</a></li>
+						<li class="nav-item"><a class="nav-link" href="{% url 'dokumen/mrkdua' idperolehan=mrksatufecth.mrksatunosebutharga.id  %}"><i class="fa fa-folder-o text-dark"></i> MRK 02</a></li>
+						<li class="nav-item"><a class="nav-link" href="{% url 'dokumen/lsk' idperolehan=mrksatufecth.mrksatunosebutharga.id  %}"><i class="fa fa-folder-o text-dark"></i> Laporan Siap Kerja</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{% url 'dokumen/mrktiga' idperolehan=mrksatufecth.mrksatunosebutharga.id  %}"><i class="fa fa-folder-o text-dark"></i> MRK 03</a></li>
+						<li class="nav-item"><a class="nav-link" href="{% url 'dokumen/psk' idperolehan=mrksatufecth.mrksatunosebutharga.id  %}"><i class="fa fa-folder-o text-dark"></i>Perakuan Siap Kerja</a></li>
+						<li class="nav-item"><a class="nav-link" href="{% url 'dokumen/senaraisemakan' idperolehan=mrksatufecth.mrksatunosebutharga.id  %}"><i class="fa fa-folder-o text-dark "></i> Senarai Semakan</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{% url 'dokumen/psmk' idperolehan=mrksatufecth.mrksatunosebutharga.id  %}"><i class="fa fa-folder-o"></i>Perakuan Siap Membaiki Kecacatan</a></li>
+						<li class="nav-item"><a class="nav-link" href="{% url 'dokumen/jaminanbank' idperolehan=mrksatufecth.mrksatunosebutharga.id  %}"><i class="fa fa-folder-o text-dark"></i>Pelepasan Jaminan Bank</a></li>
+						<li class="nav-item"><a class="nav-link" href="{% url 'dokumen/ppwjp' idperolehan=mrksatufecth.mrksatunosebutharga.id  %}"><i class="fa fa-folder-o text-dark"></i>Perakuan Pemulangan WJP</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{% url 'dokumen/smrk' idperolehan=mrksatufecth.mrksatunosebutharga.id  %}"><i class="fa fa-folder-o text-dark"></i> Surat Maklumat Rekod Kerja</a></li>
+						<li class="nav-item"><a class="nav-link aktif" href="{% url 'dokumen/skhas' idperolehan=mrksatufecth.mrksatunosebutharga.id  %}"><i class="fa fa-folder-open-o text-dark"></i> Surat Kebenaran Khas</a></li>
+						<li class="nav-item"><a class="nav-link" href="{% url 'dokumen/suratbon' idperolehan=mrksatufecth.mrksatunosebutharga.id  %}"><i class="fa fa-folder-o text-dark"></i>Surat Pelepasan Bon Jaminan Perlaksanaan</a></li>
 					  </ul>
 					</div>
 					<!-- /.box-body -->
