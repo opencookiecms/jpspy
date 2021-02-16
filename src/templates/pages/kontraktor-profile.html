@@ -1,5 +1,6 @@
 {% extends "based/based.html" %}
 {% block content %}
+{% load static %}
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
 	  <div class="container-full">
@@ -38,127 +39,306 @@
 				<div class="tab-content">
 
 				 <div class="active tab-pane" id="tab1">
+				   <div class="box">
+					<div class="box-header with-border">
+						<h4 class="box-title">Maklumat Pemilik Syarikat</h4>
+					</div>
+					<div class="box-body">
+						<div class="d-flex align-items-center mb-30">
+							<div class="mr-15  h-50 w-50 l-h-50 rounded text-center">
+								<img src="{% static 'assets/images/id-card.png' %}" class="h-50" alt="">
+							</div>
+							<div class="d-flex flex-column flex-grow-1 mr-2 font-weight-500">
+								<a href="#" class="text-dark hover-primary mb-1 font-size-16">No Kad Pengenalan</a>
+								<span class="text-fade">{{kontraktor.konNoKPPengurus}}</span>
+							</div>
+							
+						</div>
+						<div class="d-flex align-items-center mb-30">
+							<div class="mr-15  h-50 w-50 l-h-50 rounded text-center">
+								  <img src="{% static 'assets/images/phone.png' %}" class="h-50" alt="">
+							</div>
+							<div class="d-flex flex-column flex-grow-1 mr-2 font-weight-500">
+								<a href="#" class="text-dark hover-danger mb-1 font-size-16">No Telefon Pengurus</a>
+								<span class="text-fade">{{kontraktor.konNoTelPengurus}}</span>
+							</div>
+						
+						</div>
+					</div>
+
+					<div class="box-header with-border">
+						<h4 class="box-title">SSM</h4>
+					</div>
+
+					<div class="box-body">
+						<div class="d-flex align-items-center mb-30">
+							<div class="mr-15  h-50 w-50 l-h-50 rounded text-center">
+								  <img src="{% static 'assets/images/certificate.png' %}" class="h-50" alt="">
+							</div>
+							<div class="d-flex flex-column flex-grow-1 mr-2 font-weight-500">
+								<a href="#" class="text-dark hover-primary mb-1 font-size-16">No Pendaftaran SSM</a>
+								<span class="text-fade">{{kontraktor.sijilSSMNoPendaftaran}}</span>
+							</div>
+						
+						</div>
+						<div class="d-flex align-items-center mb-30">
+							<div class="mr-15  h-50 w-50 l-h-50 rounded text-center">
+								  <img src="{% static 'assets/images/calendar.png' %}" class="h-50" alt="">
+							</div>
+							<div class="d-flex flex-column flex-grow-1 mr-2 font-weight-500">
+								<a href="#" class="text-dark hover-danger mb-1 font-size-16">Tempoh Sah Dari</a>
+								<span class="text-fade">{{kontraktor.sijilSSMSahDari}}</span>
+							</div>
+							
+						</div>
+						<div class="d-flex align-items-center mb-30">
+							<div class="mr-15  h-50 w-50 l-h-50 rounded text-center">
+								  <img src="{% static 'assets/images/calendar.png' %}" class="h-50" alt="">
+							</div>
+							<div class="d-flex flex-column flex-grow-1 mr-2 font-weight-500">
+								<a href="#" class="text-dark hover-danger mb-1 font-size-16">Hingga</a>
+								<span class="text-fade">{{kontraktor.sijilSSMTamat}}</span>
+							</div>
+						
+						</div>
+					</div>
+
+					<div class="box-header with-border">
+						<h4 class="box-title">Kawasan Operasi Syarikat</h4>
+					</div>
+
+					<div class="box-body">
+						<div class="d-flex align-items-center mb-30">
+							<div class="mr-15  h-50 w-50 l-h-50 rounded text-center">
+								<img src="{% static 'assets/images/location.png' %}" class="h-50" alt="">
+							</div>
+							<div class="d-flex flex-column flex-grow-1 mr-2 font-weight-500">
+								<a href="#" class="text-dark hover-primary mb-1 font-size-16">Kawasan Operasi & Prestasi</a>
+								<span class="text-fade">{{kontraktor.konKawOperasi}}</span>
+							</div>
+				
+						</div>
+						<div class="d-flex align-items-center mb-30">
+							<div class="mr-15  h-50 w-50 l-h-50 rounded text-center">
+								<img src="{% static 'assets/images/speedometer.png' %}" class="h-50" alt="">
+							</div>
+							<div class="d-flex flex-column flex-grow-1 mr-2 font-weight-500">
+								<a href="#" class="text-dark hover-danger mb-1 font-size-16">Prestasi</a>
+								<span class="text-fade">{{kontraktor.konPrestasi}}</span>
+							</div>
+					
+						</div>
+					</div>
+				</div>
 			 
 				</div>    
 				  <!-- /.tab-pane -->
 
-				  <div class="tab-pane" id="tab2">			
+				  <div class="tab-pane" id="tab2">		
 
-					<div class="box p-15">				
-					<!-- Post -->
-					<div class="post">
-					  <div class="user-block">
-						<img class="img-bordered-sm rounded-circle" src="../images/user1-128x128.jpg" alt="user image">
-							<span class="username">
-							  <a href="#">Brayden</a>
-							  <a href="#" class="pull-right btn-box-tool"><i class="fa fa-times"></i></a>
-							</span>
-						<span class="description">5 minutes ago</span>
-					  </div>
-					  <!-- /.user-block -->
-					  <div class="activitytimeline">
-						  <p>
-							Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum.
-						  </p>
-						  <ul class="list-inline">
-							<li><a href="#" class="link-black text-sm"><i class="fa fa-share margin-r-5"></i> Share</a></li>
-							<li><a href="#" class="link-black text-sm"><i class="fa fa-thumbs-o-up margin-r-5"></i> Like</a>
-							</li>
-							<li class="pull-right">
-							  <a href="#" class="link-black text-sm"><i class="fa fa-comments-o margin-r-5"></i> Comments
-								(5)</a></li>
-						  </ul>
-						  <form class="form-element">
-							  <input class="form-control input-sm" type="text" placeholder="Type a comment">
-						 </form>
-					  </div>
+				  			<div class="box">
+					<div class="box-header">
+						<h4 class="box-title align-items-start flex-column">
+							Rakan Kongsi
+							<small class="subtitle">--</small>
+						</h4>
 					</div>
-					<!-- /.post -->
+					<div class="box-body">
+						<div class="table-responsive">
+							<table class="table no-border">
+								<thead>
+									<tr class="text-uppercase bg-lightest">
+										<th style="min-width: 150px"><span class="text-dark">Nama</span></th>
+										<th style="min-width: 100px"><span class="text-fade">No Kad Pengenalan</span></th>
+										<th style="min-width: 100px"><span class="text-fade">Telefon</span></th>
+							
+									</tr>
+								</thead>
+								<tbody>
+									<tr>										
+										<td class="pl-0 py-8">
+											<div class="d-flex align-items-center">
+												<div class="flex-shrink-0 mr-20 ml-5">
+													<img src="{% static 'assets/images/skills.png'%}" class="h-40 align-self-end" alt="">
+												</div>
 
-					<!-- Post -->
-					<div class="post">
-					  <div class="user-block">
-						<img class="img-bordered-sm rounded-circle" src="../images/user6-128x128.jpg" alt="user image">
-							<span class="username">
-							  <a href="#">Evan</a>
-							  <a href="#" class="pull-right btn-box-tool"><i class="fa fa-times"></i></a>
-							</span>
-						<span class="description">5 minutes ago</span>
-					  </div>
-					  <!-- /.user-block -->
-					  <div class="activitytimeline">
-						  <div class="row mb-20">
-							<div class="col-sm-6">
-							  <img class="img-fluid" src="../images/photo1.png" alt="Photo">
-							</div>
-							<!-- /.col -->
-							<div class="col-sm-6">
-							  <div class="row">
-								<div class="col-sm-6">
-								  <img class="img-fluid" src="../images/photo2.png" alt="Photo">
-								  <br><br>
-								  <img class="img-fluid" src="../images/photo3.jpg" alt="Photo">
-								</div>
-								<!-- /.col -->
-								<div class="col-sm-6">
-								  <img class="img-fluid" src="../images/photo4.jpg" alt="Photo">
-								  <br><br>
-								  <img class="img-fluid" src="../images/photo1.png" alt="Photo">
-								</div>
-								<!-- /.col -->
-							  </div>
-							  <!-- /.row -->
-							</div>
-							<!-- /.col -->
-						  </div>
-						  <!-- /.row -->
+												<div>
+													<a href="#" class="text-dark font-weight-600 hover-primary mb-1 font-size-16">
+													
+													{% if not kontraktor.konRKsatu %}
+															<span class="badge badge-danger-light">Tiada Maklumat rakan kongsi pertama</span>
+													{% else %}
+													{{kontraktor.konRKsatu}}
+													{% endif %}
+													
+													</a>
+												
+												</div>
+											</div>
+										</td>
+										<td>
+											<span class="text-fade font-weight-600 d-block font-size-16">
+													{% if not kontraktor.konRKsatuNokp %}
+														<span class="badge badge-danger-light">Tiada maklumat no kad pengenalan</span>
+													{% else %}
+													{{kontraktor.konRKsatuNokp}}
+													{% endif %}
+											</span>
+										
+										</td>
+										<td>
+											<span class="text-fade font-weight-600 d-block font-size-16">
+													{% if not kontraktor.konRKsatuNoTel %}
+														<span class="badge badge-danger-light">Tiada maklumat no telefon</span>
+													{% else %}
+													{{kontraktor.konRKsatuNoTel}}
+													{% endif %}
+											</span>
+										
+										</td>
+								
+									
+									</tr>
+									<tr>										
+										<td class="pl-0 py-8">
+											<div class="d-flex align-items-center">
+												<div class="flex-shrink-0 mr-20 ml-5">
+													<img src="{% static 'assets/images/skills.png'%}" class="h-40 align-self-end" alt="">
+												</div>
 
-						  <ul class="list-inline">
-							<li><a href="#" class="link-black text-sm"><i class="fa fa-share margin-r-5"></i> Share</a></li>
-							<li><a href="#" class="link-black text-sm"><i class="fa fa-thumbs-o-up margin-r-5"></i> Like</a>
-							</li>
-							<li class="pull-right">
-							  <a href="#" class="link-black text-sm"><i class="fa fa-comments-o margin-r-5"></i> Comments
-								(5)</a></li>
-						  </ul>
+												<div>
+													<a href="#" class="text-dark font-weight-600 hover-primary mb-1 font-size-16">
+													
+													{% if not kontraktor.konRKdua %}
+															<span class="badge badge-danger-light">Tiada Maklumat rakan kongsi kedua</span>
+													{% else %}
+													{{kontraktor.konRKdua}}
+													{% endif %}
+													
+													</a>
+												
+												</div>
+											</div>
+										</td>
+										<td>
+											<span class="text-fade font-weight-600 d-block font-size-16">
+													{% if not kontraktor.konRKduaNokp %}
+														<span class="badge badge-danger-light">Tiada maklumat no kad pengenalan</span>
+													{% else %}
+													{{kontraktor.konRKduaNokp}}
+													{% endif %}
+											</span>
+										
+										</td>
+										<td>
+											<span class="text-fade font-weight-600 d-block font-size-16">
+													{% if not kontraktor.konRKduaNoTel %}
+														<span class="badge badge-danger-light">Tiada maklumat no telefon</span>
+													{% else %}
+													{{kontraktor.konRKduaNoTel}}
+													{% endif %}
+											</span>
+										
+										</td>
+								
+									
+									</tr>
+									<tr>										
+										<td class="pl-0 py-8">
+											<div class="d-flex align-items-center">
+												<div class="flex-shrink-0 mr-20 ml-5">
+													<img src="{% static 'assets/images/skills.png'%}" class="h-40 align-self-end" alt="">
+												</div>
 
-						  <form class="form-element">
-							  <input class="form-control input-sm" type="text" placeholder="Type a comment">
-						 </form>
+												<div>
+													<a href="#" class="text-dark font-weight-600 hover-primary mb-1 font-size-16">
+													
+													{% if not kontraktor.konRKtiga %}
+															<span class="badge badge-danger-light">Tiada Maklumat rakan kongsi ketiga</span>
+													{% else %}
+													{{kontraktor.konRKtiga}}
+													{% endif %}
+													
+													</a>
+												
+												</div>
+											</div>
+										</td>
+										<td>
+											<span class="text-fade font-weight-600 d-block font-size-16">
+													{% if not kontraktor.konRKtigaNokp %}
+														<span class="badge badge-danger-light">Tiada maklumat no kad pengenalan</span>
+													{% else %}
+													{{kontraktor.konRKtigaNokp}}
+													{% endif %}
+											</span>
+										
+										</td>
+										<td>
+											<span class="text-fade font-weight-600 d-block font-size-16">
+													{% if not kontraktor.konRKtigaNoTel %}
+														<span class="badge badge-danger-light">Tiada maklumat no telefon</span>
+													{% else %}
+													{{kontraktor.konRKtigaNoTel}}
+													{% endif %}
+											</span>
+										
+										</td>
+								
+									
+									</tr>
+										<tr>										
+										<td class="pl-0 py-8">
+											<div class="d-flex align-items-center">
+												<div class="flex-shrink-0 mr-20 ml-5">
+													<img src="{% static 'assets/images/skills.png'%}" class="h-40 align-self-end" alt="">
+												</div>
+
+												<div>
+													<a href="#" class="text-dark font-weight-600 hover-primary mb-1 font-size-16">
+													
+													{% if not kontraktor.konRKempat %}
+															<span class="badge badge-danger-light">Tiada Maklumat rakan kongsi keempat</span>
+													{% else %}
+													{{kontraktor.konRKempat}}
+													{% endif %}
+													
+													</a>
+												
+												</div>
+											</div>
+										</td>
+										<td>
+											<span class="text-fade font-weight-600 d-block font-size-16">
+													{% if not kontraktor.konRKempatNokp %}
+														<span class="badge badge-danger-light">Tiada maklumat no kad pengenalan</span>
+													{% else %}
+													{{kontraktor.konRKempatNokp}}
+													{% endif %}
+											</span>
+										
+										</td>
+										<td>
+											<span class="text-fade font-weight-600 d-block font-size-16">
+													{% if not kontraktor.konRKempatNoTel %}
+														<span class="badge badge-danger-light">Tiada maklumat no telefon</span>
+													{% else %}
+													{{kontraktor.konRKempatNoTel}}
+													{% endif %}
+											</span>
+										
+										</td>
+								
+									
+									</tr>
+								
+								</tbody>
+							</table>
 						</div>
 					</div>
-					<!-- /.post -->
+				</div> 	
 
-					<!-- Post -->
-					<div class="post clearfix">
-					  <div class="user-block">
-						<img class="img-bordered-sm rounded-circle" src="../images/user7-128x128.jpg" alt="user image">
-							<span class="username">
-							  <a href="#">Nicholas</a>
-							  <a href="#" class="pull-right btn-box-tool"><i class="fa fa-times"></i></a>
-							</span>
-						<span class="description">5 minutes ago</span>
-					  </div>
-					  <!-- /.user-block -->
-						<div class="activitytimeline">
-						  <p>
-							Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum.
-						  </p>
-
-						  <form class="form-horizontal form-element">
-							<div class="form-group row no-gutters">
-							  <div class="col-sm-9">
-								<input class="form-control input-sm" placeholder="Response">
-							  </div>
-							  <div class="col-sm-3">
-								<button type="submit" class="btn btn-danger pull-right btn-block btn-sm">Send</button>
-							  </div>
-							</div>
-						  </form>
-						</div>
-					</div>
-					<!-- /.post -->
-				   </div>
+				
 
 				  </div>
 				  <!-- /.tab-pane -->
@@ -166,58 +346,149 @@
 				  <div class="tab-pane" id="tab3">		
 
 					<div class="box p-15">		
-						<form class="form-horizontal form-element col-12">
-						  <div class="form-group row">
-							<label for="inputName" class="col-sm-2 control-label">Name</label>
+					
+								
+					<div class="box-header no-border">
+						<h4 class="box-title">Status Pendaftaran Syarikat</h4>
+		
+					</div>
+					<div class="box-body">	
+						<div id="revenue7" class="text-dark"></div>
+					</div>
+					<div class="box-body py-0">	
+						<div class="row">
+							<div class="col-4">
+								<div class="d-flex align-items-center mb-30">
+									<div class="mr-15 bg-primary-light h-50 w-50 l-h-60 rounded text-center">
+										  <span class="icon-Library font-size-24"><span class="path1"></span><span class="path2"></span></span>
+									</div>
+									<div class="d-flex flex-column font-weight-500">
+										<a href="#" class="text-dark hover-primary mb-1 font-size-16">Permohonan Baru</a>
+										<span class="text-fade">{{kontraktor.konJPBaru}}</span>
+									</div>
+								</div>
+							</div>
+							<div class="col-4">
+								<div class="d-flex align-items-center mb-30">
+									<div class="mr-15 bg-danger-light h-50 w-50 l-h-60 rounded text-center">
+										<span class="icon-Write font-size-24"><span class="path1"></span><span class="path2"></span></span>
+									</div>
+									<div class="d-flex flex-column font-weight-500">
+										<a href="#" class="text-dark hover-danger mb-1 font-size-16">Pembaharuan</a>
+										<span class="text-fade">{{kontraktor.konJPPembaharuan}}</span>
+									</div>
+								</div>
+							</div>
+							<div class="col-4">
+								<div class="d-flex align-items-center mb-30">
+									<div class="mr-15 bg-success-light h-50 w-50 l-h-60 rounded text-center">
+										<span class="icon-Group-chat font-size-24"><span class="path1"></span><span class="path2"></span></span>
+									</div>
+									<div class="d-flex flex-column font-weight-500">
+										<a href="#" class="text-dark hover-success mb-1 font-size-16">Lain-lain</a>
+										<span class="text-fade">{{kontraktor.konJPLainLain}}</span>
+									</div>
+								</div>
+							</div>
+							<div class="col-4">
+								<div class="d-flex align-items-center mb-30">
+									<div class="mr-15 bg-info-light h-50 w-50 l-h-60 rounded text-center">
+										<span class="icon-Attachment1 font-size-24"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span></span>
+									</div>
+									<div class="d-flex flex-column font-weight-500">
+										<a href="#" class="text-dark hover-info mb-1 font-size-16">Ketegori</a>
+										<span class="text-fade">{{kontraktor.konJPKategori}}</span>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>										
+				
+					</div>	
 
-							<div class="col-sm-10">
-							  <input type="email" class="form-control" id="inputName" placeholder="">
+					
+					<div class="box p-15">		
+					
+								
+					<div class="box-header no-border">
+						<h4 class="box-title">Maklumat Pemohon</h4>
+		
+					</div>
+					<div class="box-body">	
+						<div id="revenue7" class="text-dark"></div>
+					</div>
+					<div class="box-body py-0">	
+						<div class="row">
+							<div class="col-12">
+								<div class="d-flex align-items-center mb-30">
+									<div class="mr-15 bg-primary-light h-50 w-50 l-h-60 rounded text-center">
+										  <span class="icon-Library font-size-24"><span class="path1"></span><span class="path2"></span></span>
+									</div>
+									<div class="d-flex flex-column font-weight-500">
+										<a href="#" class="text-dark hover-primary mb-1 font-size-16">No Sijil Pendaftaran</a>
+										<span class="text-fade">{{kontraktor.konMPNoSijil}}</span>
+									</div>
+								</div>
 							</div>
-						  </div>
-						  <div class="form-group row">
-							<label for="inputEmail" class="col-sm-2 control-label">Email</label>
-
-							<div class="col-sm-10">
-							  <input type="email" class="form-control" id="inputEmail" placeholder="">
+							<div class="col-4">
+								<div class="d-flex align-items-center mb-30">
+									<div class="mr-15 bg-danger-light h-50 w-50 l-h-60 rounded text-center">
+										<span class="icon-Write font-size-24"><span class="path1"></span><span class="path2"></span></span>
+									</div>
+									<div class="d-flex flex-column font-weight-500">
+										<a href="#" class="text-dark hover-danger mb-1 font-size-16">Tarikh Permohonan</a>
+										<span class="text-fade">{{kontraktor.konMPTarikhMohon}}</span>
+									</div>
+								</div>
 							</div>
-						  </div>
-						  <div class="form-group row">
-							<label for="inputPhone" class="col-sm-2 control-label">Phone</label>
-
-							<div class="col-sm-10">
-							  <input type="tel" class="form-control" id="inputPhone" placeholder="">
+							<div class="col-4">
+								<div class="d-flex align-items-center mb-30">
+									<div class="mr-15 bg-success-light h-50 w-50 l-h-60 rounded text-center">
+										<span class="icon-Group-chat font-size-24"><span class="path1"></span><span class="path2"></span></span>
+									</div>
+									<div class="d-flex flex-column font-weight-500">
+										<a href="#" class="text-dark hover-success mb-1 font-size-16">Cas Perkhidmatan</a>
+										<span class="text-fade">{{kontraktor.konMPCas}}</span>
+									</div>
+								</div>
 							</div>
-						  </div>
-						  <div class="form-group row">
-							<label for="inputExperience" class="col-sm-2 control-label">Experience</label>
-
-							<div class="col-sm-10">
-							  <textarea class="form-control" id="inputExperience" placeholder=""></textarea>
+							<div class="col-4">
+								<div class="d-flex align-items-center mb-30">
+									<div class="mr-15 bg-info-light h-50 w-50 l-h-60 rounded text-center">
+										<span class="icon-Attachment1 font-size-24"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span></span>
+									</div>
+									<div class="d-flex flex-column font-weight-500">
+										<a href="#" class="text-dark hover-info mb-1 font-size-16">No Resit</a>
+										<span class="text-fade">{{kontraktor.konMPNoResit}}</span>
+									</div>
+								</div>
 							</div>
-						  </div>
-						  <div class="form-group row">
-							<label for="inputSkills" class="col-sm-2 control-label">Skills</label>
-
-							<div class="col-sm-10">
-							  <input type="text" class="form-control" id="inputSkills" placeholder="">
+							<div class="col-4">
+								<div class="d-flex align-items-center mb-30">
+									<div class="mr-15 bg-info-light h-50 w-50 l-h-60 rounded text-center">
+										<span class="icon-Attachment1 font-size-24"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span></span>
+									</div>
+									<div class="d-flex flex-column font-weight-500">
+										<a href="#" class="text-dark hover-info mb-1 font-size-16">Tarikh Sijil Dikeluarkan</a>
+										<span class="text-fade">{{kontraktor.konMPtarikhkeluar}}</span>
+									</div>
+								</div>
 							</div>
-						  </div>
-						  <div class="form-group row">
-							<div class="ml-auto col-sm-10">
-							  <div class="checkbox">
-								<input type="checkbox" id="basic_checkbox_1" checked="">
-								<label for="basic_checkbox_1"> I agree to the</label>
-								  &nbsp;&nbsp;&nbsp;&nbsp;<a href="#">Terms and Conditions</a>
-							  </div>
+							<div class="col-4">
+								<div class="d-flex align-items-center mb-30">
+									<div class="mr-15 bg-info-light h-50 w-50 l-h-60 rounded text-center">
+										<span class="icon-Attachment1 font-size-24"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span></span>
+									</div>
+									<div class="d-flex flex-column font-weight-500">
+										<a href="#" class="text-dark hover-info mb-1 font-size-16">Tarikh Tamat Sijil</a>
+										<span class="text-fade">{{kontraktor.konMPtarikhtamat}}</span>
+									</div>
+								</div>
 							</div>
-						  </div>
-						  <div class="form-group row">
-							<div class="ml-auto col-sm-10">
-							  <button type="submit" class="btn btn-success">Submit</button>
-							</div>
-						  </div>
-						</form>
-					</div>			  
+						</div>
+					</div>										
+				
+					</div>		  
 				  </div>
 				  <!-- /.tab-pane -->
 				</div>
@@ -230,12 +501,12 @@
 			  <div class="col-12 col-lg-5 col-xl-4">
 				 <div class="box box-widget widget-user">
 					<!-- Add the bg color to the header using any of the bg-* classes -->
-					<div class="widget-user-header bg-black" style="background: url('../images/gallery/full/10.jpg') center center;">
+					<div class="widget-user-header bg-black" style="background: url('{% static 'assets/images/gallery/full/10.jpg' %}') center center;">
 					  <h3 class="widget-user-username">{{kontraktor.konNama}}</h3>
 					  <h6 class="widget-user-desc">Designer</h6>
 					</div>
 					<div class="widget-user-image">
-					  <img class="rounded-circle" src="../images/user3-128x128.jpg" alt="User Avatar">
+					  <img class="rounded-circle" src="{% static 'assets/images/default.png' %}" alt="User Avatar">
 					</div>
 					<div class="box-footer">
 					  <div class="row">
