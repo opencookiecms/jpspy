@@ -50,7 +50,7 @@ def mrktwo(request, idperolehan):
     
     context = {
         'form':form,
-        'mrksatufecth':document.MRKSatu.objects.get(mrksatunosebutharga=idperolehan),
+        'mrksatufecth':document.MRKSatu.objects.filter(mrksatunosebutharga=idperolehan).first(),
         'projek':project.Projek.objects.get(nosebuthargaid=idperolehan),
     }
 

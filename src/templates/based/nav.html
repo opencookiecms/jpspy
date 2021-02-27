@@ -16,14 +16,16 @@
 					</span>
 				  </a>
 				  <ul class="treeview-menu">
-					<li><a href="index.html"><i class="icon-Commit"><span class="path1"></span><span class="path2"></span></i>Dashboard 1</a></li>
-					<li><a href="index2.html"><i class="icon-Commit"><span class="path1"></span><span class="path2"></span></i>Dashboard 2</a></li>
-					<li><a href="index3.html"><i class="icon-Commit"><span class="path1"></span><span class="path2"></span></i>Dashboard 3</a></li>
-					<li><a href="index4.html"><i class="icon-Commit"><span class="path1"></span><span class="path2"></span></i>Dashboard 4</a></li>
-					<li><a href="index5.html"><i class="icon-Commit"><span class="path1"></span><span class="path2"></span></i>Dashboard 5</a></li>
-					<li><a href="index6.html"><i class="icon-Commit"><span class="path1"></span><span class="path2"></span></i>Dashboard 6</a></li>
+					<li><a href="{% url 'noperolehan' %}"><i class="icon-Commit"><span class="path1"></span><span class="path2"></span></i>No.Perolehan</a></li>
+					<li><a href="index2.html"><i class="icon-Commit"><span class="path1"></span><span class="path2"></span></i>Maklumat Perolehan</a></li>
+					<li><a href="index3.html"><i class="icon-Commit"><span class="path1"></span><span class="path2"></span></i>Projek</a></li>
+					<li><a href="{% url 'kontraktor' %}"><i class="icon-Commit"><span class="path1"></span><span class="path2"></span></i>Kontraktor</a></li>
+					<li><a href="index5.html"><i class="icon-Commit"><span class="path1"></span><span class="path2"></span></i>Dokumen Bayaran</a></li>
+					
 				  </ul>
 				</li>
+	
+				<li class="header">Components & UI </li>
 				<li class="treeview">
 				  <a href="#">
 					<i span class="icon-Layout-grid"><span class="path1"></span><span class="path2"></span></i>
@@ -33,11 +35,11 @@
 					</span>
 				  </a>
 				  <ul class="treeview-menu">
-					<li><a href="extra_calendar.html"><i class="icon-Commit"><span class="path1"></span><span class="path2"></span></i>Pendaftaran</a></li>
-					<li><a href="contact_app.html"><i class="icon-Commit"><span class="path1"></span><span class="path2"></span></i>Mengikut Tahun</a></li>
+					<li><a href="{% url 'noperolehan/daftar' %}"><i class="icon-Commit"><span class="path1"></span><span class="path2"></span></i>Pendaftaran</a></li>
+					<li><a href="{% url 'noperolehan' %}"><i class="icon-Commit"><span class="path1"></span><span class="path2"></span></i>Senarai Pendaftaran</a></li>
+					<li><a href="{% url 'noperolehan' %}"><i class="icon-Commit"><span class="path1"></span><span class="path2"></span></i>Mengikut Tahun</a></li>
 				  </ul>
 				</li>
-				<li class="header">Components & UI </li>
 				<li class="treeview">
 				  <a href="#">
 					<i class="icon-Write"><span class="path1"></span><span class="path2"></span></i>
@@ -47,8 +49,8 @@
 					</span>
 				  </a>
 				  <ul class="treeview-menu">			
-					<li><a href="ui_grid.html"><i class="icon-Commit"><span class="path1"></span><span class="path2"></span></i>Pendaftaran</a></li>								
-					<li><a href="ui_badges.html"><i class="icon-Commit"><span class="path1"></span><span class="path2"></span></i>Senarai Semak</a></li>
+					<li><a href="{% url 'projek/daftar' %}"><i class="icon-Commit"><span class="path1"></span><span class="path2"></span></i>Pendaftaran</a></li>								
+					<li><a href="{% url 'projek/senarai' %}"><i class="icon-Commit"><span class="path1"></span><span class="path2"></span></i>Senarai Semak</a></li>
 		
 				  </ul>
 				</li>			
@@ -67,6 +69,21 @@
 					<li><a href="charts_morris.html"><i class="icon-Commit"><span class="path1"></span><span class="path2"></span></i>Tahunan</a></li>
 				  </ul>
 				</li> 
+				<li class="treeview">
+				  <a href="#">
+					<i class="icon-Chart-pie"><span class="path1"></span><span class="path2"></span></i>
+					<span>Kontraktor</span>
+					<span class="pull-right-container">
+					  <i class="fa fa-angle-right pull-right"></i>
+					</span>
+				  </a>
+				  <ul class="treeview-menu">
+					<li><a href="charts_chartjs.html"><i class="icon-Commit"><span class="path1"></span><span class="path2"></span></i>Sebutharga</a></li>
+					<li><a href="charts_flot.html"><i class="icon-Commit"><span class="path1"></span><span class="path2"></span></i>Lantikan Terus</a></li>
+					<li><a href="charts_inline.html"><i class="icon-Commit"><span class="path1"></span><span class="path2"></span></i>Undi</a></li>
+					<li><a href="charts_morris.html"><i class="icon-Commit"><span class="path1"></span><span class="path2"></span></i>Tahunan</a></li>
+				  </ul>
+				</li>
 				<li class="header">COLLECTIONS</li>
 				<li class="treeview">
 				  <a href="#">

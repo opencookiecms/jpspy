@@ -35,3 +35,11 @@ def senaraiprojek(request):
 
     return render(request, 'pages/projek-senarai.html',data)
 
+
+def dokumenpilih(request, prid):
+
+    data = {
+        'projek':project.Projek.objects.get(id=prid),
+    }
+    return render(request,  'pages/dokumennav.html',data)
+
