@@ -82,8 +82,14 @@
 								<tbody>
 									<tr>										
 										<td class="">
+								
 											<a href="#" class="mr-15 bg-lightest h-50 w-50 l-h-50 rounded-circle text-center overflow-hidden">
-											<img src="{% static 'assets/images/cancel.png'%}" class="h-50 align-self-end" alt="">
+											{% if mrksatu.mrksatunosebutharga.id == projek.nosebuthargaid.id %}
+												<img src="{% static 'assets/images/check-mark.png'%}" class="h-40 align-self-end" alt="">
+											{% else %}
+												<img src="{% static 'assets/images/cancel.png'%}" class="h-40 align-self-end" alt="">
+											{% endif %}
+									
 										</a>
 										</td>
 										<td>
@@ -109,14 +115,19 @@
 								
 					
 										<td class="text-right">
-											<a href="{% url 'dokumen/mrksatu' idperolehan=projek.nosebuthargaid.id %}" class="waves-effect waves-light btn btn-primary-light btn-circle"><span class="icon-Settings-1 font-size-18"><span class="path1"></span><span class="path2"></span></span></a>
+											<a href="{% url 'dokumen/mrksatu' idperolehan=projek.nosebuthargaid.id %}" class="waves-effect waves-light btn btn-primary btn-rounded btn-outline">MRK 01</a>
 	
 										</td>
 									</tr>
 									<tr>										
 										<td class="">
+										
 											<a href="#" class="mr-15 bg-lightest h-50 w-50 l-h-50 rounded-circle text-center overflow-hidden">
-											<img src="{% static 'assets/images/cancel.png'%}" class="h-50 align-self-end" alt="">
+											{% if mrkdua.mrkduanosebutharga.id == projek.nosebuthargaid.id %}
+												<img src="{% static 'assets/images/check-mark.png'%}" class="h-40 align-self-end" alt="">
+											{% else %}
+												<img src="{% static 'assets/images/cancel.png'%}" class="h-40 align-self-end" alt="">
+											{% endif %}
 										</a>
 										</td>
 										<td>
@@ -142,14 +153,20 @@
 								
 					
 										<td class="text-right">
-											<a href="#" class="waves-effect waves-light btn btn-primary-light btn-circle"><span class="icon-Settings-1 font-size-18"><span class="path1"></span><span class="path2"></span></span></a>
+											{% if mrksatu.mrksatunosebutharga.id == projek.nosebuthargaid.id %}
+												<a href="#" class="waves-effect waves-light btn btn-primary btn-rounded btn-outline">Kemaskini</a>
+												
+											{% else %}
+												<span class="badge badge-danger-light">Sila kemaskini Maklumat Rekod Kerja 01</span>
+											{% endif %}
+											
 	
 										</td>
 									</tr>
 									<tr>										
 										<td class="">
 											<a href="#" class="mr-15 bg-lightest h-50 w-50 l-h-50 rounded-circle text-center overflow-hidden">
-											<img src="{% static 'assets/images/cancel.png'%}" class="h-50 align-self-end" alt="">
+											<img src="{% static 'assets/images/cancel.png'%}" class="h-40 align-self-end" alt="">
 										</a>
 										</td>
 										<td>
@@ -175,14 +192,19 @@
 								
 					
 										<td class="text-right">
-											<a href="#" class="waves-effect waves-light btn btn-primary-light btn-circle"><span class="icon-Settings-1 font-size-18"><span class="path1"></span><span class="path2"></span></span></a>
+										  		{% if mrksatu.mrksatunosebutharga.id == projek.nosebuthargaid.id %}
+												<a href="#" class="waves-effect waves-light btn btn-primary btn-rounded btn-outline">Kemaskini</a>
+												
+											{% else %}
+												<span class="badge badge-danger-light">Sila kemaskini Maklumat Rekod Kerja 01</span>
+											{% endif %}
 	
 										</td>
 									</tr>
 									<tr>										
 										<td class="">
 											<a href="#" class="mr-15 bg-lightest h-50 w-50 l-h-50 rounded-circle text-center overflow-hidden">
-											<img src="{% static 'assets/images/cancel.png'%}" class="h-50 align-self-end" alt="">
+											<img src="{% static 'assets/images/cancel.png'%}" class="h-40 align-self-end" alt="">
 										</a>
 										</td>
 										<td>
@@ -208,14 +230,19 @@
 								
 					
 										<td class="text-right">
-											<a href="#" class="waves-effect waves-light btn btn-primary-light btn-circle"><span class="icon-Settings-1 font-size-18"><span class="path1"></span><span class="path2"></span></span></a>
+											{% if mrksatu.mrksatunosebutharga.id == projek.nosebuthargaid.id %}
+												<a href="#" class="waves-effect waves-light btn btn-primary btn-rounded btn-outline">Kemaskini</a>
+												
+											{% else %}
+												<span class="badge badge-danger-light">Sila kemaskini Maklumat Rekod Kerja 01</span>
+											{% endif %}
 	
 										</td>
 									</tr>
 									<tr>										
 										<td class="">
 											<a href="#" class="mr-15 bg-lightest h-50 w-50 l-h-50 rounded-circle text-center overflow-hidden">
-											<img src="{% static 'assets/images/cancel.png'%}" class="h-50 align-self-end" alt="">
+											<img src="{% static 'assets/images/cancel.png'%}" class="h-40 align-self-end" alt="">
 										</a>
 										</td>
 										<td>
@@ -241,14 +268,19 @@
 								
 					
 										<td class="text-right">
-											<a href="#" class="waves-effect waves-light btn btn-primary-light btn-circle"><span class="icon-Settings-1 font-size-18"><span class="path1"></span><span class="path2"></span></span></a>
+												{% if mrksatu.mrksatunosebutharga.id == projek.nosebuthargaid.id %}
+												<a href="#" class="waves-effect waves-light btn btn-primary btn-rounded btn-outline">Kemaskini</a>
+												
+											{% else %}
+												<span class="badge badge-danger-light">Sila kemaskini Maklumat Rekod Kerja 01</span>
+											{% endif %}
 	
 										</td>
 									</tr>
 									<tr>										
 										<td class="">
 											<a href="#" class="mr-15 bg-lightest h-50 w-50 l-h-50 rounded-circle text-center overflow-hidden">
-											<img src="{% static 'assets/images/cancel.png'%}" class="h-50 align-self-end" alt="">
+											<img src="{% static 'assets/images/cancel.png'%}" class="h-40 align-self-end" alt="">
 										</a>
 										</td>
 										<td>
@@ -274,14 +306,14 @@
 								
 					
 										<td class="text-right">
-											<a href="#" class="waves-effect waves-light btn btn-primary-light btn-circle"><span class="icon-Settings-1 font-size-18"><span class="path1"></span><span class="path2"></span></span></a>
+											<a href="#" class="waves-effect waves-light btn btn-primary btn-rounded btn-outline"></a>
 	
 										</td>
 									</tr>
 									<tr>										
 										<td class="">
 											<a href="#" class="mr-15 bg-lightest h-50 w-50 l-h-50 rounded-circle text-center overflow-hidden">
-											<img src="{% static 'assets/images/cancel.png'%}" class="h-50 align-self-end" alt="">
+											<img src="{% static 'assets/images/cancel.png'%}" class="h-40 align-self-end" alt="">
 										</a>
 										</td>
 										<td>
@@ -307,14 +339,14 @@
 								
 					
 										<td class="text-right">
-											<a href="#" class="waves-effect waves-light btn btn-primary-light btn-circle"><span class="icon-Settings-1 font-size-18"><span class="path1"></span><span class="path2"></span></span></a>
+											<a href="#" class="waves-effect waves-light btn btn-primary btn-rounded btn-outline"></a>
 	
 										</td>
 									</tr>
 									<tr>										
 										<td class="">
 											<a href="#" class="mr-15 bg-lightest h-50 w-50 l-h-50 rounded-circle text-center overflow-hidden">
-											<img src="{% static 'assets/images/cancel.png'%}" class="h-50 align-self-end" alt="">
+											<img src="{% static 'assets/images/cancel.png'%}" class="h-40 align-self-end" alt="">
 										</a>
 										</td>
 										<td>
@@ -340,14 +372,14 @@
 								
 					
 										<td class="text-right">
-											<a href="#" class="waves-effect waves-light btn btn-primary-light btn-circle"><span class="icon-Settings-1 font-size-18"><span class="path1"></span><span class="path2"></span></span></a>
+											<a href="#" class="waves-effect waves-light btn btn-primary btn-rounded btn-outline"></a>
 	
 										</td>
 									</tr>
 									<tr>										
 										<td class="">
 											<a href="#" class="mr-15 bg-lightest h-50 w-50 l-h-50 rounded-circle text-center overflow-hidden">
-											<img src="{% static 'assets/images/cancel.png'%}" class="h-50 align-self-end" alt="">
+											<img src="{% static 'assets/images/cancel.png'%}" class="h-40 align-self-end" alt="">
 										</a>
 										</td>
 										<td>
@@ -373,14 +405,14 @@
 								
 					
 										<td class="text-right">
-											<a href="#" class="waves-effect waves-light btn btn-primary-light btn-circle"><span class="icon-Settings-1 font-size-18"><span class="path1"></span><span class="path2"></span></span></a>
+											<a href="#" class="waves-effect waves-light btn btn-primary btn-rounded btn-outline"></a>
 	
 										</td>
 									</tr>
 									<tr>										
 										<td class="">
 											<a href="#" class="mr-15 bg-lightest h-50 w-50 l-h-50 rounded-circle text-center overflow-hidden">
-											<img src="{% static 'assets/images/cancel.png'%}" class="h-50 align-self-end" alt="">
+											<img src="{% static 'assets/images/cancel.png'%}" class="h-40 align-self-end" alt="">
 										</a>
 										</td>
 										<td>
@@ -406,14 +438,14 @@
 								
 					
 										<td class="text-right">
-											<a href="#" class="waves-effect waves-light btn btn-primary-light btn-circle"><span class="icon-Settings-1 font-size-18"><span class="path1"></span><span class="path2"></span></span></a>
+											<a href="#" class="waves-effect waves-light btn btn-primary btn-rounded btn-outline"></a>
 	
 										</td>
 									</tr>
 									<tr>										
 										<td class="">
 											<a href="#" class="mr-15 bg-lightest h-50 w-50 l-h-50 rounded-circle text-center overflow-hidden">
-											<img src="{% static 'assets/images/cancel.png'%}" class="h-50 align-self-end" alt="">
+											<img src="{% static 'assets/images/cancel.png'%}" class="h-40 align-self-end" alt="">
 										</a>
 										</td>
 										<td>
@@ -439,14 +471,14 @@
 								
 					
 										<td class="text-right">
-											<a href="#" class="waves-effect waves-light btn btn-primary-light btn-circle"><span class="icon-Settings-1 font-size-18"><span class="path1"></span><span class="path2"></span></span></a>
+											<a href="#" class="waves-effect waves-light btn btn-primary btn-rounded btn-outline"></a>
 	
 										</td>
 									</tr>
 									<tr>										
 										<td class="">
 											<a href="#" class="mr-15 bg-lightest h-50 w-50 l-h-50 rounded-circle text-center overflow-hidden">
-											<img src="{% static 'assets/images/cancel.png'%}" class="h-50 align-self-end" alt="">
+											<img src="{% static 'assets/images/cancel.png'%}" class="h-40 align-self-end" alt="">
 										</a>
 										</td>
 										<td>
@@ -474,7 +506,7 @@
 								
 					
 										<td class="text-right">
-											<a href="#" class="waves-effect waves-light btn btn-primary-light btn-circle"><span class="icon-Settings-1 font-size-18"><span class="path1"></span><span class="path2"></span></span></a>
+											<a href="#" class="waves-effect waves-light btn btn-primary btn-rounded btn-outline"></a>
 	
 										</td>
 									</tr>

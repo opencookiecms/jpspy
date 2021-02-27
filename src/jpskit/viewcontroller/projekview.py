@@ -1,7 +1,7 @@
 from django.shortcuts import render, get_list_or_404, redirect, reverse
 import datetime
 from django.http import StreamingHttpResponse, HttpResponse, HttpResponseServerError
-from ..modelcontroller import project,dfnoperolehan
+from ..modelcontroller import project,dfnoperolehan,document
 from ..formcontroller import projekform
 from django.db.models import Q
 from django.db.models import Count
@@ -37,9 +37,12 @@ def senaraiprojek(request):
 
 
 def dokumenpilih(request, prid):
-
+    
+    projetgetsebutid = project.Projek.objects.filter(id=prid).first()
     data = {
         'projek':project.Projek.objects.get(id=prid),
+        'mrksatu':document.MRKSatu.objects.filter(mrksatunosebutharga=projetgetsebutid.nosebuthargaid).first(),
+        'mrkdua':document.MRKDua.objects.filter(mrkduanosebutharga=projetgetsebutid.nosebuthargaid).first(),
     }
     return render(request,  'pages/dokumennav.html',data)
 
