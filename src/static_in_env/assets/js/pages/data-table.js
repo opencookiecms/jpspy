@@ -1,8 +1,7 @@
 //[Data Table Javascript]
 
 //Project:	EduAdmin - Responsive Admin Template
-//Primary use:   Used only for the Data Table
-
+//Primary use:   Used only for the Data Tabl
 $(function() {
     "use strict";
 
@@ -18,27 +17,6 @@ $(function() {
 
 
     $('#example').DataTable({
-        dom: 'Bfrtip',
-        buttons: [
-            'copy', 'csv', 'excel', 'pdf', 'print'
-        ]
-    });
-
-    $('#example11').DataTable({
-        dom: 'Bfrtip',
-        buttons: [
-            'copy', 'csv', 'excel', 'pdf', 'print'
-        ]
-    });
-
-    $('#example21').DataTable({
-        dom: 'Bfrtip',
-        buttons: [
-            'copy', 'csv', 'excel', 'pdf', 'print'
-        ]
-    });
-
-    $('#example31').DataTable({
         dom: 'Bfrtip',
         buttons: [
             'copy', 'csv', 'excel', 'pdf', 'print'
