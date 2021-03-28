@@ -27,6 +27,19 @@ def daftarprojek(request):
 
     return render(request, 'pages/projek-daftar.html',context)
 
+def maklumatperolehan(request):
+
+    data = {
+        'senaraiprojek':project.Projek.objects.all(),
+        'kodvod':project.Projek.objects.values('kodvot').annotate(jumlah=Count('kodvot'))
+        
+    }
+
+
+
+
+    return render(request, 'pages/maklumatperolehandash.html',data)
+
 def senaraiprojek(request):
 
     data = {
