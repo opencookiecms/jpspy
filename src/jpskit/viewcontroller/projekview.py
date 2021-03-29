@@ -39,11 +39,11 @@ def maklumatperolehan(request):
 def maklumatperolehanjenis(request, strjenis):
 
     data = {
-        'senaraiprojek':project.Projek.objects.all(),
-        'kodvod':project.Projek.objects.values('kodvot').annotate(jumlah=Count('kodvot')) 
+        'senaraiprojek':project.Projek.objects.filter(nosebuthargaid__kaedahperolehan=strjenis).annotate(total=Count('kodvot')),
+        'kodvod':project.Projek.objects.filter(nosebuthargaid__kaedahperolehan=strjenis).annotate(jumlah=Count('kodvot')) 
     }
-    test = strjenis
-    print(test)
+
+
     return render(request, 'pages/maklumatperolehandash.html',data)
 
 def senaraiprojek(request):
