@@ -109,31 +109,35 @@
 								<thead>
 									<tr>
 										<th class="border-bottom-0">Bil#</th>
-										<th class="border-bottom-0">Kod Vot</th>
+										<th class="border-bottom-0">
+										Info Kod Vot
+									
+										</th>
 										<th class="border-bottom-0">Tajuk Projek</th>
 										
-										<th class="border-bottom-0">No Perolehan</th>
-										<th class="border-bottom-0">Tarikh</th>
-										<th class="text-center border-bottom-0">Jenis Perolehan</th>
-                                        <th class="text-center border-bottom-0">Penyelia</th>
+								
+
+							
+                                 
                                         <th class="text-center border-bottom-0">Action</th>
 									</tr>
 								</thead>
 						        <tbody>
                                 {% for row in senaraiprojek %}
 													<tr>
-														<td>{{forloop.counter}}</td>
-														<td>{{row.kodvot}}</td>
-														<td>{{row.tajukkerja}}</a></td>
-														
-														<td class="font-weight-bold">{{row.nosebuthargaid.noperolehan}}</td>
+														<td><span class="text-primary font-weight-600 d-block font-size-30">0{{forloop.counter}}<span></td>
 														<td>
-                                                            {{row.nosebuthargaid.tarikh}}
+														<span class="text-fade font-weight-600 d-block font-size-16">{{row.kodvot}}</span>
+														<span class="text-secondary font-weight-600 d-block">{{row.nosebuthargaid.noperolehan}}</span>
+													
+														<span class="badge badge-warning">{{row.nosebuthargaid.pegawaiselia}}</span></p>
+														<span class="text-secondary">{{row.nosebuthargaid.tarikh}}</span>
 														</td>
-															<td class="text-center">
-										{{row.nosebuthargaid.kaedahperolehan}}
-										</td>
-                                        <td>{{row.nosebuthargaid.pegawaiselia}}</td>
+														<td>
+														<span class="text-success font-weight-600 d-block font-size-16">{{row.nosebuthargaid.kaedahperolehan}}</span></br></br>
+														{{row.tajukkerja}}
+														</td>
+								
                                         							<td class="text-center">
 											<div class="list-icons d-inline-flex">
 												<a href="{% url 'projek/senarai-dokumen' prid=row.id  %}" class="list-icons-item mr-10"><i class="fa fa-eye"></i></a>
