@@ -31,18 +31,16 @@ def maklumatperolehan(request):
 
     data = {
         'senaraiprojek':project.Projek.objects.all(),
-        'kodvod':project.Projek.objects.values('kodvot').annotate(jumlah=Count('kodvot'))
-        
+        'kodvod':project.Projek.objects.values('kodvot').annotate(jumlah=Count('kodvot')),  
     }
     return render(request, 'pages/maklumatperolehandash.html',data)
 
-def maklumatperolehanjenis(request, strjenis):
+def maklumatperolehanjenis(request, jenisp):
 
     data = {
-        'senaraiprojek':project.Projek.objects.filter(nosebuthargaid__kaedahperolehan=strjenis).annotate(total=Count('kodvot')),
-        'kodvod':project.Projek.objects.filter(nosebuthargaid__kaedahperolehan=strjenis).annotate(jumlah=Count('kodvot')) 
+        'senaraiprojek':project.Projek.objects.filter(nosebuthargaid__kaedahperolehan=jenisp).annotate(total=Count('kodvot')),
+        'kodvod':project.Projek.objects.filter(nosebuthargaid__kaedahperolehan=jenisp).annotate(jumlah=Count('kodvot')) 
     }
-
 
     return render(request, 'pages/maklumatperolehandash.html',data)
 
