@@ -13,7 +13,8 @@ from jpskit.viewcontroller import (
     perolehanviews,
     kontraktorviews,
     projekview,
-    documentviews
+    documentviews,
+    reportview
 
 )
 
@@ -45,6 +46,8 @@ urlpatterns = [
     path('dokumen/smrk/<int:idperolehan>',documentviews.smrkview, name="dokumen/smrk"),
     path('dokumen/skhas/<int:idperolehan>',documentviews.skhasview, name="dokumen/skhas"),
     path('dokumen/suratbon/<int:idperolehan>',documentviews.sbonview, name="dokumen/suratbon"),
+
+    path('report/test', reportview.some_pdf, name="report/test")
 ]
 
 if settings.DEBUG:
