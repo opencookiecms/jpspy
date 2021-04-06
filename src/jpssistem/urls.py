@@ -47,7 +47,8 @@ urlpatterns = [
     path('dokumen/skhas/<int:idperolehan>',documentviews.skhasview, name="dokumen/skhas"),
     path('dokumen/suratbon/<int:idperolehan>',documentviews.sbonview, name="dokumen/suratbon"),
 
-    path('report/test/<int:idperolehan>', reportview.some_pdf, name="report/test")
+    path('laporan/pdf/<int:idperolehan>', reportview.some_pdf, name="laporan/pdf"),
+    path('laporan/excel/<int:idperolehan>', reportview.some_excel, name="laporan/excel"),
 ]
 
 if settings.DEBUG:
