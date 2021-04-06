@@ -1,10 +1,10 @@
 {
   "type": "service_account",
   "project_id": "exceltestout",
-  "private_key_id": "4b783772a9971df09b",
-  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgk,
+  "private_key_id": "id",
+  "private_key": "-----BEGIN PRIVATE KEY---,
   "client_email": "jps-88@exceltestout.iam.gserviceaccount.com",
-  "client_id": "116213679319156222994",
+  "client_id": "cid",
   "auth_uri": "https://accounts.google.com/o/oauth2/auth",
   "token_uri": "https://oauth2.googleapis.com/token",
   "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
