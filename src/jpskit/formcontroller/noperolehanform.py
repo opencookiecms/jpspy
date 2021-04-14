@@ -16,7 +16,7 @@ class DPerolehanForm(forms.ModelForm):
 
     )
     #"widget=forms.NumberInput
-    noperolehan = forms.CharField(required=False, widget=forms.TextInput(attrs={'class':'form-control','type':'text','value':'hale'}))
+    noperolehan = forms.CharField(required=False, widget=forms.TextInput(attrs={'class':'form-control','type':'text','placeholder':'No Fail Sebutharga'}))
     tarikh  = forms.CharField(required=False, widget=forms.TextInput(attrs={'class':'form-control fc-datepicker','placeholder':'MM/DD/YYYY'}))
     kaedahperolehan  = forms.ChoiceField(choices=kaedah, required=False, widget=forms.Select(attrs={'class':'form-control custom-select select28 ','placholder':'baru'}))
     pegawaiselia  = forms.ModelChoiceField(required=False, queryset=User.objects.all(), widget=forms.Select(attrs={'class':'form-control custom-select select29'}))
