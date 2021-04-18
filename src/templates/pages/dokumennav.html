@@ -7,55 +7,45 @@
 	  <div class="container-full">
 		<!-- Main content -->
 		<section class="content">
-			<div class="row">
+									<div class="row align-items-end">
+				<div class="col-xl-12 col-12">
+						<div class="box">
+					<div class="card-body d-flex p-0">
+						<div class="flex-grow-1 bg-secondary-light px-30 pt-50 pb-100 flex-grow-1 bg-img min-h-350" style="background-position: calc(96% + 0.5rem); background-size: 28% auto; background-image: url({% static 'assets/images/svg-icon/color-svg/undrawopentab.svg'%})">
 
-				<div class="col-12">
-					<div class="box pull-up">
-						<div class="box-body bg-img bg-primary-light">
-							<div class="d-lg-flex align-items-center justify-content-between">
-								<div class="d-lg-flex align-items-center mb-30 mb-xl-0 w-p100">
-								
-									<div class="ml-30">
-										<h2 class="mb-10">Senarai Dokumen Berkaitan Sebutharga.</h2>
-								
-									</div>
-								</div>
-								
-							</div>							
-						</div>
-					</div>
-				</div>
-				<div class="col-xl-5 col-12">
-						<div class="box no-shadow mb-0 bg-transparent">
-						<div class="box-header no-border px-0">
-							<h4 class="box-title">Resent Join course</h4>							
+							<p class="text-dark py-10 font-size-40 font-weight-500">
+								Senarai Dokumen Berkaitan <br>Sebutharga
+							</p>
 						
 						</div>
 					</div>
+				</div>
+				</div>
+		
+			</div>
+			<div class="row">
+
+		
+				<div class="col-xl-5 col-12">
+						<div class="box no-shadow mb-0 bg-transparent">
+				
+					</div>
 					<div class="card">
-						<div class="min-h-310" style="background-image: url({% static 'assets/images/front-end-img/courses/1.jpg' %}); background-position: center center; background-size: cover;"></div>
+						<div class="min-h-310" style="background-image: url({% static 'assets/images/front-end-img/courses/desert.jpg' %}); background-size: cover;"></div>
 					  <div class="card-body">
-							<span class="badge badge-primary">Online</span>	
-							<span class="badge badge-primary-light">English</span>
-							<span class="badge badge-primary-light">Spanish</span>													
-							<div class="cour-stac d-flex align-items-center text-fade mt-20">
-							  <p>Start Date 4th Nov..</p>
+							<span class="badge badge-primary font-size-16">{{projek.nosebuthargaid.kaedahperolehan}}</span>	
+																		
+							<div class="cour-stac d-flex align-items-center text-fade mt-30 ">
+							  <p class="font-size-14">Penyelia</p>
 							  <p class="lt-sp">|</p>
-							  <p>Johen doe</p>
+							  <span class="badge badge-success font-size-14">{{projek.nosebuthargaid.pegawaiselia.first_name}}</span>
 							</div>
-						<h4 class="card-title justify-content-between d-flex align-items-center">Manegement</h4>
-						<p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content.</p>
+						<h4 class="card-title justify-content-between d-flex align-items-center mt-20">Tajuk Kerja</h4>
+						<p class="card-text">{{projek.tajukkerja}}</p>
 					  </div>
 					  <div class="card-footer justify-content-between d-flex align-items-center">
-						<div class="d-flex font-size-18 font-weight-600"> <span class="text-dark mr-10">$83</span> <del class="text-muted">$195</del> </div>
-						<span>
-							<i class="fa fa-star text-warning"></i>
-							<i class="fa fa-star text-warning"></i>
-							<i class="fa fa-star text-warning"></i>
-							<i class="fa fa-star text-warning"></i>
-							<i class="fa fa-star-half text-warning"></i>
-							<span class="text-muted ml-2">(42)</span>
-						</span>
+						<div class="d-flex font-size-18 font-weight-600"> <span class="text-dark mr-10">Kod Vot</span> <span class="text-primary">{{projek.kodvot}}</span> </div>
+					
 					  </div>
 					</div>
 				</div>
@@ -63,8 +53,8 @@
 					<div class="box">
 					<div class="box-header">
 						<h4 class="box-title align-items-start flex-column">
-							Agents Stats
-							<small class="subtitle">More than 400+ new members</small>
+							Senarai Dokumen
+							<small class="subtitle">12 dokumen keseluruan</small>
 						</h4>
 					</div>
 					<div class="box-body py-0">
@@ -85,9 +75,9 @@
 								
 											<a href="#" class="mr-15 bg-lightest h-40 w-40 l-h-40 rounded-circle text-center overflow-hidden">
 											{% if mrksatu.mrksatunosebutharga.id == projek.nosebuthargaid.id %}
-												<img src="{% static 'assets/images/check-mark.png'%}" class="h-40 align-self-end" alt="">
+												<img src="{% static 'assets/images/correction.png'%}" class="h-50 align-self-end" alt="">
 											{% else %}
-												<img src="{% static 'assets/images/cancel.png'%}" class="h-40 align-self-end" alt="">
+												<img src="{% static 'assets/images/crossed.png'%}" class="h-50 align-self-end" alt="">
 											{% endif %}
 									
 										</a>
@@ -115,7 +105,7 @@
 								
 					
 										<td class="text-right">
-											<a href="{% url 'dokumen/mrksatu' idperolehan=projek.nosebuthargaid.id %}" class="waves-effect waves-light btn btn-primary btn-rounded btn-outline">MRK 01</a>
+											<a href="{% url 'dokumen/mrksatu' idperolehan=projek.nosebuthargaid.id %}" class="waves-effect waves-light btn btn-primary btn-rounded btn-outline">Kemaskini</a>
 	
 										</td>
 									</tr>
@@ -124,9 +114,9 @@
 										
 											<a href="#" class="mr-15 bg-lightest h-50 w-50 l-h-50 rounded-circle text-center overflow-hidden">
 											{% if mrkdua.mrkduanosebutharga.id == projek.nosebuthargaid.id %}
-												<img src="{% static 'assets/images/check-mark.png'%}" class="h-40 align-self-end" alt="">
+												<img src="{% static 'assets/images/correction.png'%}" class="h-50 align-self-end" alt="">
 											{% else %}
-												<img src="{% static 'assets/images/cancel.png'%}" class="h-40 align-self-end" alt="">
+												<img src="{% static 'assets/images/crossed.png'%}" class="h-50 align-self-end" alt="">
 											{% endif %}
 										</a>
 										</td>
@@ -153,7 +143,7 @@
 								
 					
 										<td class="text-right">
-											{% if mrksatu.mrksatunosebutharga.id == projek.nosebuthargaid.id %}
+											{% if mrkdua.mrkduanosebutharga.id == projek.nosebuthargaid.id %}
 												<a href="#" class="waves-effect waves-light btn btn-primary btn-rounded btn-outline">Kemaskini</a>
 												
 											{% else %}
@@ -164,9 +154,14 @@
 										</td>
 									</tr>
 									<tr>										
-										<td class="">
+											<td class="">
+										
 											<a href="#" class="mr-15 bg-lightest h-50 w-50 l-h-50 rounded-circle text-center overflow-hidden">
-											<img src="{% static 'assets/images/cancel.png'%}" class="h-40 align-self-end" alt="">
+											{% if lsk.lsknosebutharga.id == projek.nosebuthargaid.id %}
+												<img src="{% static 'assets/images/correction.png'%}" class="h-50 align-self-end" alt="">
+											{% else %}
+												<img src="{% static 'assets/images/crossed.png'%}" class="h-50 align-self-end" alt="">
+											{% endif %}
 										</a>
 										</td>
 										<td>
@@ -192,7 +187,7 @@
 								
 					
 										<td class="text-right">
-										  		{% if mrksatu.mrksatunosebutharga.id == projek.nosebuthargaid.id %}
+										  		{% if lsk.lsknosebutharga.id == projek.nosebuthargaid.id %}
 												<a href="#" class="waves-effect waves-light btn btn-primary btn-rounded btn-outline">Kemaskini</a>
 												
 											{% else %}
@@ -203,8 +198,13 @@
 									</tr>
 									<tr>										
 										<td class="">
+										
 											<a href="#" class="mr-15 bg-lightest h-50 w-50 l-h-50 rounded-circle text-center overflow-hidden">
-											<img src="{% static 'assets/images/cancel.png'%}" class="h-40 align-self-end" alt="">
+											{% if mrktiga.mrktigasebutharga.id == projek.nosebuthargaid.id %}
+												<img src="{% static 'assets/images/correction.png'%}" class="h-50 align-self-end" alt="">
+											{% else %}
+												<img src="{% static 'assets/images/crossed.png'%}" class="h-50 align-self-end" alt="">
+											{% endif %}
 										</a>
 										</td>
 										<td>
@@ -230,7 +230,7 @@
 								
 					
 										<td class="text-right">
-											{% if mrksatu.mrksatunosebutharga.id == projek.nosebuthargaid.id %}
+											{% if mrktiga.mrktigasebutharga.id == projek.nosebuthargaid.id %}
 												<a href="#" class="waves-effect waves-light btn btn-primary btn-rounded btn-outline">Kemaskini</a>
 												
 											{% else %}
@@ -241,8 +241,13 @@
 									</tr>
 									<tr>										
 										<td class="">
+										
 											<a href="#" class="mr-15 bg-lightest h-50 w-50 l-h-50 rounded-circle text-center overflow-hidden">
-											<img src="{% static 'assets/images/cancel.png'%}" class="h-40 align-self-end" alt="">
+											{% if psk.psknosebutharga.id == projek.nosebuthargaid.id %}
+												<img src="{% static 'assets/images/correction.png'%}" class="h-50 align-self-end" alt="">
+											{% else %}
+												<img src="{% static 'assets/images/crossed.png'%}" class="h-50 align-self-end" alt="">
+											{% endif %}
 										</a>
 										</td>
 										<td>
@@ -268,7 +273,7 @@
 								
 					
 										<td class="text-right">
-												{% if mrksatu.mrksatunosebutharga.id == projek.nosebuthargaid.id %}
+												{% if psk.psknosebutharga.id == projek.nosebuthargaid.id %}
 												<a href="#" class="waves-effect waves-light btn btn-primary btn-rounded btn-outline">Kemaskini</a>
 												
 											{% else %}
@@ -278,9 +283,14 @@
 										</td>
 									</tr>
 									<tr>										
-										<td class="">
+											<td class="">
+										
 											<a href="#" class="mr-15 bg-lightest h-50 w-50 l-h-50 rounded-circle text-center overflow-hidden">
-											<img src="{% static 'assets/images/cancel.png'%}" class="h-40 align-self-end" alt="">
+											{% if ss.ssnosebutharga.id == projek.nosebuthargaid.id %}
+												<img src="{% static 'assets/images/correction.png'%}" class="h-50 align-self-end" alt="">
+											{% else %}
+												<img src="{% static 'assets/images/crossed.png'%}" class="h-50 align-self-end" alt="">
+											{% endif %}
 										</a>
 										</td>
 										<td>
@@ -306,14 +316,24 @@
 								
 					
 										<td class="text-right">
-											<a href="#" class="waves-effect waves-light btn btn-primary btn-rounded btn-outline"></a>
+												{% if ss.ssnosebutharga.id == projek.nosebuthargaid.id %}
+												<a href="#" class="waves-effect waves-light btn btn-primary btn-rounded btn-outline">Kemaskini</a>
+												
+											{% else %}
+												<span class="badge badge-danger-light">N/A</span>
+											{% endif %}
 	
 										</td>
 									</tr>
 									<tr>										
-										<td class="">
+												<td class="">
+										
 											<a href="#" class="mr-15 bg-lightest h-50 w-50 l-h-50 rounded-circle text-center overflow-hidden">
-											<img src="{% static 'assets/images/cancel.png'%}" class="h-40 align-self-end" alt="">
+											{% if psmk.psmknosebutharga.id == projek.nosebuthargaid.id %}
+												<img src="{% static 'assets/images/correction.png'%}" class="h-50 align-self-end" alt="">
+											{% else %}
+												<img src="{% static 'assets/images/crossed.png'%}" class="h-50 align-self-end" alt="">
+											{% endif %}
 										</a>
 										</td>
 										<td>
@@ -338,15 +358,25 @@
 								
 								
 					
-										<td class="text-right">
-											<a href="#" class="waves-effect waves-light btn btn-primary btn-rounded btn-outline"></a>
+											<td class="text-right">
+												{% if psmk.psmknosebutharga.id == projek.nosebuthargaid.id %}
+												<a href="#" class="waves-effect waves-light btn btn-primary btn-rounded btn-outline">Kemaskini</a>
+												
+											{% else %}
+												<span class="badge badge-danger-light">N/A</span>
+											{% endif %}
 	
 										</td>
 									</tr>
 									<tr>										
-										<td class="">
+													<td class="">
+										
 											<a href="#" class="mr-15 bg-lightest h-50 w-50 l-h-50 rounded-circle text-center overflow-hidden">
-											<img src="{% static 'assets/images/cancel.png'%}" class="h-40 align-self-end" alt="">
+											{% if pjb.jbankknosebutharga.id == projek.nosebuthargaid.id %}
+												<img src="{% static 'assets/images/correction.png'%}" class="h-50 align-self-end" alt="">
+											{% else %}
+												<img src="{% static 'assets/images/crossed.png'%}" class="h-50 align-self-end" alt="">
+											{% endif %}
 										</a>
 										</td>
 										<td>
@@ -370,16 +400,25 @@
 										</td>
 								
 								
-					
-										<td class="text-right">
-											<a href="#" class="waves-effect waves-light btn btn-primary btn-rounded btn-outline"></a>
+						<td class="text-right">
+												{% if pjb.jbankknosebutharga.id == projek.nosebuthargaid.id %}
+												<a href="#" class="waves-effect waves-light btn btn-primary btn-rounded btn-outline">Kemaskini</a>
+												
+											{% else %}
+												<span class="badge badge-danger-light">N/A</span>
+											{% endif %}
 	
 										</td>
 									</tr>
 									<tr>										
-										<td class="">
+													<td class="">
+										
 											<a href="#" class="mr-15 bg-lightest h-50 w-50 l-h-50 rounded-circle text-center overflow-hidden">
-											<img src="{% static 'assets/images/cancel.png'%}" class="h-40 align-self-end" alt="">
+											{% if ppwjp.wjpknosebutharga.id == projek.nosebuthargaid.id %}
+												<img src="{% static 'assets/images/correction.png'%}" class="h-50 align-self-end" alt="">
+											{% else %}
+												<img src="{% static 'assets/images/crossed.png'%}" class="h-50 align-self-end" alt="">
+											{% endif %}
 										</a>
 										</td>
 										<td>
@@ -403,16 +442,25 @@
 										</td>
 								
 								
-					
-										<td class="text-right">
-											<a href="#" class="waves-effect waves-light btn btn-primary btn-rounded btn-outline"></a>
+						<td class="text-right">
+												{% if ppwjp.wjpknosebutharga.id == projek.nosebuthargaid.id %}
+												<a href="#" class="waves-effect waves-light btn btn-primary btn-rounded btn-outline">Kemaskini</a>
+												
+											{% else %}
+												<span class="badge badge-danger-light">N/A</span>
+											{% endif %}
 	
 										</td>
 									</tr>
 									<tr>										
 										<td class="">
+										
 											<a href="#" class="mr-15 bg-lightest h-50 w-50 l-h-50 rounded-circle text-center overflow-hidden">
-											<img src="{% static 'assets/images/cancel.png'%}" class="h-40 align-self-end" alt="">
+											{% if smrk.smrkknosebutharga.id == projek.nosebuthargaid.id %}
+												<img src="{% static 'assets/images/correction.png'%}" class="h-50 align-self-end" alt="">
+											{% else %}
+												<img src="{% static 'assets/images/crossed.png'%}" class="h-50 align-self-end" alt="">
+											{% endif %}
 										</a>
 										</td>
 										<td>
@@ -438,14 +486,24 @@
 								
 					
 										<td class="text-right">
-											<a href="#" class="waves-effect waves-light btn btn-primary btn-rounded btn-outline"></a>
+												{% if smrk.smrkknosebutharga.id == projek.nosebuthargaid.id %}
+												<a href="#" class="waves-effect waves-light btn btn-primary btn-rounded btn-outline">Kemaskini</a>
+												
+											{% else %}
+												<span class="badge badge-danger-light">N/A</span>
+											{% endif %}
 	
 										</td>
 									</tr>
 									<tr>										
-										<td class="">
+											<td class="">
+										
 											<a href="#" class="mr-15 bg-lightest h-50 w-50 l-h-50 rounded-circle text-center overflow-hidden">
-											<img src="{% static 'assets/images/cancel.png'%}" class="h-40 align-self-end" alt="">
+											{% if skhas.khasknosebutharga.id == projek.nosebuthargaid.id %}
+												<img src="{% static 'assets/images/correction.png'%}" class="h-50 align-self-end" alt="">
+											{% else %}
+												<img src="{% static 'assets/images/crossed.png'%}" class="h-50 align-self-end" alt="">
+											{% endif %}
 										</a>
 										</td>
 										<td>
@@ -470,15 +528,25 @@
 								
 								
 					
-										<td class="text-right">
-											<a href="#" class="waves-effect waves-light btn btn-primary btn-rounded btn-outline"></a>
+									<td class="text-right">
+												{% if skhas.khasknosebutharga.id == projek.nosebuthargaid.id %}}
+												<a href="#" class="waves-effect waves-light btn btn-primary btn-rounded btn-outline">Kemaskini</a>
+												
+											{% else %}
+												<span class="badge badge-danger-light">N/A</span>
+											{% endif %}
 	
 										</td>
 									</tr>
 									<tr>										
-										<td class="">
+											<td class="">
+										
 											<a href="#" class="mr-15 bg-lightest h-50 w-50 l-h-50 rounded-circle text-center overflow-hidden">
-											<img src="{% static 'assets/images/cancel.png'%}" class="h-40 align-self-end" alt="">
+											{% if sbon.bonknosebutharga.id == projek.nosebuthargaid.id %}
+												<img src="{% static 'assets/images/correction.png'%}" class="h-50 align-self-end" alt="">
+											{% else %}
+												<img src="{% static 'assets/images/crossed.png'%}" class="h-50 align-self-end" alt="">
+											{% endif %}
 										</a>
 										</td>
 										<td>
@@ -506,7 +574,12 @@
 								
 					
 										<td class="text-right">
-											<a href="#" class="waves-effect waves-light btn btn-primary btn-rounded btn-outline"></a>
+												{% if sbon.bonknosebutharga.id == projek.nosebuthargaid.id %}
+												<a href="#" class="waves-effect waves-light btn btn-primary btn-rounded btn-outline">Kemaskini</a>
+												
+											{% else %}
+												<span class="badge badge-danger-light">N/A</span>
+											{% endif %}
 	
 										</td>
 									</tr>

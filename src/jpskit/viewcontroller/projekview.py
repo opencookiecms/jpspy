@@ -22,6 +22,7 @@ def daftarprojek(request):
     
     context = {
         'form':form,
+        'sungai':project.isSungai.objects.all(),
         'sebutharga': dfnoperolehan.NoPerolehan.objects.all(),
     }
 
@@ -60,6 +61,31 @@ def dokumenpilih(request, prid):
         'projek':project.Projek.objects.get(id=prid),
         'mrksatu':document.MRKSatu.objects.filter(mrksatunosebutharga=projetgetsebutid.nosebuthargaid).first(),
         'mrkdua':document.MRKDua.objects.filter(mrkduanosebutharga=projetgetsebutid.nosebuthargaid).first(),
+        'lsk':document.Laporansiapkerja.objects.filter(lsknosebutharga=projetgetsebutid.nosebuthargaid).first(),
+        'mrktiga':document.MRKTiga.objects.filter(mrktigasebutharga=projetgetsebutid.nosebuthargaid).first(),
+        'psk':document.PSK.objects.filter(psknosebutharga=projetgetsebutid.nosebuthargaid).first(),
+        'ss':document.SenaraiSemakan.objects.filter(ssnosebutharga=projetgetsebutid.nosebuthargaid).first(),
+        'psmk':document.PSMK.objects.filter(psmknosebutharga=projetgetsebutid.nosebuthargaid).first(),
+        'pjb':document.SuratPJaminanbank.objects.filter(jbankknosebutharga=projetgetsebutid.nosebuthargaid).first(),
+        'ppwjp':document.Perakuanpwjp.objects.filter(wjpknosebutharga=projetgetsebutid.nosebuthargaid).first(),
+        'smrk':document.SuratMRK.objects.filter(smrkknosebutharga=projetgetsebutid.nosebuthargaid).first(),
+        'skhas':document.SuratKhas.objects.filter(khasknosebutharga=projetgetsebutid.nosebuthargaid).first(),
+        'sbon':document.SuratPelepasanBon.objects.filter(bonknosebutharga=projetgetsebutid.nosebuthargaid).first(),
     }
     return render(request,  'pages/dokumennav.html',data)
+
+def projekkodvot(request, kvd):
+
+    data = {
+        'senaraiprojek':project.Projek.objects.filter(kodvot=kvd),
+        'kodvod':project.Projek.objects.filter(kodvot=kvd).first(),
+        'ckodvot':project.Projek.objects.aggregate(
+            total = Count('pk', filter=Q(kodvot=kvd)),
+            sebutharga = Count('pk', filter=Q(nosebuthargaid__kaedahperolehan='Sebutharga', kodvot=kvd)),
+            undi = Count('pk', filter=Q(nosebuthargaid__kaedahperolehan='Undi', kodvot=kvd)),
+            lantikan = Count('pk', filter=Q(nosebuthargaid__kaedahperolehan='Lantikan Terus', kodvot=kvd)),
+        ),
+    }
+
+    return render(request, 'pages/maklumatkodvot.html',data)
 

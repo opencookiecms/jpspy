@@ -386,6 +386,15 @@ $('.table tbody').on('click', '#buttonkontraktor', function() {
 
 
 
+$('.table tbody').on('click', '#buttonsungai', function() {
+
+    var currow = $(this).closest('tr');
+    var sungai = currow.find('td:eq(1)').text();
+    $('#id_lembangansungai').val(sungai)
+
+})
+
+
 //auto calculate date 
 
 $(document).ready(function() {

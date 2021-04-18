@@ -119,8 +119,8 @@
 							</a>
 						</div>
 				
-
-								<div class="box">
+					<div class="col-md-12">
+					<div class="box">
 					<div class="box-header with-border">						
 						<h4 class="box-title">Senarai Projek</h4>
 						<h6 class="box-subtitle">sebutharga, lantikan terus, undi</h6>
@@ -184,6 +184,7 @@
 						</div>
 					</div>
 				</div>
+				</div>
 			
 				
 					</div>
@@ -237,7 +238,7 @@
 											</div>
 										</td>
 										<td class="text-right">
-											<a href="#" class="btn btn-info-light btn-sm"><span class="icon-Arrow-right font-size-18"><span class="path1"></span><span class="path2"></span></span></a>
+											<a href="{% url 'projek/kodvot/' kvd=row.kodvot  %}" class="btn btn-info-light btn-sm"><span class="icon-Arrow-right font-size-18"><span class="path1"></span><span class="path2"></span></span></a>
 										</td>
 									</tr>
 											{% endfor %}

@@ -32,6 +32,15 @@ $(function() {
         'autoWidth': false,
     });
 
+    $('#tickets2').DataTable({
+        'paging': true,
+        'lengthChange': true,
+        'searching': true,
+        'ordering': true,
+        'info': true,
+        'autoWidth': false,
+    });
+
     $('#productorder').DataTable({
         'paging': true,
         'lengthChange': true,
