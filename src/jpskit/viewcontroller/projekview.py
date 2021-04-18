@@ -32,7 +32,13 @@ def maklumatperolehan(request):
 
     data = {
         'senaraiprojek':project.Projek.objects.all(),
-        'kodvod':project.Projek.objects.values('kodvot').annotate(jumlah=Count('kodvot')),  
+        'totalprojek':project.Projek.objects.all().count(),
+        'kodvod':project.Projek.objects.values('kodvot').annotate(jumlah=Count('kodvot')),
+        'total':project.Projek.objects.aggregate(
+            sebutharga = Count('pk', filter=Q(nosebuthargaid__kaedahperolehan='Sebutharga')),
+            undi = Count('pk', filter=Q(nosebuthargaid__kaedahperolehan='Undi')),
+            lantikan = Count('pk', filter=Q(nosebuthargaid__kaedahperolehan='Lantikan Terus')),
+        ), 
     }
     return render(request, 'pages/maklumatperolehandash.html',data)
 
