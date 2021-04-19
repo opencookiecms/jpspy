@@ -86,9 +86,9 @@ class Projekform(forms.ModelForm):
     longlitud2 = forms.CharField(required=False, widget=forms.TextInput(attrs={'class':'form-control','type':'text','value':'','placeholder':'Minutes'}))
     longlitud3 = forms.CharField(required=False, widget=forms.TextInput(attrs={'class':'form-control','type':'text','value':'','placeholder':'Seconds'}))
     lembangansungai = forms.CharField(required=False, widget=forms.TextInput(attrs={'class':'form-control','type':'text','value':''}))
-    sistem = forms.CharField(required=False, widget=forms.TextInput(attrs={'class':'form-control','type':'text','value':''}))
-    subsistem = forms.CharField(required=False, widget=forms.TextInput(attrs={'class':'form-control','type':'text','value':''}))
-    komponen = forms.CharField(required=False, widget=forms.TextInput(attrs={'class':'form-control','type':'text','value':''}))
+    sistem = forms.ModelChoiceField(required=False, queryset=project.sistem.objects.all(), widget=forms.Select(attrs={'class':'form-control custom-select select29'}))
+  
+    
     dimensi = forms.CharField(required=False, widget=forms.TextInput(attrs={'class':'form-control','type':'text','value':''}))
     nosebuthargaid = forms.ModelChoiceField(required=False, queryset=dfnoperolehan.NoPerolehan.objects.all(), widget=forms.Select(attrs={'class':'form-control custom-select select29'}))
     

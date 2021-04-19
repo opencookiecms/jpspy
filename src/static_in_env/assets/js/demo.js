@@ -463,3 +463,40 @@ $(document).ready(function() {
     });
 
 });
+
+//depent drobdown
+$(document).ready(function() {
+    $('#id_sistem').change(function() {
+        var sis_id = $('#id_sistem').val()
+        if (sis_id != '') {
+            $.ajax({
+                url: "http://localhost:8000/sistem/subsistem",
+                method: "GET",
+                data: { sis_id: sis_id },
+                success: function(data) {
+                    $('#id_subsistem').html(data);
+                    $('#id_komponen').html('<option value="">Pilih Komponen</option>');
+                }
+            });
+        } else {
+            $('#id_subsistem').html('<option value="">Pilih Subsistem</option>');
+            $('#id_komponen').html('<option value="">Pilih Komponent</option>');
+        }
+    });
+
+    $('#id_subsistem').change(function() {
+        var sub_id = $('#id_subsistem').val();
+        if (sub_id != '') {
+            $.ajax({
+                url: "http://localhost:8000/sistem/komponen",
+                method: "GET",
+                data: { sub_id: sub_id },
+                success: function(data) {
+                    $('#id_komponen').html(data);
+                }
+            });
+        } else {
+            $('#id_komponen').html('<option value="">Pilih Komponent</option>');
+        }
+    });
+});

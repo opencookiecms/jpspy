@@ -102,10 +102,17 @@ def projekkodvot(request, kvd):
     return render(request, 'pages/maklumatkodvot.html',data)
 
 
-    #depend system
+
+#depend system
 def load_sistem(request):
 
-    #sistemid = request.GET.get('sistemid')
-    subsitem = project.subsistem.objects.filter(sistemlink=2)
-    return render(request, 'pages/dropdowntest.html', {'subsitem': subsitem})
+    sistemid = request.GET.get('sis_id')
+    subsitem = project.subsistem.objects.filter(sistemlink=sistemid)
+    return render(request, 'pages/loadsistem.html', {'subsitem': subsitem})
+
+def load_component(request):
+
+    subid = request.GET.get('sub_id')
+    componentitem = project.komponen.objects.filter(subidlink=subid)
+    return render(request, 'pages/loadcomponent.html', {'componentitem': componentitem})
 

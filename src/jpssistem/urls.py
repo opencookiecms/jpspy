@@ -53,6 +53,7 @@ urlpatterns = [
     path('laporan/excel/<int:idperolehan>', reportview.some_excel, name="laporan/excel"),
 
     path('sistem/subsistem', projekview.load_sistem, name="sistem/subsistem"),
+    path('sistem/komponen', projekview.load_component, name="sistem/komponen"),
 ]
 
 if settings.DEBUG:
