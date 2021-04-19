@@ -63,17 +63,23 @@ class isSungai(models.Model):
         verbose_name_plural = 'Sungai'
 
 class sistem(models.Model):
-    sistemname = models.CharField(max_length=50, null=True, blank=True)
+    sistemname = models.CharField(max_length=100, null=True, blank=True)
 
     def __str__(self):
         return self.sistemname
 
 class subsistem(models.Model):
-    subsistemname  = models.CharField(max_length=50, null=True, blank=True)
+    subsistemname  = models.CharField(max_length=100, null=True, blank=True)
     sistemlink = models.ForeignKey(sistem, on_delete=models.CASCADE)
 
     def __str__(self):
         return self.subsistemname
+class komponen(models.Model):
+    component_name = models.CharField(max_length=100, null=True, blank=True)
+    subidlink = models.ForeignKey(subsistem, on_delete=models.CASCADE )
+
+    def __str__(self):
+        return self.component_name
 
 
 

@@ -46,7 +46,13 @@ def maklumatperolehanjenis(request, jenisp):
 
     data = {
         'senaraiprojek':project.Projek.objects.filter(nosebuthargaid__kaedahperolehan=jenisp).annotate(total=Count('kodvot')),
-        'kodvod':project.Projek.objects.filter(nosebuthargaid__kaedahperolehan=jenisp).annotate(jumlah=Count('kodvot')) 
+        'kodvod':project.Projek.objects.filter(nosebuthargaid__kaedahperolehan=jenisp).annotate(jumlah=Count('kodvot')),
+        'totalprojek':project.Projek.objects.all().count(),
+        'total':project.Projek.objects.aggregate(
+            sebutharga = Count('pk', filter=Q(nosebuthargaid__kaedahperolehan="Sebutharga")),
+            undi = Count('pk', filter=Q(nosebuthargaid__kaedahperolehan="Undi")),
+            lantikan = Count('pk', filter=Q(nosebuthargaid__kaedahperolehan="Lantikan Terus")),
+        ),
     }
 
     return render(request, 'pages/maklumatperolehandash.html',data)
@@ -94,4 +100,12 @@ def projekkodvot(request, kvd):
     }
 
     return render(request, 'pages/maklumatkodvot.html',data)
+
+
+    #depend system
+def load_sistem(request):
+
+    #sistemid = request.GET.get('sistemid')
+    subsitem = project.subsistem.objects.filter(sistemlink=2)
+    return render(request, 'pages/dropdowntest.html', {'subsitem': subsitem})
 
