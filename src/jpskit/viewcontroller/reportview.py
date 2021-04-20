@@ -1,25 +1,31 @@
 from django.shortcuts import render, get_list_or_404, redirect, reverse
 from django.core.files.storage import FileSystemStorage
-import datetime
+from django.http import FileResponse, Http404
+from django.conf.urls.static import static
+from django.conf import settings
 from django.http import StreamingHttpResponse, HttpResponse, HttpResponseServerError
+import datetime
 from PyPDF2 import PdfFileReader, PdfFileWriter, pdf
 import io
 from io import BytesIO
 import os
 import gspread
 import json
-
 from oauth2client.service_account import ServiceAccountCredentials
-from django.http import FileResponse, Http404
-from django.conf.urls.static import static
-from django.conf import settings
 from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer
 from reportlab.lib.styles import getSampleStyleSheet
 from reportlab.lib.units import inch
 from reportlab.pdfgen import canvas
 from reportlab.lib.pagesizes import letter
 from pdfjinja import PdfJinja
+from openpyxl import Workbook
+from openpyxl.writer.excel import save_virtual_workbook
+from tempfile import NamedTemporaryFile
 from ..modelcontroller import document,dfnoperolehan,kontraktor,project
+
+
+def report_by_year(request):
+    return render(request, 'pages/laporan_filter.html')
 
 def some_pdf(request, idperolehan):
 
