@@ -4,6 +4,7 @@ from django.http import FileResponse, Http404
 from django.conf.urls.static import static
 from django.conf import settings
 from django.http import StreamingHttpResponse, HttpResponse, HttpResponseServerError
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 import datetime
 from PyPDF2 import PdfFileReader, PdfFileWriter, pdf
 import io

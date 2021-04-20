@@ -1,24 +1,287 @@
-<!DOCTYPE html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
-<html>
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title></title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="">
-    </head>
-    <body>
-        <!--[if lt IE 7]>
-            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
-        <![endif]-->
+{% extends 'based/based.html' %}
+{% block content %}
+{% load mathfilters %}
+{% load static %}
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+	  <div class="container-full">
+		<!-- Content Header (Page header) -->	  
+		<div class="content-header">
+			<div class="d-flex align-items-center">
+				<div class="mr-auto">
+					<h3 class="page-title">Laporan</h3>
+					<div class="d-inline-block align-items-center">
+						<nav>
+							<ol class="breadcrumb">
+								<li class="breadcrumb-item"><a href="#"><i class="mdi mdi-home-outline"></i></a></li>
+								<li class="breadcrumb-item" aria-current="page">Laporan</li>
+								<li class="breadcrumb-item active" aria-current="page">Filter</li>
+							</ol>
+						</nav>
+					</div>
+				</div>
+				
+			</div>
+		</div>
 
-    
-        
-        <script src="" async defer></script>
-    </body>
-</html>
+		<!-- Main content -->
+		
+		<section class="content">
+		<div class="row">
+						<div class="col-lg-12">
+					  <div class="box bg-dark">
+						<div class="box-header">
+						  <h4 class="box-title text-white">Carian data</h4>
+						</div>
+						<!-- /.box-header -->
+						<form class="form">
+							<div class="box-body">
+						
+								<div class="row">
+								  <div class="col-md-2">
+									<div class="form-group">
+									  <label>Kod Peruntukan</label>
+									    <select class="form-control">
+										<option>Budget</option>
+										<option>less than 5000$</option>
+										<option>5000$ - 10000$</option>
+										<option>10000$ - 20000$</option>
+										<option>more than 20000$</option>
+									  </select>
+									</div>
+								  </div>
+								  <div class="col-md-2">
+									<div class="form-group">
+									  <label>Kaedah Perolehan</label>
+									  	    <select class="form-control">
+										<option>Budget</option>
+										<option>less than 5000$</option>
+										<option>5000$ - 10000$</option>
+										<option>10000$ - 20000$</option>
+										<option>more than 20000$</option>
+									  </select>
+									</div>
+								  </div>
+								  <div class="col-md-2">
+									<div class="form-group">
+									  <label>Tahun</label>
+									  	    <select class="form-control">
+										<option>Budget</option>
+										<option>less than 5000$</option>
+										<option>5000$ - 10000$</option>
+										<option>10000$ - 20000$</option>
+										<option>more than 20000$</option>
+									  </select>
+									</div>
+								  </div>
+								  <div class="col-md-2">
+									<div class="form-group">
+									  <label>Tahun</label>
+									  	    <select class="form-control">
+										<option>Budget</option>
+										<option>less than 5000$</option>
+										<option>5000$ - 10000$</option>
+										<option>10000$ - 20000$</option>
+										<option>more than 20000$</option>
+									  </select>
+									</div>
+								  </div>
+								</div>
+			
+							</div>
+							<!-- /.box-body -->
+							<div class="box-footer">
+								<button type="button" class="btn btn-rounded btn-danger  mr-1">
+								  <i class="ti-trash"></i> Batal
+								</button>
+								<button type="submit" class="btn btn-rounded btn-primary ">
+								  <i class="ti-save-alt"></i> Cari
+								</button>
+							</div>  
+						</form>
+					  </div>
+					  <!-- /.box -->			
+				</div>  
+		</div>
+		
+		  <div class="row">
+			<div class="col-xl-10 col-lg-9 col-12">
+				<div class="box">
+					<div class="box-header with-border">						
+						<h4 class="box-title">Invoice List</h4>
+						<h6 class="box-subtitle">Export Invoice List to Copy, CSV, Excel, PDF & Print</h6>
+					</div>
+					<div class="box-body">						
+						<div class="table-responsive">
+
+							<table id="report" class="table table-lg invoice-archive">
+								<thead>
+									<tr>
+										<th>#</th>
+										<th>Kod Peruntukan</th>
+										<th>Tajuk Projek</th>
+										<th>Harga Kontrak</th>
+										<th>Butiran Kontrak</br>(1)Nama Kontraktor</br>(2)No.Kontrak/Sebutharga</br>(3)Mula/Siap</br>(4)EOT</br></th>
+										<th>Waran Diterima (A)</th>
+										<th>Perbelanjaan (B)</th>
+										<th>Tanggungan (C)</th>
+                                        <th>Baki</th>
+                                        <th>Perbelanjaan Tahun Semasa</th>
+                                        <th>Kemajuan Projek</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td><span class="text-primary font-weight-600 d-block font-size-30 cc_cursor">01</span></td>
+										<td>B13-28209</td>
+										<td>
+											<h6 class="mb-0">
+											
+												<span class="d-block text-muted" style="width:200px">PENYELENGGARAAN TERUSAN, TALIAIR TANAH/KONKRIT SERTA PARIT DIKAWASAN RANTAU PANJANG, SKIM PENGAIRAN KOTA II, DAERAH KUALA MUDA, KEDAH DARUL AMAN.</span>
+											</h6>
+										</td>
+										<td>
+										<h6 class="mb-0 font-weight-bold" style="width:120px">RM 61,775.11</h6>
+										</td>
+										<td>
+											 <ul style="width:300px;list-style-type: none;padding:0px">
+                                                <li>(1) <span class="mb-0 font-weight-bold">FEBAH ENTERPRISE</span></li>
+                                                <li>(2) <span class="text-muted">JPSKMSB(KU/KM)S/B/OM/101/2020</span></li>
+                                                <li>(3) <span class="badge badge-pill badge-primary">22-09-2020 / 12-11-2020</span></li>
+                                                <li>(4) <span class="badge badge-pill badge-warning">22-09-2020 / 12-11-2020</span></li>
+                                            </ul>  
+										</td>
+										<td>
+											<h6 class="mb-0 font-weight-bold" style="width:120px">RM 20,000.00</h6>
+										</td>
+										<td>
+											<h6 class="mb-0 font-weight-bold" style="width:120px">1,160,000.00</h6>
+										</td>
+										<td>
+                                            <h6 class="mb-0 font-weight-bold" style="width:120px">RM 1,160,000.00</h6>
+										</td>
+                                        <td>
+											<h6 class="mb-0 font-weight-bold" style="width:120px">RM 20,000.00</h6>
+										</td>
+                                        <td>
+                                            <h6 class="mb-0 font-weight-bold" style="width:120px">RM 1,160,000.00</h6>
+										</td>
+                                          <td>
+                                            <h6 class="mb-0 font-weight-bold" style="">100%</h6>
+										</td>
+                                        
+									</tr>
+											<tr>
+										<td><span class="text-primary font-weight-600 d-block font-size-30 cc_cursor">01</span></td>
+										<td>B13-28209</td>
+										<td>
+											<h6 class="mb-0">
+											
+												<span class="d-block text-muted" style="width:200px">PENYELENGGARAAN TERUSAN, TALIAIR TANAH/KONKRIT SERTA PARIT DIKAWASAN RANTAU PANJANG, SKIM PENGAIRAN KOTA II, DAERAH KUALA MUDA, KEDAH DARUL AMAN.</span>
+											</h6>
+										</td>
+										<td>
+										<h6 class="mb-0 font-weight-bold" style="width:120px">RM 61,775.11</h6>
+										</td>
+										<td>
+											 <ul style="width:300px;list-style-type: none;padding:0px">
+                                                <li>(1) <span class="mb-0 font-weight-bold">FEBAH ENTERPRISE</span></li>
+                                                <li>(2) <span class="text-muted">JPSKMSB(KU/KM)S/B/OM/101/2020</span></li>
+                                                <li>(3) <span class="badge badge-pill badge-primary">22-09-2020 / 12-11-2020</span></li>
+                                                <li>(4) <span class="badge badge-pill badge-warning">22-09-2020 / 12-11-2020</span></li>
+                                            </ul>  
+										</td>
+										<td>
+											<h6 class="mb-0 font-weight-bold" style="width:120px">RM 20,000.00</h6>
+										</td>
+										<td>
+											<h6 class="mb-0 font-weight-bold" style="width:120px">1,160,000.00</h6>
+										</td>
+										<td>
+                                            <h6 class="mb-0 font-weight-bold" style="width:120px">RM 1,160,000.00</h6>
+										</td>
+                                        <td>
+											<h6 class="mb-0 font-weight-bold" style="width:120px">RM 20,000.00</h6>
+										</td>
+                                        <td>
+                                            <h6 class="mb-0 font-weight-bold" style="width:120px">RM 1,160,000.00</h6>
+										</td>
+                                          <td>
+                                            <h6 class="mb-0 font-weight-bold" style="">100%</h6>
+										</td>
+                                        
+									</tr>
+
+
+
+	
+								</tbody>
+							</table>
+
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-xl-2 col-lg-3 col-12">
+				<div class="box box-inverse box-success">
+				  <div class="box-body">
+					<div class="flexbox">
+					  <h5>Waran Diterima</h5>
+				
+					</div>
+
+					<div class="text-center my-2">
+					  <div class="font-size-24">RM 607,203.76</div>
+					  <span>-------</span>
+					</div>
+				  </div>
+				</div>
+				<div class="box box-inverse box-primary">
+				  <div class="box-body">
+					<div class="flexbox">
+					  <h5>Perbelanjaan</h5>
+				
+					</div>
+
+					<div class="text-center my-2">
+					   <div class="font-size-24">RM 607,203.76</div>
+					  <span>-------</span>
+					</div>
+				  </div>				
+				</div>
+				<div class="box box-inverse box-danger">
+				  <div class="box-body">
+					<div class="flexbox">
+					  <h5>Tanggungan</h5>
+				
+					</div>
+
+					<div class="text-center my-2">
+					  <div class="font-size-24">RM 1,160,000.00</div>
+					  <span>--------</span>
+					</div>
+				  </div>
+
+				</div>
+				<div class="box box-inverse box-warning">
+				  <div class="box-body">
+					<div class="flexbox">
+					  <h5>Baki</h5>
+				
+					</div>
+
+					<div class="text-center my-2">
+					    <div class="font-size-24">RM 160,000.00</div>
+					  <span>--------</span>
+					</div>
+				  </div>
+				</div>
+			</div>
+		  </div>
+		</section>
+		<!-- /.content -->
+	  </div>
+  </div>
+  <!-- /.content-wrapper -->
+
+   {% endblock content %}

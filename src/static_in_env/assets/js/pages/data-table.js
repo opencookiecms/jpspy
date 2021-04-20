@@ -23,6 +23,22 @@ $(function() {
         ]
     });
 
+    $('#report').DataTable({
+        responsive: true,
+        dom: 'Bfrtip',
+
+        buttons: [
+            'copy', 'csv', 'excel', 'pdf', 'print'
+        ],
+        'paging': true,
+        'lengthChange': true,
+        'searching': true,
+        'ordering': true,
+        'info': true,
+        'autoWidth': false,
+    });
+
+
     $('#tickets').DataTable({
         'paging': true,
         'lengthChange': true,

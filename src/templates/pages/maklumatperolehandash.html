@@ -42,20 +42,20 @@
 					<div class="row">
 						<div class="col-lg-4 col-12">
 							<a href='{% url 'projek/maklumatperolehan/' jenisp="Sebutharga" %}' class="box pull-up">
-								<div class="box-body">
+								<div class="box-body bg-primary">
 									<div class="d-flex align-items-center">
 										<div class="icon bg-primary-light rounded-circle w-60 h-60 text-center l-h-80">											
 											<span class="font-size-30 icon-Bulb1"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span></span>
 										</div>
 										<div class="ml-15">											
 											<h5 class="mb-0">Sebutharga</h5>
-											<p class="text-fade font-size-12 mb-0">Jumlah Perolehan: {{total.sebutharga}}</p>
+											<p class=" font-size-12 mb-0">Jumlah Perolehan: {{total.sebutharga}}</p>
 										</div>
 									</div>
 									<div class="d-flex align-items-center justify-content-between mt-20">
 										<div class="w-p70">
 											<div class="progress progress-sm mb-0">
-												<div class="progress-bar progress-bar-primary" role="progressbar" aria-valuenow="{{ total.sebutharga|div:totalprojek|mul:100|floatformat:1 }}" aria-valuemin="0" aria-valuemax="100" style="width: {{ total.sebutharga|div:totalprojek|mul:100|floatformat:1 }}%">
+												<div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="{{ total.sebutharga|div:totalprojek|mul:100|floatformat:1 }}" aria-valuemin="0" aria-valuemax="100" style="width: {{ total.sebutharga|div:totalprojek|mul:100|floatformat:1 }}%">
 												</div>
 											</div>
 										</div>
@@ -69,7 +69,7 @@
 						</div>
 						<div class="col-lg-4 col-12">
 							<a href='{% url 'projek/maklumatperolehan/' jenisp="Lantikan Terus" %}' class="box pull-up">
-								<div class="box-body">
+								<div class="box-body bg-dark">
 									<div class="d-flex align-items-center">
 										<div class="icon bg-primary-light rounded-circle w-60 h-60 text-center l-h-80">											
 											<span class="font-size-30 icon-Pen-tool-vector"><span class="path1"></span><span class="path2"></span></span>
@@ -82,7 +82,7 @@
 									<div class="d-flex align-items-center justify-content-between mt-20">
 										<div class="w-p70">
 											<div class="progress progress-sm mb-0">
-												<div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="{{ total.lantikan|div:totalprojek|mul:100|floatformat:1 }}" aria-valuemin="0" aria-valuemax="100" style="width: {{ total.lantikan|div:totalprojek|mul:100|floatformat:1 }}%">
+												<div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="{{ total.lantikan|div:totalprojek|mul:100|floatformat:1 }}" aria-valuemin="0" aria-valuemax="100" style="width: {{ total.lantikan|div:totalprojek|mul:100|floatformat:1 }}%">
 												</div>
 											</div>
 										</div>
@@ -96,7 +96,7 @@
 						<div class="col-lg-4 col-12">
 						
 							<a href='{% url 'projek/maklumatperolehan/' jenisp="Undi" %}' class="box pull-up">
-								<div class="box-body">
+								<div class="box-body bg-secondary">
 									<div class="d-flex align-items-center">
 										<div class="icon bg-primary-light rounded-circle w-60 h-60 text-center l-h-80">											
 											<span class="font-size-30 icon-Chat-check"><span class="path1"></span><span class="path2"></span></span>
@@ -139,6 +139,7 @@
 									
 										</th>
 										<th class="border-bottom-0">Tajuk Projek</th>
+												<th class="border-bottom-0">Penyelia</th>
 										
 								
 
@@ -153,14 +154,22 @@
 														<td><span class="text-primary font-weight-600 d-block font-size-30">0{{forloop.counter}}<span></td>
 														<td>
 														<span class="text-fade font-weight-600 d-block font-size-16">{{row.kodvot}}</span>
-														<span class="text-secondary font-weight-600 d-block">{{row.nosebuthargaid.noperolehan}}</span>
 													
-														<span class="badge badge-warning">{{row.nosebuthargaid.pegawaiselia}}</span></p>
+													
+													
 														<span class="text-secondary">{{row.nosebuthargaid.tarikh}}</span>
 														</td>
 														<td>
 														<span class="text-success font-weight-600 d-block font-size-16">{{row.nosebuthargaid.kaedahperolehan}}</span>
-														{{row.tajukkerja}}
+														<span class="text-secondary font-weight-bold d-block ">{{row.nosebuthargaid.noperolehan}}</span>
+														<span class="d-block text-muted " style="width:380px">{{row.tajukkerja}}</span>
+														</td>
+														<td>
+													
+													
+													
+														<span class="badge badge-warning font-size-14">{{row.nosebuthargaid.pegawaiselia.first_name}}</span></p>
+														
 														</td>
 								
                                         <td class="text-center">
@@ -240,7 +249,7 @@
 											</div>
 										</td>
 										<td class="text-right">
-											<a href="{% url 'projek/kodvot/' kvd=row.kodvot  %}" class="btn btn-info-light btn-sm"><span class="icon-Arrow-right font-size-18"><span class="path1"></span><span class="path2"></span></span></a>
+											<a href="{% url 'projek/kodvot/' kvd=row.kodvot  %}" class="btn btn-success-light btn-sm"><span class="icon-Arrow-right font-size-18"><span class="path1"></span><span class="path2"></span></span></a>
 										</td>
 									</tr>
 											{% endfor %}
