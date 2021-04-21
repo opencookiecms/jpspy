@@ -41,34 +41,14 @@ def testexcel(request):
    
     for col_num in range(len(columns)):
         ws.cell(row_num, col_num+2, columns[col_num])
-        ws['C'+ str(row_num+range)].alignment = Alignment(wrapText=True)
         ws.cell(row_num+1, col_num+2, columns1[col_num])
+        
     
-
-   
-
     wb.save("chart.xlsx")
    
 
     return render(request, 'pages/someexcel.html')
 
-def test(request):
-        
-    row_num = 4
-    ws = wb.worksheets[0]
-    columns = ['Username', 'Line 1\nLine 2\nLine 3', 'Last name', 'Email address', ]
-    columns1 = ['Username', 'Line 1\nLine 2\nLine 3', 'Last name', 'Email address', ]
-   
-    for col_num in range(len(columns)):
-        ws.cell(row_num, col_num+2, columns[col_num])
-        ws['C'+ str(row_num+range)].alignment = Alignment(wrapText=True)
-        ws.cell(row_num+1, col_num+2, columns1[col_num])
-    
-    rows = User.objects.all().values_list('username', 'first_name', 'last_name', 'email')
-    for row in rows:
-        row_num += 1
-        for col_num in range(len(row)):
-            ws.cell(row_num, col_num+2, row[col_num])
 
 
 def report_by_year(request):
