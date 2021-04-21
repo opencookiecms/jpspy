@@ -19,11 +19,39 @@ from reportlab.lib.units import inch
 from reportlab.pdfgen import canvas
 from reportlab.lib.pagesizes import letter
 from pdfjinja import PdfJinja
+import openpyxl
 from openpyxl import Workbook
-from openpyxl.writer.excel import save_virtual_workbook
+from openpyxl import load_workbook
 from tempfile import NamedTemporaryFile
 from ..modelcontroller import document,dfnoperolehan,kontraktor,project
+from django.contrib.auth.models import User
 
+
+def testexcel(request):
+    
+    wb = load_workbook('static_in_env/assets/excel/bookpython.xlsx')
+    for ws in wb.worksheets:
+        print(ws.title)
+
+    row_num = 4
+    ws = wb.worksheets[0]
+    columns = ['Username', 'First name', 'Last name', 'Email address', ]
+
+    for col_num in range(len(columns)):
+        ws.cell(row_num, col_num+2, columns[col_num])
+    
+    
+    rows = User.objects.all().values_list('username', 'first_name', 'last_name', 'email')
+    for row in rows:
+        row_num += 1
+        for col_num in range(len(row)):
+            ws.cell(row_num, col_num+2, row[col_num])
+   
+
+    wb.save("chart.xlsx")
+   
+
+    return render(request, 'pages/someexcel.html')
 
 def report_by_year(request):
     return render(request, 'pages/laporan_filter.html')

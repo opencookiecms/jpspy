@@ -59,6 +59,9 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'jpssistem.wsgi.application'
 
+FILE_UPLOAD_HANDLERS = ("django_excel.ExcelMemoryFileUploadHandler",
+                        "django_excel.TemporaryExcelFileUploadHandler")
+
 
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
