@@ -3,6 +3,7 @@
 //Project:	EduAdmin - Responsive Admin Template
 //Primary use:   This file is for demo purposes only.
 
+
 $(function() {
     'use strict'
 
@@ -500,3 +501,28 @@ $(document).ready(function() {
         }
     });
 });
+
+function initMap() {
+    var latlng = new google.maps.LatLng(4.2105, 101.9758);
+    var map = new google.maps.Map(document.getElementById('map'), {
+        center: latlng,
+        zoom: 8,
+        mapTypeId: google.maps.MapTypeId.ROADMAP
+    });
+    var marker = new google.maps.Marker({
+        position: latlng,
+        map: map,
+        title: 'Set lat/lon values for this property',
+        draggable: true
+    });
+    google.maps.event.addListener(
+            marker,
+            'drag',
+            function () {
+                document.getElementById('lat').value = marker.position.lat().toFixed(6);
+                document.getElementById('long').value = marker.position.lng().toFixed(6);
+            }
+    );
+}
+
+

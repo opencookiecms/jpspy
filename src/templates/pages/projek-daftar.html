@@ -482,21 +482,44 @@
 
 								<h4 class="box-title text-primary"><i class="ti-save mr-15"></i>Lokasi & Sistem</h4>
 								<hr class="my-15">
+								   <div class="row">
+                                    <div class="col-md-12 mb-3">
+                                        <div style="height: 450px; position:relative; overflow:hidden">
+                                            <div id="map"></div>
+                                        </div>
+
+                                    </div>
+
+                                </div>
+								<div class="row">
+									<div class="col-md-6">
+									<div class="form-group">
+									 <input type="text" id="long" name="fish_long" size="50" placeholder="longitude" class="form-control">
+									</div>
+									</div>
+										<div class="col-md-6">
+									<div class="form-group">
+									 <input type="text" id="lat" name="fish_lat" size="50" placeholder="latititure" class="form-control">
+									</div>
+									</div>
+								</div>
 							
 								<div class="row">
-								  <div class="col-md-2">
+								  <div class="col-md-4">
 									<div class="form-group">
 										<label>Latitud (N) &#176</label>
 								       {{form.latitud1}}
+									  
 									</div>
 								  </div>
-								  <div class="col-md-2">
+								  <div class="col-md-4">
 									<div class="form-group">
+									
 										<label>Latitud (N) '</label>
 								       {{form.latitud2}}
 									</div>
 								  </div>
-								    <div class="col-md-2">
+								    <div class="col-md-4">
 									<div class="form-group">
 									  <label>Latitud (N) "</label>
 								      {{form.latitud3}}
@@ -505,19 +528,19 @@
 						
 								</div>
 								<div class="row">
-								  <div class="col-md-2">
+								  <div class="col-md-4">
 									<div class="form-group">
 										<label>Longitud (E) &#176</label>
 								       {{form.longlitud1}}
 									</div>
 								  </div>
-								  <div class="col-md-2">
+								  <div class="col-md-4">
 									<div class="form-group">
 										<label>Longitud (E) '</label>
 								       {{form.longlitud2}}
 									</div>
 								  </div>
-								    <div class="col-md-2">
+								    <div class="col-md-4">
 									<div class="form-group">
 									  <label>Longitud (E) "</label>
 								      {{form.longlitud3}}
