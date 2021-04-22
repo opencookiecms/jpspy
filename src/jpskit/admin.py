@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .modelcontroller import project, order, kontraktor, dfnoperolehan, userprofile,document
+from .modelcontroller import project, order, kontraktor, dfnoperolehan, userprofile,document, kursus
 
 admin.site.register(kontraktor.Kontraktor)
 admin.site.register(userprofile.UserProfile)
@@ -18,6 +18,10 @@ admin.site.register(document.Perakuanpwjp)
 admin.site.register(project.isSungai)
 admin.site.register(project.sistem)
 admin.site.register(project.subsistem)
+admin.site.register(kursus.Course)
+admin.site.register(kursus.Attandance)
+admin.site.register(kursus.Sokongan)
+admin.site.register(kursus.UnitGroup)
 
 
 # Register your models here.
