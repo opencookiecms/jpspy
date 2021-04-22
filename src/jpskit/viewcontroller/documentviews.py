@@ -20,8 +20,8 @@ def mrkone(request, idperolehan):
         
     else:
         print("no data was post yet")
-        print(form)
-        print(idperolehan)
+        print(form.errors)
+      
 
     context = {
         'form':form,

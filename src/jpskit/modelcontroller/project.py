@@ -5,7 +5,7 @@ from ..modelcontroller import kontraktor, dfnoperolehan
 
 class Projek(models.Model):
 
-    tajukkerja = models.CharField(max_length=50, null=True, blank=True)
+    tajukkerja = models.CharField(max_length=500, null=True, blank=True)
     daerah = models.CharField(max_length=50, null=True, blank=True)
     pgred = models.CharField(max_length=50, null=True, blank=True)
     pkategori = models.CharField(max_length=50, null=True, blank=True)
@@ -63,20 +63,20 @@ class isSungai(models.Model):
         verbose_name_plural = 'Sungai'
 
 class sistem(models.Model):
-    sistemname = models.CharField(max_length=100, null=True, blank=True)
+    sistemname = models.CharField(max_length=100, blank=True, null=True)
 
     def __str__(self):
         return self.sistemname
 
 class subsistem(models.Model):
-    subsistemname  = models.CharField(max_length=100, null=True, blank=True)
-    sistemlink = models.ForeignKey(sistem, on_delete=models.CASCADE)
+    subsistemname  = models.CharField(max_length=100, blank=True, null=True)
+    sistemlink = models.ForeignKey(sistem, blank=True, null=True, on_delete = models.SET_NULL)
 
     def __str__(self):
         return self.subsistemname
 class komponen(models.Model):
-    component_name = models.CharField(max_length=100, null=True, blank=True)
-    subidlink = models.ForeignKey(subsistem, on_delete=models.CASCADE )
+    component_name = models.CharField(max_length=100, blank=True, null=True)
+    subidlink = models.ForeignKey(subsistem, blank=True, null=True, on_delete = models.SET_NULL)
 
     def __str__(self):
         return self.component_name

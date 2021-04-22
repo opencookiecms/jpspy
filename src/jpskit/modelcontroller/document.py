@@ -16,7 +16,7 @@ class MRKSatu(models.Model):
     mrksatupengkhususan = models.CharField(max_length=100, null=True, blank=True)
     mrksatutarikhmula = models.CharField(max_length=50, null=True, blank=True)
     mrksatutarikhjangkasiap = models.CharField(max_length=50, null=True, blank=True)
-    mrksatukosprojek = models.CharField(max_length=100, null=True, blank=True)
+    mrksatukosprojek = models.DecimalField(max_digits=12, decimal_places=2, null=True, blank=True)
     mrksatutarikhdaftar = models.CharField(max_length=50, null=True, blank=True)
     mrksatunosebutharga = models.ForeignKey(dfnoperolehan.NoPerolehan, blank=True, null=True, on_delete = models.SET_NULL)
     mrksatukontraktor = models.ForeignKey(kontraktor.Kontraktor, blank=True, null=True, on_delete = models.SET_NULL)
@@ -32,7 +32,7 @@ class MRKDua(models.Model):
     mrkduakerjasebenartarikh = models.CharField(max_length=50, null=True, blank=True)
     mrkduakerjasebenar = models.CharField(max_length=50, null=True, blank=True)
     mrkduakemajuan = models.CharField(max_length=50, null=True, blank=True)
-    mrkduabayarankemajuan = models.CharField(max_length=50, null=True, blank=True)
+    mrkduabayarankemajuan = models.DecimalField(max_digits=12, decimal_places=2, null=True, blank=True)
     mrkduamodal = models.CharField(max_length=50, null=True, blank=True)
     mkrduabahan = models.CharField(max_length=50, null=True, blank=True)
     mrkduapekerja = models.CharField(max_length=50, null=True, blank=True)
@@ -60,7 +60,7 @@ class MRKDua(models.Model):
 
 class Laporansiapkerja(models.Model):
     
-    lskhargasebenar  = models.CharField(max_length=50, null=True, blank=True)
+    lskhargasebenar  = models.DecimalField(max_digits=12, decimal_places=2, null=True, blank=True)
     lsklanjutmasa  = models.CharField(max_length=50, null=True, blank=True)
     lskkerjasiap  = models.CharField(max_length=50, null=True, blank=True)
     lskperuntukan  = models.CharField(max_length=50, null=True, blank=True)
@@ -150,13 +150,16 @@ class SenaraiSemakan(models.Model):
 class PSMK(models.Model):
 
     psmknojaminanbanka = models.CharField(max_length=50, null=True, blank=True)
-    psmkhargajaminana = models.CharField(max_length=50, null=True, blank=True)
-    psmkbakiwangjaminana = models.CharField(max_length=50, null=True, blank=True)
+    psmkhargajaminana = models.DecimalField(max_digits=12, decimal_places=2, null=True, blank=True)
+    psmkbakiwangjaminana = models.DecimalField(max_digits=12, decimal_places=2, null=True, blank=True)
+
     psmknojaminanbankab = models.CharField(max_length=50, null=True, blank=True)
-    psmkhargajaminanb = models.CharField(max_length=50, null=True, blank=True)
-    psmkbakiwangjaminanb = models.CharField(max_length=50, null=True, blank=True)
-    psmkkosbon = models.CharField(max_length=50, null=True, blank=True)
-    psmkbakikos = models.CharField(max_length=50, null=True, blank=True)
+    psmkhargajaminanb = models.DecimalField(max_digits=12, decimal_places=2, null=True, blank=True)
+    psmkbakiwangjaminanb = models.DecimalField(max_digits=12, decimal_places=2, null=True, blank=True)
+
+    psmkkosbon = models.DecimalField(max_digits=12, decimal_places=2, null=True, blank=True)
+    psmkbakikos = models.DecimalField(max_digits=12, decimal_places=2, null=True, blank=True)
+
     psmkpegawaipenguasa = models.CharField(max_length=50, null=True, blank=True)
     psmkjawatan = models.CharField(max_length=50, null=True, blank=True)
     psmknosebutharga = models.ForeignKey(dfnoperolehan.NoPerolehan, blank=True, null=True, on_delete = models.SET_NULL)
@@ -182,7 +185,7 @@ class Perakuanpwjp(models.Model):
     rujukankami = models.CharField(max_length=50, null=True, blank=True)
     namarujukan = models.CharField(max_length=150, null=True, blank=True)
     alamatrujukan = models.CharField(max_length=200, null=True, blank=True)
-    koswjp = models.CharField(max_length=50, null=True, blank=True)
+    koswjp = models.DecimalField(max_digits=12, decimal_places=2, null=True, blank=True)
     wjppegawai = models.CharField(max_length=50, null=True, blank=True)
     wjpjawatan = models.CharField(max_length=50, null=True, blank=True)
     wjpknosebutharga = models.ForeignKey(dfnoperolehan.NoPerolehan, blank=True, null=True, on_delete = models.SET_NULL)
@@ -234,6 +237,13 @@ class SuratPelepasanBon(models.Model):
 
     class Meta:
         verbose_name_plural = "Surat Bon"
+
+
+class kosprojek(models.Model):
+    kos_belanja = models.DecimalField(max_digits=12, decimal_places=2, null=True, blank=True)
+    kos_tanggung = models.DecimalField(max_digits=12, decimal_places=2, null=True, blank=True)
+    kos_sebutharga = models.ForeignKey(dfnoperolehan.NoPerolehan, blank=True, null=True, on_delete = models.SET_NULL)
+    kos_mrksatulink = models.ForeignKey(MRKSatu, blank=True, null=True, on_delete = models.SET_NULL)
 
 
 

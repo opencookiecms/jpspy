@@ -7,7 +7,7 @@ class NoPerolehan(models.Model):
     noperolehan = models.CharField(max_length=100, null=True, blank=True)
     tarikh  = models.CharField(max_length=50, null=True, blank=True)
     kaedahperolehan  = models.CharField(max_length=50, null=True, blank=True)
-    pegawaiselia = models.ForeignKey(User, on_delete=models.CASCADE)
+    pegawaiselia = models.ForeignKey(User, null=True, blank=True, on_delete = models.SET_NULL)
 
     def __str__(self):
         return self.noperolehan

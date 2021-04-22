@@ -13,11 +13,11 @@ def daftarprojek(request):
     if form.is_valid():
         form.save()
         form = projekform.Projekform()
-        return redirect('projek/senarai')  
+        return redirect('projek/maklumatperolehan')  
         
     else:
         print("no data was post yet")
-        print(form)
+        print (form.errors)
 
     
     context = {
