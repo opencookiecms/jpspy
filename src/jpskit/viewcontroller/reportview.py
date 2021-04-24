@@ -5,6 +5,7 @@ from django.conf.urls.static import static
 from django.conf import settings
 from django.http import StreamingHttpResponse, HttpResponse, HttpResponseServerError
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
+from django.contrib.humanize.templatetags.humanize import intcomma
 import datetime
 from PyPDF2 import PdfFileReader, PdfFileWriter, pdf
 import io
@@ -23,9 +24,9 @@ import openpyxl
 from openpyxl import Workbook
 from openpyxl import load_workbook
 from openpyxl.styles import PatternFill, Border, Side, Alignment, Protection, Font
-
+from pdfjinja import PdfJinja
 from tempfile import NamedTemporaryFile
-from ..modelcontroller import document,dfnoperolehan,kontraktor,project
+from ..modelcontroller import document,dfnoperolehan,kontraktor,project, userprofile
 from django.contrib.auth.models import User
 
 
@@ -114,12 +115,12 @@ def report_by_year(request):
 def some_pdf(request, idperolehan):
 
     dataobject = document.MRKSatu.objects.filter(mrksatunosebutharga=idperolehan).first()
-    from pdfjinja import PdfJinja
+    print("this is data object",dataobject.mrksatunoinden)
+
     pdfjinja = PdfJinja('static_in_env/assets/pdf/form.pdf')
     pdfout = pdfjinja(
         dict(
-            firstName=dataobject.mrksatukontraktor.konNama, 
-            lastName='Valentine'
+            firstname = dataobject.mrksatukontraktor.sijilPPKNoPendaftaran
         ))
     pdfout.write(open('static_in_env/assets/pdf/filled.pdf', 'wb'))
     try:
@@ -144,3 +145,67 @@ def some_excel(request, idperolehan):
 
     return render(request, 'pages/printtest.html')
 
+#real dokument print began here
+
+def pdfmrksatu(request, idperolehan):
+
+    dataobject = document.MRKSatu.objects.filter(mrksatunosebutharga=idperolehan).first()
+    userprofileL = userprofile.UserProfile.objects.filter(id=dataobject.mrksatunosebutharga.pegawaiselia.id).first()
+    test = dataobject.mrksatukontraktor.sijilPPKNoPendaftaran
+    print(test)
+ 
+    pdfjinja = PdfJinja('static_in_env/assets/pdf/MRK-01.pdf')
+    pdfout = pdfjinja(
+        dict(
+            sijilpkk=dataobject.mrksatukontraktor.sijilPPKNoPendaftaran,
+            kontraktor=dataobject.mrksatukontraktor.konNama,
+            nokontrak=dataobject.mrksatunosebutharga.noperolehan,
+            noinden=dataobject.mrksatunoinden,
+            daereah=dataobject.mrksatukontraktor.konKawOperasi,
+            negeri=dataobject.mrksatukontraktor.konNegeri,
+            kosprojek=intcomma(dataobject.mrksatukosprojek),
+            tarikhmula=dataobject.mrksatutarikhmula,
+            tarikhjsiap=dataobject.mrksatutarikhjangkasiap,
+            pegawai=userprofileL.user.first_name,
+            jawatan=userprofileL.jawatan,
+            tarikhlapo=dataobject.mrksatutarikhdaftar,
+        ))
+
+ 
+    pdfout.write(open('static_in_env/assets/pdf/outputpdf/MRK-01-'+test+'.pdf', 'wb'))
+    try:
+        return FileResponse(open('static_in_env/assets/pdf/outputpdf/MRK-01-'+test+'.pdf', 'rb'), content_type='application/pdf')
+    except FileNotFoundError:
+        raise Http404()
+
+    return render(request, 'pages/printtest.html' )
+
+
+def pdfmrkdua(request, idperolehan):
+
+    dataobject = document.MRKDua.objects.filter(mrkduanosebutharga=idperolehan).first()
+    userprofileL = userprofile.UserProfile.objects.filter(id=dataobject.mrkduanosebutharga.pegawaiselia.id).first()
+    test = dataobject.mrkduanosebutharga.noperolehan
+    print(test)
+ 
+    pdfjinja = PdfJinja('static_in_env/assets/pdf/MRK-02.pdf')
+    pdfout = pdfjinja(
+        dict(
+            check1=dataobject.mrkduamodal,
+            check2=dataobject.mrkduamodal,
+            check3=dataobject.mrkduamodal,
+            check4=dataobject.mrkduamodal,
+            check5=dataobject.mrkduamodal,
+        ))
+
+ 
+    pdfout.write(open('static_in_env/assets/pdf/outputpdf/MRK-02-'+test+'.pdf', 'wb'))
+    try:
+        return FileResponse(open('static_in_env/assets/pdf/outputpdf/MRK-02-'+test+'.pdf', 'rb'), content_type='application/pdf')
+    except FileNotFoundError:
+        raise Http404()
+
+    return render(request, 'pages/printtest.html' )
+    
+
+    

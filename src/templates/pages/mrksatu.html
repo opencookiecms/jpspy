@@ -1,5 +1,6 @@
 {% extends 'based/based.html' %}
 {% block content %}
+{% load humanize %} 
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
 	  <div class="container-full">
@@ -35,7 +36,7 @@
 							<div class="box-body">
 								<h4 class="box-title text-primary"><i class="ti-user mr-15"></i>Kategori Pendaftaran</h4>
 								<hr class="my-15">
-								<a href="{% url 'laporan/pdf' idperolehan=sebutharga.nosebuthargaid.id  %}" target="_blank">cetak pdf</a>
+								<a href="{% url 'laporan/mrksatu' idperolehan=sebutharga.nosebuthargaid.id  %}" target="_blank">cetak pdf</a>
 								<div class="row">
 								  <div class="col-xl-8 col-lg-12 ">
 									<div class="form-group">
@@ -269,7 +270,7 @@
 								  </div>
 								</div>
 
-                                      <div class="row">
+                                <div class="row">
 								  <div class="col-md-4">
 									<div class="form-group">
 									  <label><h5 class="text-secondary font-weight-500 mb-2">Tarikh</h5></label>

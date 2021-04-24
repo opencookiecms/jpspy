@@ -143,8 +143,8 @@
 								
 					
 										<td class="text-right">
-											{% if mrkdua.mrkduanosebutharga.id == projek.nosebuthargaid.id %}
-												<a href="#" class="waves-effect waves-light btn btn-primary btn-rounded btn-outline">Kemaskini</a>
+											{% if mrksatu.mrksatunosebutharga.id == projek.nosebuthargaid.id %}
+												<a href="{% url 'dokumen/mrkdua' idperolehan=projek.nosebuthargaid.id %}" class="waves-effect waves-light btn btn-primary btn-rounded btn-outline">Kemaskini</a>
 												
 											{% else %}
 												<span class="badge badge-danger-light">N/A</span>

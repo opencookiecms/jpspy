@@ -11,15 +11,30 @@ from django.contrib.auth.models import User
 def mrkone(request, idperolehan):
  
     dataobject = document.MRKSatu.objects.filter(mrksatunosebutharga=idperolehan).first()
+    datasbut = dfnoperolehan.NoPerolehan.objects.get(id=idperolehan)
+    print(datasbut)
     form = ducumentform.MRK1Form(request.POST or None, instance=dataobject)
+
+    kos_belanjapost = 0.00
+    kos_tanggungpost =  request.POST.get('mrksatukosprojek')
+  
     if form.is_valid():
+
+        if(dataobject):
+            query = document.kosprojek.objects.get(kos_sebutharga=datasbut)
+            query.kos_tanggung = kos_tanggungpost
+            query.kos_belanja = kos_belanjapost
+            query.save()
+          
+        else:
+            query = document.kosprojek.objects.create(kos_belanja=kos_belanjapost,kos_tanggung=kos_tanggungpost,kos_sebutharga=datasbut)
+            query.save()
+
         form.save()
         form = ducumentform.MRK1Form()
-        return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
 
-        
+        return HttpResponseRedirect(request.META.get('HTTP_REFERER'))  
     else:
-        print("no data was post yet")
         print(form.errors)
       
 
