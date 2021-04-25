@@ -191,17 +191,68 @@ def pdfmrkdua(request, idperolehan):
     pdfjinja = PdfJinja('static_in_env/assets/pdf/MRK-02.pdf')
     pdfout = pdfjinja(
         dict(
+            nopkk = dataobject.mrksatulink.mrksatukontraktor.sijilPPKNoPendaftaran,
+            kontraktor = dataobject.mrksatulink.mrksatukontraktor.konNama,
+            nokontrak = dataobject.mrkduanosebutharga.noperolehan,
+            noinden = dataobject.mrksatulink.mrksatunoinden,
+            kosprojek = intcomma(dataobject.mrksatulink.mrksatukosprojek),
+            tarikhmilik = dataobject.mrksatulink.mrksatutarikhmula,
+            tarikhjangkasiap = dataobject.mrksatulink.mrksatutarikhjangkasiap,
+            kemajuanprojek = dataobject.mrkduakerjajadual,
+            kemajuankerjasebenar = dataobject.mrkduakerjasebenartarikh,
+            sehingga = dataobject.mrkduakerjasebenar,
+            nobayaran = dataobject.mrkduakemajuan,
+            jumlahbayaran = intcomma(dataobject.mrkduabayarankemajuan),
             check1=dataobject.mrkduamodal,
-            check2=dataobject.mrkduamodal,
-            check3=dataobject.mrkduamodal,
-            check4=dataobject.mrkduamodal,
-            check5=dataobject.mrkduamodal,
+            check2=dataobject.mkrduabahan,
+            check3=dataobject.mrkduapekerja,
+            check4=dataobject.mrkduatapak,
+            check5=dataobject.mrkduacuaca,
+            disebabkan = dataobject.mrkduadisebabkanoleh,
+            lainlain = dataobject.mrkdualainlain,
+            lanjutmasa = dataobject.mrkdualanjutmasa,
+            lanjutdari = dataobject.mrkdualanjutdari,
+            lanjuthingga = dataobject.mrkdualanjutsehingga,
+            disebabkanoleh = dataobject.mrkduadisebabkan,
+            lad = dataobject.mrkduaLAD,
+            laddari = dataobject.mrkduaLADdari,
+            ladhingga = dataobject.mrkduaLADSehingga,
+            tarikhperakuan = dataobject.mrkduaperakuan,
+            tarikhmansuh = dataobject.mrkduamansuh,
+
         ))
 
  
     pdfout.write(open('static_in_env/assets/pdf/outputpdf/MRK-02-'+test+'.pdf', 'wb'))
     try:
         return FileResponse(open('static_in_env/assets/pdf/outputpdf/MRK-02-'+test+'.pdf', 'rb'), content_type='application/pdf')
+    except FileNotFoundError:
+        raise Http404()
+
+    return render(request, 'pages/printtest.html' )
+
+def pdflsk(request, idperolehan):
+
+    dataobject = document.Laporansiapkerja.objects.filter(lsknosebutharga=idperolehan).first()
+ 
+    test = dataobject.lsknosebutharga.noperolehan
+    print(test)
+ 
+    pdfjinja = PdfJinja('static_in_env/assets/pdf/Laporansiapkerja.pdf')
+    pdfout = pdfjinja(
+        dict(
+            alamat1 = "NO 1842 Lorong Inai 6/4",
+            alamat2 = "Taman Ria Jaya",
+            poskod = "08000",
+            bandar = "Sungai Petani",
+            negeri = "Kedah Darul Aman",
+
+        ))
+
+ 
+    pdfout.write(open('static_in_env/assets/pdf/outputpdf/Laporansiapkerja-'+test+'.pdf', 'wb'))
+    try:
+        return FileResponse(open('static_in_env/assets/pdf/outputpdf/Laporansiapkerja-'+test+'.pdf', 'rb'), content_type='application/pdf')
     except FileNotFoundError:
         raise Http404()
 
