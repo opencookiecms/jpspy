@@ -75,6 +75,7 @@ def mrktwo(request, idperolehan):
 def laporansiapkerja(request, idperolehan ):
 
     dataobject = document.Laporansiapkerja.objects.filter(lsknosebutharga=idperolehan).first()
+
     form = ducumentform.LSKForm(request.POST or None, instance=dataobject)
     if form.is_valid():
         form.save()
@@ -82,8 +83,7 @@ def laporansiapkerja(request, idperolehan ):
         return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
    
     else:
-        print("no data was save")
-        print(form)
+        print(form.errors)
 
     context = {
         'form':form,

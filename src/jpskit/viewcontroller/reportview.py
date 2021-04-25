@@ -234,6 +234,7 @@ def pdfmrkdua(request, idperolehan):
 def pdflsk(request, idperolehan):
 
     dataobject = document.Laporansiapkerja.objects.filter(lsknosebutharga=idperolehan).first()
+    projek = project.Projek.objects.filter(nosebuthargaid=idperolehan).first()
  
     test = dataobject.lsknosebutharga.noperolehan
     print(test)
@@ -241,11 +242,21 @@ def pdflsk(request, idperolehan):
     pdfjinja = PdfJinja('static_in_env/assets/pdf/Laporansiapkerja.pdf')
     pdfout = pdfjinja(
         dict(
-            alamat1 = "NO 1842 Lorong Inai 6/4",
-            alamat2 = "Taman Ria Jaya",
-            poskod = "08000",
-            bandar = "Sungai Petani",
-            negeri = "Kedah Darul Aman",
+            kontraktor = dataobject.lskmrksatulink.mrksatukontraktor.konNama,
+            alamat1 = dataobject.lskmrksatulink.mrksatukontraktor.konAlamat,
+            alamat2 = dataobject.lskmrksatulink.mrksatukontraktor.konAlamatExtS,
+            poskod = dataobject.lskmrksatulink.mrksatukontraktor.konPoskod,
+            bandar = dataobject.lskmrksatulink.mrksatukontraktor.konBandar,
+            negeri = dataobject.lskmrksatulink.mrksatukontraktor.konNegeri,
+            kerja = projek.tajukkerja,
+            inden = dataobject.lskmrksatulink.mrksatunoinden,
+            sebutharga = dataobject.lsknosebutharga.noperolehan,
+            workmen = dataobject.lskperkeso,
+            ins1 = dataobject.lsknoinsurancesatu,
+            ins2 = dataobject.lsknoinsurancedua,
+            peruntukan = dataobject.lskperuntukan,
+            kosprojek = intcomma(dataobject.lskmrksatulink.mrksatukosprojek),
+            hargasebenar = intcomma(dataobject.lskhargasebenar),
 
         ))
 
