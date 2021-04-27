@@ -272,10 +272,6 @@ def pdflsk(request, idperolehan):
             jawatanjurutera = dataobject.lskjawatanj41,
             jd = dataobject.lskjuruteradaerah,
             jawatanjd = dataobject.lskjawatanjuruteradaerah,
-
-
-
-
         ))
 
  
