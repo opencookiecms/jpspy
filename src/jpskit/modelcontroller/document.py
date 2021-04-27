@@ -41,7 +41,7 @@ class MRKDua(models.Model):
     mrkduadisebabkanoleh = models.CharField(max_length=200, null=True, blank=True)
     mrkdualainlain = models.CharField(max_length=200, null=True, blank=True)
     mrkdualanjutmasa = models.CharField(max_length=50, null=True, blank=True)
-    mrkdualanjutdari = models.CharField(max_length=50, null=True, blank=True)
+    mrkdualanjutmasa = models.CharField(max_length=50, null=True, blank=True)
     mrkdualanjutsehingga = models.CharField(max_length=50, null=True, blank=True)
     mrkduadisebabkan = models.CharField(max_length=200, null=True, blank=True)
     mrkduaLAD = models.CharField(max_length=50, null=True, blank=True)

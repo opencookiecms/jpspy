@@ -235,6 +235,7 @@ def pdflsk(request, idperolehan):
 
     dataobject = document.Laporansiapkerja.objects.filter(lsknosebutharga=idperolehan).first()
     projek = project.Projek.objects.filter(nosebuthargaid=idperolehan).first()
+    userprofileL = userprofile.UserProfile.objects.filter(id=dataobject.lsknosebutharga.pegawaiselia.id).first()
  
     test = dataobject.lsknosebutharga.noperolehan
     print(test)
@@ -257,6 +258,23 @@ def pdflsk(request, idperolehan):
             peruntukan = dataobject.lskperuntukan,
             kosprojek = intcomma(dataobject.lskmrksatulink.mrksatukosprojek),
             hargasebenar = intcomma(dataobject.lskhargasebenar),
+            tarikhmula = dataobject.lskmrksatulink.mrksatutarikhmula,
+            tarikhtamat = dataobject.lskmrksatulink.mrksatutarikhjangkasiap,
+            tarikhlanjutmasa = dataobject.lsklanjutmasa,
+            tarikhsiapsem = dataobject.lskkerjasiap,
+            laporan = dataobject.lsklaporan,
+            tarikhakui = dataobject.lsktarikhperakui,
+            penyelia = userprofileL.user.first_name,
+            jawatan = userprofileL.jawatan,
+            kb = dataobject.lskketuabahagian,
+            jawatankb = dataobject.lskjawatanketuabahagian,
+            jurutera = dataobject.lskjuruteraj41,
+            jawatanjurutera = dataobject.lskjawatanj41,
+            jd = dataobject.lskjuruteradaerah,
+            jawatanjd = dataobject.lskjawatanjuruteradaerah,
+
+
+
 
         ))
 
