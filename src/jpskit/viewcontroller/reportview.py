@@ -338,6 +338,32 @@ def pdfmrktiga(request, idperolehan):
         raise Http404()
 
     return render(request, 'pages/printtest.html' )
+
+
+def pdfpsmk(request, idperolehan):
+
+    #dataobject = document.MRKTiga.objects.filter(mrktigasebutharga=idperolehan).first()
+    #projek = project.Projek.objects.filter(nosebuthargaid=idperolehan).first()
+    #userprofileL = userprofile.UserProfile.objects.filter(id=dataobject.mrktigasebutharga.pegawaiselia.id).first()
+ 
+    test = "sebutharaga"
+    print(test)
+ 
+    pdfjinja = PdfJinja('static_in_env/assets/pdf/PSMK.pdf')
+    pdfout = pdfjinja(
+        dict(
+            harga = "12:993"
+        ))
+
+ 
+    pdfout.write(open('static_in_env/assets/pdf/outputpdf/PSMK-'+test+'.pdf', 'wb'))
+    try:
+        return FileResponse(open('static_in_env/assets/pdf/outputpdf/PSMK-'+test+'.pdf', 'rb'), content_type='application/pdf')
+    except FileNotFoundError:
+        raise Http404()
+
+    return render(request, 'pages/printtest.html' )
+    
     
     
 
