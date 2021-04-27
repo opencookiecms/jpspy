@@ -61,7 +61,7 @@ def mrktwo(request, idperolehan):
     
     else:
         print("no data was save")
-        print(form)
+        print(form.errors)
     
     context = {
         'form':form,
@@ -75,9 +75,17 @@ def mrktwo(request, idperolehan):
 def laporansiapkerja(request, idperolehan ):
 
     dataobject = document.Laporansiapkerja.objects.filter(lsknosebutharga=idperolehan).first()
+    datasbut = dfnoperolehan.NoPerolehan.objects.get(id=idperolehan)
 
+    kos_belanjasebenar = request.POST.get('lskhargasebenar')
+    kos_tanggungpost =  0.00
+   
     form = ducumentform.LSKForm(request.POST or None, instance=dataobject)
     if form.is_valid():
+        query = document.kosprojek.objects.get(kos_sebutharga=datasbut)
+        query.kos_tanggung = kos_tanggungpost
+        query.kos_belanja = kos_belanjasebenar
+        query.save()
         form.save()
         form = ducumentform.LSKForm()
         return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
@@ -104,11 +112,13 @@ def mrktiga(request, idperolehan):
         return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
     else:
         print("no data was save")
-        print(form)
+        print(form.errors)
 
     context = {
         'form':form,
         'mrksatufecth':document.MRKSatu.objects.get(mrksatunosebutharga=idperolehan),
+        'lskfecth':document.Laporansiapkerja.objects.get(lsknosebutharga=idperolehan),
+        'mrkduafecth':document.MRKDua.objects.get(mrkduanosebutharga=idperolehan),
         'projek':project.Projek.objects.get(nosebuthargaid=idperolehan),
         'userlist':User.objects.all()
     }

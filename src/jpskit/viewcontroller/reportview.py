@@ -282,6 +282,63 @@ def pdflsk(request, idperolehan):
         raise Http404()
 
     return render(request, 'pages/printtest.html' )
+
+
+def pdfmrktiga(request, idperolehan):
+
+    dataobject = document.MRKTiga.objects.filter(mrktigasebutharga=idperolehan).first()
+    projek = project.Projek.objects.filter(nosebuthargaid=idperolehan).first()
+    userprofileL = userprofile.UserProfile.objects.filter(id=dataobject.mrktigasebutharga.pegawaiselia.id).first()
+ 
+    test = dataobject.mrktigasebutharga.noperolehan
+    print(test)
+ 
+    pdfjinja = PdfJinja('static_in_env/assets/pdf/MRK03.pdf')
+    pdfout = pdfjinja(
+        dict(
+            c1a = 1,
+            c1b = 2,
+            c1c = 3,
+            c1d = 4,
+            c2a = 1,
+            c2b = 2,
+            c2c = 3,
+            c2d = 4,
+            c3a = 1,
+            c3b = 2,
+            c3c = 3,
+            c3d = 4,
+            c4a = 1,
+            c4b = 2,
+            c4c = 3,
+            c4d = 4,
+            c5a = 1,
+            c5b = 2,
+            c5c = 3,
+            c5d = 4,
+            c6a = 1,
+            c6b = 2,
+            c6c = 3,
+            c6d = 4,
+            c7a = 1,
+            c7b = 2,
+            c7c = 3,
+            c7d = 4,
+            c8a = 1,
+            c8b = 2,
+            c8c = 3,
+            c8d = 4,
+        ))
+
+ 
+    pdfout.write(open('static_in_env/assets/pdf/outputpdf/MRK03-'+test+'.pdf', 'wb'))
+    try:
+        return FileResponse(open('static_in_env/assets/pdf/outputpdf/MRK03-'+test+'.pdf', 'rb'), content_type='application/pdf')
+    except FileNotFoundError:
+        raise Http404()
+
+    return render(request, 'pages/printtest.html' )
+    
     
 
     
