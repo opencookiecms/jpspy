@@ -43,7 +43,7 @@
                             <label class="tl"><h5 class="text-secondary font-weight-500 mb-2">Nama Pemborong</h5></label>
                             <input type="hidden" class="form-control" name="{{form.pskmrksatulink.name}}" value="{{mrksatufecth.id}}"/>
                             <input type="hidden" class="form-control" name="{{form.psknosebutharga.name}}" value="{{mrksatufecth.mrksatunosebutharga.id}}"/>
-                            <input type="text" class="form-control ts"  placeholder="Nama Pemborong" readonly>
+                            <input type="text" class="form-control ts" value="{{mrksatufecth.mrksatukontraktor.konNama}}"  placeholder="Nama Pemborong" readonly>
                             </div>
                         </div>
                         </div>
@@ -53,7 +53,7 @@
                         <div class="form-group row">
                             <div class="col-sm-8">
                             <label class="tl"><h5 class="text-secondary font-weight-500 mb-2">Alamat</h5></label>
-                            <textarea rows="5" type="text" class="form-control ts" placeholder="Alamat" readonly></textarea>
+                            <textarea rows="5" type="text" class="form-control ts" placeholder="Alamat" readonly>{{mrksatufecth.mrksatukontraktor.konAlamat}}</textarea>
                             </div>
                         </div>
                         </div>
@@ -63,11 +63,11 @@
                         <div class="form-group row">
                             <div class="col-sm-4">
                             <label class="tl"><h5 class="text-secondary font-weight-500 mb-2">Fail Rujukan</h5></label>
-                            <input type="text" class="form-control ts" readonly>
+                            <input type="text" value="{{mrksatufecth.mrksatunosebutharga.noperolehan}}" class="form-control ts" readonly>
                             </div>
                             <div class="col-sm-4">
                             <label class="tl"><h5 class="text-secondary font-weight-500 mb-2">No Sebutharga</h5></label>
-                            <input type="text" class="form-control ts"  readonly>
+                            <input type="text" value="{{mrksatufecth.mrksatunosebutharga.noperolehan}}" class="form-control ts"  readonly>
                             </div>
                         </div>
                         </div>
@@ -77,7 +77,7 @@
                         <div class="form-group row">
                             <div class="col-sm-8">
                             <label class="tl"><h5 class="text-secondary font-weight-500 mb-2">Butiran Kerja:</h5></label>
-                            <textarea rows="5" type="text" readonly class="form-control ts" ></textarea>
+                            <textarea rows="5" type="text" readonly class="form-control ts" >{{projek.tajukkerja}}</textarea>
                             </div>
                         </div>
                         </div>
@@ -87,7 +87,7 @@
                         <div class="form-group row">
                             <div class="col-sm-4">
                             <label class="tl"><h5 class="text-secondary font-weight-500 mb-2">Inden No</h5></label>
-                            <input type="text" class="form-control ts" readonly>
+                            <input type="text" value="{{mrksatufecth.mrksatunoinden}}" class="form-control ts" readonly>
                        
                             </div>
                         </div>
@@ -124,10 +124,10 @@
                     <div class="row">
                         <div class="col-md-12">
                             <div class="form-group row">
-                                <div class="col-sm-2">
+                                <div class="col-sm-4">
                                         <a class="btn btn-secondary mr-2 btn-rounded" target="_blank" href="">Surat PSK 01</a>
                                 </div>
-                                <div class="col-sm-3">
+                                <div class="col-sm-5">
                                         <h5>Sebutharga > RM50,000 </h5>
                                 </div>
                             </div>
@@ -136,10 +136,10 @@
                      <div class="row">
                     <div class="col-md-12">
                         <div class="form-group row">
-                            <div class="col-sm-2">
+                            <div class="col-sm-4">
                                     <a class="btn btn-primary mr-2 btn-rounded" target="_blank" href="">Surat PSK 02</a>
                             </div>
-                            <div class="col-sm-3">
+                            <div class="col-sm-5">
                                     <h5>Sebutharga < RM50,000</h5>
                             </div>
                         </div>
