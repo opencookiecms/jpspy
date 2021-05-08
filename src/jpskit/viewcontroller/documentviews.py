@@ -138,6 +138,7 @@ def psk(request, idperolehan):
 
     context = {
         'form':form,
+        'lskfecth':document.Laporansiapkerja.objects.get(lsknosebutharga=idperolehan),
         'mrksatufecth':document.MRKSatu.objects.get(mrksatunosebutharga=idperolehan),
         'projek':project.Projek.objects.get(nosebuthargaid=idperolehan),
         'userlist':User.objects.all()
@@ -148,6 +149,7 @@ def psk(request, idperolehan):
 
 
 def ssv(request, idperolehan):
+    
     dataobject = document.SenaraiSemakan.objects.filter(ssnosebutharga=idperolehan).first()
     form = ducumentform.SenaraiSemakanForm(request.POST or None, instance=dataobject)
     if form.is_valid():
@@ -156,7 +158,7 @@ def ssv(request, idperolehan):
         return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
     else:
         print("data was not save yet")
-        print(form)
+        print(form.errors)
 
     context = {
         'form':form,

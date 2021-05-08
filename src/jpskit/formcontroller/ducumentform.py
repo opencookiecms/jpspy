@@ -230,6 +230,8 @@ class PSKForm(forms.ModelForm):
 
 class SenaraiSemakanForm(forms.ModelForm):
 
+    sstarikh = forms.CharField(required=False, widget=forms.TextInput(attrs={'class':'form-control fc-datepicker','placeholder':'MM/DD/YYYY'}))
+
     class Meta:
         model = document.SenaraiSemakan
         fields = [
@@ -249,6 +251,7 @@ class SenaraiSemakanForm(forms.ModelForm):
             'sskk', 
             'ssinsurance',
             'ssgambar',
+            'sstarikh',
             'ssnosebutharga', 
             'ssmrksatulink',
         ]

@@ -112,7 +112,7 @@ class MRKTiga(models.Model):
 
 class PSK(models.Model):
 
-    psktarikhsiapsebenar = models.CharField(max_length=50, null=True, blank=True)
+
     psktarikhambilmilik = models.CharField(max_length=50, null=True, blank=True)
     psktarikhmulatanggug = models.CharField(max_length=50, null=True, blank=True)
     psktarikhtamattanggung = models.CharField(max_length=50, null=True, blank=True)
@@ -141,6 +141,7 @@ class SenaraiSemakan(models.Model):
     sskk = models.CharField(max_length=10, null=True, blank=True)
     ssinsurance = models.CharField(max_length=10, null=True, blank=True)
     ssgambar = models.CharField(max_length=10, null=True, blank=True)
+    sstarikh = models.CharField(max_length=10, null=True, blank=True)
     ssnosebutharga = models.ForeignKey(dfnoperolehan.NoPerolehan, blank=True, null=True, on_delete = models.SET_NULL)
     ssmrksatulink = models.ForeignKey(MRKSatu, blank=True, null=True, on_delete = models.SET_NULL)
 

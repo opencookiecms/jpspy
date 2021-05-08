@@ -289,6 +289,8 @@ def pdfmrktiga(request, idperolehan):
     dataobject = document.MRKTiga.objects.filter(mrktigasebutharga=idperolehan).first()
     projek = project.Projek.objects.filter(nosebuthargaid=idperolehan).first()
     userprofileL = userprofile.UserProfile.objects.filter(id=dataobject.mrktigasebutharga.pegawaiselia.id).first()
+    lskfetch = document.Laporansiapkerja.objects.filter(lsknosebutharga=idperolehan).first()
+    mrkduaf = document.MRKDua.objects.filter(mrkduanosebutharga=idperolehan).first()
  
     test = dataobject.mrktigasebutharga.noperolehan
     print(test)
@@ -296,44 +298,196 @@ def pdfmrktiga(request, idperolehan):
     pdfjinja = PdfJinja('static_in_env/assets/pdf/MRK03.pdf')
     pdfout = pdfjinja(
         dict(
-            c1a = 1,
-            c1b = 2,
-            c1c = 3,
-            c1d = 4,
-            c2a = 1,
-            c2b = 2,
-            c2c = 3,
-            c2d = 4,
-            c3a = 1,
-            c3b = 2,
-            c3c = 3,
-            c3d = 4,
-            c4a = 1,
-            c4b = 2,
-            c4c = 3,
-            c4d = 4,
-            c5a = 1,
-            c5b = 2,
-            c5c = 3,
-            c5d = 4,
-            c6a = 1,
-            c6b = 2,
-            c6c = 3,
-            c6d = 4,
-            c7a = 1,
-            c7b = 2,
-            c7c = 3,
-            c7d = 4,
-            c8a = 1,
-            c8b = 2,
-            c8c = 3,
-            c8d = 4,
+            pkk = dataobject.marktigamrksatu.mrksatukontraktor.sijilPPKNoPendaftaran,
+            kontraktor =dataobject.marktigamrksatu.mrksatukontraktor.konNama,
+            sebutharga =dataobject.mrktigasebutharga.noperolehan,
+            inden = dataobject.marktigamrksatu.mrksatunoinden,
+            tajuk = projek.tajukkerja,
+            kosprojek = intcomma(dataobject.marktigamrksatu.mrksatukosprojek),
+            kossebenar = intcomma(lskfetch.lskhargasebenar),
+            tarikhmula = dataobject.marktigamrksatu.mrksatutarikhmula,
+            tarikhakhir =lskfetch.lskkerjasiap,
+            lanjuthingga = lskfetch.lsklanjutmasa,
+            tarikhsiapsebenar =lskfetch.lskkerjasiap,
+            lad =mrkduaf.mrkduaLAD,
+            laddari =mrkduaf.mrkduaLADdari,
+            ladhingga =mrkduaf.mrkduaLADSehingga,
+            c1a = dataobject.mrktigabina,
+            c1b = dataobject.mrktigabina,
+            c1c = dataobject.mrktigabina,
+            c1d = dataobject.mrktigabina,
+            c2a = dataobject.mrktigatadbir,
+            c2b = dataobject.mrktigatadbir,
+            c2c = dataobject.mrktigatadbir,
+            c2d = dataobject.mrktigatadbir,
+            c3a = dataobject.mrktigakemajuan,
+            c3b = dataobject.mrktigakemajuan,
+            c3c = dataobject.mrktigakemajuan,
+            c3d = dataobject.mrktigakemajuan,
+            c4a = dataobject.mkrtigamutukerangka,
+            c4b = dataobject.mkrtigamutukerangka,
+            c4c = dataobject.mkrtigamutukerangka,
+            c4d = dataobject.mkrtigamutukerangka,
+            c5a = dataobject.mrktigamutukerja,
+            c5b = dataobject.mrktigamutukerja,
+            c5c = dataobject.mrktigamutukerja,
+            c5d = dataobject.mrktigamutukerja,
+            c6a = dataobject.mrktigamutukemasan,
+            c6b = dataobject.mrktigamutukemasan,
+            c6c = dataobject.mrktigamutukemasan,
+            c6d = dataobject.mrktigamutukemasan,
+            c7a = dataobject.mrktigamutukerjaluar,
+            c7b = dataobject.mrktigamutukerjaluar,
+            c7c = dataobject.mrktigamutukerjaluar,
+            c7d = dataobject.mrktigamutukerjaluar,
+            c8a = dataobject.mrktigapegawasan,
+            c8b = dataobject.mrktigapegawasan,
+            c8c = dataobject.mrktigapegawasan,
+            c8d = dataobject.mrktigapegawasan,
+            catat1 = dataobject.mrkcatat1,
+            catat2 = dataobject.mrkcatat2,
+            catat3 = dataobject.mrkcatat3,
+            catat4 = dataobject.mrkcatat4,
+            catat5 = dataobject.mrkcatat5,
+            catat6 = dataobject.mrkcatat6,
+            catat7 = dataobject.mrkcatat7,
+            catat8 = dataobject.mrkcatat8,
+            ulasan =dataobject.mrktigasokongan,
         ))
 
  
     pdfout.write(open('static_in_env/assets/pdf/outputpdf/MRK03-'+test+'.pdf', 'wb'))
     try:
         return FileResponse(open('static_in_env/assets/pdf/outputpdf/MRK03-'+test+'.pdf', 'rb'), content_type='application/pdf')
+    except FileNotFoundError:
+        raise Http404()
+
+    return render(request, 'pages/printtest.html' )
+
+
+def pdfpsksatu(request, idperolehan):
+
+    dataobject = document.PSK.objects.filter(psknosebutharga=idperolehan).first()
+    projek = project.Projek.objects.filter(nosebuthargaid=idperolehan).first()
+    userprofileL = userprofile.UserProfile.objects.filter(id=dataobject.psknosebutharga.pegawaiselia.id).first()
+    lskfetch = document.Laporansiapkerja.objects.filter(lsknosebutharga=idperolehan).first()
+    mrkduaf = document.MRKDua.objects.filter(mrkduanosebutharga=idperolehan).first()
+ 
+    test = dataobject.psknosebutharga.noperolehan
+    print(test)
+ 
+    pdfjinja = PdfJinja('static_in_env/assets/pdf/PSK01.pdf')
+    pdfout = pdfjinja(
+        dict(
+
+            sebutharga = dataobject.psknosebutharga.noperolehan,
+            kontraktor = dataobject.pskmrksatulink.mrksatukontraktor.konNama,
+            alamat1 = dataobject.pskmrksatulink.mrksatukontraktor.konAlamat,
+            alamat2 = dataobject.pskmrksatulink.mrksatukontraktor.konAlamatExtS,
+            poskod = dataobject.pskmrksatulink.mrksatukontraktor.konPoskod,
+            bandar = dataobject.pskmrksatulink.mrksatukontraktor.konBandar,
+            negeri = dataobject.pskmrksatulink.mrksatukontraktor.konNegeri,
+            gred = dataobject.pskmrksatulink.mrksatugred,
+            tajukkerja = projek.tajukkerja,
+            hargasebenar = intcomma(lskfetch.lskhargasebenar),
+            tarikhsebenar = lskfetch.lskkerjasiap,
+            tarikhambil = dataobject.psktarikhambilmilik,
+            mulacacat = dataobject.psktarikhmulatanggug,
+            akhircacat = dataobject.psktarikhtamattanggung,
+            jurutere = dataobject.pskmrksatulink.mrksatunosebutharga.pegawaiselia.first_name,
+  
+        ))
+
+ 
+    pdfout.write(open('static_in_env/assets/pdf/outputpdf/PSK01-'+test+'.pdf', 'wb'))
+    try:
+        return FileResponse(open('static_in_env/assets/pdf/outputpdf/PSK01-'+test+'.pdf', 'rb'), content_type='application/pdf')
+    except FileNotFoundError:
+        raise Http404()
+
+    return render(request, 'pages/printtest.html' )
+
+
+
+def pdfpskdua(request, idperolehan):
+
+    dataobject = document.PSK.objects.filter(psknosebutharga=idperolehan).first()
+    projek = project.Projek.objects.filter(nosebuthargaid=idperolehan).first()
+    userprofileL = userprofile.UserProfile.objects.filter(id=dataobject.psknosebutharga.pegawaiselia.id).first()
+    lskfetch = document.Laporansiapkerja.objects.filter(lsknosebutharga=idperolehan).first()
+    mrkduaf = document.MRKDua.objects.filter(mrkduanosebutharga=idperolehan).first()
+ 
+    test = dataobject.psknosebutharga.noperolehan
+    print(test)
+ 
+    pdfjinja = PdfJinja('static_in_env/assets/pdf/PKS02.pdf')
+    pdfout = pdfjinja(
+        dict(
+
+            sebutharga = dataobject.psknosebutharga.noperolehan,
+            kontraktor = dataobject.pskmrksatulink.mrksatukontraktor.konNama,
+            alamat1 = dataobject.pskmrksatulink.mrksatukontraktor.konAlamat,
+            alamat2 = dataobject.pskmrksatulink.mrksatukontraktor.konAlamatExtS,
+            poskod = dataobject.pskmrksatulink.mrksatukontraktor.konPoskod,
+            bandar = dataobject.pskmrksatulink.mrksatukontraktor.konBandar,
+            negeri = dataobject.pskmrksatulink.mrksatukontraktor.konNegeri,
+            gred = dataobject.pskmrksatulink.mrksatugred,
+            tajukkerja = projek.tajukkerja,
+            hargasebenar = intcomma(lskfetch.lskhargasebenar),
+            tarikhsebenar = lskfetch.lskkerjasiap,
+            tarikhambil = dataobject.psktarikhambilmilik,
+            mulacacat = dataobject.psktarikhmulatanggug,
+            akhircacat = dataobject.psktarikhtamattanggung,
+            jurutere = dataobject.pskmrksatulink.mrksatunosebutharga.pegawaiselia.first_name,
+  
+        ))
+
+ 
+    pdfout.write(open('static_in_env/assets/pdf/outputpdf/PKS02-'+test+'.pdf', 'wb'))
+    try:
+        return FileResponse(open('static_in_env/assets/pdf/outputpdf/PKS02-'+test+'.pdf', 'rb'), content_type='application/pdf')
+    except FileNotFoundError:
+        raise Http404()
+
+    return render(request, 'pages/printtest.html' )
+
+
+def ssemak(request, idperolehan):
+
+    dataobject = document.SenaraiSemakan.objects.filter(ssnosebutharga=idperolehan).first()
+    projek = project.Projek.objects.filter(nosebuthargaid=idperolehan).first()
+    userprofileL = userprofile.UserProfile.objects.filter(id=dataobject.ssnosebutharga.pegawaiselia.id).first()
+    lskfetch = document.Laporansiapkerja.objects.filter(lsknosebutharga=idperolehan).first()
+    mrkduaf = document.MRKDua.objects.filter(mrkduanosebutharga=idperolehan).first()
+ 
+    test = dataobject.ssnosebutharga.noperolehan
+    print(test)
+ 
+    pdfjinja = PdfJinja('static_in_env/assets/pdf/SS.pdf')
+    pdfout = pdfjinja(
+        dict(
+            check1 = "",
+            check2 = "",
+            check3 = "",
+            check4 = "",
+            check5 = "",
+            check6 = "",
+            check7 = "",
+            check8 = "",
+            check9 = "",
+            check10 = "",
+            check11 = "",
+            check12 = "",
+            check13 = "",
+            check14 = "",
+            check15 = "",
+            check16 = "",
+        ))
+
+ 
+    pdfout.write(open('static_in_env/assets/pdf/outputpdf/SS-'+test+'.pdf', 'wb'))
+    try:
+        return FileResponse(open('static_in_env/assets/pdf/outputpdf/SS-'+test+'.pdf', 'rb'), content_type='application/pdf')
     except FileNotFoundError:
         raise Http404()
 
