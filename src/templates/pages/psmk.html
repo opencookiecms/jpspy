@@ -48,7 +48,7 @@
                                     <label><h5 class="text-secondary font-weight-500">Nama Pemborong</h5></label>
                                     <input type="hidden" class="form-control" name="{{form.psmknosebutharga.name}}" value="{{mrksatufecth.mrksatunosebutharga.id }}"/>
                                     <input type="hidden" class="form-control" name="{{form.psmkmrksatulink.name}}" value="{{mrksatufecth.id}}"/> 
-                                    <input type="text" class="form-control ts" value="" readonly>
+                                    <input type="text" class="form-control ts" value="{{mrksatufecth.mrksatukontraktor.konNama }}" readonly>
                                     </div>
                                 </div>
                                 </div>
@@ -58,7 +58,7 @@
                                 <div class="form-group row">
                                     <div class="col-sm-8">
                                     <label><h5 class="text-secondary font-weight-500">Alamat Pemborong</h5></label>
-                                    <textarea rows="4" type="text" class="form-control ts" readonly></textarea>
+                                    <textarea rows="4" type="text" class="form-control ts" readonly>{{mrksatufecth.mrksatukontraktor.konAlamat }}, {{mrksatufecth.mrksatukontraktor.konAlamatExtS }} {{mrksatufecth.mrksatukontraktor.konAlamatExtD }} &#10;{{mrksatufecth.mrksatukontraktor.konPoskod }} {{mrksatufecth.mrksatukontraktor.konBandar }}, {{mrksatufecth.mrksatukontraktor.konNegeri }}</textarea>
                                     </div>
                                 </div>
                                 </div>
@@ -68,11 +68,11 @@
                             <div class="form-group row">
                                 <div class="col-sm-4">
                                 <label><h5 class="text-secondary font-weight-500">No Rujukan</h5></label>
-                                    <input type="text" class="form-control ts" readonly>
+                                    <input type="text" value="{{mrksatufecth.mrksatunosebutharga.noperolehan }}" class="form-control ts" readonly>
                                 </div>
                                 <div class="col-sm-4 tl">
                                 <label><h5 class="text-secondary font-weight-500">No Kontrak / No Sebutharga</h5></label>
-                                <input type="text" class="form-control ts" readonly>
+                                <input type="text" value="{{mrksatufecth.mrksatunosebutharga.noperolehan }}"  class="form-control ts" readonly>
                                 </div>
                             </div>
                             </div>
@@ -82,7 +82,7 @@
                             <div class="form-group row">
                                 <div class="col-sm-8">
                                 <label><h5 class="text-secondary font-weight-500">Tajuk Kerja</h5></label>
-                                <textarea rows="5" type="text" class="form-control ts"readonly></textarea>
+                                <textarea rows="5" type="text" class="form-control ts"readonly>{{projek.tajukkerja}}</textarea>
                                 </div>
                             </div>
                             </div>
@@ -92,11 +92,11 @@
                             <div class="form-group row">
                                 <div class="col-sm-4">
                                 <label><h5 class="text-secondary font-weight-500">Tarikh Mula Tanggungan Kecacatan</h5></label>
-                                <input type="text" data-toggle="datepicker" class="form-control ts" readonly>
+                                <input type="text" data-toggle="datepicker" value="{{pskfecth.psktarikhmulatanggug}}" class="form-control ts" readonly>
                                 </div>
                                 <div class="col-sm-4 tl">
                                 <label><h5 class="text-secondary font-weight-500">Tarikh Tamat Tanggungan Kecacatan</h5></label>
-                                    <input type="text" data-toggle="datepicker" class="form-control ts"  readonly>
+                                    <input type="text" data-toggle="datepicker" value="{{pskfecth.psktarikhtamattanggung}}" class="form-control ts"  readonly>
                                 </div>
                             </div>
                             </div>
@@ -106,15 +106,15 @@
                             <div class="form-group row">
                                 <div class="col-sm-4">
                                 <label><h5 class="text-secondary font-weight-500">Gred</h5></label>
-                                     <input type="text" class="form-control ts" readonly>
+                                     <input type="text" value="{{mrksatufecth.mrksatugred}}" class="form-control ts" readonly>
                                 </div>
                                 <div class="col-sm-4 tl">
                                 <label><h5 class="text-secondary font-weight-500">Kategori</h5></label>
-                             <input type="text" class="form-control ts" readonly>
+                             <input type="text" value="{{mrksatufecth.mrksatukategori}}" class="form-control ts" readonly>
                                 </div>
                                 <div class="col-sm-4 tl">
                                 <label><h5 class="text-secondary font-weight-500">Pengkhususan</h5></label>
-                               <input type="text" class="form-control ts" readonly>
+                               <input type="text" value="{{mrksatufecth.mrksatupengkhususan}}" class="form-control ts" readonly>
                                 </div>
                             </div>
                             </div>

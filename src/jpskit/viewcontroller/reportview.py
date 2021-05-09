@@ -466,22 +466,24 @@ def ssemak(request, idperolehan):
     pdfjinja = PdfJinja('static_in_env/assets/pdf/SS.pdf')
     pdfout = pdfjinja(
         dict(
-            check1 = "",
-            check2 = "",
-            check3 = "",
-            check4 = "",
-            check5 = "",
-            check6 = "",
-            check7 = "",
-            check8 = "",
-            check9 = "",
-            check10 = "",
-            check11 = "",
-            check12 = "",
-            check13 = "",
-            check14 = "",
-            check15 = "",
-            check16 = "",
+            check1 = dataobject.ssinden,
+            check2 = dataobject.sslsk,
+            check3 = dataobject.ssti,
+            check4 = dataobject.sssebutharga,
+            check5 = dataobject.sspt,
+            check6 = dataobject.ssjs,
+            check7 = dataobject.sskts,
+            check8 = dataobject.ssds,
+            check9 = dataobject.ssplm,
+            check10 = dataobject.ssab,
+            check11 = dataobject.sscidb,
+            check12 = dataobject.sspkk,
+            check13 = dataobject.ssssm,
+            check14 = dataobject.sskk,
+            check15 = dataobject.ssinsurance,
+            check16 = dataobject.ssgambar,
+            pegawai = dataobject.ssnosebutharga.pegawaiselia.first_name,
+            tarikh = dataobject.sstarikh
         ))
 
  
@@ -496,23 +498,37 @@ def ssemak(request, idperolehan):
 
 def pdfpsmk(request, idperolehan):
 
-    #dataobject = document.MRKTiga.objects.filter(mrktigasebutharga=idperolehan).first()
-    #projek = project.Projek.objects.filter(nosebuthargaid=idperolehan).first()
-    #userprofileL = userprofile.UserProfile.objects.filter(id=dataobject.mrktigasebutharga.pegawaiselia.id).first()
+    dataobject = document.PSMK.objects.filter(psmknosebutharga=idperolehan).first()
+    projek = project.Projek.objects.filter(nosebuthargaid=idperolehan).first()
+    userprofileL = userprofile.UserProfile.objects.filter(id=dataobject.psmknosebutharga.pegawaiselia.id).first()
+    lskfetch = document.Laporansiapkerja.objects.filter(lsknosebutharga=idperolehan).first()
  
-    test = "sebutharaga"
-    print(test)
+    idsebutharga = dataobject.psmknosebutharga.id
+    print(idsebutharga)
  
     pdfjinja = PdfJinja('static_in_env/assets/pdf/PSMK.pdf')
     pdfout = pdfjinja(
         dict(
-            harga = "12:993"
+
+            kontrator = dataobject.psmkmrksatulink.mrksatukontraktor.konNama,
+            alamat1 = dataobject.psmkmrksatulink.mrksatukontraktor.konAlamat,
+            alamat2 = dataobject.psmkmrksatulink.mrksatukontraktor.konAlamatExtS,
+            poskod = dataobject.psmkmrksatulink.mrksatukontraktor.konPoskod,
+            bandar = dataobject.psmkmrksatulink.mrksatukontraktor.konBandar,
+            negeri = dataobject.psmkmrksatulink.mrksatukontraktor.konNegeri,
+            gred = dataobject.psmkmrksatulink.mrksatugred,
+            sebutharga = dataobject.psmknosebutharga.noperolehan,
+            tajuk = projek.tajukkerja,
+            tarikhgagal = lskfetch.lskkerjasiap,
+            g1 = dataobject.psmknojaminanbanka,
+            hargaa = intcomma(dataobject.psmkhargajaminana),
+            bakia = intcomma(dataobject.psmkbakiwangjaminana),
         ))
 
  
-    pdfout.write(open('static_in_env/assets/pdf/outputpdf/PSMK-'+test+'.pdf', 'wb'))
+    pdfout.write(open('static_in_env/assets/pdf/outputpdf/PSMK-'+str(idsebutharga)+'-'+userprofileL.user.first_name+'.pdf', 'wb'))
     try:
-        return FileResponse(open('static_in_env/assets/pdf/outputpdf/PSMK-'+test+'.pdf', 'rb'), content_type='application/pdf')
+        return FileResponse(open('static_in_env/assets/pdf/outputpdf/PSMK-'+str(idsebutharga)+'-'+userprofileL.user.first_name+'.pdf', 'rb'), content_type='application/pdf')
     except FileNotFoundError:
         raise Http404()
 

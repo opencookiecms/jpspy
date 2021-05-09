@@ -185,6 +185,7 @@ def psmkview(request, idperolehan):
     context = {
         'form':form,
         'mrksatufecth':document.MRKSatu.objects.get(mrksatunosebutharga=idperolehan),
+        'pskfecth':document.PSK.objects.filter(psknosebutharga=idperolehan).first(),
         'projek':project.Projek.objects.get(nosebuthargaid=idperolehan),
         'userlist':User.objects.all()
     }
