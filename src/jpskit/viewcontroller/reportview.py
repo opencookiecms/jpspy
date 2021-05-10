@@ -523,6 +523,13 @@ def pdfpsmk(request, idperolehan):
             g1 = dataobject.psmknojaminanbanka,
             hargaa = intcomma(dataobject.psmkhargajaminana),
             bakia = intcomma(dataobject.psmkbakiwangjaminana),
+            g2 = dataobject.psmknojaminanbankab,
+            hargab = intcomma(dataobject.psmkhargajaminanb),
+            wangb = intcomma(dataobject.psmkbakiwangjaminanb),
+            kosbon = intcomma(dataobject.psmkkosbon),
+            bakikosbon = intcomma(dataobject.psmkbakikos),
+            pegawai = userprofileL.user.first_name,
+            jawatan = userprofileL.jawatan,
         ))
 
  
