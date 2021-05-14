@@ -201,15 +201,16 @@ def jaminanbankv(request, idperolehan):
         form = ducumentform.JaminanBankForm()
         return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
     else:
-        print("data was not save")
-        print(form)
+        print(form.errors)
     
     
     context = {
         'form':form,
         'mrksatufecth':document.MRKSatu.objects.get(mrksatunosebutharga=idperolehan),
         'projek':project.Projek.objects.get(nosebuthargaid=idperolehan),
-        'userlist':User.objects.all()
+        'userlist':User.objects.all(),
+        'pskfecth':document.PSK.objects.filter(psknosebutharga=idperolehan).first(),
+        'psmkfecth':document.PSMK.objects.filter(psmknosebutharga=idperolehan).first(),
     }
 
     return render(request, 'pages/jaminanbank.html',context)

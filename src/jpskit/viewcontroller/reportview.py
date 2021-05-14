@@ -460,8 +460,8 @@ def ssemak(request, idperolehan):
     lskfetch = document.Laporansiapkerja.objects.filter(lsknosebutharga=idperolehan).first()
     mrkduaf = document.MRKDua.objects.filter(mrkduanosebutharga=idperolehan).first()
  
-    test = dataobject.ssnosebutharga.noperolehan
-    print(test)
+    idsebutharga = dataobject.ssnosebutharga.id
+    print(idsebutharga)
  
     pdfjinja = PdfJinja('static_in_env/assets/pdf/SS.pdf')
     pdfout = pdfjinja(
@@ -487,9 +487,9 @@ def ssemak(request, idperolehan):
         ))
 
  
-    pdfout.write(open('static_in_env/assets/pdf/outputpdf/SS-'+test+'.pdf', 'wb'))
+    pdfout.write(open('static_in_env/assets/pdf/outputpdf/SS-'+str(idsebutharga)+'-'+userprofileL.user.first_name+'.pdf', 'wb'))
     try:
-        return FileResponse(open('static_in_env/assets/pdf/outputpdf/SS-'+test+'.pdf', 'rb'), content_type='application/pdf')
+        return FileResponse(open('static_in_env/assets/pdf/outputpdf/SS-'+str(idsebutharga)+'-'+userprofileL.user.first_name+'.pdf', 'rb'), content_type='application/pdf')
     except FileNotFoundError:
         raise Http404()
 
@@ -540,6 +540,79 @@ def pdfpsmk(request, idperolehan):
         raise Http404()
 
     return render(request, 'pages/printtest.html' )
+
+
+def pdfjb(request, idperolehan):
+
+    dataobject = document.SuratPJaminanbank.objects.filter(jbankknosebutharga=idperolehan).first()
+    projek = project.Projek.objects.filter(nosebuthargaid=idperolehan).first()
+    userprofileL = userprofile.UserProfile.objects.filter(id=dataobject.jbankknosebutharga.pegawaiselia.id).first()
+    lskfetch = document.Laporansiapkerja.objects.filter(lsknosebutharga=idperolehan).first()
+    psk  = document.PSK.objects.filter(psknosebutharga=idperolehan).first()
+ 
+    idsebutharga = dataobject.jbankknosebutharga.id
+    print(idsebutharga)
+ 
+    pdfjinja = PdfJinja('static_in_env/assets/pdf/jb.pdf')
+    pdfout = pdfjinja(
+        dict(
+            namabank = dataobject.namabank,
+            alamatbank = dataobject.alamatbank,
+            akaunbank = dataobject.rujukanbank,
+            kontraktor = dataobject.jbankmrksatulink.mrksatukontraktor.konNama,
+            alamat = dataobject.alamatpemborongsurat,
+            tarikha = psk.psktarikhmulatanggug,
+            tarikhb = psk.psktarikhtamattanggung,
+            jurutera = userprofileL.user.first_name,
+            jawatan = userprofileL.jawatan,
+
+ 
+        ))
+
+ 
+    pdfout.write(open('static_in_env/assets/pdf/outputpdf/jb-'+str(idsebutharga)+'-'+userprofileL.user.first_name+'.pdf', 'wb'))
+    try:
+        return FileResponse(open('static_in_env/assets/pdf/outputpdf/jb-'+str(idsebutharga)+'-'+userprofileL.user.first_name+'.pdf', 'rb'), content_type='application/pdf')
+    except FileNotFoundError:
+        raise Http404()
+
+    return render(request, 'pages/printtest.html' )
+
+
+def pdfppwjp(request, idperolehan):
+
+    dataobject = document.Perakuanpwjp.objects.filter(wjpknosebutharga=idperolehan).first()
+    projek = project.Projek.objects.filter(nosebuthargaid=idperolehan).first()
+    userprofileL = userprofile.UserProfile.objects.filter(id=dataobject.wjpknosebutharga.pegawaiselia.id).first()
+    lskfetch = document.Laporansiapkerja.objects.filter(lsknosebutharga=idperolehan).first()
+    psk  = document.PSK.objects.filter(psknosebutharga=idperolehan).first()
+ 
+    idsebutharga = dataobject.wjpknosebutharga.id
+    print(idsebutharga)
+ 
+    pdfjinja = PdfJinja('static_in_env/assets/pdf/ppwjp.pdf')
+    pdfout = pdfjinja(
+        dict(
+            namarujukan = dataobject.namarujukan,
+            alamtrujukan = dataobject.alamatrujukan,
+            kontraktor = dataobject.wjpmrksatulink.mrksatukontraktor.konNama,
+            projek = projek.tajukkerja,
+            rm = dataobject.koswjp,
+            jurutera = dataobject.wjppegawai,
+            jawatan = dataobject.wjpjawatan,
+        ))
+
+ 
+    pdfout.write(open('static_in_env/assets/pdf/outputpdf/ppwjp-'+str(idsebutharga)+'-'+userprofileL.user.first_name+'.pdf', 'wb'))
+    try:
+        return FileResponse(open('static_in_env/assets/pdf/outputpdf/ppwjp-'+str(idsebutharga)+'-'+userprofileL.user.first_name+'.pdf', 'rb'), content_type='application/pdf')
+    except FileNotFoundError:
+        raise Http404()
+
+    return render(request, 'pages/printtest.html' )
+    
+    
+    
     
     
     

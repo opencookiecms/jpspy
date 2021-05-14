@@ -63,7 +63,7 @@
                 <div class="form-group row">
                   <label class="col-sm-3 col-form-label">Tarik Mula Tanggungan</label>
                   <div class="col-sm-7 tl">
-                  <input type="text" data-toggle="datepicker" class="form-control ts" readonly>
+                  <input type="text" data-toggle="datepicker" value="{{pskfecth.psktarikhmulatanggug}}" class="form-control ts" readonly>
                   </div>
                 </div>
               </div>
@@ -73,7 +73,7 @@
                 <div class="form-group row">
                   <label class="col-sm-3 col-form-label">Tarik Luput Tanggungan</label>
                   <div class="col-sm-7">
-                  <input type="text" data-toggle="datepicker" class="form-control ts" readonly>
+                  <input type="text" data-toggle="datepicker" value="{{pskfecth.psktarikhtamattanggung}}" class="form-control ts" readonly>
                   </div>
                 </div>
               </div>
@@ -94,11 +94,11 @@
                 <div class="form-group row">
                   <label class="col-sm-3 col-form-label">Nama Jurutera</label>
                   <div class="col-sm-3">
-                  <input type="text" class="form-control ts" readonly>
+                  <input type="text" value="{{psmkfecth.psmkpegawaipenguasa}}" class="form-control ts" readonly>
                   </div>
                   <label class="col-sm-1 col-form-label">Jawatan</label>
                   <div class="col-sm-3">
-                  <input type="text" class="form-control ts" readonly>
+                  <input type="text" value="{{psmkfecth.psmkjawatan}}"  class="form-control ts" readonly>
                   </div>
                 </div>
               </div>
@@ -109,7 +109,7 @@
                 <div class="form-group row">
                   <label class="col-sm-3 col-form-label">Nama Pemborong</label>
                   <div class="col-sm-7">
-                    <input type="text" class="form-control ts" readonly>
+                    <input type="text" value="{{mrksatufecth.mrksatukontraktor.konNama}}" class="form-control ts" readonly>
             
                   </div>
                 </div>
@@ -121,7 +121,7 @@
                   <div class="form-group row">
                       <label class="col-sm-3 col-form-label">Alamat Pemborong</label>
                         <div class="col-sm-7">
-                          <textarea rows="4" type="text" class="form-control ts"readonly ></textarea>
+                          <textarea rows="4" type="text" class="form-control ts"readonly >{{mrksatufecth.mrksatukontraktor.konAlamat }}, {{mrksatufecth.mrksatukontraktor.konAlamatExtS }} {{mrksatufecth.mrksatukontraktor.konAlamatExtD }} &#10;{{mrksatufecth.mrksatukontraktor.konPoskod }} {{mrksatufecth.mrksatukontraktor.konBandar }}, {{mrksatufecth.mrksatukontraktor.konNegeri }}</textarea>
                         </div>
                     </div>
                  </div>
