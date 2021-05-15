@@ -64,6 +64,15 @@ urlpatterns = [
     path('laporan/jaminanbank/<int:idperolehan>', reportview.pdfjb, name="laporan/jaminanbank"),
     path('laporan/ppwjp/<int:idperolehan>', reportview.pdfppwjp, name="laporan/ppwjp"),
 
+    path('laporan/smrk-01/<int:idperolehan>', reportview.pdfsmrksatu, name="laporan/smrk-01"),
+    path('laporan/smrk-02/<int:idperolehan>', reportview.pdfsmrkdua, name="laporan/smrk-02"),
+
+    path('laporan/skhas-01/<int:idperolehan>', reportview.pdfskhas01, name="laporan/skhas-01"),
+    path('laporan/skhas-02/<int:idperolehan>', reportview.pdfskhas02, name="laporan/skhas-02"),
+
+    path('laporan/spwjp-01/<int:idperolehan>', reportview.pdfpwjp01, name="laporan/spwjp-01"),
+    path('laporan/spwjp-02/<int:idperolehan>', reportview.pdfpwjp02, name="laporan/spwjp-02"),
+
     path('sistem/subsistem', projekview.load_sistem, name="sistem/subsistem"),
     path('sistem/komponen', projekview.load_component, name="sistem/komponen"),
 ]

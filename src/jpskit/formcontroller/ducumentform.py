@@ -426,7 +426,7 @@ class SuratBonForm(forms.ModelForm):
     bonalamatsatu = forms.CharField(required=False, widget=forms.Textarea(attrs={'class':'form-control','type':'text','placeholder':'Alamat Rujukan','rows':'5'}))
     bonmelalui = forms.CharField(required=False, widget=forms.TextInput(attrs={'class':'form-control','type':'text','placeholder':'Melalui'}))
     bonalamatdua = forms.CharField(required=False, widget=forms.Textarea(attrs={'class':'form-control','type':'text','placeholder':'Alamat Rujukan','rows':'5'}))
-    bonwanjaminan = forms.CharField(required=False, widget=forms.TextInput(attrs={'class':'form-control','type':'text','placeholder':'0.00'}))
+    bonwangjaminan = forms.CharField(required=False, widget=forms.TextInput(attrs={'class':'form-control','type':'text','placeholder':'0.00'}))
     bonjawatan = forms.ChoiceField(choices=jawatan, required=False, widget=forms.Select(attrs={'class':'form-control custom-select select28 ','placholder':'baru'}))
 
 
@@ -437,7 +437,7 @@ class SuratBonForm(forms.ModelForm):
             'bonalamatsatu',
             'bonmelalui', 
             'bonalamatdua', 
-            'bonwanjaminan', 
+            'bonwangjaminan', 
             'bonpegawai',
             'bonjawatan',
             'bonknosebutharga', 

@@ -226,11 +226,11 @@ class SuratKhas(models.Model):
 
 class SuratPelepasanBon(models.Model):
 
-    bonkepada = models.CharField(max_length=50, null=True, blank=True)
-    bonalamatsatu = models.CharField(max_length=50, null=True, blank=True)
-    bonmelalui = models.CharField(max_length=50, null=True, blank=True)
-    bonalamatdua = models.CharField(max_length=50, null=True, blank=True)
-    bonwanjaminan = models.CharField(max_length=50, null=True, blank=True)
+    bonkepada = models.CharField(max_length=150, null=True, blank=True)
+    bonalamatsatu = models.CharField(max_length=200, null=True, blank=True)
+    bonmelalui = models.CharField(max_length=150, null=True, blank=True)
+    bonalamatdua = models.CharField(max_length=200, null=True, blank=True)
+    bonwangjaminan = models.DecimalField(max_digits=12, decimal_places=2, null=True, blank=True)
     bonpegawai = models.CharField(max_length=50, null=True, blank=True)
     bonjawatan = models.CharField(max_length=50, null=True, blank=True)
     bonknosebutharga = models.ForeignKey(dfnoperolehan.NoPerolehan, blank=True, null=True, on_delete = models.SET_NULL)

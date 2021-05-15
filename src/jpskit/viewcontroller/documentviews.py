@@ -293,7 +293,7 @@ def sbonview(request, idperolehan):
         return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
     else:
         print("data was not save")
-        print(form)
+        print(form.errors)
     
     
     context = {
