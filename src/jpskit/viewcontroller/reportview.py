@@ -26,7 +26,7 @@ from openpyxl import load_workbook
 from openpyxl.styles import PatternFill, Border, Side, Alignment, Protection, Font
 from pdfjinja import PdfJinja
 from tempfile import NamedTemporaryFile
-from ..modelcontroller import document,dfnoperolehan,kontraktor,project, userprofile
+from ..modelcontroller import document, dfnoperolehan, kontraktor, project, userprofile
 from django.contrib.auth.models import User
 
 
@@ -77,8 +77,47 @@ def testexcel(request):
         ws.cell(row_num+1, col_num+1, columns2[col_num]).border = thin_border
             
     
-    wb.save("render.xlsx")
+    wb.save("render2.xlsx")
    
+
+    return render(request, 'pages/someexcel.html')
+
+def testexcel2(request):
+
+    wb = load_workbook('static_in_env/assets/excel/laporan.xlsx')
+    for ws in wb.worksheets:
+        print(ws.title)
+
+    row_num = 6
+    ws = wb.worksheets[0]
+    thin_border = Border(left=Side(style='thin'), 
+                     right=Side(style='thin'), 
+                     top=Side(style='thin'), 
+                     bottom=Side(style='thin'))
+
+    data = document.MRKSatu.objects.all()
+
+
+    for datas in data:
+
+        r1 = project.Projek.objects.filter(nosebuthargaid=datas.mrksatunosebutharga).first()
+
+        columns = ["num"]
+        columns1 = [datas.mrksatunoinden]
+        columns2 = [r1.tajukkerja]
+        columns3 = ["empty"]
+
+
+        for col_num in range(len(columns)):   
+            
+            print(col_num)
+            row_num +=1
+            ws.cell(row_num, col_num+1, columns[col_num]).border = thin_border
+            ws.cell(row_num, col_num+2, columns1[col_num]).border = thin_border
+            ws.cell(row_num, col_num+3, columns2[col_num]).border = thin_border
+            ws.cell(row_num, col_num+4, columns3[col_num]).border = thin_border
+            wb.save("render2.xlsx")
+        
 
     return render(request, 'pages/someexcel.html')
 

@@ -53,6 +53,7 @@ urlpatterns = [
     path('laporan/excel/<int:idperolehan>', reportview.some_excel, name="laporan/excel"),
     path('laporan/filter', reportview.report_by_year, name="laporan/filter"),
     path('laporan/excel', reportview.testexcel, name="laporan/excel"),
+    path('laporan/excel2', reportview.testexcel2, name="laporan/excel2"),
     path('laporan/mrksatu/<int:idperolehan>', reportview.pdfmrksatu, name="laporan/mrksatu"),
     path('laporan/mrkdua/<int:idperolehan>',reportview.pdfmrkdua, name="laporan/mrkdua"),
     path('laporan/lsk/<int:idperolehan>',reportview.pdflsk, name="laporan/lsk"),
