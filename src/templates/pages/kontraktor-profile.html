@@ -34,16 +34,20 @@
 				  <li><a class="active" href="#tab1" data-toggle="tab">Maklumat Syarikat</a></li>
 				  <li><a href="#tab2" data-toggle="tab">Maklumat Rakan Konsi</a></li>
 				  <li><a href="#tab3" data-toggle="tab">Sijil</a></li>
+				   <li><a href="#tab4" data-toggle="tab">LPIPM</a></li>
+				    <li><a href="#tab5" data-toggle="tab">PKK</a></li>
 				</ul>
 
 				<div class="tab-content">
 
 				 <div class="active tab-pane" id="tab1">
 				   <div class="box">
-					<div class="box-header with-border">
+					<div class="box-header bg-primary p-10" style="border-radius:0px">
 						<h4 class="box-title">Maklumat Pemilik Syarikat</h4>
 					</div>
 					<div class="box-body">
+					<div class="row">
+					  <div class="col-md-4">
 						<div class="d-flex align-items-center mb-30">
 							<div class="mr-15  h-50 w-50 l-h-50 rounded text-center">
 								<img src="{% static 'assets/images/id-card.png' %}" class="h-50" alt="">
@@ -54,6 +58,8 @@
 							</div>
 							
 						</div>
+						</div>
+						  <div class="col-md-4">	
 						<div class="d-flex align-items-center mb-30">
 							<div class="mr-15  h-50 w-50 l-h-50 rounded text-center">
 								  <img src="{% static 'assets/images/phone.png' %}" class="h-50" alt="">
@@ -64,13 +70,17 @@
 							</div>
 						
 						</div>
+						</div>
+					  </div>
 					</div>
 
-					<div class="box-header with-border">
+					<div class="box-header bg-primary p-10" style="border-radius:0px">
 						<h4 class="box-title">SSM</h4>
 					</div>
 
 					<div class="box-body">
+					<div class="row">
+					    <div class="col-md-4">
 						<div class="d-flex align-items-center mb-30">
 							<div class="mr-15  h-50 w-50 l-h-50 rounded text-center">
 								  <img src="{% static 'assets/images/certificate.png' %}" class="h-50" alt="">
@@ -81,6 +91,8 @@
 							</div>
 						
 						</div>
+						</div>
+						  <div class="col-md-4">
 						<div class="d-flex align-items-center mb-30">
 							<div class="mr-15  h-50 w-50 l-h-50 rounded text-center">
 								  <img src="{% static 'assets/images/calendar.png' %}" class="h-50" alt="">
@@ -91,6 +103,8 @@
 							</div>
 							
 						</div>
+						</div>
+					  <div class="col-md-4">
 						<div class="d-flex align-items-center mb-30">
 							<div class="mr-15  h-50 w-50 l-h-50 rounded text-center">
 								  <img src="{% static 'assets/images/calendar.png' %}" class="h-50" alt="">
@@ -101,9 +115,57 @@
 							</div>
 						
 						</div>
+						</div>
+						</div>
 					</div>
 
-					<div class="box-header with-border">
+					
+					<div class="box-header bg-primary p-10" style="border-radius:0px">
+						<h4 class="box-title">SST / GST</h4>
+					</div>
+
+					<div class="box-body">
+					<div class="row">
+					<div class="col-md-4">
+						<div class="d-flex align-items-center mb-30">
+							<div class="mr-15  h-50 w-50 l-h-50 rounded text-center">
+								  <img src="{% static 'assets/images/certificate.png' %}" class="h-50" alt="">
+							</div>
+							<div class="d-flex flex-column flex-grow-1 mr-2 font-weight-500">
+								<a href="#" class="text-dark hover-primary mb-1 font-size-16">No Pendaftaran SSM</a>
+								<span class="text-fade">{{kontraktor.sijilSSMNoPendaftaran}}dfdfdf</span>
+							</div>
+						
+						</div>
+						</div>
+						<div class="col-md-4">
+						<div class="d-flex align-items-center mb-30">
+							<div class="mr-15  h-50 w-50 l-h-50 rounded text-center">
+								  <img src="{% static 'assets/images/calendar.png' %}" class="h-50" alt="">
+							</div>
+							<div class="d-flex flex-column flex-grow-1 mr-2 font-weight-500">
+								<a href="#" class="text-dark hover-danger mb-1 font-size-16">Tempoh Sah Dari</a>
+								<span class="text-fade">{{kontraktor.sijilSSMSahDari}}dfdfdf</span>
+							</div>
+							
+						</div>
+						</div>
+						<div class="col-md-4">
+						<div class="d-flex align-items-center mb-30">
+							<div class="mr-15  h-50 w-50 l-h-50 rounded text-center">
+								  <img src="{% static 'assets/images/calendar.png' %}" class="h-50" alt="">
+							</div>
+							<div class="d-flex flex-column flex-grow-1 mr-2 font-weight-500">
+								<a href="#" class="text-dark hover-danger mb-1 font-size-16">Hingga</a>
+								<span class="text-fade">{{kontraktor.sijilSSMTamat}}fdfdfdf</span>
+							</div>
+						
+						</div>
+						</div>
+						</div>
+					</div>
+
+					<div class="box-header bg-primary p-10" style="border-radius:0px">
 						<h4 class="box-title">Kawasan Operasi Syarikat</h4>
 					</div>
 
@@ -572,6 +634,219 @@
 					</div>										
 				
 				 </div>	  
+				  </div>
+				  <!-- /.tab-pane -->
+				  <div class="tab-pane" id="tab4">		
+
+					<div class="box p-15">		
+					
+								
+					<div class="box-header no-border">
+						<h4 class="box-title">Lembaga Pembangunan Industri Pembinaan Malaysia (LPIPM)</h4></p>
+					   <h5 class="mb-15 font-weight-700">a) Sijil Perakuan Pendaftaran Kontraktor (PPK)</h5>
+				
+		
+					</div>
+				
+					<div class="box-body py-0">	
+						<div class="row">
+					
+							<div class="col-4">
+								<div class="d-flex align-items-center mb-30">
+									<div class="mr-15 bg-danger-light h-50 w-50 l-h-60 rounded text-center">
+										<span class="icon-Write font-size-24"><span class="path1"></span><span class="path2"></span></span>
+									</div>
+									<div class="d-flex flex-column font-weight-500">
+										<a href="#" class="text-dark hover-danger mb-1 font-size-16">No Pendaftaran</a>
+										<span class="text-fade">{{kontraktor.konJPPembaharuan}}</span>
+									</div>
+								</div>
+							</div>
+							<div class="col-4">
+								<div class="d-flex align-items-center mb-30">
+									<div class="mr-15 bg-success-light h-50 w-50 l-h-60 rounded text-center">
+										<span class="icon-Group-chat font-size-24"><span class="path1"></span><span class="path2"></span></span>
+									</div>
+									<div class="d-flex flex-column font-weight-500">
+										<a href="#" class="text-dark hover-success mb-1 font-size-16">Tempoh Sah Dari</a>
+										<span class="text-fade">{{kontraktor.konJPLainLain}}</span>
+									</div>
+								</div>
+							</div>
+							<div class="col-4">
+								<div class="d-flex align-items-center mb-30">
+									<div class="mr-15 bg-info-light h-50 w-50 l-h-60 rounded text-center">
+										<span class="icon-Attachment1 font-size-24"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span></span>
+									</div>
+									<div class="d-flex flex-column font-weight-500">
+										<a href="#" class="text-dark hover-info mb-1 font-size-16">Hingga</a>
+										<span class="text-fade">{{kontraktor.konJPKategori}}</span>
+									</div>
+								</div>
+							</div>
+						</div>
+						
+						<div class="pb-20 bg-white text-dark">
+					
+						   <ul class="flexbox flex-justified">
+							<li class="">
+							  <h6 class="mb-0 text-bold">Gred 1</h6>
+							  <small>Total</small>
+							</li>
+
+							<li class="br-1 bl-1">
+							  <h6 class="mb-0 text-bold">Ketegori</h6>
+							  <small>Change</small>
+							</li>
+
+							<li class="">
+							  <h6 class="mb-0 text-bold">Pengkususan</h6>
+							  <small>B24 B04</small>
+							</li>
+						  </ul>						
+						</div>
+					   <div class="pb-20 bg-white text-dark">
+						
+						   <ul class="flexbox flex-justified">
+							<li class="">
+							  <h6 class="mb-0 text-bold">Gred 2</h6>
+							  <small>Total</small>
+							</li>
+
+							<li class="br-1 bl-1 ">
+							  <h6 class="mb-0 text-bold">Ketegori</h6>
+							  <small>Change</small>
+							</li>
+
+							<li class="">
+							  <h6 class="mb-0 text-bold">Pengkususan</h6>
+							  <small>CE36 CE21 CE34 CE01 CE31</small>
+							</li>
+						  </ul>						
+						</div>
+						<div class="pb-10 bg-white text-dark">
+						
+						   <ul class="flexbox flex-justified">
+							<li class="">
+							  <h6 class="mb-0 text-bold">Gred 3</h6>
+							  <small>Total</small>
+							</li>
+
+							<li class="br-1 bl-1">
+							  <h6 class="mb-0 text-bold">Ketegori</h6>
+							  <small>Change</small>
+							</li>
+
+							<li class="">
+							  <h6 class="mb-0 text-bold">Pengkususan</h6>
+							  <small>M15</small>
+							</li>
+						  </ul>						
+						</div>
+						
+					   <h5 class="mt-20 mb-20 font-weight-700">b) Sijil Perolehan Kerja Kerajaan (SPKK)</h5>
+					   		<div class="row">
+					
+							<div class="col-4">
+								<div class="d-flex align-items-center mb-30">
+									<div class="mr-15 bg-danger-light h-50 w-50 l-h-60 rounded text-center">
+										<span class="icon-Write font-size-24"><span class="path1"></span><span class="path2"></span></span>
+									</div>
+									<div class="d-flex flex-column font-weight-500">
+										<a href="#" class="text-dark hover-danger mb-1 font-size-16">No Pendaftaran</a>
+										<span class="text-fade">{{kontraktor.konJPPembaharuan}}</span>
+									</div>
+								</div>
+							</div>
+							<div class="col-4">
+								<div class="d-flex align-items-center mb-30">
+									<div class="mr-15 bg-success-light h-50 w-50 l-h-60 rounded text-center">
+										<span class="icon-Group-chat font-size-24"><span class="path1"></span><span class="path2"></span></span>
+									</div>
+									<div class="d-flex flex-column font-weight-500">
+										<a href="#" class="text-dark hover-success mb-1 font-size-16">Tempoh Sah Dari</a>
+										<span class="text-fade">{{kontraktor.konJPLainLain}}</span>
+									</div>
+								</div>
+							</div>
+							<div class="col-4">
+								<div class="d-flex align-items-center mb-30">
+									<div class="mr-15 bg-info-light h-50 w-50 l-h-60 rounded text-center">
+										<span class="icon-Attachment1 font-size-24"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span></span>
+									</div>
+									<div class="d-flex flex-column font-weight-500">
+										<a href="#" class="text-dark hover-info mb-1 font-size-16">Hingga</a>
+										<span class="text-fade">{{kontraktor.konJPKategori}}</span>
+									</div>
+								</div>
+							</div>
+						</div>
+					   <div class="pb-10 bg-white text-dark">
+						
+						   <ul class="flexbox flex-justified">
+							<li class="">
+							  <h6 class="mb-0 text-bold">Gred 3</h6>
+							  <small>Total</small>
+							</li>
+
+							<li class="br-1 bl-1">
+							  <h6 class="mb-0 text-bold">Ketegori</h6>
+							  <small>Change</small>
+							</li>
+
+							<li class="">
+							  <h6 class="mb-0 text-bold">Pengkususan</h6>
+							  <small>M15</small>
+							</li>
+						  </ul>						
+						</div>
+						<div class="pb-10 bg-white text-dark">
+						
+						   <ul class="flexbox flex-justified">
+							<li class="">
+							  <h6 class="mb-0 text-bold">Gred 3</h6>
+							  <small>Total</small>
+							</li>
+
+							<li class="br-1 bl-1">
+							  <h6 class="mb-0 text-bold">Ketegori</h6>
+							  <small>Change</small>
+							</li>
+
+							<li class="">
+							  <h6 class="mb-0 text-bold">Pengkususan</h6>
+							  <small>M15</small>
+							</li>
+						  </ul>						
+						</div>
+						<div class="pb-10 bg-white text-dark">
+						
+						   <ul class="flexbox flex-justified">
+							<li class="">
+							  <h6 class="mb-0 text-bold">Gred 3</h6>
+							  <small>Total</small>
+							</li>
+
+							<li class="br-1 bl-1">
+							  <h6 class="mb-0 text-bold">Ketegori</h6>
+							  <small>Change</small>
+							</li>
+
+							<li class="">
+							  <h6 class="mb-0 text-bold">Pengkususan</h6>
+							  <small>M15</small>
+							</li>
+						  </ul>						
+						</div>
+				
+		
+				
+						
+					</div>										
+				
+					</div>	
+
+  
 				  </div>
 				  <!-- /.tab-pane -->
 				</div>
