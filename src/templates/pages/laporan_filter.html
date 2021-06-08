@@ -34,58 +34,43 @@
 						  <h4 class="box-title text-white">Carian data</h4>
 						</div>
 						<!-- /.box-header -->
-						<form class="form">
+						<form class="form" method="GET" action="{% url 'laporan/filter' %}">
 							<div class="box-body">
 						
 								<div class="row">
 								  <div class="col-md-2">
 									<div class="form-group">
 									  <label>Kod Peruntukan</label>
-									    <select class="form-control">
-										<option>Budget</option>
-										<option>less than 5000$</option>
-										<option>5000$ - 10000$</option>
-										<option>10000$ - 20000$</option>
-										<option>more than 20000$</option>
+									    <select class="form-control" name="kod">
+										<option>Tiada</option>
+							
+										
 									  </select>
 									</div>
 								  </div>
 								  <div class="col-md-2">
 									<div class="form-group">
 									  <label>Kaedah Perolehan</label>
-									  	    <select class="form-control">
-										<option>Budget</option>
-										<option>less than 5000$</option>
-										<option>5000$ - 10000$</option>
-										<option>10000$ - 20000$</option>
-										<option>more than 20000$</option>
+									  	<select class="form-control" name="kaedah">
+										<option value="Tiada">Tiada</option>
+										<option value="sebutharga">Sebutharga</option>
+										<option value="lantikan_terus">Lantikan Terus</option>
+										<option value="undi">Undi</option>
 									  </select>
 									</div>
 								  </div>
 								  <div class="col-md-2">
 									<div class="form-group">
 									  <label>Tahun</label>
-									  	    <select class="form-control">
-										<option>Budget</option>
-										<option>less than 5000$</option>
-										<option>5000$ - 10000$</option>
-										<option>10000$ - 20000$</option>
-										<option>more than 20000$</option>
+									  	<select class="form-control" name="tahun">
+										<option>Tiada</option>
+										<option>2018</option>
+										<option>2019</option>
+										<option>2020</option>
+										<option>2021</option>
 									  </select>
 									</div>
-								  </div>
-								  <div class="col-md-2">
-									<div class="form-group">
-									  <label>Tahun</label>
-									  	    <select class="form-control">
-										<option>Budget</option>
-										<option>less than 5000$</option>
-										<option>5000$ - 10000$</option>
-										<option>10000$ - 20000$</option>
-										<option>more than 20000$</option>
-									  </select>
-									</div>
-								  </div>
+							
 								</div>
 			
 							</div>

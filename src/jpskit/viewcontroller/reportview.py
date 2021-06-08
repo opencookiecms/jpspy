@@ -146,11 +146,6 @@ def exceltest(request):
     
     wb.save("chart.xlsx")
 
-
-
-def report_by_year(request):
-    return render(request, 'pages/laporan_filter.html')
-
 def some_pdf(request, idperolehan):
 
     dataobject = document.MRKSatu.objects.filter(mrksatunosebutharga=idperolehan).first()
@@ -868,6 +863,21 @@ def pdfpwjp02(request, idperolehan):
         raise Http404()
 
     return render(request, 'pages/printtest.html' )
+
+
+##filter the report
+
+def report_by_year(request):
+
+    kaedah = request.GET.get('kaedah')
+
+    qs = document.MRKSatu.objects.raw()
+    
+    context = {
+        'test':"TEst"
+    }
+    
+    return render(request, 'pages/laporan_filter.html',context)
     
     
     
