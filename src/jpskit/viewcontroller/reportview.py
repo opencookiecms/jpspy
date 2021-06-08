@@ -29,6 +29,9 @@ from tempfile import NamedTemporaryFile
 from ..modelcontroller import document, dfnoperolehan, kontraktor, project, userprofile
 from django.contrib.auth.models import User
 
+from django.db.models import Q
+from django.db.models import Count
+
 
 def testexcel(request):
     
@@ -870,8 +873,13 @@ def pdfpwjp02(request, idperolehan):
 def report_by_year(request):
 
     kaedah = request.GET.get('kaedah')
+    timecurrent = datetime.date.today().strftime('%d/%m/%Y')
 
-    qs = document.MRKSatu.objects.raw()
+
+    qs = document.MRKSatu.objects.filter(mrksatutarikhjangkasiap__year=2020)
+    print(qs.query)
+    for qss in qs:
+        print("no data kah",qss.mrksatutarikhjangkasiap)
     
     context = {
         'test':"TEst"

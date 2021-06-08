@@ -15,7 +15,7 @@ class MRKSatu(models.Model):
     mrksatukategori  = models.CharField(max_length=20, null=True, blank=True)
     mrksatupengkhususan = models.CharField(max_length=100, null=True, blank=True)
     mrksatutarikhmula = models.CharField(max_length=50, null=True, blank=True)
-    mrksatutarikhjangkasiap = models.CharField(max_length=50, null=True, blank=True)
+    mrksatutarikhjangkasiap = models.DateField(null=True, blank=True)
     mrksatukosprojek = models.DecimalField(max_digits=12, decimal_places=2, null=True, blank=True)
     mrksatutarikhdaftar = models.CharField(max_length=50, null=True, blank=True)
     mrksatunosebutharga = models.ForeignKey(dfnoperolehan.NoPerolehan, blank=True, null=True, on_delete = models.SET_NULL)
