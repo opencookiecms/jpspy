@@ -1,3 +1,6 @@
+"""pip uninstall pdfminer" and "pip uninstall pdfminer.six".
+Then all clear, "pip install pdfminer.six"."""
+
 from django.shortcuts import render, get_list_or_404, redirect, reverse
 from django.core.files.storage import FileSystemStorage
 from django.http import FileResponse, Http404
@@ -876,13 +879,20 @@ def report_by_year(request):
     timecurrent = datetime.date.today().strftime('%d/%m/%Y')
 
 
-    qs = document.MRKSatu.objects.filter(mrksatutarikhjangkasiap__year=2020)
+    qs = document.MRKSatu.objects.filter(mrksatutarikhjangkasiap__year=2021).values(
+        'mrksatunoinden',
+        'mrksatukosprojek',
+        'mrksatukontraktor__konNama',
+        'mrksatunosebutharga__noperolehan',
+        'mrksatutarikhmula',
+        'mrksatutarikhjangkasiap',
+        'kosprojek__kos_belanja',
+        'kosprojek__kos_tanggung',
+        )
     print(qs.query)
-    for qss in qs:
-        print("no data kah",qss.mrksatutarikhjangkasiap)
-    
+
     context = {
-        'test':"TEst"
+        'qs':qs
     }
     
     return render(request, 'pages/laporan_filter.html',context)

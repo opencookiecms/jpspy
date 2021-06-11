@@ -51,7 +51,7 @@ class MRKDua(models.Model):
     mrkduamansuh = models.CharField(max_length=50, null=True, blank=True)
     mrkduatarikhlaporan = models.CharField(max_length=50, null=True, blank=True)
     mrkduanosebutharga  = models.ForeignKey(dfnoperolehan.NoPerolehan, blank=True, null=True, on_delete = models.SET_NULL)
-    mrksatulink = models.ForeignKey(MRKSatu, blank=True, null=True, on_delete = models.SET_NULL)
+    mrksatulink = models.ForeignKey(MRKSatu, related_name="bindone", blank=True, null=True, on_delete = models.SET_NULL)
 
     class Meta: 
         # Add verbose name 
@@ -78,7 +78,7 @@ class Laporansiapkerja(models.Model):
     lskjenisinsurancedua  = models.CharField(max_length=50, null=True, blank=True)
     lsknoinsurancedua  = models.CharField(max_length=50, null=True, blank=True)
     lsknosebutharga  = models.ForeignKey(dfnoperolehan.NoPerolehan, blank=True, null=True, on_delete = models.SET_NULL)
-    lskmrksatulink  = models.ForeignKey(MRKSatu, blank=True, null=True, on_delete = models.SET_NULL)
+    lskmrksatulink  = models.ForeignKey(MRKSatu, related_name="bindtwo", blank=True, null=True, on_delete = models.SET_NULL)
 
     class Meta:
         verbose_name_plural = 'Laporan Siap Kerja'

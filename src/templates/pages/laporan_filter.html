@@ -2,6 +2,7 @@
 {% block content %}
 {% load mathfilters %}
 {% load static %}
+{% load humanize %}
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
 	  <div class="container-full">
@@ -116,9 +117,10 @@
 									</tr>
 								</thead>
 								<tbody>
+									{% for qss in qs %}
 									<tr>
 										<td><span class="text-primary font-weight-600 d-block font-size-30 cc_cursor">01</span></td>
-										<td>B13-28209</td>
+										<td>{{qss.mrksatunoinden}}</td>
 										<td>
 											<h6 class="mb-0">
 											
@@ -126,13 +128,13 @@
 											</h6>
 										</td>
 										<td>
-										<h6 class="mb-0 font-weight-bold" style="width:120px">RM 61,775.11</h6>
+										<h6 class="mb-0 font-weight-bold" style="width:120px">RM {{qss.mrksatukosprojek|intcomma}}</h6>
 										</td>
 										<td>
 											 <ul style="width:300px;list-style-type: none;padding:0px">
-                                                <li>(1) <span class="mb-0 font-weight-bold">FEBAH ENTERPRISE</span></li>
-                                                <li>(2) <span class="text-muted">JPSKMSB(KU/KM)S/B/OM/101/2020</span></li>
-                                                <li>(3) <span class="badge badge-pill badge-primary">22-09-2020 / 12-11-2020</span></li>
+                                                <li>(1) <span class="mb-0 font-weight-bold">{{qss.mrksatukontraktor__konNama}}</span></li>
+                                                <li>(2) <span class="text-muted">{{qss.mrksatunosebutharga__noperolehan}}</span></li>
+                                                <li>(3) <span class="badge badge-pill badge-primary">{{qss.mrksatutarikhmula}} / {{qss.mrksatutarikhjangkasiap}}</span></li>
                                                 <li>(4) <span class="badge badge-pill badge-warning">22-09-2020 / 12-11-2020</span></li>
                                             </ul>  
 										</td>
@@ -156,47 +158,7 @@
 										</td>
                                         
 									</tr>
-											<tr>
-										<td><span class="text-primary font-weight-600 d-block font-size-30 cc_cursor">01</span></td>
-										<td>B13-28209</td>
-										<td>
-											<h6 class="mb-0">
-											
-												<span class="d-block text-muted" style="width:200px">PENYELENGGARAAN TERUSAN, TALIAIR TANAH/KONKRIT SERTA PARIT DIKAWASAN RANTAU PANJANG, SKIM PENGAIRAN KOTA II, DAERAH KUALA MUDA, KEDAH DARUL AMAN.</span>
-											</h6>
-										</td>
-										<td>
-										<h6 class="mb-0 font-weight-bold" style="width:120px">RM 61,775.11</h6>
-										</td>
-										<td>
-											 <ul style="width:300px;list-style-type: none;padding:0px">
-                                                <li>(1) <span class="mb-0 font-weight-bold">FEBAH ENTERPRISE</span></li>
-                                                <li>(2) <span class="text-muted">JPSKMSB(KU/KM)S/B/OM/101/2020</span></li>
-                                                <li>(3) <span class="badge badge-pill badge-primary">22-09-2020 / 12-11-2020</span></li>
-                                                <li>(4) <span class="badge badge-pill badge-warning">22-09-2020 / 12-11-2020</span></li>
-                                            </ul>  
-										</td>
-										<td>
-											<h6 class="mb-0 font-weight-bold" style="width:120px">RM 20,000.00</h6>
-										</td>
-										<td>
-											<h6 class="mb-0 font-weight-bold" style="width:120px">1,160,000.00</h6>
-										</td>
-										<td>
-                                            <h6 class="mb-0 font-weight-bold" style="width:120px">RM 1,160,000.00</h6>
-										</td>
-                                        <td>
-											<h6 class="mb-0 font-weight-bold" style="width:120px">RM 20,000.00</h6>
-										</td>
-                                        <td>
-                                            <h6 class="mb-0 font-weight-bold" style="width:120px">RM 1,160,000.00</h6>
-										</td>
-                                          <td>
-                                            <h6 class="mb-0 font-weight-bold" style="">100%</h6>
-										</td>
-                                        
-									</tr>
-
+									{% endfor %}
 
 
 	
