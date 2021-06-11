@@ -878,15 +878,23 @@ def report_by_year(request):
     kaedah = request.GET.get('kaedah')
     timecurrent = datetime.date.today().strftime('%d/%m/%Y')
 
-    qs = dfnoperolehan.NoPerolehan.objects.filter(id__isnull=True, mrksatu__mrksatutarikhjangkasiap__year=2021).values(
+    qs = dfnoperolehan.NoPerolehan.objects.filter(id__isnull=False,mrksatu__mrksatutarikhjangkasiap__year=2021).values(
+        'noperolehan',
         'mrksatu__mrksatunoinden',
         'projek__tajukkerja',
+        'mrksatu__mrksatukontraktor__konNama',
+        'mrksatu__mrksatutarikhmula',
+        'mrksatu__mrksatutarikhjangkasiap',
     )
+
+    context = {
+        'qs':qs,
+    }
   
 
     print(qs.query)
     
-    return render(request, 'pages/laporan_filter.html')
+    return render(request, 'pages/laporan_filter.html',context)
     
     
     
