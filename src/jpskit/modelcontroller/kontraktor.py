@@ -1,8 +1,10 @@
 from django.db import models
+import uuid
 
 class Kontraktor(models.Model):
 
     #maklumat syarikat
+    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False) 
     konNama = models.CharField(max_length=200, null=True, blank=True)
     konImage = models.FileField(null=True, blank=True);
     konAlamat = models.CharField(max_length=200, null=True, blank=True)

@@ -1,6 +1,7 @@
 from django import forms
-from ..modelcontroller import dfnoperolehan, kontraktor,document
+from ..modelcontroller import dfnoperolehan, kontraktor,document,project
 from django.contrib.auth.models import User
+from django.conf import settings
 
 
 class MRK1Form(forms.ModelForm):
@@ -30,12 +31,11 @@ class MRK1Form(forms.ModelForm):
     mrksatugred = forms.ChoiceField(choices=gred, required=False, widget=forms.Select(attrs={'class':'form-control custom-select select28 ','placholder':'baru'}))
     mrksatukategori  = forms.ChoiceField(choices=kategori, required=False, widget=forms.Select(attrs={'class':'form-control custom-select select28 ','placholder':'baru'}))
     mrksatupengkhususan = forms.CharField(required=False, widget=forms.TextInput(attrs={'class':'form-control','type':'text','placeholder':'No Inden'}))
-    mrksatutarikhmula = forms.CharField(required=False, widget=forms.TextInput(attrs={'class':'form-control fc-datepicker','placeholder':'MM/DD/YYYY'}))
-    mrksatutarikhjangkasiap = forms.CharField(required=False, widget=forms.TextInput(attrs={'class':'form-control fc-datepicker','placeholder':'MM/DD/YYYY'}))
-
+    mrksatutarikhmula = forms.DateField(input_formats=settings.DATE_INPUT_FORMATS, required=False,widget=forms.DateInput(attrs={'class':'form-control fc-datepicker','placeholder':'MM/DD/YYYY'}))
+    mrksatutarikhjangkasiap = forms.DateField(input_formats=settings.DATE_INPUT_FORMATS, required=False, widget=forms.DateInput(attrs={'class':'form-control fc-datepicker','placeholder':'MM/DD/YYYY'}))
     mrksatukosprojek = forms.CharField(required=False, widget=forms.TextInput(attrs={'class':'form-control','type':'text','placeholder':'RM 100,000.00'}))
-    mrksatutarikhdaftar = forms.CharField(required=False, widget=forms.TextInput(attrs={'class':'form-control fc-datepicker','placeholder':'MM/DD/YYYY'}))
-    mrksatunosebutharga = forms.ModelChoiceField(required=False, queryset=dfnoperolehan.NoPerolehan.objects.all(), widget=forms.Select(attrs={'class':'form-control custom-select select29'}))
+    mrksatutarikhdaftar = forms.DateField(input_formats=settings.DATE_INPUT_FORMATS, required=False,widget=forms.DateInput(attrs={'class':'form-control fc-datepicker','placeholder':'MM/DD/YYYY'}))
+    projekbind = forms.ModelChoiceField(required=False, queryset=project.Projek.objects.all(), widget=forms.Select(attrs={'class':'form-control custom-select select29'}))
     mrksatukontraktor = forms.ModelChoiceField(required=False, queryset=kontraktor.Kontraktor.objects.all(), widget=forms.Select(attrs={'class':'form-control custom-select select29'}))
 
 
@@ -50,8 +50,9 @@ class MRK1Form(forms.ModelForm):
             'mrksatutarikhjangkasiap',
             'mrksatukosprojek',
             'mrksatutarikhdaftar',
-            'mrksatunosebutharga',
-            'mrksatukontraktor'
+            'mrksatukontraktor',
+            'projekbind',
+          
 
         ]
 
@@ -60,7 +61,7 @@ class MRKDuaForm(forms.ModelForm):
 
 
     mrkduakerjajadual  = forms.CharField(required=False, widget=forms.TextInput(attrs={'class':'form-control','type':'text','placeholder':'Kemajuan Kerja '}))
-    mrkduakerjasebenartarikh = forms.CharField(required=False, widget=forms.TextInput(attrs={'class':'form-control fc-datepicker','placeholder':'MM/DD/YYYY'}))
+    mrkduakerjasebenartarikh = forms.DateField(input_formats=settings.DATE_INPUT_FORMATS, required=False,widget=forms.DateInput(attrs={'class':'form-control fc-datepicker','placeholder':'MM/DD/YYYY'}))
     mrkduakerjasebenar = forms.CharField(required=False, widget=forms.TextInput(attrs={'class':'form-control','type':'text','placeholder':'Kerja Sebenar'}))
     mrkduakemajuan = forms.CharField(required=False, widget=forms.TextInput(attrs={'class':'form-control','type':'text','placeholder':'Kemajuan Semasa'}))
     mrkduabayarankemajuan = forms.CharField(required=False, widget=forms.TextInput(attrs={'class':'form-control','type':'text','placeholder':'0.00'}))
@@ -69,16 +70,16 @@ class MRKDuaForm(forms.ModelForm):
     mrkduadisebabkanoleh = forms.CharField(required=False, widget=forms.Textarea(attrs={'class':'form-control','type':'text','placeholder':'Tajuk Kerja','rows':'5'}))
     mrkdualainlain = forms.CharField(required=False, widget=forms.Textarea(attrs={'class':'form-control','type':'text','placeholder':'Tajuk Kerja','rows':'5'}))
     mrkdualanjutmasa = forms.CharField(required=False, widget=forms.TextInput(attrs={'class':'form-control','type':'text','placeholder':'No Inden'}))
-    mrkdualanjutdari = forms.CharField(required=False, widget=forms.TextInput(attrs={'class':'form-control fc-datepicker','placeholder':'MM/DD/YYYY'}))
-    mrkdualanjutsehingga = forms.CharField(required=False, widget=forms.TextInput(attrs={'class':'form-control fc-datepicker','placeholder':'MM/DD/YYYY'}))
+    mrkdualanjutdari = forms.DateField(input_formats=settings.DATE_INPUT_FORMATS, required=False,widget=forms.DateInput(attrs={'class':'form-control fc-datepicker','placeholder':'MM/DD/YYYY'}))
+    mrkdualanjutsehingga = forms.DateField(input_formats=settings.DATE_INPUT_FORMATS, required=False,widget=forms.DateInput(attrs={'class':'form-control fc-datepicker','placeholder':'MM/DD/YYYY'}))
     mrkduadisebabkan = forms.CharField(required=False, widget=forms.Textarea(attrs={'class':'form-control','type':'text','placeholder':'Tajuk Kerja','rows':'5'}))
     mrkduaLAD = forms.CharField(required=False, widget=forms.TextInput(attrs={'class':'form-control','type':'text','placeholder':'No Inden'}))
-    mrkduaLADdari = forms.CharField(required=False, widget=forms.TextInput(attrs={'class':'form-control fc-datepicker','placeholder':'MM/DD/YYYY'}))
-    mrkduaLADSehingga = forms.CharField(required=False, widget=forms.TextInput(attrs={'class':'form-control fc-datepicker','placeholder':'MM/DD/YYYY'}))
-    mrkduaperakuan = forms.CharField(required=False, widget=forms.TextInput(attrs={'class':'form-control fc-datepicker','placeholder':'MM/DD/YYYY'}))
-    mrkduamansuh = forms.CharField(required=False, widget=forms.TextInput(attrs={'class':'form-control fc-datepicker','placeholder':'MM/DD/YYYY'}))
-    mrkduatarikhlaporan  = forms.CharField(required=False, widget=forms.TextInput(attrs={'class':'form-control fc-datepicker','placeholder':'MM/DD/YYYY'}))
-    mrkduanosebutharga  = forms.ModelChoiceField(required=False, queryset=dfnoperolehan.NoPerolehan.objects.all(), widget=forms.Select(attrs={'class':'form-control custom-select select29'}))
+    mrkduaLADdari = forms.DateField(input_formats=settings.DATE_INPUT_FORMATS, required=False,widget=forms.DateInput(attrs={'class':'form-control fc-datepicker','placeholder':'MM/DD/YYYY'}))
+    mrkduaLADSehingga = forms.DateField(input_formats=settings.DATE_INPUT_FORMATS, required=False,widget=forms.DateInput(attrs={'class':'form-control fc-datepicker','placeholder':'MM/DD/YYYY'}))
+    mrkduaperakuan = forms.DateField(input_formats=settings.DATE_INPUT_FORMATS, required=False,widget=forms.DateInput(attrs={'class':'form-control fc-datepicker','placeholder':'MM/DD/YYYY'}))
+    mrkduamansuh = forms.DateField(input_formats=settings.DATE_INPUT_FORMATS, required=False,widget=forms.DateInput(attrs={'class':'form-control fc-datepicker','placeholder':'MM/DD/YYYY'}))
+    mrkduatarikhlaporan  = forms.DateField(input_formats=settings.DATE_INPUT_FORMATS, required=False,widget=forms.DateInput(attrs={'class':'form-control fc-datepicker','placeholder':'MM/DD/YYYY'}))
+    projekbind  = forms.ModelChoiceField(required=False, queryset=project.Projek.objects.all(), widget=forms.Select(attrs={'class':'form-control custom-select select29'}))
     mrksatulink  = forms.ModelChoiceField(required=False, queryset=document.MRKSatu.objects.all(), widget=forms.Select(attrs={'class':'form-control custom-select select29'}))
 
 
@@ -108,7 +109,7 @@ class MRKDuaForm(forms.ModelForm):
             'mrkduaperakuan',
             'mrkduamansuh',
             'mrkduatarikhlaporan',
-            'mrkduanosebutharga',
+            'projekbind',
             'mrksatulink'
         ]
 
@@ -123,11 +124,11 @@ class LSKForm(forms.ModelForm):
     )
 
     lskhargasebenar = forms.CharField(required=False, widget=forms.TextInput(attrs={'class':'form-control','type':'text','placeholder':'0.00'}))
-    lsklanjutmasa = forms.CharField(required=False, widget=forms.TextInput(attrs={'class':'form-control fc-datepicker','placeholder':'MM/DD/YYYY'}))
-    lskkerjasiap = forms.CharField(required=False, widget=forms.TextInput(attrs={'class':'form-control fc-datepicker','placeholder':'MM/DD/YYYY'}))
+    lsklanjutmasa = forms.DateField(input_formats=settings.DATE_INPUT_FORMATS, required=False,widget=forms.DateInput(attrs={'class':'form-control fc-datepicker','placeholder':'MM/DD/YYYY'}))
+    lskkerjasiap = forms.DateField(input_formats=settings.DATE_INPUT_FORMATS, required=False,widget=forms.DateInput(attrs={'class':'form-control fc-datepicker','placeholder':'MM/DD/YYYY'}))
     lskperuntukan = forms.CharField(required=False, widget=forms.TextInput(attrs={'class':'form-control','type':'text','placeholder':'contoh:- B13-28209'}))
     lsklaporan = forms.CharField(required=False, widget=forms.Textarea(attrs={'class':'form-control','type':'text','placeholder':'Laporan Kerja','rows':'5'}))
-    lsktarikhperakui = forms.CharField(required=False, widget=forms.TextInput(attrs={'class':'form-control fc-datepicker','placeholder':'MM/DD/YYYY'}))
+    lsktarikhperakui = forms.DateField(input_formats=settings.DATE_INPUT_FORMATS, required=False,widget=forms.DateInput(attrs={'class':'form-control fc-datepicker','placeholder':'MM/DD/YYYY'}))
 
     lskketuabahagian = forms.CharField(required=False, widget=forms.TextInput(attrs={'class':'form-control','type':'text','placeholder':'0.00'}))
     lskjawatanketuabahagian = forms.CharField(required=False, widget=forms.TextInput(attrs={'class':'form-control','type':'text','placeholder':'0.00'}))
@@ -163,7 +164,7 @@ class LSKForm(forms.ModelForm):
             'lsknoinsurancesatu',
             'lskjenisinsurancedua',
             'lsknoinsurancedua',
-            'lsknosebutharga',
+            'projekbind',
             'lskmrksatulink',
         ]
 
@@ -180,7 +181,7 @@ class MRKtigaForm(forms.ModelForm):
     mrkcatat7 = forms.CharField(required=False, widget=forms.TextInput(attrs={'class':'form-control','type':'text','placeholder':'catatatan'}))
     mrkcatat8 = forms.CharField(required=False, widget=forms.TextInput(attrs={'class':'form-control','type':'text','placeholder':'catatatan'}))
     mrktigasokongan = forms.CharField(required=False, widget=forms.Textarea(attrs={'class':'form-control','type':'text','placeholder':'Tajuk Kerja','rows':'5'}))
-    mrktigatarikh = forms.CharField(required=False, widget=forms.TextInput(attrs={'class':'form-control fc-datepicker','placeholder':'MM/DD/YYYY'}))
+    mrktigatarikh = forms.DateField(input_formats=settings.DATE_INPUT_FORMATS, required=False,widget=forms.DateInput(attrs={'class':'form-control fc-datepicker','placeholder':'MM/DD/YYYY'}))
  
 
     class Meta:
@@ -204,16 +205,16 @@ class MRKtigaForm(forms.ModelForm):
             'mrkcatat8',
             'mrktigasokongan', 
             'mrktigatarikh', 
-            'mrktigasebutharga', 
+            'projekbind', 
             'marktigamrksatu',
         ]
 
 class PSKForm(forms.ModelForm):
 
-    psktarikhsiapsebenar = forms.CharField(required=False, widget=forms.TextInput(attrs={'class':'form-control fc-datepicker','placeholder':'MM/DD/YYYY'}))
-    psktarikhambilmilik = forms.CharField(required=False, widget=forms.TextInput(attrs={'class':'form-control fc-datepicker','placeholder':'MM/DD/YYYY'}))
-    psktarikhmulatanggug = forms.CharField(required=False, widget=forms.TextInput(attrs={'class':'form-control fc-datepicker','placeholder':'MM/DD/YYYY'}))
-    psktarikhtamattanggung = forms.CharField(required=False, widget=forms.TextInput(attrs={'class':'form-control fc-datepicker','placeholder':'MM/DD/YYYY'}))
+    psktarikhsiapsebenar = forms.DateField(input_formats=settings.DATE_INPUT_FORMATS, required=False,widget=forms.DateInput(attrs={'class':'form-control fc-datepicker','placeholder':'MM/DD/YYYY'}))
+    psktarikhambilmilik = forms.DateField(input_formats=settings.DATE_INPUT_FORMATS, required=False,widget=forms.DateInput(attrs={'class':'form-control fc-datepicker','placeholder':'MM/DD/YYYY'}))
+    psktarikhmulatanggug = forms.DateField(input_formats=settings.DATE_INPUT_FORMATS, required=False,widget=forms.DateInput(attrs={'class':'form-control fc-datepicker','placeholder':'MM/DD/YYYY'}))
+    psktarikhtamattanggung = forms.DateField(input_formats=settings.DATE_INPUT_FORMATS, required=False,widget=forms.DateInput(attrs={'class':'form-control fc-datepicker','placeholder':'MM/DD/YYYY'}))
 
 
     class Meta:
@@ -223,14 +224,14 @@ class PSKForm(forms.ModelForm):
             'psktarikhambilmilik',
             'psktarikhmulatanggug',
             'psktarikhtamattanggung',
-            'psknosebutharga',
+            'projekbind',
             'pskmrksatulink',
         ]
 
 
 class SenaraiSemakanForm(forms.ModelForm):
 
-    sstarikh = forms.CharField(required=False, widget=forms.TextInput(attrs={'class':'form-control fc-datepicker','placeholder':'MM/DD/YYYY'}))
+    sstarikh = forms.DateField(input_formats=settings.DATE_INPUT_FORMATS, required=False,widget=forms.DateInput(attrs={'class':'form-control fc-datepicker','placeholder':'MM/DD/YYYY'}))
 
     class Meta:
         model = document.SenaraiSemakan
@@ -252,7 +253,7 @@ class SenaraiSemakanForm(forms.ModelForm):
             'ssinsurance',
             'ssgambar',
             'sstarikh',
-            'ssnosebutharga', 
+            'projekbind', 
             'ssmrksatulink',
         ]
 
@@ -282,7 +283,7 @@ class Psmkform(forms.ModelForm):
             'psmkbakikos',
             'psmkpegawaipenguasa',
             'psmkjawatan',
-            'psmknosebutharga',
+            'projekbind',
             'psmkmrksatulink',
 
         ]
@@ -301,7 +302,7 @@ class JaminanBankForm(forms.ModelForm):
             'namabank',
             'alamatbank', 
             'alamatpemborongsurat',
-            'jbankknosebutharga',
+            'projekbind',
             'jbankmrksatulink',
         ]
 
@@ -335,7 +336,7 @@ class PwjpForm(forms.ModelForm):
             'koswjp', 
             'wjppegawai', 
             'wjpjawatan',
-            'wjpknosebutharga',
+            'projekbind',
             'wjpmrksatulink', 
         ]
 
@@ -359,7 +360,7 @@ class SuratMRKForm(forms.ModelForm):
     )
 
     smrkrujukantuan = forms.CharField(required=False, widget=forms.TextInput(attrs={'class':'form-control','type':'text','placeholder':'Rujukan Tuan'}))
-    smrktarikh  = forms.CharField(required=False, widget=forms.TextInput(attrs={'class':'form-control fc-datepicker','placeholder':'MM/DD/YYYY'}))
+    smrktarikh  = forms.DateField(input_formats=settings.DATE_INPUT_FORMATS, required=False,widget=forms.DateInput(attrs={'class':'form-control fc-datepicker','placeholder':'MM/DD/YYYY'}))
     smrkjenisborang  = forms.ChoiceField(choices=jenisborang, required=False, widget=forms.Select(attrs={'class':'form-control custom-select select28 ','placholder':'baru'}))
     smrknamarujukan  = forms.CharField(required=False, widget=forms.TextInput(attrs={'class':'form-control','type':'text','placeholder':'Nama Rujukan'}))
     smkralamatrujukan  = forms.CharField(required=False, widget=forms.Textarea(attrs={'class':'form-control','type':'text','placeholder':'Alamat Rujukan','rows':'5'}))
@@ -376,7 +377,7 @@ class SuratMRKForm(forms.ModelForm):
             'smkralamatrujukan', 
             'smrkpegawai', 
             'smrkjawatan', 
-            'smrkknosebutharga', 
+            'projekbind', 
             'smrkmrksatulink', 
         ]
 
@@ -406,7 +407,7 @@ class SuratKhasForm(forms.ModelForm):
             'khasalamatrujukan', 
             'khaspegawai', 
             'khasjawatan',
-            'khasknosebutharga',
+            'projekbind',
             'khasmrksatulink', 
         ]
 
@@ -440,6 +441,6 @@ class SuratBonForm(forms.ModelForm):
             'bonwangjaminan', 
             'bonpegawai',
             'bonjawatan',
-            'bonknosebutharga', 
+            'projekbind', 
             'bonmrksatulink',
         ]

@@ -6,13 +6,15 @@ from ..formcontroller import ducumentform
 from django.db.models import Q
 from django.db.models import Count
 from django.contrib.auth.models import User
+import uuid
 
 
-def mrkone(request, idperolehan):
+def mrkone(request, projekid):
  
-    dataobject = document.MRKSatu.objects.filter(mrksatunosebutharga=idperolehan).first()
-    datasbut = dfnoperolehan.NoPerolehan.objects.get(id=idperolehan)
-    print(datasbut)
+    dataobject = document.MRKSatu.objects.filter(projekbind=projekid).first()
+    p = project.Projek.objects.get(id=projekid)
+    print(p)
+   
     form = ducumentform.MRK1Form(request.POST or None, instance=dataobject)
 
     kos_belanjapost = 0.00
@@ -21,13 +23,13 @@ def mrkone(request, idperolehan):
     if form.is_valid():
 
         if(dataobject):
-            query = document.kosprojek.objects.get(kos_sebutharga=datasbut)
+            query = document.kosprojek.objects.get(projekbind=p)
             query.kos_tanggung = kos_tanggungpost
             query.kos_belanja = kos_belanjapost
             query.save()
           
         else:
-            query = document.kosprojek.objects.create(kos_belanja=kos_belanjapost,kos_tanggung=kos_tanggungpost,kos_sebutharga=datasbut)
+            query = document.kosprojek.objects.create(kos_belanja=kos_belanjapost,kos_tanggung=kos_tanggungpost,projekbind=p)
             query.save()
 
         form.save()
@@ -40,18 +42,18 @@ def mrkone(request, idperolehan):
 
     context = {
         'form':form,
-        'sebutharga':project.Projek.objects.get(nosebuthargaid=idperolehan),
+        'projek':project.Projek.objects.get(id=projekid),
         'kontraktor':kontraktor.Kontraktor.objects.all(),
-        'kursus':document.MRKKursus.objects.all(),
-        'mrksatu':document.MRKSatu.objects.filter(mrksatunosebutharga=idperolehan).first()
+        'mrksatu':dataobject
+
     }
     return render(request, 'pages/mrksatu.html',context )
 
 
 
-def mrktwo(request, idperolehan):
+def mrktwo(request, projekid):
     
-    dataobject = document.MRKDua.objects.filter(mrkduanosebutharga=idperolehan).first()
+    dataobject = document.MRKDua.objects.filter(projekbind=projekid).first()
     form = ducumentform.MRKDuaForm(request.POST or None, instance=dataobject)
     if form.is_valid():
         form.save()
@@ -65,24 +67,24 @@ def mrktwo(request, idperolehan):
     
     context = {
         'form':form,
-        'mrksatufecth':document.MRKSatu.objects.filter(mrksatunosebutharga=idperolehan).first(),
-        'projek':project.Projek.objects.get(nosebuthargaid=idperolehan),
+        'mrksatufecth':document.MRKSatu.objects.filter(projekbind=projekid).first(), 
+        
     }
 
     
     return render(request, 'pages/mrkdua.html',context)
 
-def laporansiapkerja(request, idperolehan ):
+def laporansiapkerja(request, projekid ):
 
-    dataobject = document.Laporansiapkerja.objects.filter(lsknosebutharga=idperolehan).first()
-    datasbut = dfnoperolehan.NoPerolehan.objects.get(id=idperolehan)
+    dataobject = document.Laporansiapkerja.objects.filter(projekbind=projekid).first()
+    p = project.Projek.objects.get(id=projekid)
 
     kos_belanjasebenar = request.POST.get('lskhargasebenar')
     kos_tanggungpost =  0.00
    
     form = ducumentform.LSKForm(request.POST or None, instance=dataobject)
     if form.is_valid():
-        query = document.kosprojek.objects.get(kos_sebutharga=datasbut)
+        query = document.kosprojek.objects.get(projekbind=p)
         query.kos_tanggung = kos_tanggungpost
         query.kos_belanja = kos_belanjasebenar
         query.save()
@@ -95,16 +97,16 @@ def laporansiapkerja(request, idperolehan ):
 
     context = {
         'form':form,
-        'mrksatufecth':document.MRKSatu.objects.get(mrksatunosebutharga=idperolehan),
-        'projek':project.Projek.objects.get(nosebuthargaid=idperolehan),
+        'mrksatufecth':document.MRKSatu.objects.get(projekbind=projekid),
+        'projek':project.Projek.objects.get(id=projekid),
         'userlist':User.objects.all()
     }
 
     return render(request, 'pages/lsk.html',context)
 
-def mrktiga(request, idperolehan):
+def mrktiga(request, projekid):
 
-    dataobject = document.MRKTiga.objects.filter(mrktigasebutharga=idperolehan).first()
+    dataobject = document.MRKTiga.objects.filter(projekbind=projekid).first()
     form = ducumentform.MRKtigaForm(request.POST or None, instance=dataobject)
     if form.is_valid():
         form.save()
@@ -116,17 +118,17 @@ def mrktiga(request, idperolehan):
 
     context = {
         'form':form,
-        'mrksatufecth':document.MRKSatu.objects.get(mrksatunosebutharga=idperolehan),
-        'lskfecth':document.Laporansiapkerja.objects.get(lsknosebutharga=idperolehan),
-        'mrkduafecth':document.MRKDua.objects.get(mrkduanosebutharga=idperolehan),
-        'projek':project.Projek.objects.get(nosebuthargaid=idperolehan),
+        'mrksatufecth':document.MRKSatu.objects.get(projekbind=projekid),
+        'lskfecth':document.Laporansiapkerja.objects.get(projekbind=projekid),
+        'mrkduafecth':document.MRKDua.objects.get(projekbind=projekid),
+        'projek':project.Projek.objects.get(id=projekid),
         'userlist':User.objects.all()
     }
 
     return render(request, 'pages/mrktiga.html',context)
 
-def psk(request, idperolehan):
-    dataobject = document.PSK.objects.filter(psknosebutharga=idperolehan).first()
+def psk(request, projekid):
+    dataobject = document.PSK.objects.filter(projekbind=projekid).first()
     form = ducumentform.PSKForm(request.POST or None, instance=dataobject)
     if form.is_valid():
         form.save()
@@ -138,9 +140,9 @@ def psk(request, idperolehan):
 
     context = {
         'form':form,
-        'lskfecth':document.Laporansiapkerja.objects.get(lsknosebutharga=idperolehan),
-        'mrksatufecth':document.MRKSatu.objects.get(mrksatunosebutharga=idperolehan),
-        'projek':project.Projek.objects.get(nosebuthargaid=idperolehan),
+        'lskfecth':document.Laporansiapkerja.objects.get(projekbind=projekid),
+        'mrksatufecth':document.MRKSatu.objects.get(projekbind=projekid),
+        'projek':project.Projek.objects.get(id=projekid),
         'userlist':User.objects.all()
     }
     
@@ -148,9 +150,9 @@ def psk(request, idperolehan):
     return render(request, 'pages/psk.html',context)
 
 
-def ssv(request, idperolehan):
+def ssv(request, projekid):
     
-    dataobject = document.SenaraiSemakan.objects.filter(ssnosebutharga=idperolehan).first()
+    dataobject = document.SenaraiSemakan.objects.filter(projekbind=projekid).first()
     form = ducumentform.SenaraiSemakanForm(request.POST or None, instance=dataobject)
     if form.is_valid():
         form.save()
@@ -162,16 +164,16 @@ def ssv(request, idperolehan):
 
     context = {
         'form':form,
-        'mrksatufecth':document.MRKSatu.objects.get(mrksatunosebutharga=idperolehan),
-        'projek':project.Projek.objects.get(nosebuthargaid=idperolehan),
+        'mrksatufecth':document.MRKSatu.objects.get(projekbind=projekid),
+        'projek':project.Projek.objects.get(id=projekid),
         'userlist':User.objects.all()
     }
     
 
     return render(request, 'pages/senaraisemakan.html',context)
 
-def psmkview(request, idperolehan):
-    dataobject = document.PSMK.objects.filter(psmknosebutharga=idperolehan).first()
+def psmkview(request, projekid):
+    dataobject = document.PSMK.objects.filter(psmknosebutharga=projekid).first()
     form = ducumentform.Psmkform(request.POST or None, instance=dataobject)
  
     if form.is_valid():
@@ -184,16 +186,16 @@ def psmkview(request, idperolehan):
     
     context = {
         'form':form,
-        'mrksatufecth':document.MRKSatu.objects.get(mrksatunosebutharga=idperolehan),
-        'pskfecth':document.PSK.objects.filter(psknosebutharga=idperolehan).first(),
-        'projek':project.Projek.objects.get(nosebuthargaid=idperolehan),
+        'mrksatufecth':document.MRKSatu.objects.get(mrksatunosebutharga=projekid),
+        'pskfecth':document.PSK.objects.filter(psknosebutharga=projekid).first(),
+        'projek':project.Projek.objects.get(nosebuthargaid=projekid),
         'userlist':User.objects.all()
     }
 
     return render(request, 'pages/psmk.html',context)
 
-def jaminanbankv(request, idperolehan):
-    dataobject = document.SuratPJaminanbank.objects.filter(jbankknosebutharga=idperolehan).first()
+def jaminanbankv(request, projekid):
+    dataobject = document.SuratPJaminanbank.objects.filter(jbankknosebutharga=projekid).first()
     form = ducumentform.JaminanBankForm(request.POST or None, instance=dataobject)
 
     if form.is_valid():
@@ -206,17 +208,17 @@ def jaminanbankv(request, idperolehan):
     
     context = {
         'form':form,
-        'mrksatufecth':document.MRKSatu.objects.get(mrksatunosebutharga=idperolehan),
-        'projek':project.Projek.objects.get(nosebuthargaid=idperolehan),
+        'mrksatufecth':document.MRKSatu.objects.get(mrksatunosebutharga=projekid),
+        'projek':project.Projek.objects.get(nosebuthargaid=projekid),
         'userlist':User.objects.all(),
-        'pskfecth':document.PSK.objects.filter(psknosebutharga=idperolehan).first(),
-        'psmkfecth':document.PSMK.objects.filter(psmknosebutharga=idperolehan).first(),
+        'pskfecth':document.PSK.objects.filter(psknosebutharga=projekid).first(),
+        'psmkfecth':document.PSMK.objects.filter(psmknosebutharga=projekid).first(),
     }
 
     return render(request, 'pages/jaminanbank.html',context)
 
-def pwjpview(request, idperolehan):
-    dataobject = document.Perakuanpwjp.objects.filter(wjpknosebutharga=idperolehan).first()
+def pwjpview(request, projekid):
+    dataobject = document.Perakuanpwjp.objects.filter(wjpknosebutharga=projekid).first()
     form = ducumentform.PwjpForm(request.POST or None, instance=dataobject)
 
     if form.is_valid():
@@ -230,16 +232,16 @@ def pwjpview(request, idperolehan):
     
     context = {
         'form':form,
-        'mrksatufecth':document.MRKSatu.objects.get(mrksatunosebutharga=idperolehan),
-        'projek':project.Projek.objects.get(nosebuthargaid=idperolehan),
+        'mrksatufecth':document.MRKSatu.objects.get(mrksatunosebutharga=projekid),
+        'projek':project.Projek.objects.get(nosebuthargaid=projekid),
         'userlist':User.objects.all()
     }
 
     return render(request, 'pages/ppwjp.html',context)
 
 
-def smrkview(request, idperolehan):
-    dataobject = document.SuratMRK.objects.filter(smrkknosebutharga=idperolehan).first()
+def smrkview(request, projekid):
+    dataobject = document.SuratMRK.objects.filter(smrkknosebutharga=projekid).first()
     form = ducumentform.SuratMRKForm(request.POST or None, instance=dataobject)
 
     if form.is_valid():
@@ -253,15 +255,15 @@ def smrkview(request, idperolehan):
     
     context = {
         'form':form,
-        'mrksatufecth':document.MRKSatu.objects.get(mrksatunosebutharga=idperolehan),
-        'projek':project.Projek.objects.get(nosebuthargaid=idperolehan),
+        'mrksatufecth':document.MRKSatu.objects.get(mrksatunosebutharga=projekid),
+        'projek':project.Projek.objects.get(nosebuthargaid=projekid),
         'userlist':User.objects.all()
     }
 
     return render(request, 'pages/smrk.html',context)
 
-def skhasview(request, idperolehan):
-    dataobject = document.SuratKhas.objects.filter(khasknosebutharga=idperolehan).first()
+def skhasview(request, projekid):
+    dataobject = document.SuratKhas.objects.filter(khasknosebutharga=projekid).first()
     form = ducumentform.SuratKhasForm(request.POST or None, instance=dataobject)
 
     if form.is_valid():
@@ -275,16 +277,16 @@ def skhasview(request, idperolehan):
     
     context = {
         'form':form,
-        'mrksatufecth':document.MRKSatu.objects.get(mrksatunosebutharga=idperolehan),
-        'projek':project.Projek.objects.get(nosebuthargaid=idperolehan),
+        'mrksatufecth':document.MRKSatu.objects.get(mrksatunosebutharga=projekid),
+        'projek':project.Projek.objects.get(nosebuthargaid=projekid),
         'userlist':User.objects.all()
     }
 
     return render(request, 'pages/skhas.html',context)
 
 
-def sbonview(request, idperolehan):
-    dataobject = document.SuratPelepasanBon.objects.filter(bonknosebutharga=idperolehan).first()
+def sbonview(request, projekid):
+    dataobject = document.SuratPelepasanBon.objects.filter(bonknosebutharga=projekid).first()
     form = ducumentform.SuratBonForm(request.POST or None, instance=dataobject)
 
     if form.is_valid():
@@ -298,8 +300,8 @@ def sbonview(request, idperolehan):
     
     context = {
         'form':form,
-        'mrksatufecth':document.MRKSatu.objects.get(mrksatunosebutharga=idperolehan),
-        'projek':project.Projek.objects.get(nosebuthargaid=idperolehan),
+        'mrksatufecth':document.MRKSatu.objects.get(mrksatunosebutharga=projekid),
+        'projek':project.Projek.objects.get(nosebuthargaid=projekid),
         'userlist':User.objects.all()
     }
 

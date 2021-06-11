@@ -71,18 +71,18 @@ def dokumenpilih(request, prid):
     projetgetsebutid = project.Projek.objects.filter(id=prid).first()
     data = {
         'projek':project.Projek.objects.get(id=prid),
-        'mrksatu':document.MRKSatu.objects.filter(mrksatunosebutharga=projetgetsebutid.nosebuthargaid).first(),
-        'mrkdua':document.MRKDua.objects.filter(mrkduanosebutharga=projetgetsebutid.nosebuthargaid).first(),
-        'lsk':document.Laporansiapkerja.objects.filter(lsknosebutharga=projetgetsebutid.nosebuthargaid).first(),
-        'mrktiga':document.MRKTiga.objects.filter(mrktigasebutharga=projetgetsebutid.nosebuthargaid).first(),
-        'psk':document.PSK.objects.filter(psknosebutharga=projetgetsebutid.nosebuthargaid).first(),
-        'ss':document.SenaraiSemakan.objects.filter(ssnosebutharga=projetgetsebutid.nosebuthargaid).first(),
-        'psmk':document.PSMK.objects.filter(psmknosebutharga=projetgetsebutid.nosebuthargaid).first(),
-        'pjb':document.SuratPJaminanbank.objects.filter(jbankknosebutharga=projetgetsebutid.nosebuthargaid).first(),
-        'ppwjp':document.Perakuanpwjp.objects.filter(wjpknosebutharga=projetgetsebutid.nosebuthargaid).first(),
-        'smrk':document.SuratMRK.objects.filter(smrkknosebutharga=projetgetsebutid.nosebuthargaid).first(),
-        'skhas':document.SuratKhas.objects.filter(khasknosebutharga=projetgetsebutid.nosebuthargaid).first(),
-        'sbon':document.SuratPelepasanBon.objects.filter(bonknosebutharga=projetgetsebutid.nosebuthargaid).first(),
+        'mrksatu':document.MRKSatu.objects.filter(projekbind=projetgetsebutid).first(),
+        'mrkdua':document.MRKDua.objects.filter(projekbind=projetgetsebutid).first(),
+        'lsk':document.Laporansiapkerja.objects.filter(projekbind=projetgetsebutid).first(),
+        'mrktiga':document.MRKTiga.objects.filter(projekbind=projetgetsebutid).first(),
+        'psk':document.PSK.objects.filter(projekbind=projetgetsebutid).first(),
+        'ss':document.SenaraiSemakan.objects.filter(projekbind=projetgetsebutid).first(),
+        'psmk':document.PSMK.objects.filter(projekbind=projetgetsebutid).first(),
+        'pjb':document.SuratPJaminanbank.objects.filter(projekbind=projetgetsebutid).first(),
+        'ppwjp':document.Perakuanpwjp.objects.filter(projekbind=projetgetsebutid).first(),
+        'smrk':document.SuratMRK.objects.filter(projekbind=projetgetsebutid).first(),
+        'skhas':document.SuratKhas.objects.filter(projekbind=projetgetsebutid).first(),
+        'sbon':document.SuratPelepasanBon.objects.filter(projekbind=projetgetsebutid).first(),
     }
     return render(request,  'pages/dokumennav.html',data)
 

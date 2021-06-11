@@ -27,7 +27,7 @@
 		<section class="content">
 			<div class="row">			  
 				<div class="col-lg-9 col-9">
-                	<form class="form" action='{% url 'dokumen/mrktiga' idperolehan=mrksatufecth.mrksatunosebutharga.id  %}' method="POST">
+                	<form class="form" action='{% url 'dokumen/mrktiga' projekid=mrksatufecth.projekbind.id  %}' method="POST">
 					  <div class="box">
                        {% csrf_token %}
 						<div class="box-body">
@@ -40,7 +40,7 @@
                                 <label class="tl"><h5 class="text-secondary font-weight-500 mb-2">No Pendaftaran PKK</h5></label>
                     
                                 <input type="hidden" class="form-control" name="{{form.marktigamrksatu.name}}" value="{{mrksatufecth.id}}"/>
-                                <input type="hidden" class="form-control" name="{{form.mrktigasebutharga.name}}" value="{{mrksatufecth.mrksatunosebutharga.id}}"/>
+                                <input type="hidden" class="form-control" name="{{form.projekbind.name}}" value="{{mrksatufecth.projekbind.id}}"/>
                                 <input type="text" class="form-control ts" value="{{mrksatufecth.mrksatukontraktor.sijilPPKNoPendaftaran}}" placeholder="No Pendaftaran PKK" readonly>
                                 </div>
                             </div>
@@ -61,7 +61,7 @@
                             <div class="form-group row">
                                 <div class="col-sm-6">
                                 <label class="tl"><h5 class="text-secondary font-weight-500 mb-2">No Kontrak / No Sebutharga</h5></label>
-                                <input type="text" class="form-control ts" value="{{mrksatufecth.mrksatunosebutharga.noperolehan}}" placeholder="No Kontrak"  readonly>
+                                <input type="text" class="form-control ts" value="{{mrksatufecth.projekbind.nosebuthargaid}}" placeholder="No Kontrak"  readonly>
                                 </div>
                             </div>
                             </div>
@@ -343,18 +343,18 @@
 					</div>
 					<div class="box-body no-padding mailbox-nav">
 					  <ul class="nav nav-pills flex-column">
-						<li class="nav-item"><a class="nav-link" href="{% url 'dokumen/mrksatu' idperolehan=mrksatufecth.mrksatunosebutharga.id  %}"><i class="fa fa-folder-o text-dark"></i>MRK 01</a></li>
-						<li class="nav-item"><a class="nav-link" href="{% url 'dokumen/mrkdua' idperolehan=mrksatufecth.mrksatunosebutharga.id  %}"><i class="fa fa-folder-o text-dark"></i> MRK 02</a></li>
-						<li class="nav-item"><a class="nav-link" href="{% url 'dokumen/lsk' idperolehan=mrksatufecth.mrksatunosebutharga.id  %}"><i class="fa fa-folder-o text-dark"></i> Laporan Siap Kerja</a></li>
-                        <li class="nav-item"><a class="nav-link aktif" href="{% url 'dokumen/mrktiga' idperolehan=mrksatufecth.mrksatunosebutharga.id  %}"><i class="fa fa-folder-open-o text-dark"></i> MRK 03</a></li>
-						<li class="nav-item"><a class="nav-link" href="{% url 'dokumen/psk' idperolehan=mrksatufecth.mrksatunosebutharga.id  %}"><i class="fa fa-folder-o text-dark"></i>Perakuan Siap Kerja</a></li>
-						<li class="nav-item"><a class="nav-link" href="{% url 'dokumen/senaraisemakan' idperolehan=mrksatufecth.mrksatunosebutharga.id  %}"><i class="fa fa-folder-o text-dark "></i> Senarai Semakan</a></li>
-                        <li class="nav-item"><a class="nav-link" href="{% url 'dokumen/psmk' idperolehan=mrksatufecth.mrksatunosebutharga.id  %}"><i class="fa fa-folder-o"></i>Perakuan Siap Membaiki Kecacatan</a></li>
-						<li class="nav-item"><a class="nav-link" href="{% url 'dokumen/jaminanbank' idperolehan=mrksatufecth.mrksatunosebutharga.id  %}"><i class="fa fa-folder-o text-dark"></i>Pelepasan Jaminan Bank</a></li>
-						<li class="nav-item"><a class="nav-link" href="{% url 'dokumen/ppwjp' idperolehan=mrksatufecth.mrksatunosebutharga.id  %}"><i class="fa fa-folder-o text-dark"></i>Perakuan Pemulangan WJP</a></li>
-                        <li class="nav-item"><a class="nav-link" href="{% url 'dokumen/smrk' idperolehan=mrksatufecth.mrksatunosebutharga.id  %}"><i class="fa fa-folder-o text-dark"></i> Surat Maklumat Rekod Kerja</a></li>
-						<li class="nav-item"><a class="nav-link" href="{% url 'dokumen/skhas' idperolehan=mrksatufecth.mrksatunosebutharga.id  %}"><i class="fa fa-folder-o text-dark"></i> Surat Kebenaran Khas</a></li>
-						<li class="nav-item"><a class="nav-link" href="{% url 'dokumen/suratbon' idperolehan=mrksatufecth.mrksatunosebutharga.id  %}"><i class="fa fa-folder-o text-dark"></i>Surat Pelepasan Bon Jaminan Perlaksanaan</a></li>
+						<li class="nav-item"><a class="nav-link" href="{% url 'dokumen/mrksatu' projekid=mrksatufecth.projekbind.id  %}"><i class="fa fa-folder-o text-dark"></i>MRK 01</a></li>
+						<li class="nav-item"><a class="nav-link" href="{% url 'dokumen/mrkdua' projekid=mrksatufecth.projekbind.id  %}"><i class="fa fa-folder-o text-dark"></i> MRK 02</a></li>
+						<li class="nav-item"><a class="nav-link" href="{% url 'dokumen/lsk' projekid=mrksatufecth.projekbind.id  %}"><i class="fa fa-folder-o text-dark"></i> Laporan Siap Kerja</a></li>
+                        <li class="nav-item"><a class="nav-link aktif" href="{% url 'dokumen/mrktiga' projekid=mrksatufecth.projekbind.id  %}"><i class="fa fa-folder-open-o text-dark"></i> MRK 03</a></li>
+						<li class="nav-item"><a class="nav-link" href="{% url 'dokumen/psk' projekid=mrksatufecth.projekbind.id  %}"><i class="fa fa-folder-o text-dark"></i>Perakuan Siap Kerja</a></li>
+						<li class="nav-item"><a class="nav-link" href="{% url 'dokumen/senaraisemakan' projekid=mrksatufecth.projekbind.id  %}"><i class="fa fa-folder-o text-dark "></i> Senarai Semakan</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{% url 'dokumen/psmk' projekid=mrksatufecth.projekbind.id  %}"><i class="fa fa-folder-o"></i>Perakuan Siap Membaiki Kecacatan</a></li>
+						<li class="nav-item"><a class="nav-link" href="{% url 'dokumen/jaminanbank' projekid=mrksatufecth.projekbind.id  %}"><i class="fa fa-folder-o text-dark"></i>Pelepasan Jaminan Bank</a></li>
+						<li class="nav-item"><a class="nav-link" href="{% url 'dokumen/ppwjp' projekid=mrksatufecth.projekbind.id  %}"><i class="fa fa-folder-o text-dark"></i>Perakuan Pemulangan WJP</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{% url 'dokumen/smrk' projekid=mrksatufecth.projekbind.id  %}"><i class="fa fa-folder-o text-dark"></i> Surat Maklumat Rekod Kerja</a></li>
+						<li class="nav-item"><a class="nav-link" href="{% url 'dokumen/skhas' projekid=mrksatufecth.projekbind.id  %}"><i class="fa fa-folder-o text-dark"></i> Surat Kebenaran Khas</a></li>
+						<li class="nav-item"><a class="nav-link" href="{% url 'dokumen/suratbon' projekid=mrksatufecth.projekbind.id  %}"><i class="fa fa-folder-o text-dark"></i>Surat Pelepasan Bon Jaminan Perlaksanaan</a></li>
 					  </ul>
 					</div>
 					<!-- /.box-body -->

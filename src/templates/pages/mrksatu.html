@@ -27,7 +27,7 @@
 		<section class="content">
 			<div class="row">			  
 				<div class="col-lg-9 col-9">
-                	<form class="form" action='{% url 'dokumen/mrksatu' idperolehan=sebutharga.nosebuthargaid.id  %}' method="POST">
+                	<form class="form" action='' method="POST">
 					  <div class="box">
 				
 						<!-- /.box-header -->
@@ -36,13 +36,13 @@
 							<div class="box-body">
 								<h4 class="box-title text-primary"><i class="ti-user mr-15"></i>Kategori Pendaftaran</h4>
 								<hr class="my-15">
-								<a href="{% url 'laporan/mrksatu' idperolehan=sebutharga.nosebuthargaid.id  %}" target="_blank">cetak pdf</a>
+								<a href="" target="_blank">cetak pdf</a>
 								<div class="row">
 								  <div class="col-xl-8 col-lg-12 ">
 									<div class="form-group">
 									  <label><h5 class="text-secondary font-weight-400 mb-2">No Sebutharga</h5></label>
-                                      <input type="hidden" class="form-control" name="{{form.mrksatunosebutharga.name}}" value="{{sebutharga.nosebuthargaid.id}}"/>
-                                      <input type="text" class="form-control" value="{{sebutharga.nosebuthargaid.noperolehan}}" readonly/>
+                                      <input type="hidden" class="form-control" name="{{form.projekbind.name}}" value="{{projek.id}}"/>
+                                      <input type="text" class="form-control" value="{{projek.nosebuthargaid.noperolehan}}" readonly/>
 									</div>
 								  </div>
 								</div>
@@ -80,7 +80,7 @@
 								  <div class="col-lg-12 col-xl-8">
 									<div class="form-group">
 									  <label><h5 class="text-secondary font-weight-500 mb-2">Alamat</h5></label>
-                                      <textarea type="text" class="form-control" id="alamats" readonly></textarea>
+                                      <textarea type="text" class="form-control" id="alamats" readonly>{{mrksatu.mrksatukontraktor.konAlamat}}</textarea>
 									</div>
 								  </div>
 								</div>
@@ -105,7 +105,7 @@
 								  <div class="col-lg-12 col-xl-8">
 									<div class="form-group">
 									  <label><h5 class="text-secondary font-weight-500 mb-2">Tajuk Kerja</h5></label>
-                                      <textarea type="text" class="form-control" readonly>{{sebutharga.tajukkerja}}</textarea>
+                                      <textarea type="text" class="form-control" readonly>{{projek.tajukkerja}}</textarea>
 									</div>
 								  </div>
 								</div>
@@ -158,7 +158,7 @@
 													<tbody>
 													{% for row in kontraktor %}
 														<tr>
-														<td class="py-1">{{forloop.counter}}</td>
+														<td class="py-1">{{forloomrksatu.counter}}</td>
 														<td class="py-1">{{row.id}}</td>
 														<td class="py-1"><button id="buttonkontraktor" value="{{row.id}}" class="waves-effect waves-light btn mb-5 bg-gradient-primary" data-dismiss="modal">Select</button></td>
 														<td class="py-1"><span>{{row.konNama}}<span></td> <!--Show data in list view-->
@@ -250,13 +250,13 @@
 								  <div class="col-md-6">
 									<div class="form-group">
 									  <label><h5 class="text-secondary font-weight-500 mb-2">Pegawai</h5></label>
-                                      <input type="text" class="form-control" value="{{sebutharga.nosebuthargaid.pegawaiselia.first_name}}" readonly/>
+									<input type="text" class="form-control" value="{{mrksatu.projekbind.nosebuthargaid.pegawaiselia.first_name}}" readonly/>
 									</div>
 								  </div>
                                    <div class="col-md-6">
 									<div class="form-group">
 									  <label><h5 class="text-secondary font-weight-500 mb-2">Jawatan</h5></label>
-                                      <input type="text" class="form-control" value="{{sebutharga.nosebuthargaid.pegawaiselia.userprofile.jawatan}}" readonly/>
+                                      <input type="text" class="form-control" value="{{mrksatu.projekbind.nosebuthargaid.pegawaiselia.userprofile.jawatan}}" readonly/>
 									</div>
 								  </div>
 								</div>
@@ -305,18 +305,18 @@
 					</div>
 					<div class="box-body no-padding mailbox-nav">
 					  <ul class="nav nav-pills flex-column">
-						<li class="nav-item"><a class="nav-link aktif" href="{% url 'dokumen/mrksatu' idperolehan=sebutharga.nosebuthargaid.id  %}"><i class="fa fa-folder-open-o text-dark"></i>MRK 01</a></li>
-						<li class="nav-item"><a class="nav-link" href="{% url 'dokumen/mrkdua' idperolehan=sebutharga.nosebuthargaid.id  %}"><i class="fa fa-folder-o text-dark"></i> MRK 02</a></li>
-						<li class="nav-item"><a class="nav-link" href="{% url 'dokumen/lsk' idperolehan=sebutharga.nosebuthargaid.id  %}"><i class="fa fa-folder-o text-dark"></i> Laporan Siap Kerja</a></li>
-                        <li class="nav-item"><a class="nav-link" href="{% url 'dokumen/mrktiga' idperolehan=sebutharga.nosebuthargaid.id  %}"><i class="fa fa-folder-o text-dark"></i> MRK 03</a></li>
-						<li class="nav-item"><a class="nav-link" href="{% url 'dokumen/psk' idperolehan=sebutharga.nosebuthargaid.id  %}"><i class="fa fa-folder-o text-dark"></i>Perakuan Siap Kerja</a></li>
-						<li class="nav-item"><a class="nav-link" href="{% url 'dokumen/senaraisemakan' idperolehan=sebutharga.nosebuthargaid.id  %}"><i class="fa fa-folder-o text-dark "></i> Senarai Semakan</a></li>
-                        <li class="nav-item"><a class="nav-link" href="{% url 'dokumen/psmk' idperolehan=sebutharga.nosebuthargaid.id  %}"><i class="fa fa-folder-o"></i>Perakuan Siap Membaiki Kecacatan</a></li>
-						<li class="nav-item"><a class="nav-link" href="{% url 'dokumen/jaminanbank' idperolehan=sebutharga.nosebuthargaid.id  %}"><i class="fa fa-folder-o text-dark"></i>Pelepasan Jaminan Bank</a></li>
-						<li class="nav-item"><a class="nav-link" href="{% url 'dokumen/ppwjp' idperolehan=sebutharga.nosebuthargaid.id  %}"><i class="fa fa-folder-o text-dark"></i>Perakuan Pemulangan WJP</a></li>
-                        <li class="nav-item"><a class="nav-link" href="{% url 'dokumen/smrk' idperolehan=sebutharga.nosebuthargaid.id  %}"><i class="fa fa-folder-o text-dark"></i> Surat Maklumat Rekod Kerja</a></li>
-						<li class="nav-item"><a class="nav-link" href="{% url 'dokumen/skhas' idperolehan=sebutharga.nosebuthargaid.id  %}"><i class="fa fa-folder-o text-dark"></i> Surat Kebenaran Khas</a></li>
-						<li class="nav-item"><a class="nav-link" href="{% url 'dokumen/suratbon' idperolehan=sebutharga.nosebuthargaid.id  %}"><i class="fa fa-folder-o text-dark"></i>Surat Pelepasan Bon Jaminan Perlaksanaan</a></li>
+						<li class="nav-item"><a class="nav-link aktif" href="{% url 'dokumen/mrksatu' projekid=projek.id  %}"><i class="fa fa-folder-open-o text-dark"></i>MRK 01</a></li>
+						<li class="nav-item"><a class="nav-link" href="{% url 'dokumen/mrkdua' projekid=projek.id %}"><i class="fa fa-folder-open-o text-dark"></i> MRK 02</a></li>
+						<li class="nav-item"><a class="nav-link" href="{% url 'dokumen/lsk' projekid=projek.id %}"><i class="fa fa-folder-o text-dark"></i> Laporan Siap Kerja</a></li>
+            			<li class="nav-item"><a class="nav-link" href="{% url 'dokumen/mrktiga' projekid=projek.id %}"><i class="fa fa-folder-o text-dark"></i> MRK 03</a></li>
+						<li class="nav-item"><a class="nav-link" href="{% url 'dokumen/psk' projekid=projek.id %}"><i class="fa fa-folder-o text-dark"></i>Perakuan Siap Kerja</a></li>
+						<li class="nav-item"><a class="nav-link" href="{% url 'dokumen/senaraisemakan' projekid=projek.id %}"><i class="fa fa-folder-o text-dark "></i> Senarai Semakan</a></li>
+            			<li class="nav-item"><a class="nav-link" href="{% url 'dokumen/psmk' projekid=projek.id %}"><i class="fa fa-folder-o"></i>Perakuan Siap Membaiki Kecacatan</a></li>
+						<li class="nav-item"><a class="nav-link" href="{% url 'dokumen/jaminanbank' projekid=projek.id %}"><i class="fa fa-folder-o text-dark"></i>Pelepasan Jaminan Bank</a></li>
+						<li class="nav-item"><a class="nav-link" href="{% url 'dokumen/ppwjp' projekid=projek.id %}"><i class="fa fa-folder-o text-dark"></i>Perakuan Pemulangan WJP</a></li>
+            			<li class="nav-item"><a class="nav-link" href="{% url 'dokumen/smrk' projekid=projek.id %}"><i class="fa fa-folder-o text-dark"></i> Surat Maklumat Rekod Kerja</a></li>
+						<li class="nav-item"><a class="nav-link" href="{% url 'dokumen/skhas' projekid=projek.id %}"><i class="fa fa-folder-o text-dark"></i> Surat Kebenaran Khas</a></li>
+						<li class="nav-item"><a class="nav-link" href="{% url 'dokumen/suratbon' projekid=projek.id %}"><i class="fa fa-folder-o text-dark"></i>Surat Pelepasan Bon Jaminan Perlaksanaan</a></li>
 					  </ul>
 					</div>
 					<!-- /.box-body -->

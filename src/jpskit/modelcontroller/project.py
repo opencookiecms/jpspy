@@ -1,10 +1,12 @@
 from django.db import models
 from django.urls import reverse
 from ..modelcontroller import kontraktor, dfnoperolehan
+import uuid
 
 
 class Projek(models.Model):
 
+    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False) 
     tajukkerja = models.CharField(max_length=500, null=True, blank=True)
     daerah = models.CharField(max_length=50, null=True, blank=True)
     pgred = models.CharField(max_length=50, null=True, blank=True)
