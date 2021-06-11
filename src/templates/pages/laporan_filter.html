@@ -118,15 +118,19 @@
 								</thead>
 								<tbody>
 									{% for qss in qs %}
+							
 									<tr>
 										<td><span class="text-primary font-weight-600 d-block font-size-30 cc_cursor">01</span></td>
 										<td>{{qss.mrksatunoinden}}</td>
+									
 										<td>
 											<h6 class="mb-0">
 											
-												<span class="d-block text-muted" style="width:200px">PENYELENGGARAAN TERUSAN, TALIAIR TANAH/KONKRIT SERTA PARIT DIKAWASAN RANTAU PANJANG, SKIM PENGAIRAN KOTA II, DAERAH KUALA MUDA, KEDAH DARUL AMAN.</span>
+												<span class="d-block text-muted" style="width:200px">{{ps}}</span>
+												{{ps}}
 											</h6>
 										</td>
+									
 										<td>
 										<h6 class="mb-0 font-weight-bold" style="width:120px">RM {{qss.mrksatukosprojek|intcomma}}</h6>
 										</td>
@@ -159,7 +163,7 @@
                                         
 									</tr>
 									{% endfor %}
-
+								
 
 	
 								</tbody>
