@@ -257,7 +257,8 @@ class kosprojek(models.Model):
     kos_belanja = models.DecimalField(max_digits=12, decimal_places=2, null=True, blank=True)
     kos_tanggung = models.DecimalField(max_digits=12, decimal_places=2, null=True, blank=True)
     projekbind = models.ForeignKey(project.Projek, blank=True, null=True, on_delete = models.SET_NULL)
-    kos_mrksatulink = models.ForeignKey(MRKSatu, blank=True, null=True, on_delete = models.SET_NULL)
+ 
+
 
 
 
