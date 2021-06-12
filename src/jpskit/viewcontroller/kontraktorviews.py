@@ -5,30 +5,27 @@ from ..modelcontroller import kontraktor
 from ..formcontroller import kontraktorform
 from django.db.models import Q
 from django.db.models import Count
+from django.db.models.functions import NullIf
+from django.core.exceptions import ObjectDoesNotExist
 
 
 
 def kontraktordash(request):
 
     timecurrent = datetime.date.today().strftime('%d/%m/%Y')
-
-    
-    data = {
-        'titleboard':'Kontraktor Dashboard',
-        'kontraktor':kontraktor.Kontraktor.objects.all(),
-        'total':kontraktor.Kontraktor.objects.all().count(),
-        'dateend' : timecurrent,
-        'distict' : kontraktor.Kontraktor.objects.aggregate(
+  
+    d = kontraktor.Kontraktor.objects.aggregate(
             kualamuda = Count('pk',filter=Q(konKawOperasi='Kuala Muda')),
             sik = Count('pk',filter=Q(konKawOperasi='Sik')),
             baling = Count('pk',filter=Q(konKawOperasi='Baling')),
             kedah = Count('pk',filter=Q(konKawOperasi='Kedah')),
-        ),
-        'totalactive':kontraktor.Kontraktor.objects.aggregate(
+        )
+    t = kontraktor.Kontraktor.objects.aggregate(
             active = Count('pk', filter=Q(sijilJPSTamat__gte=timecurrent )),
             deactive = Count('pk', filter=Q(sijilJPSTamat__lte=timecurrent)),
-        ),
-        'g1total':kontraktor.Kontraktor.objects.aggregate(
+        )
+    
+    g = kontraktor.Kontraktor.objects.aggregate(
             kualamuda = Count('pk', filter=Q(sijilPPKGredSatu='G1',konKawOperasi='Kuala Muda')),
             sik = Count('pk', filter=Q(sijilPPKGredSatu='G1',konKawOperasi='Sik')),
             baling = Count('pk', filter=Q(sijilPPKGredSatu='G1',konKawOperasi='Baling')),
@@ -40,7 +37,16 @@ def kontraktordash(request):
             sikdntactive = Count('pk', filter=Q(sijilPPKGredSatu='G1',sijilJPSTamat__lte=timecurrent,konKawOperasi='Sik')),
             balingdntactive = Count('pk', filter=Q(sijilPPKGredSatu='G1',sijilJPSTamat__lte=timecurrent,konKawOperasi='Baling')),
             kualamudantactive = Count('pk', filter=Q(sijilPPKGredSatu='G1',sijilJPSTamat__lte=timecurrent,konKawOperasi='Kuala Muda')),
-        ),
+        )
+    
+    data = {
+        'titleboard':'Kontraktor Dashboard',
+        'kontraktor':kontraktor.Kontraktor.objects.all(),
+        'total':kontraktor.Kontraktor.objects.all().count(),
+        'dateend' : timecurrent,
+        'distict' : d,
+        'totalactive':t,
+        'g1total':g
     }
 
     return render(request, 'pages/kontraktor-dashboard.html',data)

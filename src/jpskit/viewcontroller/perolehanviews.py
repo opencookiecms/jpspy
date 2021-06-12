@@ -10,11 +10,11 @@ from django.db.models import Count
 def dnoperolehan(request):
 
     context = {
-        'semua':dfnoperolehan.NoPerolehan.objects.all(),
+        'semua':dfnoperolehan.NoPerolehan.objects.filter(tarikh__year=2021),
         'sebutharga':dfnoperolehan.NoPerolehan.objects.filter(kaedahperolehan="Sebutharga"),
         'lt':dfnoperolehan.NoPerolehan.objects.filter(kaedahperolehan="Lantikan Terus"),
         'undi':dfnoperolehan.NoPerolehan.objects.filter(kaedahperolehan="Undi"),
-        'total':dfnoperolehan.NoPerolehan.objects.all().count(),
+        'total':dfnoperolehan.NoPerolehan.objects.filter(tarikh__year=2021).count(),
         'kelas':dfnoperolehan.NoPerolehan.objects.aggregate(
             sebutharga = Count('pk', filter=Q(kaedahperolehan='Sebutharga')),
             lt = Count('pk', filter=Q(kaedahperolehan='Lantikan Terus')),
