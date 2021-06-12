@@ -608,14 +608,12 @@ def pdfjb(request, projekid):
 
 def pdfppwjp(request, projekid):
 
-    dataobject = document.Perakuanpwjp.objects.filter(wjpknosebutharga=projekid).first()
-    projek = project.Projek.objects.filter(nosebuthargaid=projekid).first()
-    userprofileL = userprofile.UserProfile.objects.filter(id=dataobject.wjpknosebutharga.pegawaiselia.id).first()
+    dataobject = document.Perakuanpwjp.objects.filter(projekbind=projekid).first()
     lskfetch = document.Laporansiapkerja.objects.filter(projekbind=projekid).first()
     psk  = document.PSK.objects.filter(projekbind=projekid).first()
  
-    idsebutharga = dataobject.wjpknosebutharga.id
-    print(idsebutharga)
+    idstr = str(dataobject.projekbind.id)
+    print(idstr)
  
     pdfjinja = PdfJinja('static_in_env/assets/pdf/ppwjp.pdf')
     pdfout = pdfjinja(
@@ -623,16 +621,16 @@ def pdfppwjp(request, projekid):
             namarujukan = dataobject.namarujukan,
             alamtrujukan = dataobject.alamatrujukan,
             kontraktor = dataobject.wjpmrksatulink.mrksatukontraktor.konNama,
-            projek = projek.tajukkerja,
+            projek = dataobject.projekbind.tajukkerja,
             rm = dataobject.koswjp,
-            jurutera = dataobject.wjppegawai,
-            jawatan = dataobject.wjpjawatan,
+            jurutera = dataobject.projekbind.nosebuthargaid.pegawaiselia.first_name,
+            jawatan = dataobject.projekbind.nosebuthargaid.pegawaiselia.userprofile.jawatan,
         ))
 
  
-    pdfout.write(open('static_in_env/assets/pdf/outputpdf/ppwjp-'+str(idsebutharga)+'-'+userprofileL.user.first_name+'.pdf', 'wb'))
+    pdfout.write(open('static_in_env/assets/pdf/outputpdf/ppwjp-'+idstr+'.pdf', 'wb'))
     try:
-        return FileResponse(open('static_in_env/assets/pdf/outputpdf/ppwjp-'+str(idsebutharga)+'-'+userprofileL.user.first_name+'.pdf', 'rb'), content_type='application/pdf')
+        return FileResponse(open('static_in_env/assets/pdf/outputpdf/ppwjp-'+idstr+'.pdf', 'rb'), content_type='application/pdf')
     except FileNotFoundError:
         raise Http404()
 
@@ -640,14 +638,12 @@ def pdfppwjp(request, projekid):
 
 def pdfsmrksatu(request, projekid):
 
-    dataobject = document.SuratMRK.objects.filter(smrkknosebutharga=projekid).first()
-    projek = project.Projek.objects.filter(nosebuthargaid=projekid).first()
-    userprofileL = userprofile.UserProfile.objects.filter(id=dataobject.smrkknosebutharga.pegawaiselia.id).first()
+    dataobject = document.SuratMRK.objects.filter(projekbind=projekid).first()
     lskfetch = document.Laporansiapkerja.objects.filter(projekbind=projekid).first()
     psk  = document.PSK.objects.filter(projekbind=projekid).first()
  
-    idsebutharga = dataobject.smrkknosebutharga.id
-    print(idsebutharga)
+    idstr = str(dataobject.projekbind.id)
+    print(idstr)
  
     pdfjinja = PdfJinja('static_in_env/assets/pdf/spkk1.pdf')
     pdfout = pdfjinja(
@@ -665,9 +661,9 @@ def pdfsmrksatu(request, projekid):
         ))
 
 
-    pdfout.write(open('static_in_env/assets/pdf/outputpdf/spkk1-'+str(idsebutharga)+'-'+userprofileL.user.first_name+'.pdf', 'wb'))
+    pdfout.write(open('static_in_env/assets/pdf/outputpdf/spkk1-'+idstr+'.pdf', 'wb'))
     try:
-        return FileResponse(open('static_in_env/assets/pdf/outputpdf/spkk1-'+str(idsebutharga)+'-'+userprofileL.user.first_name+'.pdf', 'rb'), content_type='application/pdf')
+        return FileResponse(open('static_in_env/assets/pdf/outputpdf/spkk1-'+idstr+'.pdf', 'rb'), content_type='application/pdf')
     except FileNotFoundError:
         raise Http404()
 
@@ -677,14 +673,12 @@ def pdfsmrksatu(request, projekid):
 
 def pdfsmrkdua(request, projekid):
 
-    dataobject = document.SuratMRK.objects.filter(smrkknosebutharga=projekid).first()
-    projek = project.Projek.objects.filter(nosebuthargaid=projekid).first()
-    userprofileL = userprofile.UserProfile.objects.filter(id=dataobject.smrkknosebutharga.pegawaiselia.id).first()
+    dataobject = document.SuratMRK.objects.filter(projekbind=projekid).first()
     lskfetch = document.Laporansiapkerja.objects.filter(projekbind=projekid).first()
     psk  = document.PSK.objects.filter(projekbind=projekid).first()
  
-    idsebutharga = dataobject.smrkknosebutharga.id
-    print(idsebutharga)
+    idstr = str(dataobject.projekbind.id)
+    print(idstr)
  
     pdfjinja = PdfJinja('static_in_env/assets/pdf/spkk2.pdf')
     pdfout = pdfjinja(
@@ -701,9 +695,9 @@ def pdfsmrkdua(request, projekid):
         ))
 
  
-    pdfout.write(open('static_in_env/assets/pdf/outputpdf/spkk2-'+str(idsebutharga)+'-'+userprofileL.user.first_name+'.pdf', 'wb'))
+    pdfout.write(open('static_in_env/assets/pdf/outputpdf/spkk2-'+idstr+'.pdf', 'wb'))
     try:
-        return FileResponse(open('static_in_env/assets/pdf/outputpdf/spkk2-'+str(idsebutharga)+'-'+userprofileL.user.first_name+'.pdf', 'rb'), content_type='application/pdf')
+        return FileResponse(open('static_in_env/assets/pdf/outputpdf/spkk2-'+idstr+'.pdf', 'rb'), content_type='application/pdf')
     except FileNotFoundError:
         raise Http404()
 
@@ -713,36 +707,34 @@ def pdfsmrkdua(request, projekid):
 
 def pdfskhas01(request, projekid):
 
-    dataobject = document.SuratKhas.objects.filter(khasknosebutharga=projekid).first()
-    projek = project.Projek.objects.filter(nosebuthargaid=projekid).first()
-    userprofileL = userprofile.UserProfile.objects.filter(id=dataobject.khasknosebutharga.pegawaiselia.id).first()
+    dataobject = document.SuratKhas.objects.filter(projekbind=projekid).first()
     lskfetch = document.Laporansiapkerja.objects.filter(projekbind=projekid).first()
     psk  = document.PSK.objects.filter(projekbind=projekid).first()
  
-    idsebutharga = dataobject.khasknosebutharga.id
-    print(idsebutharga)
+    idstr = str(dataobject.projekbind.id)
+    print(idstr)
  
     pdfjinja = PdfJinja('static_in_env/assets/pdf/skhas01.pdf')
     pdfout = pdfjinja(
         dict(
             rujukantuan = dataobject.khasrujukantuan,
-            rujukan = dataobject.khasknosebutharga,
+            rujukan = dataobject.projekbind,
             namarujukan = dataobject.khasnamarujukan,
             alamatrujukan =dataobject.khasalamatrujukan,
             gred = dataobject.khasmrksatulink.mrksatugred,
             kategori = dataobject.khasmrksatulink.mrksatukategori,
             khusus  = dataobject.khasmrksatulink.mrksatupengkhususan,
             kontraktor = dataobject.khasmrksatulink.mrksatukontraktor.konNama,
-            projek = projek.tajukkerja,
-            jurutera = dataobject.khasmrksatulink.mrksatunosebutharga.pegawaiselia.first_name,
-            jawatan = userprofileL.jawatan,
+            projek = dataobject.projekbind.tajukkerja,
+            jurutera = dataobject.khaspegawai,
+            jawatan = dataobject.khasjawatan,
 
         ))
 
  
-    pdfout.write(open('static_in_env/assets/pdf/outputpdf/skhas01-'+str(idsebutharga)+'-'+userprofileL.user.first_name+'.pdf', 'wb'))
+    pdfout.write(open('static_in_env/assets/pdf/outputpdf/skhas01-'+idstr+'.pdf', 'wb'))
     try:
-        return FileResponse(open('static_in_env/assets/pdf/outputpdf/skhas01-'+str(idsebutharga)+'-'+userprofileL.user.first_name+'.pdf', 'rb'), content_type='application/pdf')
+        return FileResponse(open('static_in_env/assets/pdf/outputpdf/skhas01-'+idstr+'.pdf', 'rb'), content_type='application/pdf')
     except FileNotFoundError:
         raise Http404()
 
@@ -750,35 +742,33 @@ def pdfskhas01(request, projekid):
 
 def pdfskhas02(request, projekid):
 
-    dataobject = document.SuratKhas.objects.filter(khasknosebutharga=projekid).first()
-    projek = project.Projek.objects.filter(nosebuthargaid=projekid).first()
-    userprofileL = userprofile.UserProfile.objects.filter(id=dataobject.khasknosebutharga.pegawaiselia.id).first()
+    dataobject = document.SuratKhas.objects.filter(projekbind=projekid).first()
     lskfetch = document.Laporansiapkerja.objects.filter(projekbind=projekid).first()
     psk  = document.PSK.objects.filter(projekbind=projekid).first()
  
-    idsebutharga = dataobject.khasknosebutharga.id
-    print(idsebutharga)
+    idstr = str(dataobject.projekbind.id)
+    print(idstr)
  
     pdfjinja = PdfJinja('static_in_env/assets/pdf/skhas02.pdf')
     pdfout = pdfjinja(
         dict(
             rujukantuan = dataobject.khasrujukantuan,
-            rujukan = dataobject.khasknosebutharga,
+            rujukan = dataobject.projekbind,
             namarujukan = dataobject.khasnamarujukan,
             alamatrujukan =dataobject.khasalamatrujukan,
             gred = dataobject.khasmrksatulink.mrksatugred,
             kategori = dataobject.khasmrksatulink.mrksatukategori,
             khusus  = dataobject.khasmrksatulink.mrksatupengkhususan,
             kontraktor = dataobject.khasmrksatulink.mrksatukontraktor.konNama,
-            projek = projek.tajukkerja,
-            jurutera = dataobject.khasmrksatulink.mrksatunosebutharga.pegawaiselia.first_name,
-            jawatan = userprofileL.jawatan,
+            projek = dataobject.projekbind.tajukkerja,
+            jurutera = dataobject.khaspegawai,
+            jawatan = dataobject.khasjawatan,
         ))
 
  
-    pdfout.write(open('static_in_env/assets/pdf/outputpdf/skhas02-'+str(idsebutharga)+'-'+userprofileL.user.first_name+'.pdf', 'wb'))
+    pdfout.write(open('static_in_env/assets/pdf/outputpdf/skhas02-'+idstr+'.pdf', 'wb'))
     try:
-        return FileResponse(open('static_in_env/assets/pdf/outputpdf/skhas02-'+str(idsebutharga)+'-'+userprofileL.user.first_name+'.pdf', 'rb'), content_type='application/pdf')
+        return FileResponse(open('static_in_env/assets/pdf/outputpdf/skhas02-'+idstr+'.pdf', 'rb'), content_type='application/pdf')
     except FileNotFoundError:
         raise Http404()
 
@@ -786,35 +776,33 @@ def pdfskhas02(request, projekid):
 
 def pdfpwjp01(request, projekid):
 
-    dataobject = document.SuratPelepasanBon.objects.filter(bonknosebutharga=projekid).first()
-    projek = project.Projek.objects.filter(nosebuthargaid=projekid).first()
-    userprofileL = userprofile.UserProfile.objects.filter(id=dataobject.bonknosebutharga.pegawaiselia.id).first()
+    dataobject = document.SuratPelepasanBon.objects.filter(projekbind=projekid).first()
     lskfetch = document.Laporansiapkerja.objects.filter(projekbind=projekid).first()
     psk  = document.PSK.objects.filter(projekbind=projekid).first()
  
-    idsebutharga = dataobject.bonknosebutharga.id
-    print(idsebutharga)
+    idstr = str(dataobject.projekbind.id)
+    print(idstr)
  
     pdfjinja = PdfJinja('static_in_env/assets/pdf/spwjp.pdf')
     pdfout = pdfjinja(
         dict(
           
-            rujukan = dataobject.bonknosebutharga,
+            rujukan = dataobject.projekbind,
             kepada = dataobject.bonkepada,
             alamatkepada =dataobject.bonalamatsatu,
             kontraktor = dataobject.bonmrksatulink.mrksatukontraktor.konNama,
             kepada2 = dataobject.bonmelalui,
             alamatkepada2 = dataobject.bonalamatdua,
-            jurutera = dataobject.bonmrksatulink.mrksatunosebutharga.pegawaiselia.first_name,
-            jawatan = userprofileL.jawatan,
+            jurutera = dataobject.bonpegawai,
+            jawatan = dataobject.bonjawatan,
             kosbon = intcomma(dataobject.bonwangjaminan),
       
         ))
 
  
-    pdfout.write(open('static_in_env/assets/pdf/outputpdf/spwjp-'+str(idsebutharga)+'-'+userprofileL.user.first_name+'.pdf', 'wb'))
+    pdfout.write(open('static_in_env/assets/pdf/outputpdf/spwjp-'+idstr+'.pdf', 'wb'))
     try:
-        return FileResponse(open('static_in_env/assets/pdf/outputpdf/spwjp-'+str(idsebutharga)+'-'+userprofileL.user.first_name+'.pdf', 'rb'), content_type='application/pdf')
+        return FileResponse(open('static_in_env/assets/pdf/outputpdf/spwjp-'+idstr+'.pdf', 'rb'), content_type='application/pdf')
     except FileNotFoundError:
         raise Http404()
 
@@ -823,35 +811,33 @@ def pdfpwjp01(request, projekid):
 
 def pdfpwjp02(request, projekid):
 
-    dataobject = document.SuratPelepasanBon.objects.filter(bonknosebutharga=projekid).first()
-    projek = project.Projek.objects.filter(nosebuthargaid=projekid).first()
-    userprofileL = userprofile.UserProfile.objects.filter(id=dataobject.bonknosebutharga.pegawaiselia.id).first()
+    dataobject = document.SuratPelepasanBon.objects.filter(projekbind=projekid).first()
     lskfetch = document.Laporansiapkerja.objects.filter(projekbind=projekid).first()
     psk  = document.PSK.objects.filter(projekbind=projekid).first()
  
-    idsebutharga = dataobject.bonknosebutharga.id
-    print(idsebutharga)
+    idstr = str(dataobject.projekbind.id)
+    print(idstr)
  
     pdfjinja = PdfJinja('static_in_env/assets/pdf/spwjp02.pdf')
     pdfout = pdfjinja(
         dict(
             
-            rujukan = dataobject.bonknosebutharga,
+            rujukan = dataobject.projekbind,
             kepada = dataobject.bonkepada,
             alamatkepada =dataobject.bonalamatsatu,
             kontraktor = dataobject.bonmrksatulink.mrksatukontraktor.konNama,
             kepada2 = dataobject.bonmelalui,
             alamatkepada2 = dataobject.bonalamatdua,
-            jurutera = dataobject.bonmrksatulink.mrksatunosebutharga.pegawaiselia.first_name,
-            jawatan = userprofileL.jawatan,
+            jurutera = dataobject.bonpegawai,
+            jawatan = dataobject.bonjawatan,
             kosbon = intcomma(dataobject.bonwangjaminan),
       
         ))
 
  
-    pdfout.write(open('static_in_env/assets/pdf/outputpdf/spwjp02-'+str(idsebutharga)+'-'+userprofileL.user.first_name+'.pdf', 'wb'))
+    pdfout.write(open('static_in_env/assets/pdf/outputpdf/spwjp02-'+idstr+'.pdf', 'wb'))
     try:
-        return FileResponse(open('static_in_env/assets/pdf/outputpdf/spwjp02-'+str(idsebutharga)+'-'+userprofileL.user.first_name+'.pdf', 'rb'), content_type='application/pdf')
+        return FileResponse(open('static_in_env/assets/pdf/outputpdf/spwjp02-'+idstr+'.pdf', 'rb'), content_type='application/pdf')
     except FileNotFoundError:
         raise Http404()
 

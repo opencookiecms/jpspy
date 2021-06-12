@@ -219,7 +219,7 @@ def jaminanbankv(request, projekid):
     return render(request, 'pages/jaminanbank.html',context)
 
 def pwjpview(request, projekid):
-    dataobject = document.Perakuanpwjp.objects.filter(wjpknosebutharga=projekid).first()
+    dataobject = document.Perakuanpwjp.objects.filter(projekbind=projekid).first()
     form = ducumentform.PwjpForm(request.POST or None, instance=dataobject)
 
     if form.is_valid():
@@ -228,13 +228,13 @@ def pwjpview(request, projekid):
         return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
     else:
         print("data was not save")
-        print(form)
+        print(form.errors)
     
     
     context = {
         'form':form,
-        'mrksatufecth':document.MRKSatu.objects.get(mrksatunosebutharga=projekid),
-        'projek':project.Projek.objects.get(nosebuthargaid=projekid),
+        'mrksatufecth':document.MRKSatu.objects.get(projekbind=projekid),
+        'projek':project.Projek.objects.get(id=projekid),
         'userlist':User.objects.all()
     }
 
@@ -242,7 +242,7 @@ def pwjpview(request, projekid):
 
 
 def smrkview(request, projekid):
-    dataobject = document.SuratMRK.objects.filter(smrkknosebutharga=projekid).first()
+    dataobject = document.SuratMRK.objects.filter(projekbind=projekid).first()
     form = ducumentform.SuratMRKForm(request.POST or None, instance=dataobject)
 
     if form.is_valid():
@@ -251,20 +251,20 @@ def smrkview(request, projekid):
         return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
     else:
         print("data was not save")
-        print(form)
+        print(form.errors)
     
     
     context = {
         'form':form,
-        'mrksatufecth':document.MRKSatu.objects.get(mrksatunosebutharga=projekid),
-        'projek':project.Projek.objects.get(nosebuthargaid=projekid),
+        'mrksatufecth':document.MRKSatu.objects.get(projekbind=projekid),
+        'projek':project.Projek.objects.get(id=projekid),
         'userlist':User.objects.all()
     }
 
     return render(request, 'pages/smrk.html',context)
 
 def skhasview(request, projekid):
-    dataobject = document.SuratKhas.objects.filter(khasknosebutharga=projekid).first()
+    dataobject = document.SuratKhas.objects.filter(projekbind=projekid).first()
     form = ducumentform.SuratKhasForm(request.POST or None, instance=dataobject)
 
     if form.is_valid():
@@ -273,13 +273,13 @@ def skhasview(request, projekid):
         return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
     else:
         print("data was not save")
-        print(form)
+        print(form.errors)
     
     
     context = {
         'form':form,
-        'mrksatufecth':document.MRKSatu.objects.get(mrksatunosebutharga=projekid),
-        'projek':project.Projek.objects.get(nosebuthargaid=projekid),
+        'mrksatufecth':document.MRKSatu.objects.get(projekbind=projekid),
+        'projek':project.Projek.objects.get(id=projekid),
         'userlist':User.objects.all()
     }
 
@@ -287,7 +287,7 @@ def skhasview(request, projekid):
 
 
 def sbonview(request, projekid):
-    dataobject = document.SuratPelepasanBon.objects.filter(bonknosebutharga=projekid).first()
+    dataobject = document.SuratPelepasanBon.objects.filter(projekbind=projekid).first()
     form = ducumentform.SuratBonForm(request.POST or None, instance=dataobject)
 
     if form.is_valid():
@@ -301,8 +301,8 @@ def sbonview(request, projekid):
     
     context = {
         'form':form,
-        'mrksatufecth':document.MRKSatu.objects.get(mrksatunosebutharga=projekid),
-        'projek':project.Projek.objects.get(nosebuthargaid=projekid),
+        'mrksatufecth':document.MRKSatu.objects.get(projekbind=projekid),
+        'projek':project.Projek.objects.get(id=projekid),
         'userlist':User.objects.all()
     }
 

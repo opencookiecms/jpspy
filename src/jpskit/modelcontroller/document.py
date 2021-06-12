@@ -208,7 +208,7 @@ class SuratMRK(models.Model):
 
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False) 
     smrkrujukantuan  = models.CharField(max_length=50, null=True, blank=True)
-    smrktarikh  = models.CharField(max_length=50, null=True, blank=True)
+    smrktarikh  = models.DateField(null=True, blank=True)
     smrkjenisborang  = models.CharField(max_length=50, null=True, blank=True)
     smrknamarujukan  = models.CharField(max_length=50, null=True, blank=True)
     smkralamatrujukan  = models.CharField(max_length=200, null=True, blank=True)
