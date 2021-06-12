@@ -4,129 +4,68 @@
   {% load static %}
   <div class="content-wrapper">
 	  <div class="container-full">
+	  		<div class="content-header">
+			<div class="d-flex align-items-center">
+				<div class="mr-auto">
+					<h3 class="page-title">Bahagian Perolehan</h3>
+					<div class="d-inline-block align-items-center">
+						<nav>
+							<ol class="breadcrumb">
+								<li class="breadcrumb-item"><a href="#"><i class="mdi mdi-home-outline"></i></a></li>
+								<li class="breadcrumb-item" aria-current="page">kontraktor</li>
+								<li class="breadcrumb-item active" aria-current="page">Senarai nama</li>
+							</ol>
+						</nav>
+					</div>
+				</div>
+				
+			</div>
+		</div>
 		<!-- Main content -->
 		<section class="content">
-			<div class="row align-items-end">
-				<div class="col-xl-12 col-12">
-						<div class="box">
-					<div class="card-body d-flex p-0">
-						<div class="flex-grow-1 bg-secondary-light px-30 pt-50 pb-100 flex-grow-1 bg-img min-h-350" style="background-position: calc(100% + 0.5rem) bottom; background-size: 12% auto; background-image: url({% static 'assets/images/svg-icon/color-svg/custom-5.svg'%})">
+	
+				<div class="row">
+					<div class="col-12 col-xl-12">
+				<div class="box">		
+			
+					<div class="box-body">						
+						<div class="px-10 py-30 bg-white text-dark">
+							<h3 class="px-10 mb-15 font-weight-700">Perolehan Analisis</h3>
+						   <ul class="flexbox flex-justified">
+							<li class="px-10">
+							  <h3 class="mb-1 text-bold">{{total}}</h3>
+							  <h6>Semua</h6>
+							</li>
 
-							<p class="text-dark py-10 font-size-40 font-weight-500">
-								No Perolehan
-							</p>
-							<p class="text-dark font-weight-500">
-								Integrations connect your Mailchimp account to the apps and tools you already use. That makes marketing easier.
-							</p>
+							<li class="br-1 bl-2 px-10">
+							   <h3 class="mb-1 text-bold">{{kelas.sebutharga}}</h3>
+							  <h6>Sebutharga</h6>
+							</li>
 
-						
-
-							<a href="#" class="btn btn-success">+ Tambah Baru</a>
-						</div>
+							<li class="px-10 ">
+							<h3 class="mb-1 text-bold">{{kelas.lt}}</h3>
+							  <h6>Lantikan Terus</h6>
+							</li>
+								<li class="px-10 ">
+							<h3 class="mb-1 text-bold">{{kelas.undi}}</h3>
+							  <h6>Undi</h6>
+							</li>
+						  </ul>						
+						</div>						
+										
+			
 					</div>
+					
 				</div>
-				</div>
-		
-			</div>
-			<div class="row">
-				<div class="col-12">														
-					<div class="box no-shadow mb-0 bg-transparent">
-						<div class="box-header no-border px-0">
-							<h4 class="box-title">Jenis No Perolehan</h4>	
-							<ul class="box-controls pull-right d-md-flex d-none">
-							  <li>
-								
-							  </li>
-							  <li class="dropdown">
-															  
-							
-							  </li>
-							</ul>
-						</div>
-					</div>
-				</div>
-			</div>
-              <div class="row">
-			<div class="col-12">
-				<div class="box">
-				  <div class="row no-gutters py-2">
-
-					<div class="col-12 col-lg-3">
-					  <div class="box-body br-1 border-light">
-						<div class="flexbox mb-1">
-						  <span>
-							  <span class="icon-Selected-file font-size-40"><span class="path1"></span><span class="path2"></span></span><br><br>
-							<h4>Semua</h4>
-						  </span>
-						  <span class="text-primary font-size-40">{{total}}</span>
-						</div>
-						<div class="progress progress-xxs mt-10 mb-0">
-						  <div class="progress-bar" role="progressbar" style="width: 35%; height: 4px;" aria-valuenow="35" aria-valuemin="0" aria-valuemax="100"></div>
-						</div>
-					  </div>
-					</div>
-
-
-					<div class="col-12 col-lg-3 hidden-down">
-					  <div class="box-body br-1 border-light">
-						<div class="flexbox mb-1">
-						  <span>
-							  <span class="icon-Selected-file font-size-40"><span class="path1"></span><span class="path2"></span></span><br><br>
-							<h4>Sebutharga</h4>
-						  </span>
-						  <span class="text-info font-size-40">{{kelas.sebutharga}}</span>
-						</div>
-						<div class="progress progress-xxs mt-10 mb-0">
-						  <div class="progress-bar bg-info" role="progressbar" style="width: 55%; height: 4px;" aria-valuenow="55" aria-valuemin="0" aria-valuemax="100"></div>
-						</div>
-					  </div>
-					</div>
-
-
-					<div class="col-12 col-lg-3 d-none d-lg-block">
-					  <div class="box-body br-1 border-light">
-						<div class="flexbox mb-1">
-						  <span>
-							  <span class="icon-Selected-file font-size-40"><span class="path1"></span><span class="path2"></span><span class="path3"></span></span><br><br>
-							<h4>Lantikan Terus</h4>
-						  </span>
-						  <span class="text-warning font-size-40">{{kelas.lt}}</span>
-						</div>
-						<div class="progress progress-xxs mt-10 mb-0">
-						  <div class="progress-bar bg-warning" role="progressbar" style="width: 65%; height: 4px;" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100"></div>
-						</div>
-					  </div>
-					</div>
-
-
-					<div class="col-12 col-lg-3 d-none d-lg-block">
-					  <div class="box-body">
-						<div class="flexbox mb-1">
-						  <span>
-							  <span class="icon-Selected-file font-size-40"><span class="path1"></span><span class="path2"></span></span><br><br>
-							<h4>Undi</h4>
-						  </span>
-						  <span class="text-danger font-size-40">{{kelas.undi}}</span>
-						</div>
-						<div class="progress progress-xxs mt-10 mb-0">
-						  <div class="progress-bar bg-danger" role="progressbar" style="width: 40%; height: 4px;" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"></div>
-						</div>
-					  </div>
-					</div>
-
-
-				  </div>
-				</div>
-			</div>
-			<!-- /.col -->
-
-		  </div>
+			</div>  
+		</div>
+     
 		  <!-- /.row -->
 		  <div class="row">
 		  			<div class="col-12">
 			  <div class="box box-default">
 				<div class="box-header with-border">
-				  <h4 class="box-title">Senarai No Perolehan</h4>
+				  <h3 class="font-weight-700 px-10">Senarai No Perolehan</h3>
 				  <h6 class="box-subtitle">Mengikut jenis <code>semua, sebutharga, latikan terus, undi</code></h6>
 				</div>
 				<!-- /.box-header -->
@@ -141,9 +80,9 @@
 					<!-- Tab panes -->
 					<div class="tab-content">
 						<div class="tab-pane active" id="home2" role="tabpanel">
-							<div class="p-15">
+							<div class="p-15 pl-0 pr-0">
 							 <div class="table-responsive">
-								<table id="example" class="table mt-0 table-hover no-wrap table-borderless" data-page-size="10">
+								<table id="example" class="table mt-0 table-hover no-wrap table-borderless" data-page-size="10" style="padding-left: 0px;">
 									<thead>
 										<tr>
 											<th>Bil</th>

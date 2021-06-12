@@ -25,8 +25,39 @@
 
 		<!-- Main content -->
 		<section class="content">
+		<div class="row">
+					<div class="col-12 col-xl-12">
+				<div class="box">		
+			
+					<div class="box-body">						
+						<div class="px-10 py-30 bg-white text-dark">
+							<h3 class="px-10 mb-15 font-weight-700">Kontraktor Analisis</h3>
+						   <ul class="flexbox flex-justified">
+							<li class="px-10">
+							  <h3 class="mb-1 text-bold">699</h3>
+							  <h6>Kontraktor</h6>
+							</li>
+
+							<li class="br-1 bl-2 px-10">
+							   <h3 class="mb-1 text-bold">20</h3>
+							  <h6>Aktif</h6>
+							</li>
+
+							<li class="px-10 ">
+							<h3 class="mb-1 text-bold">159</h3>
+							  <h6>Tidak Aktif</h6>
+							</li>
+						  </ul>						
+						</div>						
+										
+			
+					</div>
+					
+				</div>
+			</div>  
+		</div>
 		  <div class="row">
-			<div class="col-xl-10 col-lg-10 col-10">
+			<div class="col-xl-12 col-lg-12 col-12">
 				<div class="box">
 					<div class="box-header with-border">						
 						<h4 class="box-title">Kontraktor</h4>
@@ -52,7 +83,7 @@
 													<tr>
 														<td>{{forloop.counter}}</td>
 														<td>gambar</td>
-														<td><a href="">{{row.konNama}}</a></td>
+														<td><a href="{% url 'kontraktor/profile' row.id %}">{{row.konNama}}</a></td>
 														<td>{{row.konPengurus}}</td>
 														<td class="font-weight-bold">{{row.konNoTelPengurus}}</td>
 														<td>
@@ -66,12 +97,11 @@
 														</td>
 															<td class="text-center">
 											<div class="list-icons d-inline-flex">
-												<a href="#" class="list-icons-item mr-10"><i class="fa fa-eye"></i></a>
+												<a href="{% url 'kontraktor/profile' row.id %}" class="list-icons-item mr-10"><i class="fa fa-eye"></i></a>
 												<div class="list-icons-item dropdown">
 													<a href="#" class="list-icons-item dropdown-toggle" data-toggle="dropdown"><i class="fa fa-file-text"></i></a>
 													<div class="dropdown-menu dropdown-menu-right">
-														<a href="#" class="dropdown-item"><i class="fa fa-download"></i> Download</a>
-														<a href="#" class="dropdown-item"><i class="fa fa-print"></i> Print</a>
+												
 														<div class="dropdown-divider"></div>
 														<a href="#" class="dropdown-item"><i class="fa fa-pencil"></i> Edit</a>
 														<a href="#" class="dropdown-item"><i class="fa fa-remove"></i> Remove</a>
@@ -88,70 +118,7 @@
 					</div>
 				</div>
 			</div>
-			<div class="col-xl-2 col-lg-5 col-12">
-				<div class="box box-inverse box-success">
-				  <div class="box-body">
-					<div class="flexbox">
-					  <h5>Kontraktor</h5>
-					  <div class="dropdown">
-						<span class="dropdown-toggle no-caret" data-toggle="dropdown"><i class="ion-android-more-vertical rotate-90"></i></span>
-						<div class="dropdown-menu dropdown-menu-right">
-						  <a class="dropdown-item" href="#"><i class="ion-android-list"></i> Details</a>
-						  <a class="dropdown-item" href="#"><i class="ion-android-add"></i> Add new</a>
-						  <a class="dropdown-item" href="#"><i class="ion-android-refresh"></i> Refresh</a>
-						</div>
-					  </div>
-					</div>
-
-					<div class="text-center my-2">
-					  <h1>{{total}}</h1>
-					  <span>Kontraktor</span>
-					</div>
-				  </div>
-				</div>
-				<div class="box box-inverse box-primary">
-				  <div class="box-body">
-					<div class="flexbox">
-					  <h5>Active</h5>
-					  <div class="dropdown">
-						<span class="dropdown-toggle no-caret" data-toggle="dropdown"><i class="ion-android-more-vertical rotate-90"></i></span>
-						<div class="dropdown-menu dropdown-menu-right">
-						  <a class="dropdown-item" href="#"><i class="ion-android-list"></i> Details</a>
-						  <a class="dropdown-item" href="#"><i class="ion-android-add"></i> Add new</a>
-						  <a class="dropdown-item" href="#"><i class="ion-android-refresh"></i> Refresh</a>
-						</div>
-					  </div>
-					</div>
-
-					<div class="text-center my-2">
-					  <h1>{{totalactive.active}}</h1>
-					  <span>Kontraktor</span>
-					</div>
-				  </div>				
-				</div>
-				<div class="box box-inverse box-danger">
-				  <div class="box-body">
-					<div class="flexbox">
-					  <h5>Tidak Aktif</h5>
-					  <div class="dropdown">
-						<span class="dropdown-toggle no-caret" data-toggle="dropdown"><i class="ion-android-more-vertical rotate-90"></i></span>
-						<div class="dropdown-menu dropdown-menu-right">
-						  <a class="dropdown-item" href="#"><i class="ion-android-list"></i> Details</a>
-						  <a class="dropdown-item" href="#"><i class="ion-android-add"></i> Add new</a>
-						  <a class="dropdown-item" href="#"><i class="ion-android-refresh"></i> Refresh</a>
-						</div>
-					  </div>
-					</div>
-
-					<div class="text-center my-2">
-					  <h1>{{totalactive.deactive}}</h1>
-					  <span>Kontraktor</span>
-					</div>
-				  </div>
-
-				</div>
-
-			</div>
+		
 		  </div>
 		</section>
 		<!-- /.content -->
