@@ -12,7 +12,6 @@ def kontraktordash(request):
 
     timecurrent = datetime.date.today().strftime('%d/%m/%Y')
 
-    
     data = {
         'titleboard':'Kontraktor Dashboard',
         'kontraktor':kontraktor.Kontraktor.objects.all(),
@@ -20,17 +19,17 @@ def kontraktordash(request):
         'dateend' : timecurrent,
         'distict' : kontraktor.Kontraktor.objects.aggregate(
             kualamuda = Count('pk',filter=Q(konKawOperasi='Kuala Muda')),
-            sik = Count('pk',filter=Q(konKawOperasi='Sik')),
+            sik = Count('pk',filter=Q(konKawOperasi='Sik')) ,
             baling = Count('pk',filter=Q(konKawOperasi='Baling')),
             kedah = Count('pk',filter=Q(konKawOperasi='Kedah')),
-        ),
+        ). ,
         'totalactive':kontraktor.Kontraktor.objects.aggregate(
             active = Count('pk', filter=Q(sijilJPSTamat__gte=timecurrent )),
             deactive = Count('pk', filter=Q(sijilJPSTamat__lte=timecurrent)),
-        ),
+        ) ,
         'g1total':kontraktor.Kontraktor.objects.aggregate(
             kualamuda = Count('pk', filter=Q(sijilPPKGredSatu='G1',konKawOperasi='Kuala Muda')),
-            sik = Count('pk', filter=Q(sijilPPKGredSatu='G1',konKawOperasi='Sik')),
+            sik = Count('pk', filter=Q(sijilPPKGredSatu='G1',konKawOperasi='Sik')) ,
             baling = Count('pk', filter=Q(sijilPPKGredSatu='G1',konKawOperasi='Baling')),
   
             sikdactive = Count('pk', filter=Q(sijilPPKGredSatu='G1',sijilJPSTamat__gte=timecurrent,konKawOperasi='Sik')),
@@ -40,7 +39,7 @@ def kontraktordash(request):
             sikdntactive = Count('pk', filter=Q(sijilPPKGredSatu='G1',sijilJPSTamat__lte=timecurrent,konKawOperasi='Sik')),
             balingdntactive = Count('pk', filter=Q(sijilPPKGredSatu='G1',sijilJPSTamat__lte=timecurrent,konKawOperasi='Baling')),
             kualamudantactive = Count('pk', filter=Q(sijilPPKGredSatu='G1',sijilJPSTamat__lte=timecurrent,konKawOperasi='Kuala Muda')),
-        ),
+        ) ,
     }
 
     return render(request, 'pages/kontraktor-dashboard.html',data)
