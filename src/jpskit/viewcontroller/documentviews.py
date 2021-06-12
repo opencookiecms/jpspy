@@ -68,6 +68,7 @@ def mrktwo(request, projekid):
     context = {
         'form':form,
         'mrksatufecth':document.MRKSatu.objects.filter(projekbind=projekid).first(), 
+        'projek':project.Projek.objects.get(id=projekid),
         
     }
 
@@ -173,7 +174,7 @@ def ssv(request, projekid):
     return render(request, 'pages/senaraisemakan.html',context)
 
 def psmkview(request, projekid):
-    dataobject = document.PSMK.objects.filter(psmknosebutharga=projekid).first()
+    dataobject = document.PSMK.objects.filter(projekbind=projekid).first()
     form = ducumentform.Psmkform(request.POST or None, instance=dataobject)
  
     if form.is_valid():
@@ -186,16 +187,16 @@ def psmkview(request, projekid):
     
     context = {
         'form':form,
-        'mrksatufecth':document.MRKSatu.objects.get(mrksatunosebutharga=projekid),
-        'pskfecth':document.PSK.objects.filter(psknosebutharga=projekid).first(),
-        'projek':project.Projek.objects.get(nosebuthargaid=projekid),
+        'mrksatufecth':document.MRKSatu.objects.get(projekbind=projekid),
+        'pskfecth':document.PSK.objects.filter(projekbind=projekid).first(),
+        'projek':project.Projek.objects.get(id=projekid),
         'userlist':User.objects.all()
     }
 
     return render(request, 'pages/psmk.html',context)
 
 def jaminanbankv(request, projekid):
-    dataobject = document.SuratPJaminanbank.objects.filter(jbankknosebutharga=projekid).first()
+    dataobject = document.SuratPJaminanbank.objects.filter(projekbind=projekid).first()
     form = ducumentform.JaminanBankForm(request.POST or None, instance=dataobject)
 
     if form.is_valid():
@@ -208,11 +209,11 @@ def jaminanbankv(request, projekid):
     
     context = {
         'form':form,
-        'mrksatufecth':document.MRKSatu.objects.get(mrksatunosebutharga=projekid),
-        'projek':project.Projek.objects.get(nosebuthargaid=projekid),
+        'mrksatufecth':document.MRKSatu.objects.get(projekbind=projekid),
+        'projek':project.Projek.objects.get(id=projekid),
         'userlist':User.objects.all(),
-        'pskfecth':document.PSK.objects.filter(psknosebutharga=projekid).first(),
-        'psmkfecth':document.PSMK.objects.filter(psmknosebutharga=projekid).first(),
+        'pskfecth':document.PSK.objects.filter(projekbind=projekid).first(),
+        'psmkfecth':document.PSMK.objects.filter(projekbind=projekid).first(),
     }
 
     return render(request, 'pages/jaminanbank.html',context)

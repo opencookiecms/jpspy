@@ -529,13 +529,11 @@ def ssemak(request, projekid):
 
 def pdfpsmk(request, projekid):
 
-    dataobject = document.PSMK.objects.filter(psmknosebutharga=projekid).first()
-    projek = project.Projek.objects.filter(nosebuthargaid=projekid).first()
-    userprofileL = userprofile.UserProfile.objects.filter(id=dataobject.psmknosebutharga.pegawaiselia.id).first()
+    dataobject = document.PSMK.objects.filter(projekbind=projekid).first()
     lskfetch = document.Laporansiapkerja.objects.filter(projekbind=projekid).first()
  
-    idsebutharga = dataobject.psmknosebutharga.id
-    print(idsebutharga)
+    idstr = str(dataobject.projekbind.id)
+    print(idstr)
  
     pdfjinja = PdfJinja('static_in_env/assets/pdf/PSMK.pdf')
     pdfout = pdfjinja(
@@ -548,8 +546,8 @@ def pdfpsmk(request, projekid):
             bandar = dataobject.psmkmrksatulink.mrksatukontraktor.konBandar,
             negeri = dataobject.psmkmrksatulink.mrksatukontraktor.konNegeri,
             gred = dataobject.psmkmrksatulink.mrksatugred,
-            sebutharga = dataobject.psmknosebutharga.noperolehan,
-            tajuk = projek.tajukkerja,
+            sebutharga = dataobject.projekbind.nosebuthargaid,
+            tajuk = dataobject.projekbind.tajukkerja,
             tarikhgagal = lskfetch.lskkerjasiap,
             g1 = dataobject.psmknojaminanbanka,
             hargaa = intcomma(dataobject.psmkhargajaminana),
@@ -559,14 +557,14 @@ def pdfpsmk(request, projekid):
             wangb = intcomma(dataobject.psmkbakiwangjaminanb),
             kosbon = intcomma(dataobject.psmkkosbon),
             bakikosbon = intcomma(dataobject.psmkbakikos),
-            pegawai = userprofileL.user.first_name,
-            jawatan = userprofileL.jawatan,
+            pegawai = dataobject.projekbind.nosebuthargaid.pegawaiselia.first_name,
+            jawatan = dataobject.projekbind.nosebuthargaid.pegawaiselia.userprofile.jawatan,
         ))
 
  
-    pdfout.write(open('static_in_env/assets/pdf/outputpdf/PSMK-'+str(idsebutharga)+'-'+userprofileL.user.first_name+'.pdf', 'wb'))
+    pdfout.write(open('static_in_env/assets/pdf/outputpdf/PSMK-'+str(idstr)+'.pdf', 'wb'))
     try:
-        return FileResponse(open('static_in_env/assets/pdf/outputpdf/PSMK-'+str(idsebutharga)+'-'+userprofileL.user.first_name+'.pdf', 'rb'), content_type='application/pdf')
+        return FileResponse(open('static_in_env/assets/pdf/outputpdf/PSMK-'+str(idstr)+'.pdf', 'rb'), content_type='application/pdf')
     except FileNotFoundError:
         raise Http404()
 
@@ -575,14 +573,12 @@ def pdfpsmk(request, projekid):
 
 def pdfjb(request, projekid):
 
-    dataobject = document.SuratPJaminanbank.objects.filter(jbankknosebutharga=projekid).first()
-    projek = project.Projek.objects.filter(nosebuthargaid=projekid).first()
-    userprofileL = userprofile.UserProfile.objects.filter(id=dataobject.jbankknosebutharga.pegawaiselia.id).first()
+    dataobject = document.SuratPJaminanbank.objects.filter(projekbind=projekid).first()
     lskfetch = document.Laporansiapkerja.objects.filter(projekbind=projekid).first()
     psk  = document.PSK.objects.filter(projekbind=projekid).first()
  
-    idsebutharga = dataobject.jbankknosebutharga.id
-    print(idsebutharga)
+    idstr = str(dataobject.projekbind.id)
+    print(idstr)
  
     pdfjinja = PdfJinja('static_in_env/assets/pdf/jb.pdf')
     pdfout = pdfjinja(
@@ -594,16 +590,16 @@ def pdfjb(request, projekid):
             alamat = dataobject.alamatpemborongsurat,
             tarikha = psk.psktarikhmulatanggug,
             tarikhb = psk.psktarikhtamattanggung,
-            jurutera = userprofileL.user.first_name,
-            jawatan = userprofileL.jawatan,
+            jurutera = dataobject.projekbind.nosebuthargaid.pegawaiselia.first_name,
+            jawatan = dataobject.projekbind.nosebuthargaid.pegawaiselia.userprofile.jawatan,
 
  
         ))
 
  
-    pdfout.write(open('static_in_env/assets/pdf/outputpdf/jb-'+str(idsebutharga)+'-'+userprofileL.user.first_name+'.pdf', 'wb'))
+    pdfout.write(open('static_in_env/assets/pdf/outputpdf/jb-'+idstr+'.pdf', 'wb'))
     try:
-        return FileResponse(open('static_in_env/assets/pdf/outputpdf/jb-'+str(idsebutharga)+'-'+userprofileL.user.first_name+'.pdf', 'rb'), content_type='application/pdf')
+        return FileResponse(open('static_in_env/assets/pdf/outputpdf/jb-'+idstr+'.pdf', 'rb'), content_type='application/pdf')
     except FileNotFoundError:
         raise Http404()
 
