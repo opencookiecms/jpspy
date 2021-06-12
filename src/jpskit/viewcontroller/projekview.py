@@ -30,16 +30,32 @@ def daftarprojek(request):
 
 def maklumatperolehan(request):
 
-    data = {
-        'senaraiprojek':project.Projek.objects.all(),
-        'totalprojek':project.Projek.objects.all().count(),
-        'kodvod':project.Projek.objects.values('kodvot').annotate(jumlah=Count('kodvot')),
-        'total':project.Projek.objects.aggregate(
-            sebutharga = Count('pk', filter=Q(nosebuthargaid__kaedahperolehan='Sebutharga')),
-            undi = Count('pk', filter=Q(nosebuthargaid__kaedahperolehan='Undi')),
-            lantikan = Count('pk', filter=Q(nosebuthargaid__kaedahperolehan='Lantikan Terus')),
-        ), 
-    }
+
+    p = project.Projek.objects.all().exists()
+
+    if p:
+
+        data = {
+            'titleboard':'Projek Dashboard',
+            'isexist':p,
+            'senaraiprojek':project.Projek.objects.all(),
+            'totalprojek':project.Projek.objects.all().count(),
+            'kodvod':project.Projek.objects.values('kodvot').annotate(jumlah=Count('kodvot')),
+            'total':project.Projek.objects.aggregate(
+                sebutharga = Count('pk', filter=Q(nosebuthargaid__kaedahperolehan='Sebutharga')),
+                undi = Count('pk', filter=Q(nosebuthargaid__kaedahperolehan='Undi')),
+                lantikan = Count('pk', filter=Q(nosebuthargaid__kaedahperolehan='Lantikan Terus')),
+            ), 
+        }
+    else:
+        
+        data = {
+            'titleboard':'Projek Dashboard',
+            'isexist':p
+        }
+
+
+
     return render(request, 'pages/maklumatperolehandash.html',data)
 
 def maklumatperolehanjenis(request, jenisp):

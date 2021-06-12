@@ -13,19 +13,26 @@ from django.core.exceptions import ObjectDoesNotExist
 def kontraktordash(request):
 
     timecurrent = datetime.date.today().strftime('%d/%m/%Y')
-  
-    d = kontraktor.Kontraktor.objects.aggregate(
+
+    k = kontraktor.Kontraktor.objects.all().exists()
+    print(k)
+
+    if k:
+        d = kontraktor.Kontraktor.objects.aggregate(
             kualamuda = Count('pk',filter=Q(konKawOperasi='Kuala Muda')),
             sik = Count('pk',filter=Q(konKawOperasi='Sik')) ,
             baling = Count('pk',filter=Q(konKawOperasi='Baling')),
             kedah = Count('pk',filter=Q(konKawOperasi='Kedah')),
         )
-    t = kontraktor.Kontraktor.objects.aggregate(
+
+        t = kontraktor.Kontraktor.objects.aggregate(
             active = Count('pk', filter=Q(sijilJPSTamat__gte=timecurrent )),
             deactive = Count('pk', filter=Q(sijilJPSTamat__lte=timecurrent)),
         )
+
+          
     
-    g = kontraktor.Kontraktor.objects.aggregate(
+        g = kontraktor.Kontraktor.objects.aggregate(
             kualamuda = Count('pk', filter=Q(sijilPPKGredSatu='G1',konKawOperasi='Kuala Muda')),
             sik = Count('pk', filter=Q(sijilPPKGredSatu='G1',konKawOperasi='Sik')) ,
             baling = Count('pk', filter=Q(sijilPPKGredSatu='G1',konKawOperasi='Baling')),
@@ -38,18 +45,30 @@ def kontraktordash(request):
             balingdntactive = Count('pk', filter=Q(sijilPPKGredSatu='G1',sijilJPSTamat__lte=timecurrent,konKawOperasi='Baling')),
             kualamudantactive = Count('pk', filter=Q(sijilPPKGredSatu='G1',sijilJPSTamat__lte=timecurrent,konKawOperasi='Kuala Muda')),
         )
-    
-    data = {
-        'titleboard':'Kontraktor Dashboard',
-        'kontraktor':kontraktor.Kontraktor.objects.all(),
-        'total':kontraktor.Kontraktor.objects.all().count(),
-        'dateend' : timecurrent,
-        'distict' : d,
-        'totalactive':t,
-        'g1total':g
+
+        data = {
+            'titleboard':'Kontraktor Dashboard',
+            'kontraktor':kontraktor.Kontraktor.objects.all(),
+            'total':kontraktor.Kontraktor.objects.all().count(),
+            'dateend' : timecurrent,
+            'distict' : d,
+            'totalactive':t,
+            'g1total':g,
+            'isexist':k
     }
 
+    else:
+
+        data = {
+            'titleboard':'Kontraktor Dashboard',
+            'isexist':k
+        }
+
+        print(data)
+
+
     return render(request, 'pages/kontraktor-dashboard.html',data)
+
 
 def kontraktorprofile(request, kontrakid):
 

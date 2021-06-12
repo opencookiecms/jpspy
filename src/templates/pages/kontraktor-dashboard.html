@@ -21,14 +21,17 @@
 
 						
 
-							<a href="#" class="btn btn-success">+ Tambah Baru</a>
+				
 						</div>
 					</div>
 				</div>
 				</div>
 		
 			</div>
-			<div class="row">
+			<!--star here-->
+
+			{% if isexist %}
+					<div class="row">
 				<div class="col-xl-8">														
 					<div class="box no-shadow mb-0 bg-transparent">
 						<div class="box-header no-border px-0">
@@ -537,111 +540,38 @@
 					<!-- /sparklines in colored card -->
 
         
-		
-              
-              
+	
 					
 					</div>						
-{% comment %} 					<div class="box no-shadow mb-0 bg-transparent">
-						<div class="box-header no-border px-0">
-							<h4 class="box-title">Lessons</h4>							
-							<div class="box-controls pull-right d-md-flex d-none">
-							  <a href="#">View All</a>
-							</div>
-						</div>
-					</div> {% endcomment %}
+					
 					<div>
-						{% comment %} <div class="box mb-15 pull-up">
-							<div class="box-body">
-								<div class="d-flex align-items-center justify-content-between">
-									<div class="d-flex align-items-center">
-										<div class="mr-15 bg-warning-light h-50 w-50 l-h-60 rounded text-center">
-											<span class="icon-Book-open font-size-24"><span class="path1"></span><span class="path2"></span></span>
-										</div>
-										<div class="d-flex flex-column font-weight-500">
-											<a href="#" class="text-dark hover-primary mb-1 font-size-16">English - Grammar</a>
-											<span class="text-fade">Eula kelly, 6 May</span>
-										</div>
-									</div>
-									<a href="#">
-										<span class="icon-Arrow-right font-size-24"><span class="path1"></span><span class="path2"></span></span>
-									</a>
-								</div>
-							</div>
-						</div> {% endcomment %}
-						{% comment %} <div class="box mb-15 pull-up">
-							<div class="box-body">
-								<div class="d-flex align-items-center justify-content-between">
-									<div class="d-flex align-items-center">
-										<div class="mr-15 bg-primary-light h-50 w-50 l-h-60 rounded text-center">
-											<span class="icon-Mail font-size-24"></span>
-										</div>
-										<div class="d-flex flex-column font-weight-500">
-											<a href="#" class="text-dark hover-primary mb-1 font-size-16">Irregular Verbs Test</a>
-											<span class="text-fade">Oilve Garza, 4 May</span>
-										</div>
-									</div>
-									<a href="#">
-										<span class="icon-Arrow-right font-size-24"><span class="path1"></span><span class="path2"></span></span>
-									</a>
-								</div>
-							</div>
-						</div> {% endcomment %}
-						{% comment %} <div class="box mb-10 pull-up">
-							<div class="box-body">
-								<div class="d-flex align-items-center justify-content-between">
-									<div class="d-flex align-items-center">
-										<div class="mr-15 bg-danger-light h-50 w-50 l-h-60 rounded text-center">
-											<span class="icon-Book-open font-size-24"><span class="path1"></span><span class="path2"></span></span>
-										</div>
-										<div class="d-flex flex-column font-weight-500">
-											<a href="#" class="text-dark hover-primary mb-1 font-size-16">Spanish - Essey</a>
-											<span class="text-fade">Franklin Harvey, 2 May</span>
-										</div>
-									</div>
-									<a href="#">
-										<span class="icon-Arrow-right font-size-24"><span class="path1"></span><span class="path2"></span></span>
-									</a>
-								</div>
-							</div>
-						</div> {% endcomment %}
+			
 					</div>					
-					{% comment %} <div class="box no-shadow mb-0 bg-transparent">
-						<div class="box-header no-border px-0">
-							<h4 class="box-title">Resent Join course</h4>							
-							<div class="box-controls pull-right d-md-flex d-none">
-							  <a href="#">View All</a>
-							</div>
-						</div>
-					</div> {% endcomment %}
-					{% comment %} <div class="card">
-						<div class="min-h-310" style="background-image: url(../images/front-end-img/courses/1.jpg); background-position: center center; background-size: cover;"></div>
-					  <div class="card-body">
-							<span class="badge badge-primary">Online</span>	
-							<span class="badge badge-primary-light">English</span>
-							<span class="badge badge-primary-light">Spanish</span>													
-							<div class="cour-stac d-flex align-items-center text-fade mt-20">
-							  <p>Start Date 4th Nov..</p>
-							  <p class="lt-sp">|</p>
-							  <p>Johen doe</p>
-							</div>
-						<h4 class="card-title justify-content-between d-flex align-items-center">Manegement</h4>
-						<p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content.</p>
-					  </div>
-					  <div class="card-footer justify-content-between d-flex align-items-center">
-						<div class="d-flex font-size-18 font-weight-600"> <span class="text-dark mr-10">$83</span> <del class="text-muted">$195</del> </div>
-						<span>
-							<i class="fa fa-star text-warning"></i>
-							<i class="fa fa-star text-warning"></i>
-							<i class="fa fa-star text-warning"></i>
-							<i class="fa fa-star text-warning"></i>
-							<i class="fa fa-star-half text-warning"></i>
-							<span class="text-muted ml-2">(42)</span>
-						</span>
-					  </div>
-					</div> {% endcomment %}
+				
 				</div>
 			</div>
+			<!--end here here-->
+			{% else %}
+				<div class="row">
+				  <div class="col-xl-12 col-12">
+				<div class="box">
+				  <div class="box-header">
+					<h4 class="box-title">Tiada<strong> Maklumat Kontraktor</strong></h4>
+				  </div>
+
+				  <div class="box-body">
+					
+						
+									<a href="#" class="btn btn-warning">+ Tambah Baru</a><p>
+					 
+
+					<p>Tiada data dipengkalan buat masa kini. Sila laporkan kepada Admin</p>
+				  </div>
+				</div>
+			  </div>
+				</div>
+			{% endif %}
+		
 		</section>
 		<!-- /.content -->
 	  </div>
