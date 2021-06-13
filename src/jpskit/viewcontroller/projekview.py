@@ -111,12 +111,14 @@ def dokumenpilih(request, prid):
         'smrk':document.SuratMRK.objects.filter(projekbind=projetgetsebutid).first(),
         'skhas':document.SuratKhas.objects.filter(projekbind=projetgetsebutid).first(),
         'sbon':document.SuratPelepasanBon.objects.filter(projekbind=projetgetsebutid).first(),
+        'scriptdoc':True
     }
     return render(request,  'pages/dokumennav.html',data)
 
 def projekkodvot(request, kvd):
 
     data = {
+        'scriptvot':True,
         'senaraiprojek':project.Projek.objects.filter(kodvot=kvd),
         'kodvod':project.Projek.objects.filter(kodvot=kvd).first(),
         'ckodvot':project.Projek.objects.aggregate(

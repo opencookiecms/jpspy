@@ -41,6 +41,7 @@ def mrkone(request, projekid):
       
 
     context = {
+    
         'form':form,
         'projek':project.Projek.objects.get(id=projekid),
         'kontraktor':kontraktor.Kontraktor.objects.all(),
