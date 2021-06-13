@@ -6,86 +6,43 @@
 	  <div class="container-full">
 		<!-- Main content -->
 		<section class="content">
-						<div class="row align-items-end">
-				<div class="col-xl-12 col-12">
-						<div class="box">
-					<div class="card-body d-flex p-0">
-						<div class="flex-grow-1 bg-secondary-light px-30 pt-50 pb-100 flex-grow-1 bg-img min-h-350" style="background-position: calc(96% + 0.5rem); background-size: 28% auto; background-image: url({% static 'assets/images/svg-icon/color-svg/undrawopentab.svg'%})">
-
-							<p class="text-dark py-10 font-size-40 font-weight-500">
-								Maklumat KodVot
-							</p>
-						
-						</div>
-					</div>
-				</div>
-				</div>
 		
-			</div>
 			<div class="row">
-				<div class="col-xl-8">														
+			<div class="col-xl-8">
+				<div class="box">		
 			
+					<div class="box-body">						
+						<div class="px-10 py-30 bg-white text-dark">
+							<h3 class="px-10 mb-15 font-weight-700">Senarai Projek Melalui Kodvot</h3>
+						   <ul class="flexbox flex-justified">
+							<li class="px-10">
+							  <h3 class="mb-1 text-bold">{{ckodvot.sebutharga}}</h3>
+							  <h6>Sebutharga</h6>
+							</li>
+
+							<li class="br-1 bl-2 px-10">
+							   <h3 class="mb-1 text-bold">{{ckodvot.undi}}</h3>
+							  <h6>Undi</h6>
+							</li>
+
+							<li class="px-10 ">
+							<h3 class="mb-1 text-bold">{{ckodvot.lantikan}}</h3>
+							  <h6>Lantikan Terus</h6>
+							</li>
+						  </ul>						
+						</div>						
+										
+			
+					</div>
+					
+				</div>
+				
 					<div class="row">
-						<div class="col-lg-4 col-12">
-						<div class="box">				  
-					  <div class="box-header no-border">
-						  <h6>Sebutharga</h6>
-				
-					  </div>
-
-					  <div class="box-body">
-						  <div class="flexbox">
-							    <img src="/static/assets/images/svg-icon/color-svg/example-29.svg" class="h-80" alt="">
-							  <div>
-								  <h2 class="countnm mb-5">{{ckodvot.sebutharga}}</h2>
-								  <p class="mb-0">Total</p>
-								  
-							  </div>				
-						  </div>
-					  </div>
-				  </div>
-						</div>
-						<div class="col-lg-4 col-12">
-						<div class="box">				  
-					  <div class="box-header no-border">
-						  <h6>Undi</h6>
+		
 			
-					  </div>
 
-					  <div class="box-body">
-						  <div class="flexbox">
-							   <img src="/static/assets/images/svg-icon/color-svg/example-29.svg" class="h-80" alt="">
-							  <div>
-								  <h2 class="countnm mb-5">{{ckodvot.undi}}</h2>
-								  <p class="mb-0">Total</p>
-							
-							  </div>				
-						  </div>
-					  </div>
-				  </div>
-						</div>
-						<div class="col-lg-4 col-12">
-						
-								<div class="box">				  
-					  <div class="box-header no-border">
-						  <h6>Lantikan Terus</h6>
-			
-					  </div>
-
-					  <div class="box-body">
-						  <div class="flexbox">
-							     <img src="/static/assets/images/svg-icon/color-svg/example-29.svg" class="h-80" alt="">
-							  <div>
-								  <h2 class="countnm mb-5">{{ckodvot.lantikan}}</h2>
-								  <p class="mb-0">Total</p>
-								 
-							  </div>				
-						  </div>
-					  </div>
-				  </div>
-						</div>
 				
-	<div class="col-md-12">
+					<div class="col-md-12">
 								<div class="box">
 					<div class="box-header with-border">						
 						<h4 class="box-title">Senarai Projek</h4>
@@ -154,8 +111,8 @@
 			
 				
 					</div>
+			</div> 
 		
-				</div>
 				<div class="col-lg-4 col-12">
 						<div class="box">
 					<div class="box-header">

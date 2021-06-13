@@ -4,34 +4,69 @@
 {% load static %}
   <div class="content-wrapper">
 	  <div class="container-full">
-		<!-- Main content -->
-		<section class="content">
-					<div class="row align-items-end">
-				<div class="col-xl-12 col-12">
-						<div class="box">
-					<div class="card-body d-flex p-0">
-						<div class="flex-grow-1 bg-secondary-light px-30 pt-50 pb-100 flex-grow-1 bg-img min-h-350" style="background-position: calc(100% + 0.5rem) bottom; background-size: 10% auto; background-image: url({% static 'assets/images/svg-icon/color-svg/custom-5.svg'%})">
-
-							<p class="text-dark py-10 font-size-40 font-weight-500">
-								{{titleboard}}
-							</p>
-							<p class="text-dark font-weight-500">
-								Integrations connect your Mailchimp account to the apps and tools you already use. That makes marketing easier.
-							</p>
-
-						
-
-				
-						</div>
+	  		<div class="content-header">
+			<div class="d-flex align-items-center">
+				<div class="mr-auto">
+					<h3 class="page-title">Kontraktor Dashboard</h3>
+					<div class="d-inline-block align-items-center">
+						<nav>
+							<ol class="breadcrumb">
+								<li class="breadcrumb-item"><a href="#"><i class="mdi mdi-home-outline"></i></a></li>
+								<li class="breadcrumb-item" aria-current="page">kontraktor</li>
+								<li class="breadcrumb-item active" aria-current="page">Senarai nama</li>
+							</ol>
+						</nav>
 					</div>
 				</div>
-				</div>
-		
+				
 			</div>
+		</div>
+		
+		<!-- Main content -->
+		<section class="content">
+		
 			<!--star here-->
 
 			{% if isexist %}
-					<div class="row">
+			
+			<div class="row">
+						<div class="col-12 col-xl-12">
+				<div class="box">		
+			
+					<div class="box-body">						
+						<div class="px-10 py-30 bg-white text-dark">
+							<h3 class="px-10 mb-15 font-weight-700">Kontraktor Analisis</h3>
+						   <ul class="flexbox flex-justified">
+							<li class="px-10">
+							  <h3 class="mb-1 text-bold">699</h3>
+							  <h6>Kedah</h6>
+							</li>
+
+							<li class="br-1 bl-2 px-10">
+							   <h3 class="mb-1 text-bold">{{distict.kualamuda}}</h3>
+							  <h6>Kuala Muda</h6>
+							</li>
+
+							<li class="px-10 ">
+							<h3 class="mb-1 text-bold">{{distict.sik}}</h3>
+							  <h6>Sik</h6>
+							</li>
+
+								<li class="px-10 ">
+							<h3 class="mb-1 text-bold">{{distict.baling}}</h3>
+							  
+							  <h6>Baling</h6>
+					
+							</li>
+						  </ul>						
+						</div>						
+										
+			
+					</div>
+					
+				</div>
+			</div> 
+					
 				<div class="col-xl-8">														
 					<div class="box no-shadow mb-0 bg-transparent">
 						<div class="box-header no-border px-0">
@@ -43,65 +78,10 @@
 					</div>
                     
                     <div class="row">
-                        <div class="col-12">
-                            <div class="box">
-                            <div class="row no-gutters py-2">
-
-                                <div class="col-12 col-lg-4">
-                                <div class="box-body br-1 border-light">
-                                    <div class="flexbox mb-1">
-                                    <span>
-                                        <span class="icon-Layout-right-panel-2  font-size-40"><span class="path1"></span><span class="path2"></span></span><br>
-                                        Kuala Muda
-                                        
-                                    </span>
-                                    <span class="text-primary font-size-40">{{distict.kualamuda}}</span><br>
-                                   
-                                    </div>
-                                    <div class="progress progress-xxs mt-10 mb-0">
-                                    <div class="progress-bar" role="progressbar" style="width:{{ distict.kualamuda|div:total|mul:100|floatformat:1 }}%; height: 4px;" aria-valuenow="{{distict.kualamuda}}" aria-valuemin="0" aria-valuemax="100"></div>
-                                    </div>
-                                </div>
-                                </div>
-
-
-                                <div class="col-12 col-lg-4 hidden-down">
-                                <div class="box-body br-1 border-light">
-                                    <div class="flexbox mb-1">
-                                    <span>
-                                        <span class="icon-Layout-top-panel-2 font-size-40"><span class="path1"></span><span class="path2"></span></span><br>
-                                        Sik
-                                    </span>
-                                    <span class="text-info font-size-40">{{distict.sik}}</span>
-                                    </div>
-                                    <div class="progress progress-xxs mt-10 mb-0">
-                                    <div class="progress-bar bg-info" role="progressbar" style="width: 55%; height: 4px;" aria-valuenow="55" aria-valuemin="0" aria-valuemax="100"></div>
-                                    </div>
-                                </div>
-                                </div>
-
-
-                                <div class="col-12 col-lg-4 d-none d-lg-block">
-                                <div class="box-body br-1 border-light">
-                                    <div class="flexbox mb-1">
-                                    <span>
-                                        <span class="icon-Layout-left-panel-2 font-size-40"><span class="path1"></span><span class="path2"></span><span class="path3"></span></span><br>
-                                        Baling
-                                    </span>
-                                    <span class="text-warning font-size-40">{{distict.baling}}</span>
-                                    </div>
-                                    <div class="progress progress-xxs mt-10 mb-0">
-                                    <div class="progress-bar bg-warning" role="progressbar" style="width: 65%; height: 4px;" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100"></div>
-                                    </div>
-                                </div>
-                                </div>
-                            </div>
-                            </div>
-                        </div>
-                        <!-- /.col -->
+               
 
                     </div>
-                    <!-- /.row -->
+                 
 
 				<div class="box">
 					<div class="box-header">
@@ -263,32 +243,7 @@
 					</div>
 				</div>  
 
-			    <div class="row">
-                        <div class="col-5">
-                            <div class="box">
-                            <div class="row no-gutters py-2">
 
-                                <div class="col-12 col-lg-12 d-none d-lg-block">
-                                <div class="box-body br-1 border-light">
-                                    <div class="flexbox mb-1">
-                                    <span>
-                                        <span class="icon-Layout-left-panel-2 font-size-40"><span class="path1"></span><span class="path2"></span><span class="path3"></span></span><br>
-                                        Kedah
-                                    </span>
-                                    <span class="text-warning font-size-40">{{distict.baling}}</span>
-                                    </div>
-                                    <div class="progress progress-xxs mt-10 mb-0">
-                                    <div class="progress-bar bg-warning" role="progressbar" style="width: 65%; height: 4px;" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100"></div>
-                                    </div>
-                                </div>
-                                </div>
-                            </div>
-                            </div>
-                        </div>
-                        <!-- /.col -->
-
-                    </div>
-                    <!-- /.row -->
 
 						<div class="box">
 					<div class="box-header">
@@ -465,22 +420,36 @@
 					</div>
 					<div>
 							  <!-- small box -->
-			  <div class="small-box box-inverse bg-primary" data-overlay="5">
-				<div class="inner">
-				  <h3>{{total}}</h3>
-              
+				<div class="box ">
+						<div class="box-body">
+							<div class="d-flex">
+								<h1 class="font-weight-600 mb-0">{{total}} </h1>
+								<div class="list-icons ml-auto">
+									<div class="list-icons-item dropdown">
+										<a href="" class="list-icons-item dropdown-toggle text-white" data-toggle="dropdown"><i class="fa fa-cog"></i></a>
+										<div class="dropdown-menu dropdown-menu-right">
+											<a href="" class="dropdown-item">Update data</a>
+											<a href="" class="dropdown-item">Detailed log</a>
+											<a href="" class="dropdown-item">Statistics</a>
+											<a href="" class="dropdown-item">Clear list</a>
+										</div>
+									</div>
+								</div>
+				
+							</div>
+					
+							<div>
+								<h5>Kontraktor</h5>
+							
+							</div>
+						</div>
 
-				  <p>Kontraktor</p>
-				</div>
-				<div class="icon text-white">
-				  <span class="icon-User"><span class="path1"></span><span class="path2"></span></span>
-				</div>
-				<a href="" class="small-box-footer">More info <i class="fa fa-arrow-right"></i></a>
-			  </div>
+						<div id="sparklines_color"></div>
+					</div>
 
               
 					<!-- Sparklines in colored card -->
-					<div class="box bg-success">
+					<div class="box ">
 						<div class="box-body">
 							<div class="d-flex">
 								<h1 class="font-weight-600 mb-0">{{totalactive.active}}</h1>
@@ -499,7 +468,7 @@
 							</div>
 					
 							<div>
-								Aktif
+								<h5>Aktif</h5>
 								<div class="font-size-16">{{totalactive.active|div:total|mul:100|floatformat:1}}%</div>
 							</div>
 						</div>
@@ -511,10 +480,10 @@
 
 					   
 					<!-- Sparklines in colored card -->
-					<div class="box bg-danger">
+					<div class="box">
 						<div class="box-body">
 							<div class="d-flex">
-								<h1 class="font-weight-600 mb-0">{{totalactive.deactive}}</h1>
+								<h1 class="font-weight-600 mb-0">{{totalactive.deactive}} </h1>
 								<div class="list-icons ml-auto">
 									<div class="list-icons-item dropdown">
 										<a href="" class="list-icons-item dropdown-toggle text-white" data-toggle="dropdown"><i class="fa fa-cog"></i></a>
@@ -529,7 +498,7 @@
 							</div>
 
 							<div>
-								Tidak aktif
+								<h5>Tidak Aktif</h5>
 								<div class="font-size-16">{{totalactive.deactive|div:total|mul:100|floatformat:1}}%</div>
 							</div>
 						</div>

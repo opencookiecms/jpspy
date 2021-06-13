@@ -60,18 +60,30 @@ def maklumatperolehan(request):
 
 def maklumatperolehanjenis(request, jenisp):
 
-    data = {
-        'senaraiprojek':project.Projek.objects.filter(nosebuthargaid__kaedahperolehan=jenisp).annotate(total=Count('kodvot')),
-        'kodvod':project.Projek.objects.filter(nosebuthargaid__kaedahperolehan=jenisp).annotate(jumlah=Count('kodvot')),
-        'totalprojek':project.Projek.objects.all().count(),
-        'total':project.Projek.objects.aggregate(
-            sebutharga = Count('pk', filter=Q(nosebuthargaid__kaedahperolehan="Sebutharga")),
-            undi = Count('pk', filter=Q(nosebuthargaid__kaedahperolehan="Undi")),
-            lantikan = Count('pk', filter=Q(nosebuthargaid__kaedahperolehan="Lantikan Terus")),
-        ),
-    }
+    p = project.Projek.objects.all().exists()
+
+    if p:
+
+        data = {
+            'titleboard':'Projek Dashboard',
+            'isexist':p,
+            'senaraiprojek':project.Projek.objects.filter(nosebuthargaid__kaedahperolehan=jenisp).annotate(total=Count('kodvot')),
+            'kodvod':project.Projek.objects.filter(nosebuthargaid__kaedahperolehan=jenisp).annotate(jumlah=Count('kodvot')),
+            'totalprojek':project.Projek.objects.all().count(),
+            'total':project.Projek.objects.aggregate(
+                sebutharga = Count('pk', filter=Q(nosebuthargaid__kaedahperolehan="Sebutharga")),
+                undi = Count('pk', filter=Q(nosebuthargaid__kaedahperolehan="Undi")),
+                lantikan = Count('pk', filter=Q(nosebuthargaid__kaedahperolehan="Lantikan Terus")),
+            ),
+        }
+    else:
+        data = {
+            'titleboard':'Projek Dashboard',
+            'isexist':p
+        }
 
     return render(request, 'pages/maklumatperolehandash.html',data)
+
 
 def senaraiprojek(request):
 

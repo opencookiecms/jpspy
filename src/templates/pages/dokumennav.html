@@ -7,592 +7,161 @@
 	  <div class="container-full">
 		<!-- Main content -->
 		<section class="content">
-									<div class="row align-items-end">
-				<div class="col-xl-12 col-12">
-						<div class="box">
-					<div class="card-body d-flex p-0">
-						<div class="flex-grow-1 bg-secondary-light px-30 pt-50 pb-100 flex-grow-1 bg-img min-h-350" style="background-position: calc(96% + 0.5rem); background-size: 28% auto; background-image: url({% static 'assets/images/svg-icon/color-svg/undrawopentab.svg'%})">
-
-							<p class="text-dark py-10 font-size-40 font-weight-500">
-								Senarai Dokumen Berkaitan <br>Sebutharga
-							</p>
-						
-						</div>
-					</div>
-				</div>
-				</div>
-		
-			</div>
+	
 			<div class="row">
-
-		
-				<div class="col-xl-5 col-12">
-						<div class="box no-shadow mb-0 bg-transparent">
-				
-					</div>
-					<div class="card">
-						<div class="min-h-310" style="background-image: url({% static 'assets/images/front-end-img/courses/desert.jpg' %}); background-size: cover;"></div>
-					  <div class="card-body">
-							<span class="badge badge-primary font-size-16">{{projek.nosebuthargaid.kaedahperolehan}}</span>	
-																		
-							<div class="cour-stac d-flex align-items-center text-fade mt-30 ">
-							  <p class="font-size-14">Penyelia</p>
-							  <p class="lt-sp">|</p>
-							  <span class="badge badge-success font-size-14">{{projek.nosebuthargaid.pegawaiselia.first_name}}</span>
-							</div>
-						<h4 class="card-title justify-content-between d-flex align-items-center mt-20">Tajuk Kerja</h4>
-						<p class="card-text">{{projek.tajukkerja}}</p>
-					  </div>
-					  <div class="card-footer justify-content-between d-flex align-items-center">
-						<div class="d-flex font-size-18 font-weight-600"> <span class="text-dark mr-10">Kod Vot</span> <span class="text-primary">{{projek.kodvot}}</span> </div>
-					
-					  </div>
-					</div>
-				</div>
-				<div class="col-xl-7 col-12">
-					<div class="box">
-					<div class="box-header">
-						<h4 class="box-title align-items-start flex-column">
-							Senarai Dokumen
-							<small class="subtitle">12 dokumen keseluruan</small>
-						</h4>
-					</div>
-					<div class="box-body py-0">
-						<div class="table-responsive">
-							<table class="table no-border">
-								<thead>
-									<tr class="text-left">
-										<th class="p-0"></th>
-										<th class="p-0"></th>
-										<th class="p-0"></th>
-										<th class="p-0"></th>
-									
-									</tr>
-								</thead>
-								<tbody>
-									<tr>										
-										<td class="">
-								
-											<a href="#" class="mr-15 bg-lightest h-40 w-40 l-h-40 rounded-circle text-center overflow-hidden">
-											{% if mrksatu.mrksatunosebutharga.id == projek.nosebuthargaid.id %}
-												<img src="{% static 'assets/images/correction.png'%}" class="h-50 align-self-end" alt="">
-											{% else %}
-												<img src="{% static 'assets/images/crossed.png'%}" class="h-50 align-self-end" alt="">
-											{% endif %}
-									
-										</a>
-										</td>
-										<td>
-											<a href="#" class="text-dark font-weight-600 hover-primary font-size-16">MRK 01</a>
-											<span class="text-fade d-block">Maklumat Rekod Kerja Satu</span>
-										</td>
-											<td>
-											<div class="d-flex flex-column w-p100">
-												<div class="d-flex align-items-center justify-content-between mb-2">
-													<span class="text-fade">
-														65%
-													</span>
-													<span class="text-fade">
-														Progress
-													</span>
-												</div>
-												<div class="progress progress-xs w-p100">
-													<div class="progress-bar bg-danger" role="progressbar" style="width: 65%;" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
-												</div>
-											</div>
-										</td>
-								
-								
-					
-										<td class="text-right">
-											<a href="{% url 'dokumen/mrksatu' projekid=projek.id %}" class="waves-effect waves-light btn btn-primary btn-rounded btn-outline">Kemaskini</a>
-	
-										</td>
-									</tr>
-									<tr>										
-										<td class="">
-										
-											<a href="#" class="mr-15 bg-lightest h-50 w-50 l-h-50 rounded-circle text-center overflow-hidden">
-											{% if mrkdua.mrkduanosebutharga.id == projek.nosebuthargaid.id %}
-												<img src="{% static 'assets/images/correction.png'%}" class="h-50 align-self-end" alt="">
-											{% else %}
-												<img src="{% static 'assets/images/crossed.png'%}" class="h-50 align-self-end" alt="">
-											{% endif %}
-										</a>
-										</td>
-										<td>
-											<a href="#" class="text-dark font-weight-600 hover-primary font-size-16">MRK 02</a>
-											<span class="text-fade d-block">Maklumat Rekod Kerja Dua</span>
-										</td>
-											<td>
-											<div class="d-flex flex-column w-p100">
-												<div class="d-flex align-items-center justify-content-between mb-2">
-													<span class="text-fade">
-														65%
-													</span>
-													<span class="text-fade">
-														Progress
-													</span>
-												</div>
-												<div class="progress progress-xs w-p100">
-													<div class="progress-bar bg-danger" role="progressbar" style="width: 65%;" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
-												</div>
-											</div>
-										</td>
-								
-								
-					
-										<td class="text-right">
-											{% if mrksatu.mrksatunosebutharga.id == projek.nosebuthargaid.id %}
-												<a href="{% url 'dokumen/mrkdua' idperolehan=projek.nosebuthargaid.id %}" class="waves-effect waves-light btn btn-primary btn-rounded btn-outline">Kemaskini</a>
-												
-											{% else %}
-												<span class="badge badge-danger-light">N/A</span>
-											{% endif %}
-											
-	
-										</td>
-									</tr>
-									<tr>										
-											<td class="">
-										
-											<a href="#" class="mr-15 bg-lightest h-50 w-50 l-h-50 rounded-circle text-center overflow-hidden">
-											{% if lsk.lsknosebutharga.id == projek.nosebuthargaid.id %}
-												<img src="{% static 'assets/images/correction.png'%}" class="h-50 align-self-end" alt="">
-											{% else %}
-												<img src="{% static 'assets/images/crossed.png'%}" class="h-50 align-self-end" alt="">
-											{% endif %}
-										</a>
-										</td>
-										<td>
-											<a href="#" class="text-dark font-weight-600 hover-primary font-size-16">LSK</a>
-											<span class="text-fade d-block">Laporan Siap Kerja</span>
-										</td>
-											<td>
-											<div class="d-flex flex-column w-p100">
-												<div class="d-flex align-items-center justify-content-between mb-2">
-													<span class="text-fade">
-														65%
-													</span>
-													<span class="text-fade">
-														Progress
-													</span>
-												</div>
-												<div class="progress progress-xs w-p100">
-													<div class="progress-bar bg-danger" role="progressbar" style="width: 65%;" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
-												</div>
-											</div>
-										</td>
-								
-								
-					
-										<td class="text-right">
-										  		{% if lsk.lsknosebutharga.id == projek.nosebuthargaid.id %}
-												<a href="#" class="waves-effect waves-light btn btn-primary btn-rounded btn-outline">Kemaskini</a>
-												
-											{% else %}
-												<span class="badge badge-danger-light">N/A</span>
-											{% endif %}
-	
-										</td>
-									</tr>
-									<tr>										
-										<td class="">
-										
-											<a href="#" class="mr-15 bg-lightest h-50 w-50 l-h-50 rounded-circle text-center overflow-hidden">
-											{% if mrktiga.mrktigasebutharga.id == projek.nosebuthargaid.id %}
-												<img src="{% static 'assets/images/correction.png'%}" class="h-50 align-self-end" alt="">
-											{% else %}
-												<img src="{% static 'assets/images/crossed.png'%}" class="h-50 align-self-end" alt="">
-											{% endif %}
-										</a>
-										</td>
-										<td>
-											<a href="#" class="text-dark font-weight-600 hover-primary font-size-16">MRK 03</a>
-											<span class="text-fade d-block">Msklumat Rekod Kerja Tiga</span>
-										</td>
-											<td>
-											<div class="d-flex flex-column w-p100">
-												<div class="d-flex align-items-center justify-content-between mb-2">
-													<span class="text-fade">
-														65%
-													</span>
-													<span class="text-fade">
-														Progress
-													</span>
-												</div>
-												<div class="progress progress-xs w-p100">
-													<div class="progress-bar bg-danger" role="progressbar" style="width: 65%;" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
-												</div>
-											</div>
-										</td>
-								
-								
-					
-										<td class="text-right">
-											{% if mrktiga.mrktigasebutharga.id == projek.nosebuthargaid.id %}
-												<a href="#" class="waves-effect waves-light btn btn-primary btn-rounded btn-outline">Kemaskini</a>
-												
-											{% else %}
-												<span class="badge badge-danger-light">N/A</span>
-											{% endif %}
-	
-										</td>
-									</tr>
-									<tr>										
-										<td class="">
-										
-											<a href="#" class="mr-15 bg-lightest h-50 w-50 l-h-50 rounded-circle text-center overflow-hidden">
-											{% if psk.psknosebutharga.id == projek.nosebuthargaid.id %}
-												<img src="{% static 'assets/images/correction.png'%}" class="h-50 align-self-end" alt="">
-											{% else %}
-												<img src="{% static 'assets/images/crossed.png'%}" class="h-50 align-self-end" alt="">
-											{% endif %}
-										</a>
-										</td>
-										<td>
-											<a href="#" class="text-dark font-weight-600 hover-primary font-size-16">PSK</a>
-											<span class="text-fade d-block">Perakuan Siap Kerja</span>
-										</td>
-											<td>
-											<div class="d-flex flex-column w-p100">
-												<div class="d-flex align-items-center justify-content-between mb-2">
-													<span class="text-fade">
-														65%
-													</span>
-													<span class="text-fade">
-														Progress
-													</span>
-												</div>
-												<div class="progress progress-xs w-p100">
-													<div class="progress-bar bg-danger" role="progressbar" style="width: 80%;" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
-												</div>
-											</div>
-										</td>
-								
-								
-					
-										<td class="text-right">
-												{% if psk.psknosebutharga.id == projek.nosebuthargaid.id %}
-												<a href="#" class="waves-effect waves-light btn btn-primary btn-rounded btn-outline">Kemaskini</a>
-												
-											{% else %}
-												<span class="badge badge-danger-light">N/A</span>
-											{% endif %}
-	
-										</td>
-									</tr>
-									<tr>										
-											<td class="">
-										
-											<a href="#" class="mr-15 bg-lightest h-50 w-50 l-h-50 rounded-circle text-center overflow-hidden">
-											{% if ss.ssnosebutharga.id == projek.nosebuthargaid.id %}
-												<img src="{% static 'assets/images/correction.png'%}" class="h-50 align-self-end" alt="">
-											{% else %}
-												<img src="{% static 'assets/images/crossed.png'%}" class="h-50 align-self-end" alt="">
-											{% endif %}
-										</a>
-										</td>
-										<td>
-											<a href="#" class="text-dark font-weight-600 hover-primary font-size-16">SS</a>
-											<span class="text-fade d-block">Senarai Semakan</span>
-										</td>
-											<td>
-											<div class="d-flex flex-column w-p100">
-												<div class="d-flex align-items-center justify-content-between mb-2">
-													<span class="text-fade">
-														65%
-													</span>
-													<span class="text-fade">
-														Progress
-													</span>
-												</div>
-												<div class="progress progress-xs w-p100">
-													<div class="progress-bar bg-danger" role="progressbar" style="width: 65%;" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
-												</div>
-											</div>
-										</td>
-								
-								
-					
-										<td class="text-right">
-												{% if ss.ssnosebutharga.id == projek.nosebuthargaid.id %}
-												<a href="#" class="waves-effect waves-light btn btn-primary btn-rounded btn-outline">Kemaskini</a>
-												
-											{% else %}
-												<span class="badge badge-danger-light">N/A</span>
-											{% endif %}
-	
-										</td>
-									</tr>
-									<tr>										
-												<td class="">
-										
-											<a href="#" class="mr-15 bg-lightest h-50 w-50 l-h-50 rounded-circle text-center overflow-hidden">
-											{% if psmk.psmknosebutharga.id == projek.nosebuthargaid.id %}
-												<img src="{% static 'assets/images/correction.png'%}" class="h-50 align-self-end" alt="">
-											{% else %}
-												<img src="{% static 'assets/images/crossed.png'%}" class="h-50 align-self-end" alt="">
-											{% endif %}
-										</a>
-										</td>
-										<td>
-											<a href="#" class="text-dark font-weight-600 hover-primary font-size-16">PSMK</a>
-											<span class="text-fade d-block">Perakuan Siap Membaiki Kecacatan</span>
-										</td>
-											<td>
-											<div class="d-flex flex-column w-p100">
-												<div class="d-flex align-items-center justify-content-between mb-2">
-													<span class="text-fade">
-														65%
-													</span>
-													<span class="text-fade">
-														Progress
-													</span>
-												</div>
-												<div class="progress progress-xs w-p100">
-													<div class="progress-bar bg-danger" role="progressbar" style="width: 65%;" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
-												</div>
-											</div>
-										</td>
-								
-								
-					
-											<td class="text-right">
-												{% if psmk.psmknosebutharga.id == projek.nosebuthargaid.id %}
-												<a href="#" class="waves-effect waves-light btn btn-primary btn-rounded btn-outline">Kemaskini</a>
-												
-											{% else %}
-												<span class="badge badge-danger-light">N/A</span>
-											{% endif %}
-	
-										</td>
-									</tr>
-									<tr>										
-													<td class="">
-										
-											<a href="#" class="mr-15 bg-lightest h-50 w-50 l-h-50 rounded-circle text-center overflow-hidden">
-											{% if pjb.jbankknosebutharga.id == projek.nosebuthargaid.id %}
-												<img src="{% static 'assets/images/correction.png'%}" class="h-50 align-self-end" alt="">
-											{% else %}
-												<img src="{% static 'assets/images/crossed.png'%}" class="h-50 align-self-end" alt="">
-											{% endif %}
-										</a>
-										</td>
-										<td>
-											<a href="#" class="text-dark font-weight-600 hover-primary font-size-16">PJB</a>
-											<span class="text-fade d-block">Pelepasan Jaminan Bank</span>
-										</td>
-											<td>
-											<div class="d-flex flex-column w-p100">
-												<div class="d-flex align-items-center justify-content-between mb-2">
-													<span class="text-fade">
-														65%
-													</span>
-													<span class="text-fade">
-														Progress
-													</span>
-												</div>
-												<div class="progress progress-xs w-p100">
-													<div class="progress-bar bg-danger" role="progressbar" style="width: 65%;" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
-												</div>
-											</div>
-										</td>
-								
-								
-						<td class="text-right">
-												{% if pjb.jbankknosebutharga.id == projek.nosebuthargaid.id %}
-												<a href="#" class="waves-effect waves-light btn btn-primary btn-rounded btn-outline">Kemaskini</a>
-												
-											{% else %}
-												<span class="badge badge-danger-light">N/A</span>
-											{% endif %}
-	
-										</td>
-									</tr>
-									<tr>										
-													<td class="">
-										
-											<a href="#" class="mr-15 bg-lightest h-50 w-50 l-h-50 rounded-circle text-center overflow-hidden">
-											{% if ppwjp.wjpknosebutharga.id == projek.nosebuthargaid.id %}
-												<img src="{% static 'assets/images/correction.png'%}" class="h-50 align-self-end" alt="">
-											{% else %}
-												<img src="{% static 'assets/images/crossed.png'%}" class="h-50 align-self-end" alt="">
-											{% endif %}
-										</a>
-										</td>
-										<td>
-											<a href="#" class="text-dark font-weight-600 hover-primary font-size-16">PPWJP</a>
-											<span class="text-fade d-block">Perakuan Pemulangan WJP</span>
-										</td>
-											<td>
-											<div class="d-flex flex-column w-p100">
-												<div class="d-flex align-items-center justify-content-between mb-2">
-													<span class="text-fade">
-														65%
-													</span>
-													<span class="text-fade">
-														Progress
-													</span>
-												</div>
-												<div class="progress progress-xs w-p100">
-													<div class="progress-bar bg-danger" role="progressbar" style="width: 65%;" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
-												</div>
-											</div>
-										</td>
-								
-								
-						<td class="text-right">
-												{% if ppwjp.wjpknosebutharga.id == projek.nosebuthargaid.id %}
-												<a href="#" class="waves-effect waves-light btn btn-primary btn-rounded btn-outline">Kemaskini</a>
-												
-											{% else %}
-												<span class="badge badge-danger-light">N/A</span>
-											{% endif %}
-	
-										</td>
-									</tr>
-									<tr>										
-										<td class="">
-										
-											<a href="#" class="mr-15 bg-lightest h-50 w-50 l-h-50 rounded-circle text-center overflow-hidden">
-											{% if smrk.smrkknosebutharga.id == projek.nosebuthargaid.id %}
-												<img src="{% static 'assets/images/correction.png'%}" class="h-50 align-self-end" alt="">
-											{% else %}
-												<img src="{% static 'assets/images/crossed.png'%}" class="h-50 align-self-end" alt="">
-											{% endif %}
-										</a>
-										</td>
-										<td>
-											<a href="#" class="text-dark font-weight-600 hover-primary font-size-16">SMRK</a>
-											<span class="text-fade d-block">Surat Maklumat Rekod Kerja</span>
-										</td>
-											<td>
-											<div class="d-flex flex-column w-p100">
-												<div class="d-flex align-items-center justify-content-between mb-2">
-													<span class="text-fade">
-														65%
-													</span>
-													<span class="text-fade">
-														Progress
-													</span>
-												</div>
-												<div class="progress progress-xs w-p100">
-													<div class="progress-bar bg-danger" role="progressbar" style="width: 65%;" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
-												</div>
-											</div>
-										</td>
-								
-								
-					
-										<td class="text-right">
-												{% if smrk.smrkknosebutharga.id == projek.nosebuthargaid.id %}
-												<a href="#" class="waves-effect waves-light btn btn-primary btn-rounded btn-outline">Kemaskini</a>
-												
-											{% else %}
-												<span class="badge badge-danger-light">N/A</span>
-											{% endif %}
-	
-										</td>
-									</tr>
-									<tr>										
-											<td class="">
-										
-											<a href="#" class="mr-15 bg-lightest h-50 w-50 l-h-50 rounded-circle text-center overflow-hidden">
-											{% if skhas.khasknosebutharga.id == projek.nosebuthargaid.id %}
-												<img src="{% static 'assets/images/correction.png'%}" class="h-50 align-self-end" alt="">
-											{% else %}
-												<img src="{% static 'assets/images/crossed.png'%}" class="h-50 align-self-end" alt="">
-											{% endif %}
-										</a>
-										</td>
-										<td>
-											<a href="#" class="text-dark font-weight-600 hover-primary font-size-16">SKHAS</a>
-											<span class="text-fade d-block">Surat Kebenaran Khas</span>
-										</td>
-											<td>
-											<div class="d-flex flex-column w-p100">
-												<div class="d-flex align-items-center justify-content-between mb-2">
-													<span class="text-fade">
-														65%
-													</span>
-													<span class="text-fade">
-														Progress
-													</span>
-												</div>
-												<div class="progress progress-xs w-p100">
-													<div class="progress-bar bg-danger" role="progressbar" style="width: 65%;" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
-												</div>
-											</div>
-										</td>
-								
-								
-					
-									<td class="text-right">
-												{% if skhas.khasknosebutharga.id == projek.nosebuthargaid.id %}}
-												<a href="#" class="waves-effect waves-light btn btn-primary btn-rounded btn-outline">Kemaskini</a>
-												
-											{% else %}
-												<span class="badge badge-danger-light">N/A</span>
-											{% endif %}
-	
-										</td>
-									</tr>
-									<tr>										
-											<td class="">
-										
-											<a href="#" class="mr-15 bg-lightest h-50 w-50 l-h-50 rounded-circle text-center overflow-hidden">
-											{% if sbon.bonknosebutharga.id == projek.nosebuthargaid.id %}
-												<img src="{% static 'assets/images/correction.png'%}" class="h-50 align-self-end" alt="">
-											{% else %}
-												<img src="{% static 'assets/images/crossed.png'%}" class="h-50 align-self-end" alt="">
-											{% endif %}
-										</a>
-										</td>
-										<td>
-											<a href="#" class="text-dark font-weight-600 hover-primary font-size-16">SPWJP</a>
-											<span class="text-fade d-block">Surat Pelepasan WJP</span>
-										</td>
-												<td>
-											<div class="d-flex flex-column w-p100">
-												<div class="d-flex align-items-center justify-content-between mb-2">
-													<span class="text-fade">
-														65%
-													</span>
-													<span class="text-fade">
-														Progress
-													</span>
-												</div>
-												<div class="progress progress-xs w-p100">
-													<div class="progress-bar bg-danger" role="progressbar" style="width: 65%;" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
-												</div>
-											</div>
-										</td>
-								
-										
-								
-								
-					
-										<td class="text-right">
-												{% if sbon.bonknosebutharga.id == projek.nosebuthargaid.id %}
-												<a href="#" class="waves-effect waves-light btn btn-primary btn-rounded btn-outline">Kemaskini</a>
-												
-											{% else %}
-												<span class="badge badge-danger-light">N/A</span>
-											{% endif %}
-	
-										</td>
-									</tr>
-								
-							
-								
-								</tbody>
-							</table>
-						</div>
-					</div>
-					</div>
+							<div class="col-12 col-xl-12">
+				<div class="box">		
 			
+					<div class="box-body">						
+						<div class="px-10 py-30 bg-white text-dark">
+							<h3 class="px-10 mb-15 font-weight-700">Projek </h3>
+						   <ul class="flexbox flex-justified">
+					
+							<li class="px-10">
+							  <h5 class="mb-1 text-bold">Tajuk Kerja</h5>
+							  <h6>{{projek.tajukkerja}}</h6>
+							</li>
+
+								   	<li class="px-10 bl-1 ">
+							<h5 class="mb-1 text-bold">Kod Vot</h5>
+							  
+							  <h6>{{projek.kodvot}}</h6>
+					
+							</li>
+
+							<li class="br-1 bl-1 px-10">
+							   <h5 class="mb-1 text-bold">Kaedah Perolahan</h5>
+							  <h6>{{projek.nosebuthargaid.kaedahperolehan}}</h6>
+							</li>
+
+							<li class="px-10 ">
+							<h5 class="mb-1 text-bold">Penyelia</h5>
+							  <h6>{{projek.nosebuthargaid.pegawaiselia.first_name}}</h6>
+							</li>
+
+						
+						  </ul>						
+						</div>						
+										
+			
+					</div>
+					
 				</div>
+			</div> 
+
+						<div class="col-md-12">
+			  <div class="box">
+				<section class="cd-horizontal-timeline">
+					<div class="timeline">
+						<div class="events-wrapper">
+							<div class="events">
+								<ol>
+									<li><a href="#0" data-date="1/01/2018" class="selected">MRK 01</a></li>
+									<li><a href="#0" data-date="2/01/2018">MRK 02</a></li>
+									<li><a href="#0" data-date="3/01/2018">LSK</a></li>
+									<li><a href="#0" data-date="4/01/2018">MRK 03</a></li>
+									<li><a href="#0" data-date="5/01/2018">09 Jul</a></li>
+									<li><a href="#0" data-date="6/01/2018">30 Aug</a></li>
+									<li><a href="#0" data-date="7/01/2018">15 Sep</a></li>
+									<li><a href="#0" data-date="8/01/2018">01 Nov</a></li>
+									<li><a href="#0" data-date="9/01/2018">10 Dec</a></li>
+									<li><a href="#0" data-date="10/01/2018">29 Jan</a></li>
+									<li><a href="#0" data-date="11/01/2018">3 Mar</a></li>
+									<li><a href="#0" data-date="12/01/2018">PPWJP</a></li>
+								</ol> <span class="filling-line" aria-hidden="true"></span> </div>
+							<!-- .events -->
+						</div>
+						<!-- .events-wrapper -->
+						<ul class="cd-timeline-navigation">
+							<li><a href="#0" class="prev inactive">Prev</a></li>
+							<li><a href="#0" class="next">Next</a></li>
+						</ul>
+						<!-- .cd-timeline-navigation -->
+					</div>
+					<!-- .timeline -->
+					<div class="events-content">
+						<ol>
+							<li class="selected" data-date="1/01/2018">
+								<h2><img class="img-responsive rounded pull-left mr-20 mb-10" width="60" alt="user" src="{% static 'assets/images/folder.png'%}"> Maklumat Rekod Kerja 01<br/><small>{{projek.nosebuthargaid.noperolehan}}</small></h2>
+								<hr class="mt-40">
+								<p class="mt-30">Dikemaskini oleh {{projek.nosebuthargaid.pegawaiselia.first_name}} .<br>
+									<br>
+									<a href="{% url 'dokumen/mrksatu' projekid=projek.id %}" class="waves-effect waves-light btn btn-primary btn-outline">Kemaskini</a>
+								</p>
+							</li>
+							<li data-date="2/01/2018" >
+								<h2><img class="img-responsive rounded pull-left mr-20 mb-10" width="60" alt="user" src="../images/avatar/2.jpg"> Horizontal Timeline<br/><small>Feb 28th, 2018</small></h2>
+								<hr class="mt-40">
+								<p class="mt-40"> On the other hand, we denounce with righteous indignation and dislike men who are so beguiled and demoralized by the charms of pleasure of the moment, so blinded by desire, that they cannot foresee the pain and trouble that are bound to ensue; and equal blame belongs to those who fail in their duty through weakness of will, which is the same as saying through shrinking from toil and pain.<br>
+									<button class="btn btn-info btn-outline mt-20">Read more</button>
+
+								</p>
+							</li>
+							<li data-date="3/03/2018">
+								<h2><img class="img-responsive rounded pull-left mr-20 mb-10" width="60" alt="user" src="../images/avatar/3.jpg"> Horizontal Timeline<br/><small>March 20th, 2018</small></h2>
+								<hr class="mt-40">
+								<p class="mt-40"> On the other hand, we denounce with righteous indignation and dislike men who are so beguiled and demoralized by the charms of pleasure of the moment, so blinded by desire, that they cannot foresee the pain and trouble that are bound to ensue; and equal blame belongs to those who fail in their duty through weakness of will, which is the same as saying through shrinking from toil and pain.<br>
+									<button class="btn btn-info btn-outline mt-20">Read more</button>
+								</p>
+							</li>
+							<li data-date="4/04/2018">
+								<h2><img class="img-responsive rounded pull-left mr-20 mb-10" width="60" alt="user" src="../images/avatar/4.jpg"> Horizontal Timeline<br/><small>May 20th, 2018</small></h2>
+								<hr class="mt-40">
+								<p class="mt-40"> On the other hand, we denounce with righteous indignation and dislike men who are so beguiled and demoralized by the charms of pleasure of the moment, so blinded by desire, that they cannot foresee the pain and trouble that are bound to ensue; and equal blame belongs to those who fail in their duty through weakness of will, which is the same as saying through shrinking from toil and pain.<br>
+									<button class="btn btn-info btn-outline mt-20">Read more</button>
+								</p>
+							</li>
+							<li data-date="5/05/2018">
+								<h2><img class="img-responsive rounded pull-left mr-20 mb-10" width="60" alt="user" src="../images/avatar/5.jpg"> Horizontal Timeline<br/><small>July 9th, 2018</small></h2>
+								<hr class="mt-40">
+								<p class="mt-40"> On the other hand, we denounce with righteous indignation and dislike men who are so beguiled and demoralized by the charms of pleasure of the moment, so blinded by desire, that they cannot foresee the pain and trouble that are bound to ensue; and equal blame belongs to those who fail in their duty through weakness of will, which is the same as saying through shrinking from toil and pain.<br>
+									<button class="btn btn-info btn-outline mt-20">Read more</button>
+								</p>
+							</li>
+							<li data-date="30/08/2018">
+								<h2><img class="img-responsive rounded pull-left mr-20 mb-10" width="60" alt="user" src="../images/avatar/6.jpg"> Horizontal Timeline<br/><small>August 30th, 2018</small></h2>
+								<hr class="mt-40">
+								<p class="mt-40"> On the other hand, we denounce with righteous indignation and dislike men who are so beguiled and demoralized by the charms of pleasure of the moment, so blinded by desire, that they cannot foresee the pain and trouble that are bound to ensue; and equal blame belongs to those who fail in their duty through weakness of will, which is the same as saying through shrinking from toil and pain.<br>
+									<button class="btn btn-info btn-outline mt-20">Read more</button>
+								</p>
+							</li>
+							<li data-date="15/09/2018">
+								<h2><img class="img-responsive rounded pull-left mr-20 mb-10" width="60" alt="user" src="../images/avatar/7.jpg"> Horizontal Timeline<br/><small>September 15th, 2018</small></h2>
+								<hr class="mt-40">
+								<p class="mt-40"> On the other hand, we denounce with righteous indignation and dislike men who are so beguiled and demoralized by the charms of pleasure of the moment, so blinded by desire, that they cannot foresee the pain and trouble that are bound to ensue; and equal blame belongs to those who fail in their duty through weakness of will, which is the same as saying through shrinking from toil and pain.<br>
+									<button class="btn btn-info btn-outline mt-20">Read more</button>
+								</p>
+							</li>
+							<li data-date="01/11/2018">
+								<h2><img class="img-responsive rounded pull-left mr-20 mb-10" width="60" alt="user" src="../images/avatar/8.jpg"> Horizontal Timeline<br/><small>November 01st, 2018</small></h2>
+								<hr class="mt-40">
+								<p class="mt-40"> On the other hand, we denounce with righteous indignation and dislike men who are so beguiled and demoralized by the charms of pleasure of the moment, so blinded by desire, that they cannot foresee the pain and trouble that are bound to ensue; and equal blame belongs to those who fail in their duty through weakness of will, which is the same as saying through shrinking from toil and pain.<br>
+									<button class="btn btn-info btn-outline mt-20">Read more</button>
+								</p>
+							</li>
+							<li data-date="10/12/2018">
+								<h2><img class="img-responsive rounded pull-left mr-20 mb-10" width="60" alt="user" src="../images/avatar/9.jpg"> Horizontal Timeline<br/><small>December 10th, 2018</small></h2>
+								<hr class="mt-40">
+								<p class="mt-40"> On the other hand, we denounce with righteous indignation and dislike men who are so beguiled and demoralized by the charms of pleasure of the moment, so blinded by desire, that they cannot foresee the pain and trouble that are bound to ensue; and equal blame belongs to those who fail in their duty through weakness of will, which is the same as saying through shrinking from toil and pain.<br>
+									<button class="btn btn-info btn-outline mt-20">Read more</button>
+								</p>
+							</li>
+							<li data-date="19/01/2019">
+								<h2>Event title here</h2> <em>January 19th, 2019</em>
+								<p> On the other hand, we denounce with righteous indignation and dislike men who are so beguiled and demoralized by the charms of pleasure of the moment, so blinded by desire, that they cannot foresee the pain and trouble that are bound to ensue; and equal blame belongs to those who fail in their duty through weakness of will, which is the same as saying through shrinking from toil and pain. </p>
+							</li>
+							<li data-date="03/03/2019">
+								<h2>Event title here</h2> <em>March 3rd, 2019</em>
+								<p> On the other hand, we denounce with righteous indignation and dislike men who are so beguiled and demoralized by the charms of pleasure of the moment, so blinded by desire, that they cannot foresee the pain and trouble that are bound to ensue; and equal blame belongs to those who fail in their duty through weakness of will, which is the same as saying through shrinking from toil and pain. </p>
+							</li>
+						</ol>
+					</div>
+					<!-- .events-content -->
+				</section>
+			  </div>          
+			</div>
+
+
 			
 			</div>
 		
