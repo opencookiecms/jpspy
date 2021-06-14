@@ -15,7 +15,8 @@ from jpskit.viewcontroller import (
     kontraktorviews,
     projekview,
     documentviews,
-    reportview
+    reportview,
+    authviews
 
 )
 
@@ -77,6 +78,8 @@ urlpatterns = [
 
     path('sistem/subsistem', projekview.load_sistem, name="sistem/subsistem"),
     path('sistem/komponen', projekview.load_component, name="sistem/komponen"),
+
+    path('login',authviews.login, name="login")
 ]
 
 if settings.DEBUG:
