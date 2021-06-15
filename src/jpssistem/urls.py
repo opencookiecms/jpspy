@@ -16,7 +16,7 @@ from jpskit.viewcontroller import (
     projekview,
     documentviews,
     reportview,
-    authviews
+    authviews,
 
 )
 
