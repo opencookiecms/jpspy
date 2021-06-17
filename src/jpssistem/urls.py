@@ -79,7 +79,8 @@ urlpatterns = [
     path('sistem/subsistem', projekview.load_sistem, name="sistem/subsistem"),
     path('sistem/komponen', projekview.load_component, name="sistem/komponen"),
 
-    path('login',authviews.login, name="login")
+    path('login',authviews.loginJPS, name="login"),
+    path('register',authviews.registerJPS, name='register')
 ]
 
 if settings.DEBUG:
