@@ -10,6 +10,7 @@ from django.contrib.auth import authenticate
 
 
 @login_required(login_url='login')
+@allowed_users(allowed_roles=['admin'])
 def index(request):
 
     context = {

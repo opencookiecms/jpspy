@@ -22,8 +22,6 @@ def loginJPS(request):
             return redirect('index')
         else:
             messages.info(request, 'Username or Password is incorrect')
-
-
     return render(request, 'pages/login.html')
 
 def logoutJPS(request):
