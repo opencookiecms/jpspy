@@ -5,8 +5,11 @@ from ..modelcontroller import project,dfnoperolehan,document
 from ..formcontroller import projekform
 from django.db.models import Q
 from django.db.models import Count
+from django.contrib.auth.decorators import login_required
 
 
+
+@login_required(login_url='login')
 def daftarprojek(request):
     
     form = projekform.Projekform(request.POST or None)
@@ -28,6 +31,9 @@ def daftarprojek(request):
 
     return render(request, 'pages/projek-daftar.html',context)
 
+
+
+@login_required(login_url='login')
 def maklumatperolehan(request):
 
 
@@ -58,6 +64,8 @@ def maklumatperolehan(request):
 
     return render(request, 'pages/maklumatperolehandash.html',data)
 
+
+@login_required(login_url='login')
 def maklumatperolehanjenis(request, jenisp):
 
     p = project.Projek.objects.all().exists()
@@ -85,6 +93,7 @@ def maklumatperolehanjenis(request, jenisp):
     return render(request, 'pages/maklumatperolehandash.html',data)
 
 
+@login_required(login_url='login')
 def senaraiprojek(request):
 
     data = {
@@ -94,6 +103,7 @@ def senaraiprojek(request):
     return render(request, 'pages/projek-senarai.html',data)
 
 
+@login_required(login_url='login')
 def dokumenpilih(request, prid):
     
     projetgetsebutid = project.Projek.objects.filter(id=prid).first()
@@ -115,6 +125,9 @@ def dokumenpilih(request, prid):
     }
     return render(request,  'pages/dokumennav.html',data)
 
+
+
+@login_required(login_url='login')
 def projekkodvot(request, kvd):
 
     data = {
