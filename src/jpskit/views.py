@@ -10,11 +10,15 @@ from django.contrib.auth import authenticate
 
 
 @login_required(login_url='login')
-@allowed_users(allowed_roles=['admin'])
+@allowed_users(allowed_roles=['admin','superuser','user'])
 def index(request):
 
+   
+    g = request.user.groups.all()[0].name
+
     context = {
-        'test':'test value'
+        'test':'test value',
+        'g':g
     }
     return render(request, 'pages/maindashboard.html',context)
 

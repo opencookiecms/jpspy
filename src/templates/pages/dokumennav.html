@@ -65,28 +65,48 @@
 							<div class="row">
 								<div class="col-md-6">
 						<div class="d-flex align-items-center mb-25">
+
+							{% if mrksatu.projekbind == projek.id %}
 							<span class="bullet bullet-bar bg-success align-self-stretch"></span>							
 							<div class="h-20 mx-20 flex-shrink-0">							
-								<input type="checkbox" id="md_checkbox_21" class="filled-in chk-col-success">
+								<input type="checkbox" id="md_checkbox_21" class="filled-in chk-col-success" disabled=""  checked >
 								<label for="md_checkbox_21" class="h-20 p-10 mb-0"></label>
 							</div>
+							
+							{% else %}
+							<span class="bullet bullet-bar bg-danger align-self-stretch"></span>							
+							<div class="h-20 mx-20 flex-shrink-0">							
+								<input type="checkbox" id="md_checkbox_21" class="filled-in chk-col-success" disabled>
+								<label for="md_checkbox_21" class="h-20 p-10 mb-0"></label>
+							</div>
+							{% endif %}
+					
 							
 							<div class="d-flex flex-column flex-grow-1">
 								 <h5 class="mb-1 text-bold">MRK 01</h5>
 								<span class="font-weight-500">
-									Maklumat Rekod Kerja
+									Maklumat Rekod Kerja 01
 								</span>
 							</div>
-							<a href="#" class="waves-effect waves-light btn btn-primary-light btn-circle mx-5"><span class="icon-Write"><span class="path1"></span><span class="path2"></span></span></a>
+							<a href="{% url 'dokumen/mrksatu' projekid=projek.id  %}" class="waves-effect waves-light btn btn-primary-light btn-circle mx-5"><span class="icon-Write"><span class="path1"></span><span class="path2"></span></span></a>
 								 
 						</div>
 
-								<div class="d-flex align-items-center mb-25">
+						<div class="d-flex align-items-center mb-25">
+							{% if mrkdua.projekbind == projek.id %}
 							<span class="bullet bullet-bar bg-success align-self-stretch"></span>							
 							<div class="h-20 mx-20 flex-shrink-0">							
-								<input type="checkbox" id="md_checkbox_21" class="filled-in chk-col-success">
-								<label for="md_checkbox_21" class="h-20 p-10 mb-0"></label>
+								<input type="checkbox" id="md_checkbox_22" class="filled-in chk-col-success" disabled=""  checked >
+								<label for="md_checkbox_22" class="h-20 p-10 mb-0"></label>
 							</div>
+							
+							{% else %}
+							<span class="bullet bullet-bar bg-danger align-self-stretch"></span>							
+							<div class="h-20 mx-20 flex-shrink-0">							
+								<input type="checkbox" id="md_checkbox_22" class="filled-in chk-col-success" disabled>
+								<label for="md_checkbox_22" class="h-20 p-10 mb-0"></label>
+							</div>
+							{% endif %}
 							
 							<div class="d-flex flex-column flex-grow-1">
 								 <h5 class="mb-1 text-bold">MRK 02</h5>
@@ -94,8 +114,11 @@
 									Maklumat Rekod Kerja 02
 								</span>
 							</div>
-							<a href="#" class="waves-effect waves-light btn btn-primary-light btn-circle mx-5"><span class="icon-Write"><span class="path1"></span><span class="path2"></span></span></a>
-								 
+							{% if mrkdua.projekbind == projek.id %}
+							<a href="{% url 'dokumen/mrkdua' projekid=projek.id  %}" class="waves-effect waves-light btn btn-primary-light btn-circle mx-5"><span class="icon-Write"><span class="path1"></span><span class="path2"></span></span></a>
+							{% else %}
+							<a href="" class="waves-effect waves-light btn btn-danger-light btn-circle mx-5"><span class="icon-Write"><span class="path1"></span><span class="path2"></span></span></a>
+							{% endif %}
 						</div>
 
 						<div class="d-flex align-items-center mb-25">
@@ -111,7 +134,11 @@
 									Laporan Siap Kerja
 								</span>
 							</div>
-							<a href="#" class="waves-effect waves-light btn btn-primary-light btn-circle mx-5"><span class="icon-Write"><span class="path1"></span><span class="path2"></span></span></a>
+							{% if lsk.projekbind == projek.id %}
+							<a href="{% url 'dokumen/lsk' projekid=projek.id  %}" class="waves-effect waves-light btn btn-primary-light btn-circle mx-5"><span class="icon-Write"><span class="path1"></span><span class="path2"></span></span></a>
+							{% else %}
+							<a href="" class="waves-effect waves-light btn btn-danger-light btn-circle mx-5"><span class="icon-Write"><span class="path1"></span><span class="path2"></span></span></a>
+							{% endif %}
 								 
 						</div>
 						

@@ -14,6 +14,12 @@
 								<div class="d-md-flex align-items-center mb-30 mb-lg-0 w-p100">
 									<img src="{% static 'assets/images/svg-icon/color-svg/custom-14.svg' %}" class="img-fluid max-w-150" alt="" />
 									<div class="ml-30">
+									
+									{% if 'admin' == g%}
+									this is and andmin
+									{% elif 'user' == g%}
+									this is totaly user dooo
+									{% endif %}
 										<h4 class="mb-10">Take Advance Courses to Achive Your Goal !</h4>
 										<p class="mb-0 text-fade">It is a long established fact that a reader will be distracted <br>of a page when looking at its layout. </p>
 									</div>
