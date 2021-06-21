@@ -31,11 +31,12 @@ from pdfjinja import PdfJinja
 from tempfile import NamedTemporaryFile
 from ..modelcontroller import document, dfnoperolehan, kontraktor, project, userprofile
 from django.contrib.auth.models import User
-
+from django.contrib.auth.decorators import login_required
 from django.db.models import Q
 from django.db.models import Count
 
 
+@login_required(login_url='login')
 def testexcel(request):
     
     wb = load_workbook('static_in_env/assets/excel/laporan.xlsx')
@@ -88,6 +89,7 @@ def testexcel(request):
 
     return render(request, 'pages/someexcel.html')
 
+@login_required(login_url='login')
 def testexcel2(request):
 
     wb = load_workbook('static_in_env/assets/excel/laporan.xlsx')
@@ -127,7 +129,7 @@ def testexcel2(request):
 
     return render(request, 'pages/someexcel.html')
 
-
+@login_required(login_url='login')
 def exceltest(request):
      
     wb = load_workbook('static_in_env/assets/excel/bookpython.xlsx')
@@ -152,6 +154,8 @@ def exceltest(request):
     
     wb.save("chart.xlsx")
 
+
+@login_required(login_url='login')
 def some_pdf(request, projekid):
 
     dataobject = document.MRKSatu.objects.filter(mrksatunosebutharga=projekid).first()
@@ -170,6 +174,7 @@ def some_pdf(request, projekid):
 
     return render(request, 'pages/printtest.html' )
 
+@login_required(login_url='login')
 def some_excel(request, projekid):
 
     scope = ["https://spreadsheets.google.com/feeds",'https://www.googleapis.com/auth/spreadsheets',"https://www.googleapis.com/auth/drive.file","https://www.googleapis.com/auth/drive"]
@@ -187,6 +192,7 @@ def some_excel(request, projekid):
 
 #real dokument print began here
 
+@login_required(login_url='login')
 def pdfmrksatu(request, projekid):
 
     dataobject = document.MRKSatu.objects.filter(projekbind=projekid).first()
@@ -220,7 +226,7 @@ def pdfmrksatu(request, projekid):
 
     return render(request, 'pages/printtest.html' )
 
-
+@login_required(login_url='login')
 def pdfmrkdua(request, projekid):
 
     dataobject = document.MRKDua.objects.filter(projekbind=projekid).first()
@@ -271,6 +277,7 @@ def pdfmrkdua(request, projekid):
 
     return render(request, 'pages/printtest.html' )
 
+@login_required(login_url='login')
 def pdflsk(request, projekid):
 
     dataobject = document.Laporansiapkerja.objects.filter(projekbind=projekid).first()
@@ -322,7 +329,7 @@ def pdflsk(request, projekid):
 
     return render(request, 'pages/printtest.html' )
 
-
+@login_required(login_url='login')
 def pdfmrktiga(request, projekid):
 
     dataobject = document.MRKTiga.objects.filter(projekbind=projekid).first()
@@ -401,7 +408,7 @@ def pdfmrktiga(request, projekid):
 
     return render(request, 'pages/printtest.html' )
 
-
+@login_required(login_url='login')
 def pdfpsksatu(request, projekid):
 
     dataobject = document.PSK.objects.filter(projekbind=projekid).first()
@@ -443,7 +450,7 @@ def pdfpsksatu(request, projekid):
     return render(request, 'pages/printtest.html' )
 
 
-
+@login_required(login_url='login')
 def pdfpskdua(request, projekid):
 
     dataobject = document.PSK.objects.filter(projekbind=projekid).first()
@@ -484,7 +491,7 @@ def pdfpskdua(request, projekid):
 
     return render(request, 'pages/printtest.html' )
 
-
+@login_required(login_url='login')
 def ssemak(request, projekid):
 
     dataobject = document.SenaraiSemakan.objects.filter(projekbind=projekid).first()
@@ -526,7 +533,7 @@ def ssemak(request, projekid):
 
     return render(request, 'pages/printtest.html' )
 
-
+@login_required(login_url='login')
 def pdfpsmk(request, projekid):
 
     dataobject = document.PSMK.objects.filter(projekbind=projekid).first()
@@ -570,7 +577,7 @@ def pdfpsmk(request, projekid):
 
     return render(request, 'pages/printtest.html' )
 
-
+@login_required(login_url='login')
 def pdfjb(request, projekid):
 
     dataobject = document.SuratPJaminanbank.objects.filter(projekbind=projekid).first()
@@ -605,7 +612,7 @@ def pdfjb(request, projekid):
 
     return render(request, 'pages/printtest.html' )
 
-
+@login_required(login_url='login')
 def pdfppwjp(request, projekid):
 
     dataobject = document.Perakuanpwjp.objects.filter(projekbind=projekid).first()
@@ -636,6 +643,8 @@ def pdfppwjp(request, projekid):
 
     return render(request, 'pages/printtest.html' )
 
+
+@login_required(login_url='login')
 def pdfsmrksatu(request, projekid):
 
     dataobject = document.SuratMRK.objects.filter(projekbind=projekid).first()
@@ -670,7 +679,7 @@ def pdfsmrksatu(request, projekid):
     return render(request, 'pages/printtest.html' )
 
 
-
+@login_required(login_url='login')
 def pdfsmrkdua(request, projekid):
 
     dataobject = document.SuratMRK.objects.filter(projekbind=projekid).first()
@@ -704,7 +713,7 @@ def pdfsmrkdua(request, projekid):
     return render(request, 'pages/printtest.html' )
 
 
-
+@login_required(login_url='login')
 def pdfskhas01(request, projekid):
 
     dataobject = document.SuratKhas.objects.filter(projekbind=projekid).first()
@@ -740,6 +749,8 @@ def pdfskhas01(request, projekid):
 
     return render(request, 'pages/printtest.html' )
 
+
+@login_required(login_url='login')
 def pdfskhas02(request, projekid):
 
     dataobject = document.SuratKhas.objects.filter(projekbind=projekid).first()
@@ -774,6 +785,8 @@ def pdfskhas02(request, projekid):
 
     return render(request, 'pages/printtest.html' )
 
+
+@login_required(login_url='login')
 def pdfpwjp01(request, projekid):
 
     dataobject = document.SuratPelepasanBon.objects.filter(projekbind=projekid).first()
@@ -808,7 +821,7 @@ def pdfpwjp01(request, projekid):
 
     return render(request, 'pages/printtest.html' )
 
-
+@login_required(login_url='login')
 def pdfpwjp02(request, projekid):
 
     dataobject = document.SuratPelepasanBon.objects.filter(projekbind=projekid).first()
@@ -845,7 +858,7 @@ def pdfpwjp02(request, projekid):
 
 
 ##filter the report
-
+@login_required(login_url='login')
 def report_by_year(request):
 
     kaedah = request.GET.get('kaedah')

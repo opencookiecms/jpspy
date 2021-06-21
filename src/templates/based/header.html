@@ -18,7 +18,9 @@
     <nav class="navbar navbar-static-top">
       <!-- Sidebar toggle button-->
 	  <div class="app-menu">
- 
+	  	Selamat Kembali !! {{request.user.first_name}} {{test}} {{t}}
+
+
 	  </div>
 		
       <div class="navbar-custom-menu r-side">
@@ -33,6 +35,8 @@
 	
 	      <!-- User Account-->
           <li class="dropdown user user-menu">
+	
+
             <a href="#" class="waves-effect waves-light dropdown-toggle" data-toggle="dropdown" title="User">
 				<i class="icon-User"><span class="path1"></span><span class="path2"></span></i>
             </a>
@@ -42,7 +46,7 @@
 				 <a class="dropdown-item" href="#"><i class="ti-wallet text-muted mr-2"></i> My Wallet</a>
 				 <a class="dropdown-item" href="#"><i class="ti-settings text-muted mr-2"></i> Settings</a>
 				 <div class="dropdown-divider"></div>
-				 <a class="dropdown-item" href="#"><i class="ti-lock text-muted mr-2"></i> Logout</a>
+				 <a class="dropdown-item" href="{% url 'logout' %}"><i class="ti-lock text-muted mr-2"></i> Logout</a>
               </li>
             </ul>
           </li>	

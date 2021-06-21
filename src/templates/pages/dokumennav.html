@@ -64,29 +64,52 @@
 						<div class="box-body">
 							<div class="row">
 								<div class="col-md-6">
+
+						<!--MRK 01-->
 						<div class="d-flex align-items-center mb-25">
+
+							{% if mrksatu.projekbind == projek.id %}
 							<span class="bullet bullet-bar bg-success align-self-stretch"></span>							
 							<div class="h-20 mx-20 flex-shrink-0">							
-								<input type="checkbox" id="md_checkbox_21" class="filled-in chk-col-success">
+								<input type="checkbox" id="md_checkbox_21" class="filled-in chk-col-success" disabled=""  checked >
 								<label for="md_checkbox_21" class="h-20 p-10 mb-0"></label>
 							</div>
+							
+							{% else %}
+							<span class="bullet bullet-bar bg-danger align-self-stretch"></span>							
+							<div class="h-20 mx-20 flex-shrink-0">							
+								<input type="checkbox" id="md_checkbox_21" class="filled-in chk-col-success" disabled>
+								<label for="md_checkbox_21" class="h-20 p-10 mb-0"></label>
+							</div>
+							{% endif %}
+					
 							
 							<div class="d-flex flex-column flex-grow-1">
 								 <h5 class="mb-1 text-bold">MRK 01</h5>
 								<span class="font-weight-500">
-									Maklumat Rekod Kerja
+									Maklumat Rekod Kerja 01
 								</span>
 							</div>
-							<a href="#" class="waves-effect waves-light btn btn-primary-light btn-circle mx-5"><span class="icon-Write"><span class="path1"></span><span class="path2"></span></span></a>
+							<a href="{% url 'dokumen/mrksatu' projekid=projek.id  %}" class="waves-effect waves-light btn btn-primary-light btn-circle mx-5"><span class="icon-Write"><span class="path1"></span><span class="path2"></span></span></a>
 								 
 						</div>
 
-								<div class="d-flex align-items-center mb-25">
+						<!--MRK 02-->
+						<div class="d-flex align-items-center mb-25">
+							{% if mrkdua.projekbind == projek.id %}
 							<span class="bullet bullet-bar bg-success align-self-stretch"></span>							
 							<div class="h-20 mx-20 flex-shrink-0">							
-								<input type="checkbox" id="md_checkbox_21" class="filled-in chk-col-success">
-								<label for="md_checkbox_21" class="h-20 p-10 mb-0"></label>
+								<input type="checkbox" id="md_checkbox_22" class="filled-in chk-col-success" disabled=""  checked >
+								<label for="md_checkbox_22" class="h-20 p-10 mb-0"></label>
 							</div>
+							
+							{% else %}
+							<span class="bullet bullet-bar bg-danger align-self-stretch"></span>							
+							<div class="h-20 mx-20 flex-shrink-0">							
+								<input type="checkbox" id="md_checkbox_22" class="filled-in chk-col-success" disabled>
+								<label for="md_checkbox_22" class="h-20 p-10 mb-0"></label>
+							</div>
+							{% endif %}
 							
 							<div class="d-flex flex-column flex-grow-1">
 								 <h5 class="mb-1 text-bold">MRK 02</h5>
@@ -94,107 +117,329 @@
 									Maklumat Rekod Kerja 02
 								</span>
 							</div>
-							<a href="#" class="waves-effect waves-light btn btn-primary-light btn-circle mx-5"><span class="icon-Write"><span class="path1"></span><span class="path2"></span></span></a>
-								 
+							{% if mrkdua.projekbind == projek.id %}
+							<a href="{% url 'dokumen/mrkdua' projekid=projek.id  %}" class="waves-effect waves-light btn btn-primary-light btn-circle mx-5"><span class="icon-Write"><span class="path1"></span><span class="path2"></span></span></a>
+							{% else %}
+							<a href="javascript:void(0)" class="waves-effect waves-light btn btn-danger-light btn-circle mx-5"><span class="icon-Write"><span class="path1"></span><span class="path2"></span></span></a>
+							{% endif %}
+						</div>
+
+						<!--LSK-->
+						<div class="d-flex align-items-center mb-25">
+							{% if lsk.projekbind == projek.id %}
+							<span class="bullet bullet-bar bg-success align-self-stretch"></span>							
+							<div class="h-20 mx-20 flex-shrink-0">							
+								<input type="checkbox" id="md_checkbox_23" class="filled-in chk-col-success" disabled=""  checked >
+								<label for="md_checkbox_23" class="h-20 p-10 mb-0"></label>
+							</div>
+							
+							{% else %}
+							<span class="bullet bullet-bar bg-danger align-self-stretch"></span>							
+							<div class="h-20 mx-20 flex-shrink-0">							
+								<input type="checkbox" id="md_checkbox_23" class="filled-in chk-col-success" disabled>
+								<label for="md_checkbox_23" class="h-20 p-10 mb-0"></label>
+							</div>
+							{% endif %}
+							
+							<div class="d-flex flex-column flex-grow-1">
+								 <h5 class="mb-1 text-bold">LSK</h5>
+								<span class="font-weight-500">
+									Laporan Siap Kerja
+								</span>
+							</div>
+							{% if lsk.projekbind == projek.id %}
+							<a href="{% url 'dokumen/lsk' projekid=projek.id  %}" class="waves-effect waves-light btn btn-primary-light btn-circle mx-5"><span class="icon-Write"><span class="path1"></span><span class="path2"></span></span></a>
+							{% else %}
+							<a href="javascript:void(0)" class="waves-effect waves-light btn btn-danger-light btn-circle mx-5"><span class="icon-Write"><span class="path1"></span><span class="path2"></span></span></a>
+							{% endif %}
+						</div>
+						
+						<!--MRK 03-->
+						<div class="d-flex align-items-center mb-25">
+							{% if mrktiga.projekbind == projek.id %}
+							<span class="bullet bullet-bar bg-success align-self-stretch"></span>							
+							<div class="h-20 mx-20 flex-shrink-0">							
+								<input type="checkbox" id="md_checkbox_24" class="filled-in chk-col-success" disabled=""  checked >
+								<label for="md_checkbox_24" class="h-20 p-10 mb-0"></label>
+							</div>
+							
+							{% else %}
+							<span class="bullet bullet-bar bg-danger align-self-stretch"></span>							
+							<div class="h-20 mx-20 flex-shrink-0">							
+								<input type="checkbox" id="md_checkbox_24" class="filled-in chk-col-success" disabled>
+								<label for="md_checkbox_24" class="h-20 p-10 mb-0"></label>
+							</div>
+							{% endif %}
+							
+							<div class="d-flex flex-column flex-grow-1">
+								 <h5 class="mb-1 text-bold">MRK 03</h5>
+								<span class="font-weight-500">
+									Maklumat Rekod Kerja 03
+								</span>
+							</div>
+							{% if mrktiga.projekbind == projek.id %}
+							<a href="{% url 'dokumen/mrktiga' projekid=projek.id  %}" class="waves-effect waves-light btn btn-primary-light btn-circle mx-5"><span class="icon-Write"><span class="path1"></span><span class="path2"></span></span></a>
+							{% else %}
+							<a href="javascript:void(0)" class="waves-effect waves-light btn btn-danger-light btn-circle mx-5"><span class="icon-Write"><span class="path1"></span><span class="path2"></span></span></a>
+							{% endif %}
+						</div>
+						
+						<!--Perakuan Siap Kerja-->
+						<div class="d-flex align-items-center mb-25">
+							{% if psk.projekbind == projek.id %}
+							<span class="bullet bullet-bar bg-success align-self-stretch"></span>							
+							<div class="h-20 mx-20 flex-shrink-0">							
+								<input type="checkbox" id="md_checkbox_25" class="filled-in chk-col-success" disabled=""  checked >
+								<label for="md_checkbox_25" class="h-20 p-10 mb-0"></label>
+							</div>
+							
+							{% else %}
+							<span class="bullet bullet-bar bg-danger align-self-stretch"></span>							
+							<div class="h-20 mx-20 flex-shrink-0">							
+								<input type="checkbox" id="md_checkbox_25" class="filled-in chk-col-success" disabled>
+								<label for="md_checkbox_25" class="h-20 p-10 mb-0"></label>
+							</div>
+							{% endif %}
+							
+							<div class="d-flex flex-column flex-grow-1">
+								 <h5 class="mb-1 text-bold">PSK</h5>
+								<span class="font-weight-500">
+									Perakuan Siap Kerja
+								</span>
+							</div>
+							{% if psk.projekbind == projek.id %}
+							<a href="{% url 'dokumen/psk' projekid=projek.id  %}" class="waves-effect waves-light btn btn-primary-light btn-circle mx-5"><span class="icon-Write"><span class="path1"></span><span class="path2"></span></span></a>
+							{% else %}
+							<a href="javascript:void(0)" class="waves-effect waves-light btn btn-danger-light btn-circle mx-5"><span class="icon-Write"><span class="path1"></span><span class="path2"></span></span></a>
+							{% endif %}
+						</div>
+						
+						<!--senarai semakan-->
+						<div class="d-flex align-items-center mb-25">
+							{% if ss.projekbind == projek.id %}
+							<span class="bullet bullet-bar bg-success align-self-stretch"></span>							
+							<div class="h-20 mx-20 flex-shrink-0">							
+								<input type="checkbox" id="md_checkbox_26" class="filled-in chk-col-success" disabled=""  checked >
+								<label for="md_checkbox_26" class="h-20 p-10 mb-0"></label>
+							</div>
+							
+							{% else %}
+							<span class="bullet bullet-bar bg-danger align-self-stretch"></span>							
+							<div class="h-20 mx-20 flex-shrink-0">							
+								<input type="checkbox" id="md_checkbox_26" class="filled-in chk-col-success" disabled>
+								<label for="md_checkbox_26" class="h-20 p-10 mb-0"></label>
+							</div>
+							{% endif %}
+							
+							<div class="d-flex flex-column flex-grow-1">
+								 <h5 class="mb-1 text-bold">SS</h5>
+								<span class="font-weight-500">
+									Senarai Semakan
+								</span>
+							</div>
+							{% if ss.projekbind == projek.id %}
+							<a href="{% url 'dokumen/senaraisemakan' projekid=projek.id  %}" class="waves-effect waves-light btn btn-primary-light btn-circle mx-5"><span class="icon-Write"><span class="path1"></span><span class="path2"></span></span></a>
+							{% else %}
+							<a href="javascript:void(0)" class="waves-effect waves-light btn btn-danger-light btn-circle mx-5"><span class="icon-Write"><span class="path1"></span><span class="path2"></span></span></a>
+							{% endif %}
+						</div>
+						
+
+
+						
+						<!--PSMK-->
+						<div class="d-flex align-items-center mb-25">
+							{% if ss.projekbind == projek.id %}
+							<span class="bullet bullet-bar bg-success align-self-stretch"></span>							
+							<div class="h-20 mx-20 flex-shrink-0">							
+								<input type="checkbox" id="md_checkbox_27" class="filled-in chk-col-success" disabled=""  checked >
+								<label for="md_checkbox_27" class="h-20 p-10 mb-0"></label>
+							</div>
+							
+							{% else %}
+							<span class="bullet bullet-bar bg-danger align-self-stretch"></span>							
+							<div class="h-20 mx-20 flex-shrink-0">							
+								<input type="checkbox" id="md_checkbox_27" class="filled-in chk-col-success" disabled>
+								<label for="md_checkbox_27" class="h-20 p-10 mb-0"></label>
+							</div>
+							{% endif %}
+							
+							<div class="d-flex flex-column flex-grow-1">
+								 <h5 class="mb-1 text-bold">PSMK</h5>
+								<span class="font-weight-500">
+									Perakuan Siap Membaiki Kecacatan
+								</span>
+							</div>
+							{% if psmk.projekbind == projek.id %}
+							<a href="{% url 'dokumen/senaraisemakan' projekid=projek.id  %}" class="waves-effect waves-light btn btn-primary-light btn-circle mx-5"><span class="icon-Write"><span class="path1"></span><span class="path2"></span></span></a>
+							{% else %}
+							<a href="javascript:void(0)" class="waves-effect waves-light btn btn-danger-light btn-circle mx-5"><span class="icon-Write"><span class="path1"></span><span class="path2"></span></span></a>
+							{% endif %}
+						</div>
+
+
+						<!--JB-->
+						<div class="d-flex align-items-center mb-25">
+							{% if ss.projekbind == projek.id %}
+							<span class="bullet bullet-bar bg-success align-self-stretch"></span>							
+							<div class="h-20 mx-20 flex-shrink-0">							
+								<input type="checkbox" id="md_checkbox_28" class="filled-in chk-col-success" disabled=""  checked >
+								<label for="md_checkbox_28" class="h-20 p-10 mb-0"></label>
+							</div>
+							
+							{% else %}
+							<span class="bullet bullet-bar bg-danger align-self-stretch"></span>							
+							<div class="h-20 mx-20 flex-shrink-0">							
+								<input type="checkbox" id="md_checkbox_28" class="filled-in chk-col-success" disabled>
+								<label for="md_checkbox_28" class="h-20 p-10 mb-0"></label>
+							</div>
+							{% endif %}
+							
+							<div class="d-flex flex-column flex-grow-1">
+								 <h5 class="mb-1 text-bold">JB</h5>
+								<span class="font-weight-500">
+									Jaminan Bank
+								</span>
+							</div>
+							{% if jb.projekbind == projek.id %}
+							<a href="{% url 'dokumen/jaminanbank' projekid=projek.id  %}" class="waves-effect waves-light btn btn-primary-light btn-circle mx-5"><span class="icon-Write"><span class="path1"></span><span class="path2"></span></span></a>
+							{% else %}
+							<a href="javascript:void(0)" class="waves-effect waves-light btn btn-danger-light btn-circle mx-5"><span class="icon-Write"><span class="path1"></span><span class="path2"></span></span></a>
+							{% endif %}
+						</div>
+
+
+						<!--JB-->
+						<div class="d-flex align-items-center mb-25">
+							{% if ppwjp.projekbind == projek.id %}
+							<span class="bullet bullet-bar bg-success align-self-stretch"></span>							
+							<div class="h-20 mx-20 flex-shrink-0">							
+								<input type="checkbox" id="md_checkbox_29" class="filled-in chk-col-success" disabled=""  checked >
+								<label for="md_checkbox_29" class="h-20 p-10 mb-0"></label>
+							</div>
+							
+							{% else %}
+							<span class="bullet bullet-bar bg-danger align-self-stretch"></span>							
+							<div class="h-20 mx-20 flex-shrink-0">							
+								<input type="checkbox" id="md_checkbox_29" class="filled-in chk-col-success" disabled>
+								<label for="md_checkbox_29" class="h-20 p-10 mb-0"></label>
+							</div>
+							{% endif %}
+							
+							<div class="d-flex flex-column flex-grow-1">
+								 <h5 class="mb-1 text-bold">PPWJP</h5>
+								<span class="font-weight-500">
+									Perakuan Pemulangan WJP
+								</span>
+							</div>
+							{% if jb.projekbind == projek.id %}
+							<a href="{% url 'dokumen/ppwjp' projekid=projek.id  %}" class="waves-effect waves-light btn btn-primary-light btn-circle mx-5"><span class="icon-Write"><span class="path1"></span><span class="path2"></span></span></a>
+							{% else %}
+							<a href="javascript:void(0)" class="waves-effect waves-light btn btn-danger-light btn-circle mx-5"><span class="icon-Write"><span class="path1"></span><span class="path2"></span></span></a>
+							{% endif %}
 						</div>
 
 						<div class="d-flex align-items-center mb-25">
+							{% if smrk.projekbind == projek.id %}
 							<span class="bullet bullet-bar bg-success align-self-stretch"></span>							
 							<div class="h-20 mx-20 flex-shrink-0">							
-								<input type="checkbox" id="md_checkbox_21" class="filled-in chk-col-success">
-								<label for="md_checkbox_21" class="h-20 p-10 mb-0"></label>
+								<input type="checkbox" id="md_checkbox_30" class="filled-in chk-col-success" disabled=""  checked >
+								<label for="md_checkbox_30" class="h-20 p-10 mb-0"></label>
 							</div>
 							
-							<div class="d-flex flex-column flex-grow-1">
-								 <h5 class="mb-1 text-bold">LSK</h5>
-								<span class="font-weight-500">
-									Laporan Siap Kerja
-								</span>
-							</div>
-							<a href="#" class="waves-effect waves-light btn btn-primary-light btn-circle mx-5"><span class="icon-Write"><span class="path1"></span><span class="path2"></span></span></a>
-								 
-						</div>
-						
-						<div class="d-flex align-items-center mb-25">
-							<span class="bullet bullet-bar bg-success align-self-stretch"></span>							
+							{% else %}
+							<span class="bullet bullet-bar bg-danger align-self-stretch"></span>							
 							<div class="h-20 mx-20 flex-shrink-0">							
-								<input type="checkbox" id="md_checkbox_21" class="filled-in chk-col-success">
-								<label for="md_checkbox_21" class="h-20 p-10 mb-0"></label>
+								<input type="checkbox" id="md_checkbox_30" class="filled-in chk-col-success" disabled>
+								<label for="md_checkbox_30" class="h-20 p-10 mb-0"></label>
 							</div>
+							{% endif %}
 							
 							<div class="d-flex flex-column flex-grow-1">
-								 <h5 class="mb-1 text-bold">LSK</h5>
+								 <h5 class="mb-1 text-bold">SMKR</h5>
 								<span class="font-weight-500">
-									Laporan Siap Kerja
+									Surat Maklumat Rekod Kerja
 								</span>
 							</div>
-							<a href="#" class="waves-effect waves-light btn btn-primary-light btn-circle mx-5"><span class="icon-Write"><span class="path1"></span><span class="path2"></span></span></a>
-								 
-						</div>
-						
-						<div class="d-flex align-items-center mb-25">
-							<span class="bullet bullet-bar bg-success align-self-stretch"></span>							
-							<div class="h-20 mx-20 flex-shrink-0">							
-								<input type="checkbox" id="md_checkbox_21" class="filled-in chk-col-success">
-								<label for="md_checkbox_21" class="h-20 p-10 mb-0"></label>
-							</div>
-							
-							<div class="d-flex flex-column flex-grow-1">
-								 <h5 class="mb-1 text-bold">LSK</h5>
-								<span class="font-weight-500">
-									Laporan Siap Kerja
-								</span>
-							</div>
-							<a href="#" class="waves-effect waves-light btn btn-primary-light btn-circle mx-5"><span class="icon-Write"><span class="path1"></span><span class="path2"></span></span></a>
-								 
-						</div>
-						
-						<div class="d-flex align-items-center mb-25">
-							<span class="bullet bullet-bar bg-success align-self-stretch"></span>							
-							<div class="h-20 mx-20 flex-shrink-0">							
-								<input type="checkbox" id="md_checkbox_21" class="filled-in chk-col-success">
-								<label for="md_checkbox_21" class="h-20 p-10 mb-0"></label>
-							</div>
-							
-							<div class="d-flex flex-column flex-grow-1">
-								 <h5 class="mb-1 text-bold">LSK</h5>
-								<span class="font-weight-500">
-									Laporan Siap Kerja
-								</span>
-							</div>
-							<a href="#" class="waves-effect waves-light btn btn-primary-light btn-circle mx-5"><span class="icon-Write"><span class="path1"></span><span class="path2"></span></span></a>
-								 
-						</div>
-						
-						<div class="d-flex align-items-center mb-25">
-							<span class="bullet bullet-bar bg-success align-self-stretch"></span>							
-							<div class="h-20 mx-20 flex-shrink-0">							
-								<input type="checkbox" id="md_checkbox_21" class="filled-in chk-col-success">
-								<label for="md_checkbox_21" class="h-20 p-10 mb-0"></label>
-							</div>
-							
-							<div class="d-flex flex-column flex-grow-1">
-								 <h5 class="mb-1 text-bold">LSK</h5>
-								<span class="font-weight-500">
-									Laporan Siap Kerja
-								</span>
-							</div>
-							<a href="#" class="waves-effect waves-light btn btn-primary-light btn-circle mx-5"><span class="icon-Write"><span class="path1"></span><span class="path2"></span></span></a>
-								 
-						</div>
-							
+							{% if smrk.projekbind == projek.id %}
+							<a href="{% url 'dokumen/smrk' projekid=projek.id  %}" class="waves-effect waves-light btn btn-primary-light btn-circle mx-5"><span class="icon-Write"><span class="path1"></span><span class="path2"></span></span></a>
+							{% else %}
+							<a href="javascript:void(0)" class="waves-effect waves-light btn btn-danger-light btn-circle mx-5"><span class="icon-Write"><span class="path1"></span><span class="path2"></span></span></a>
+							{% endif %}
 						</div>
 
-								<div class="col-md-3 d-flex flex-column">
-									<div class="flex-grow-1 bg-dark p-30 flex-grow-1 bg-img"
-										style="background-position: calc(100% + 0.5rem) bottom; background-size: auto 70%; background-image: url({% static 'assets/images/svg-icon/color-svg/custom-3.svg'%})">
-										<h4 class="ont-weight-500">User Confidence</h4>
-										<p class="my-10">
-											Boost marketing & sales<br/>through product confidence.
-										</p>
-										<a href="#" class="btn btn-warning-light py-2 px-6">Learn</a>
-									</div>
-				</div>
+						
+						<div class="d-flex align-items-center mb-25">
+							{% if skhas.projekbind == projek.id %}
+							<span class="bullet bullet-bar bg-success align-self-stretch"></span>							
+							<div class="h-20 mx-20 flex-shrink-0">							
+								<input type="checkbox" id="md_checkbox_31" class="filled-in chk-col-success" disabled=""  checked >
+								<label for="md_checkbox_31" class="h-20 p-10 mb-0"></label>
+							</div>
+							
+							{% else %}
+							<span class="bullet bullet-bar bg-danger align-self-stretch"></span>							
+							<div class="h-20 mx-20 flex-shrink-0">							
+								<input type="checkbox" id="md_checkbox_31" class="filled-in chk-col-success" disabled>
+								<label for="md_checkbox_31" class="h-20 p-10 mb-0"></label>
+							</div>
+							{% endif %}
+							
+							<div class="d-flex flex-column flex-grow-1">
+								 <h5 class="mb-1 text-bold">SKHAS</h5>
+								<span class="font-weight-500">
+									Surat Khas
+								</span>
+							</div>
+							{% if skhas.projekbind == projek.id %}
+							<a href="{% url 'dokumen/skhas' projekid=projek.id  %}" class="waves-effect waves-light btn btn-primary-light btn-circle mx-5"><span class="icon-Write"><span class="path1"></span><span class="path2"></span></span></a>
+							{% else %}
+							<a href="javascript:void(0)" class="waves-effect waves-light btn btn-danger-light btn-circle mx-5"><span class="icon-Write"><span class="path1"></span><span class="path2"></span></span></a>
+							{% endif %}
+						</div>
+
+						<div class="d-flex align-items-center mb-25">
+							{% if sbon.projekbind == projek.id %}
+							<span class="bullet bullet-bar bg-success align-self-stretch"></span>							
+							<div class="h-20 mx-20 flex-shrink-0">							
+								<input type="checkbox" id="md_checkbox_32" class="filled-in chk-col-success" disabled=""  checked >
+								<label for="md_checkbox_32" class="h-20 p-10 mb-0"></label>
+							</div>
+							
+							{% else %}
+							<span class="bullet bullet-bar bg-danger align-self-stretch"></span>							
+							<div class="h-20 mx-20 flex-shrink-0">							
+								<input type="checkbox" id="md_checkbox_32" class="filled-in chk-col-success" disabled>
+								<label for="md_checkbox_32" class="h-20 p-10 mb-0"></label>
+							</div>
+							{% endif %}
+							
+							<div class="d-flex flex-column flex-grow-1">
+								 <h5 class="mb-1 text-bold">SPBWJP</h5>
+								<span class="font-weight-500">
+									Surat Pelepasan Bon Jaminan Perlaksanaan
+								</span>
+							</div>
+							{% if sbon.projekbind == projek.id %}
+							<a href="{% url 'dokumen/suratbon' projekid=projek.id  %}" class="waves-effect waves-light btn btn-primary-light btn-circle mx-5"><span class="icon-Write"><span class="path1"></span><span class="path2"></span></span></a>
+							{% else %}
+							<a href="javascript:void(0)" class="waves-effect waves-light btn btn-danger-light btn-circle mx-5"><span class="icon-Write"><span class="path1"></span><span class="path2"></span></span></a>
+							{% endif %}
+						</div>
+						
+						
+							
+					</div>
+
+					<div class="col-md-3 d-flex flex-column">
+						<div class="flex-grow-1 bg-dark p-30 flex-grow-1 bg-img" style="background-position: calc(100% + 0.5rem) bottom; background-size: auto 70%; background-image: url({% static 'assets/images/svg-icon/color-svg/custom-3.svg'%})">
+								<h4 class="ont-weight-500">User Confidence</h4>
+									<p class="my-10">
+										Boost marketing & sales<br/>through product confidence.
+									</p>
+								<a href="#" class="btn btn-warning-light py-2 px-6">Learn</a>
+						</div>
+					</div>
 					<div class="col-md-3">
 							  
 					  <div class="box-header no-border">

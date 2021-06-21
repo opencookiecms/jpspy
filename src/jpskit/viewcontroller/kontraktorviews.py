@@ -7,9 +7,9 @@ from django.db.models import Q
 from django.db.models import Count
 from django.db.models.functions import NullIf
 from django.core.exceptions import ObjectDoesNotExist
+from django.contrib.auth.decorators import login_required
 
-
-
+@login_required(login_url='login')
 def kontraktordash(request):
 
     timecurrent = datetime.date.today().strftime('%d/%m/%Y')
@@ -69,7 +69,7 @@ def kontraktordash(request):
 
     return render(request, 'pages/kontraktor-dashboard.html',data)
 
-
+@login_required(login_url='login')
 def kontraktorprofile(request, kontrakid):
 
     data = {
@@ -77,6 +77,7 @@ def kontraktorprofile(request, kontrakid):
     }
     return render(request, 'pages/kontraktor-profile.html',data)
 
+@login_required(login_url='login')
 def kontraktorlist(request):
 
     timecurrent = datetime.date.today().strftime('%d/%m/%Y')
@@ -93,6 +94,7 @@ def kontraktorlist(request):
 
     return render(request, 'pages/kontraktor-list.html',data)
 
+@login_required(login_url='login')
 def kontraktordaftar(request):
     
     form = kontraktorform.KontraktroForm(request.POST or None, request.FILES or None)
@@ -110,7 +112,7 @@ def kontraktordaftar(request):
     return render(request, 'pages/kontraktor-wizard.html',context )
 
 
-
+@login_required(login_url='login')
 def kontraktoredit(request, id):
     dataobj = kontraktor.Kontraktor.objects.get(id=id)
     form = kontraktorform.KontraktroForm(request.POST or None, request.FILES or None, instance=dataobj)
@@ -125,6 +127,7 @@ def kontraktoredit(request, id):
 
     return render(request, 'pages/kontraktor-edit.html',data)
 
+@login_required(login_url='login')
 def kontraktordelete(request, id):
     dataobj = kontraktor.Kontraktor.objects.get(id=id)
     dataobj.delete()
