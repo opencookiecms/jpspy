@@ -68,7 +68,7 @@
 						<!--MRK 01-->
 						<div class="d-flex align-items-center mb-25">
 
-							{% if mrksatu.projekbind == projek.id %}
+							{% if mrksatu.projekbind.id == projek.id %}
 							<span class="bullet bullet-bar bg-success align-self-stretch"></span>							
 							<div class="h-20 mx-20 flex-shrink-0">							
 								<input type="checkbox" id="md_checkbox_21" class="filled-in chk-col-success" disabled=""  checked >
@@ -96,7 +96,7 @@
 
 						<!--MRK 02-->
 						<div class="d-flex align-items-center mb-25">
-							{% if mrkdua.projekbind == projek.id %}
+							{% if mrkdua.projekbind.id == projek.id %}
 							<span class="bullet bullet-bar bg-success align-self-stretch"></span>							
 							<div class="h-20 mx-20 flex-shrink-0">							
 								<input type="checkbox" id="md_checkbox_22" class="filled-in chk-col-success" disabled=""  checked >
@@ -115,9 +115,10 @@
 								 <h5 class="mb-1 text-bold">MRK 02</h5>
 								<span class="font-weight-500">
 									Maklumat Rekod Kerja 02
+									
 								</span>
 							</div>
-							{% if mrkdua.projekbind == projek.id %}
+							{% if mrksatu.projekbind.id == projek.id %}
 							<a href="{% url 'dokumen/mrkdua' projekid=projek.id  %}" class="waves-effect waves-light btn btn-primary-light btn-circle mx-5"><span class="icon-Write"><span class="path1"></span><span class="path2"></span></span></a>
 							{% else %}
 							<a href="javascript:void(0)" class="waves-effect waves-light btn btn-danger-light btn-circle mx-5"><span class="icon-Write"><span class="path1"></span><span class="path2"></span></span></a>
