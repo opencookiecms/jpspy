@@ -130,6 +130,9 @@ def dokumenpilih(request, prid):
 @login_required(login_url='login')
 def projekkodvot(request, kvd):
 
+    userL = request.user.id
+    print(userL)
+
     data = {
         'scriptvot':True,
         'senaraiprojek':project.Projek.objects.filter(kodvot=kvd),
