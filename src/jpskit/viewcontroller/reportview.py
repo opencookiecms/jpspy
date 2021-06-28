@@ -1,5 +1,5 @@
 """pip uninstall pdfminer" and "pip uninstall pdfminer.six".
-Then all clear, "pip install pdfminer.six"."""
+Then all clear, "pip install pdfminer.six". selamat boleh install"""
 
 from django.shortcuts import render, get_list_or_404, redirect, reverse
 from django.core.files.storage import FileSystemStorage
