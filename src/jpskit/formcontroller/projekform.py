@@ -76,7 +76,7 @@ class Projekform(forms.ModelForm):
     pjurutera = forms.CharField(required=False, widget=forms.TextInput(attrs={'class':'form-control','type':'text','value':''}))
     pjuruterakanan36 = forms.CharField(required=False, widget=forms.TextInput(attrs={'class':'form-control','type':'text','value':''}))
     pjurutera29 = forms.CharField(required=False, widget=forms.TextInput(attrs={'class':'form-control','type':'text','value':''}))
-    kodvot = forms.CharField(required=False, widget=forms.TextInput(attrs={'class':'form-control','type':'text','value':''}))
+    kodvot = forms.ModelChoiceField(queryset=project.KDvot.objects.all(), required=False, widget=forms.Select(attrs={'class':'form-control custom-select select29'}))
     peruntukan = forms.ChoiceField(choices=peruntutkan, required=False, widget=forms.Select(attrs={'class':'form-control custom-select select28 ','placeholder':'baru'}))
     peruntukansemasa =forms.CharField(required=False, widget=forms.TextInput(attrs={'class':'form-control','type':'text','value':''}))
     latitud1 = forms.CharField(required=False, widget=forms.TextInput(attrs={'class':'form-control','type':'text','value':'','placeholder':'Degree'}))
@@ -134,3 +134,17 @@ class Projekform(forms.ModelForm):
             'dimensi', 
             'nosebuthargaid',
         ]
+
+
+class KDvotForm(forms.ModelForm):
+
+    kodvot = forms.CharField(required=False, widget=forms.TextInput(attrs={'class':'form-control','type':'text','value':''}))
+    budjet = forms.CharField(required=False, widget=forms.TextInput(attrs={'class':'form-control','type':'text','placeholder':'RM 100,000.00'}))
+
+    class Meta:
+        model = project.KDvot
+        fields = [
+            'kodvot',
+            'budjet',
+        ]
+  

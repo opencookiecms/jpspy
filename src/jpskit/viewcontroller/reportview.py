@@ -859,13 +859,14 @@ def pdfpwjp02(request, projekid):
 
 ##filter the report
 @login_required(login_url='login')
-def report_by_year(request):
+def report_by_filter(request):
 
     kaedah = request.GET.get('kaedah')
     timecurrent = datetime.date.today().strftime('%d/%m/%Y')
+    print(kaedah)
 
     qs = document.MRKSatu.objects.filter(projekbind__nosebuthargaid__tarikh__year=2021).values(
-        'mrksatunoinden',
+        'projekbind__kodvot__kodvot',
         'mrksatutarikhmula',
         'mrksatutarikhmula',
         'mrksatukosprojek',
@@ -884,6 +885,7 @@ def report_by_year(request):
 
     context = {
         'qs':qs,
+        'kd':project.KDvot.objects.all()
     }
   
 

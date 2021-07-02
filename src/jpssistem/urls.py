@@ -53,7 +53,7 @@ urlpatterns = [
 
     path('laporan/pdf/<uuid:projekid>', reportview.some_pdf, name="laporan/pdf"),
     path('laporan/excel/<uuid:projekid>', reportview.some_excel, name="laporan/excel"),
-    path('laporan/filter', reportview.report_by_year, name="laporan/filter"),
+    path('laporan/filter', reportview.report_by_filter, name="laporan/filter"),
     path('laporan/excel', reportview.testexcel, name="laporan/excel"),
     path('laporan/excel2', reportview.testexcel2, name="laporan/excel2"),
     path('laporan/mrksatu/<uuid:projekid>', reportview.pdfmrksatu, name="laporan/mrksatu"),

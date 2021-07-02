@@ -4,6 +4,18 @@ from ..modelcontroller import kontraktor, dfnoperolehan
 import uuid
 
 
+
+
+class KDvot(models.Model):
+    kodvot = models.CharField(max_length=50, null=True, blank=True)
+    budjet = models.DecimalField(max_digits=12, decimal_places=2, null=True, blank=True)
+    tahun = models.CharField(max_length=50, null=True, blank=True)
+
+    def __str__(self):
+        return self.kodvot
+
+
+
 class Projek(models.Model):
 
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False) 
@@ -27,7 +39,7 @@ class Projek(models.Model):
     pjurutera = models.CharField(max_length=50, null=True, blank=True)
     pjuruterakanan36 = models.CharField(max_length=50, null=True, blank=True)
     pjurutera29 = models.CharField(max_length=50, null=True, blank=True)
-    kodvot = models.CharField(max_length=50, null=True, blank=True)
+    kodvot = models.ForeignKey(KDvot, blank=True, null=True, on_delete = models.SET_NULL)
     peruntukan = models.CharField(max_length=50, null=True, blank=True)
     peruntukansemasa = models.CharField(max_length=50, null=True, blank=True)
     latitud1 = models.CharField(max_length=50, null=True, blank=True)
@@ -46,6 +58,7 @@ class Projek(models.Model):
     def __str__(self):
         return self.tajukkerja
 
+  
 
 class isSungai(models.Model):
     sg_name = models.CharField(max_length=50, null=True, blank=True)

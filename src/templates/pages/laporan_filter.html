@@ -42,6 +42,9 @@
 									  <label>Kod Peruntukan</label>
 									    <select class="form-control" name="kod">
 										<option>Tiada</option>
+										{% for k in kd %}
+										<option value="{{k.id}}">{{k.kodvot}}</option>
+										{% endfor %}
 							
 										
 									  </select>
@@ -62,11 +65,11 @@
 									<div class="form-group">
 									  <label>Tahun</label>
 									  	<select class="form-control" name="tahun">
-										<option>Tiada</option>
-										<option>2018</option>
-										<option>2019</option>
-										<option>2020</option>
-										<option>2021</option>
+										<option value="2021">Semasa</option>
+										<option value="2020">2020</option>
+										<option value="2019">2019</option>
+										<option value="2018">2020</option>
+										<option value="2017">2017</option>
 									  </select>
 									</div>
 							
@@ -118,7 +121,7 @@
 	
 									<tr>
 										<td><span class="text-primary font-weight-600 d-block font-size-30 cc_cursor">01</span></td>
-										<td>{{qss.mrksatunoinden}}</td>
+										<td>{{qss.projekbind__kodvot__kodvot}}</td>
 									
 										<td>
 											<h6 class="mb-0">
