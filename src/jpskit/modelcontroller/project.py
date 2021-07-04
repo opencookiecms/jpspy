@@ -7,7 +7,7 @@ import uuid
 
 
 class KDvot(models.Model):
-    kodvot = models.CharField(max_length=50, null=True, blank=True)
+    no = models.CharField(max_length=50, null=True, blank=True)
     budjet = models.DecimalField(max_digits=12, decimal_places=2, null=True, blank=True)
     tahun = models.CharField(max_length=50, null=True, blank=True)
 

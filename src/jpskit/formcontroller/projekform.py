@@ -138,13 +138,13 @@ class Projekform(forms.ModelForm):
 
 class KDvotForm(forms.ModelForm):
 
-    kodvot = forms.CharField(required=False, widget=forms.TextInput(attrs={'class':'form-control','type':'text','value':''}))
+    no = forms.CharField(required=False, widget=forms.TextInput(attrs={'class':'form-control','type':'text','value':''}))
     budjet = forms.CharField(required=False, widget=forms.TextInput(attrs={'class':'form-control','type':'text','placeholder':'RM 100,000.00'}))
 
     class Meta:
         model = project.KDvot
         fields = [
-            'kodvot',
+            'no',
             'budjet',
         ]
   
