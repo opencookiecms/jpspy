@@ -146,5 +146,6 @@ class KDvotForm(forms.ModelForm):
         fields = [
             'no',
             'budjet',
+            'tahun'
         ]
   

@@ -45,7 +45,7 @@ def maklumatperolehan(request):
             'isexist':p,
             'senaraiprojek':project.Projek.objects.all(),
             'totalprojek':project.Projek.objects.all().count(),
-            'kodvod':project.Projek.objects.values('kodvot').annotate(jumlah=Count('kodvot')),
+            'kodvod':project.Projek.objects.values('kodvot__no').annotate(jumlah=Count('kodvot__no')),
             'total':project.Projek.objects.aggregate(
                 sebutharga = Count('pk', filter=Q(nosebuthargaid__kaedahperolehan='Sebutharga')),
                 undi = Count('pk', filter=Q(nosebuthargaid__kaedahperolehan='Undi')),
