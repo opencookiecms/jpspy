@@ -7,9 +7,7 @@ class Kontraktor(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False) 
     konNama = models.CharField(max_length=200, null=True, blank=True)
     konImage = models.FileField(null=True, blank=True);
-    konAlamat = models.CharField(max_length=200, null=True, blank=True)
-    konAlamatExtS = models.CharField(max_length=100, null=True, blank=True)
-    konAlamatExtD = models.CharField(max_length=100, null=True, blank=True)
+    konAlamat = models.CharField(max_length=300, null=True, blank=True)
     konPoskod = models.CharField(max_length=10, null=True, blank=True)
     konBandar = models.CharField(max_length=20, null=True, blank=True)
     konDaerah = models.CharField(max_length=20, null=True, blank=True)

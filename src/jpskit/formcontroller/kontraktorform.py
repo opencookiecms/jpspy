@@ -102,9 +102,7 @@ class KontraktroForm(forms.ModelForm):
 
         konNama = forms.CharField(required=False, widget=forms.TextInput(attrs={'class':'form-control','placeholder':'cht:Syarikat ABC'}))
         konImage = forms.FileField(required=False)
-        konAlamat = forms.CharField(required=False, widget=forms.TextInput(attrs={'class':'form-control','placeholder':'cth:N0 1821 Lorong Peruda 1'}))
-        konAlamatExtS = forms.CharField(required=False, widget=forms.TextInput(attrs={'class':'form-control','placeholder':'cth:Taman Peruda'}) )
-        konAlamatExtD = forms.CharField(required=False, widget=forms.TextInput(attrs={'class':'form-control','placeholder':'cth:Bakar Arang'}) )
+        konAlamat = forms.CharField(required=False, widget=forms.Textarea(attrs={'class':'form-control','type':'text','placeholder':'Alamat penuh tanpa poskod, bandar dan Negeri','rows':'5'}))
         konPoskod = forms.CharField(required=False, widget=forms.TextInput(attrs={'class':'form-control ','placeholder':'eg:08000'}) )
         konBandar = forms.CharField(required=False, widget=forms.TextInput(attrs={'class':'form-control','placeholder':'eg:Sungai Petani'}) )
         konDaerah = forms.CharField(required=False, widget=forms.TextInput(attrs={'class':'form-control','placeholder':'eg:Kuala Muda'}) )
@@ -208,8 +206,6 @@ class KontraktroForm(forms.ModelForm):
                 'konNama',
                 'konImage',
                 'konAlamat', 
-                'konAlamatExtS',
-                'konAlamatExtD', 
                 'konPoskod',
                 'konBandar', 
                 'konDaerah', 
