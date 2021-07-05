@@ -45,7 +45,7 @@ def maklumatperolehan(request):
             'isexist':p,
             'senaraiprojek':project.Projek.objects.all(),
             'totalprojek':project.Projek.objects.all().count(),
-            'kodvod':project.Projek.objects.values('kodvot__no').annotate(jumlah=Count('kodvot__no')),
+            'kodvods':project.KDvot.objects.values('no','id').annotate(jumlah=Count('no')),
             'total':project.Projek.objects.aggregate(
                 sebutharga = Count('pk', filter=Q(nosebuthargaid__kaedahperolehan='Sebutharga')),
                 undi = Count('pk', filter=Q(nosebuthargaid__kaedahperolehan='Undi')),
@@ -89,7 +89,7 @@ def maklumatperolehanjenis(request, jenisp):
             'isexist':p
         }
 
-    return render(request, 'pages/maklumatperolehandash.html',data)
+    return render(request, 'pages/maklumatperolehandashfilter.html',data)
 
 
 @login_required(login_url='login')

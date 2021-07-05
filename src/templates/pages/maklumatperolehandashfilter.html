@@ -200,7 +200,7 @@
 									</tr>
 								</thead>
 								<tbody>
-								{% for rows in kodvods  %}
+								{% for rows in kodvod  %}
 								
 							
 									<tr>
@@ -210,7 +210,7 @@
 											</div>
 										</td>
 										<td>
-											<a href="#" class="text-dark font-weight-600 hover-primary font-size-16">{{rows.no}}</a>
+											<a href="#" class="text-dark font-weight-600 hover-primary font-size-16">{{rows.kodvot.no}}</a>
 											<span class="text-fade d-block">kodvot</span>
 										</td>
 										<td>
@@ -218,12 +218,9 @@
 												<div class="d-flex align-items-center justify-content-between mb-2">
 													<span class="text-fade">
 														{{rows.jumlah}}
-														
 													</span>
 													<span class="text-fade">
 														jumlah dokumen
-
-														
 													</span>
 												</div>
 												<div class="progress progress-xs w-p100">
@@ -232,7 +229,7 @@
 											</div>
 										</td>
 										<td class="text-right">
-											<a href="{% url 'projek/kodvot/' kvd=rows.id %}" class="btn btn-success-light btn-sm"><span class="icon-Arrow-right font-size-18"><span class="path1"></span><span class="path2"></span></span></a>
+											<a href="{% url 'projek/kodvot/' kvd=rows.kodvot.id %}" class="btn btn-success-light btn-sm"><span class="icon-Arrow-right font-size-18"><span class="path1"></span><span class="path2"></span></span></a>
 										</td>
 									</tr>
 								{% endfor %}
