@@ -17,8 +17,8 @@ class MRKSatu(models.Model):
     mrksatutarikhjangkasiap = models.DateField(null=True, blank=True)
     mrksatukosprojek = models.DecimalField(max_digits=12, decimal_places=2, null=True, blank=True)
     mrksatutarikhdaftar = models.DateField(null=True, blank=True)
-    mrksatukontraktor = models.ForeignKey(kontraktor.Kontraktor, blank=True, null=True, on_delete = models.SET_NULL)
-    projekbind = models.ForeignKey(project.Projek, blank=True, null=True, on_delete = models.SET_NULL)
+    mrksatukontraktor = models.ForeignKey(kontraktor.Kontraktor, blank=True, null=True, on_delete = models.CASCADE)
+    projekbind = models.ForeignKey(project.Projek, blank=True, null=True, on_delete = models.CASCADE)
 
     
     class Meta: 
@@ -50,8 +50,8 @@ class MRKDua(models.Model):
     mrkduaperakuan = models.DateField(null=True, blank=True)
     mrkduamansuh = models.DateField(null=True, blank=True)
     mrkduatarikhlaporan = models.DateField(null=True, blank=True)
-    projekbind = models.ForeignKey(project.Projek, blank=True, null=True, on_delete = models.SET_NULL)
-    mrksatulink = models.ForeignKey(MRKSatu, related_name="bindone", blank=True, null=True, on_delete = models.SET_NULL)
+    projekbind = models.ForeignKey(project.Projek, blank=True, null=True, on_delete = models.CASCADE)
+    mrksatulink = models.ForeignKey(MRKSatu, related_name="bindone", blank=True, null=True, on_delete = models.CASCADE)
 
     class Meta: 
         # Add verbose name 
@@ -78,8 +78,8 @@ class Laporansiapkerja(models.Model):
     lsknoinsurancesatu  = models.CharField(max_length=50, null=True, blank=True)
     lskjenisinsurancedua  = models.CharField(max_length=50, null=True, blank=True)
     lsknoinsurancedua  = models.CharField(max_length=50, null=True, blank=True)
-    projekbind = models.ForeignKey(project.Projek, blank=True, null=True, on_delete = models.SET_NULL)
-    lskmrksatulink  = models.ForeignKey(MRKSatu, related_name="bindtwo", blank=True, null=True, on_delete = models.SET_NULL)
+    projekbind = models.ForeignKey(project.Projek, blank=True, null=True, on_delete = models.CASCADE)
+    lskmrksatulink  = models.ForeignKey(MRKSatu, related_name="bindtwo", blank=True, null=True, on_delete = models.CASCADE)
 
     class Meta:
         verbose_name_plural = 'Laporan Siap Kerja'
@@ -106,8 +106,8 @@ class MRKTiga(models.Model):
     mrkcatat8 = models.CharField(max_length=150, null=True, blank=True)
     mrktigasokongan = models.CharField(max_length=500, null=True, blank=True)
     mrktigatarikh = models.DateField(null=True, blank=True)
-    projekbind = models.ForeignKey(project.Projek, blank=True, null=True, on_delete = models.SET_NULL)
-    marktigamrksatu = models.ForeignKey(MRKSatu, blank=True, null=True, on_delete = models.SET_NULL)
+    projekbind = models.ForeignKey(project.Projek, blank=True, null=True, on_delete = models.CASCADE)
+    marktigamrksatu = models.ForeignKey(MRKSatu, blank=True, null=True, on_delete = models.CASCADE)
 
     class Meta:
         verbose_name_plural = 'MRK 3'
@@ -119,8 +119,8 @@ class PSK(models.Model):
     psktarikhambilmilik = models.DateField(null=True, blank=True)
     psktarikhmulatanggug = models.DateField(null=True, blank=True)
     psktarikhtamattanggung = models.DateField(null=True, blank=True)
-    projekbind = models.ForeignKey(project.Projek, blank=True, null=True, on_delete = models.SET_NULL)
-    pskmrksatulink = models.ForeignKey(MRKSatu, blank=True, null=True, on_delete = models.SET_NULL)
+    projekbind = models.ForeignKey(project.Projek, blank=True, null=True, on_delete = models.CASCADE)
+    pskmrksatulink = models.ForeignKey(MRKSatu, blank=True, null=True, on_delete = models.CASCADE)
 
 
     class Meta:
@@ -146,8 +146,8 @@ class SenaraiSemakan(models.Model):
     ssinsurance = models.CharField(max_length=10, null=True, blank=True)
     ssgambar = models.CharField(max_length=10, null=True, blank=True)
     sstarikh = models.DateField(null=True, blank=True)
-    projekbind = models.ForeignKey(project.Projek, blank=True, null=True, on_delete = models.SET_NULL)
-    ssmrksatulink = models.ForeignKey(MRKSatu, blank=True, null=True, on_delete = models.SET_NULL)
+    projekbind = models.ForeignKey(project.Projek, blank=True, null=True, on_delete = models.CASCADE)
+    ssmrksatulink = models.ForeignKey(MRKSatu, blank=True, null=True, on_delete = models.CASCADE)
 
     class Meta:
         verbose_name_plural = "Senarai Semakan"
@@ -168,8 +168,8 @@ class PSMK(models.Model):
 
     psmkpegawaipenguasa = models.CharField(max_length=50, null=True, blank=True)
     psmkjawatan = models.CharField(max_length=50, null=True, blank=True)
-    projekbind = models.ForeignKey(project.Projek, blank=True, null=True, on_delete = models.SET_NULL)
-    psmkmrksatulink = models.ForeignKey(MRKSatu, blank=True, null=True, on_delete = models.SET_NULL)
+    projekbind = models.ForeignKey(project.Projek, blank=True, null=True, on_delete = models.CASCADE)
+    psmkmrksatulink = models.ForeignKey(MRKSatu, blank=True, null=True, on_delete = models.CASCADE)
 
     class Meta:
         verbose_name_plural = "Perakuan Siap Membaiki Kecacatan"
@@ -181,8 +181,8 @@ class SuratPJaminanbank(models.Model):
     namabank = models.CharField(max_length=50, null=True, blank=True)
     alamatbank = models.CharField(max_length=200, null=True, blank=True)
     alamatpemborongsurat = models.CharField(max_length=200, null=True, blank=True)
-    projekbind = models.ForeignKey(project.Projek, blank=True, null=True, on_delete = models.SET_NULL)
-    jbankmrksatulink = models.ForeignKey(MRKSatu, blank=True, null=True, on_delete = models.SET_NULL)
+    projekbind = models.ForeignKey(project.Projek, blank=True, null=True, on_delete = models.CASCADE)
+    jbankmrksatulink = models.ForeignKey(MRKSatu, blank=True, null=True, on_delete = models.CASCADE)
 
     class Meta:
         verbose_name_plural = "Surat Pelepasan Jaminan Bank"
@@ -197,8 +197,8 @@ class Perakuanpwjp(models.Model):
     koswjp = models.DecimalField(max_digits=12, decimal_places=2, null=True, blank=True)
     wjppegawai = models.CharField(max_length=50, null=True, blank=True)
     wjpjawatan = models.CharField(max_length=50, null=True, blank=True)
-    projekbind = models.ForeignKey(project.Projek, blank=True, null=True, on_delete = models.SET_NULL)
-    wjpmrksatulink = models.ForeignKey(MRKSatu, blank=True, null=True, on_delete = models.SET_NULL)
+    projekbind = models.ForeignKey(project.Projek, blank=True, null=True, on_delete = models.CASCADE)
+    wjpmrksatulink = models.ForeignKey(MRKSatu, blank=True, null=True, on_delete = models.CASCADE)
 
      
     class Meta:
@@ -214,8 +214,8 @@ class SuratMRK(models.Model):
     smkralamatrujukan  = models.CharField(max_length=200, null=True, blank=True)
     smrkpegawai = models.CharField(max_length=50, null=True, blank=True)
     smrkjawatan = models.CharField(max_length=50, null=True, blank=True)
-    projekbind = models.ForeignKey(project.Projek, blank=True, null=True, on_delete = models.SET_NULL)
-    smrkmrksatulink = models.ForeignKey(MRKSatu, blank=True, null=True, on_delete = models.SET_NULL)
+    projekbind = models.ForeignKey(project.Projek, blank=True, null=True, on_delete = models.CASCADE)
+    smrkmrksatulink = models.ForeignKey(MRKSatu, blank=True, null=True, on_delete = models.CASCADE)
 
     class Meta:
         verbose_name_plural = "Surat MRK"
@@ -228,8 +228,8 @@ class SuratKhas(models.Model):
     khasalamatrujukan = models.CharField(max_length=200, null=True, blank=True)
     khaspegawai = models.CharField(max_length=50, null=True, blank=True)
     khasjawatan = models.CharField(max_length=50, null=True, blank=True)
-    projekbind = models.ForeignKey(project.Projek, blank=True, null=True, on_delete = models.SET_NULL)
-    khasmrksatulink = models.ForeignKey(MRKSatu, blank=True, null=True, on_delete = models.SET_NULL)
+    projekbind = models.ForeignKey(project.Projek, blank=True, null=True, on_delete = models.CASCADE)
+    khasmrksatulink = models.ForeignKey(MRKSatu, blank=True, null=True, on_delete = models.CASCADE)
 
     class Meta:
         verbose_name_plural = "Surat Khas"
@@ -244,8 +244,8 @@ class SuratPelepasanBon(models.Model):
     bonwangjaminan = models.DecimalField(max_digits=12, decimal_places=2, null=True, blank=True)
     bonpegawai = models.CharField(max_length=50, null=True, blank=True)
     bonjawatan = models.CharField(max_length=50, null=True, blank=True)
-    projekbind = models.ForeignKey(project.Projek, blank=True, null=True, on_delete = models.SET_NULL)
-    bonmrksatulink = models.ForeignKey(MRKSatu, blank=True, null=True, on_delete = models.SET_NULL)
+    projekbind = models.ForeignKey(project.Projek, blank=True, null=True, on_delete = models.CASCADE)
+    bonmrksatulink = models.ForeignKey(MRKSatu, blank=True, null=True, on_delete = models.CASCADE)
 
     class Meta:
         verbose_name_plural = "Surat Bon"
@@ -256,7 +256,7 @@ class kosprojek(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False) 
     kos_belanja = models.DecimalField(max_digits=12, decimal_places=2, null=True, blank=True)
     kos_tanggung = models.DecimalField(max_digits=12, decimal_places=2, null=True, blank=True)
-    projekbind = models.ForeignKey(project.Projek, blank=True, null=True, on_delete = models.SET_NULL)
+    projekbind = models.ForeignKey(project.Projek, blank=True, null=True, on_delete = models.CASCADE)
  
 
 
