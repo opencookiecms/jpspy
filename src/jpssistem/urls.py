@@ -17,6 +17,7 @@ from jpskit.viewcontroller import (
     documentviews,
     reportview,
     authviews,
+    kursusviews
 
 )
 
@@ -78,6 +79,9 @@ urlpatterns = [
 
     path('sistem/subsistem', projekview.load_sistem, name="sistem/subsistem"),
     path('sistem/komponen', projekview.load_component, name="sistem/komponen"),
+
+    path('kursus/dashboard',kursusviews.kursusdashboard, name='kursus/dashboard'),
+    path('kursus/daftar',kursusviews.kursusdaftar, name='kursus/daftar'),
 
     path('login',authviews.loginJPS, name="login"),
     path('logout',authviews.logoutJPS, name='logout'),

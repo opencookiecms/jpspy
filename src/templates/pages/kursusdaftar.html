@@ -1,0 +1,128 @@
+{% extends "based/based.html" %}
+{% block content %}
+
+  <div class="content-wrapper">
+	  <div class="container-full">
+		<!-- Content Header (Page header) -->	  
+		<div class="content-header">
+			<div class="d-flex align-items-center">
+				<div class="mr-auto">
+					<h3 class="page-title">Kursus Dashboard</h3>
+					<div class="d-inline-block align-items-center">
+						<nav>
+							<ol class="breadcrumb">
+								<li class="breadcrumb-item"><a href="#"><i class="mdi mdi-home-outline"></i></a></li>
+								<li class="breadcrumb-item" aria-current="page">Kursus</li>
+								<li class="breadcrumb-item active" aria-current="page">Dashboard</li>
+							</ol>
+						</nav>
+					</div>
+				</div>
+				
+			</div>
+		</div>
+		
+
+		<!-- Main content -->
+		<section class="content">
+		<div class="row">
+					<div class="col-12 col-xl-12">
+				<div class="box">		
+			
+					<div class="box-body">						
+						<div class="px-10 py-30 text-dark">
+							<h3 class="px-10 mb-15 font-weight-700">Kursus Analisis</h3>
+						   <ul class="flexbox flex-justified">
+							<li class="px-10">
+							  <h3 class="mb-1 text-bold">699</h3>
+							  <h6>Kontraktor</h6>
+							</li>
+
+							<li class="br-1 bl-2 px-10">
+							   <h3 class="mb-1 text-bold">20</h3>
+							  <h6>Aktif</h6>
+							</li>
+
+							<li class="px-10 ">
+							<h3 class="mb-1 text-bold">159</h3>
+							  <h6>Tidak Aktif</h6>
+							</li>
+						  </ul>						
+						</div>						
+										
+			
+					</div>
+					
+				</div>
+			</div>  
+		</div>
+		  <div class="row">
+			<div class="col-xl-12 col-lg-12 col-12">
+				<div class="box">
+					<div class="box-header with-border">						
+						<h4 class="box-title">Kontraktor</h4>
+						<h6 class="box-subtitle">CSV, Excel, PDF & Print</h6>
+					</div>
+					<div class="box-body">						
+						<div class="table-responsive">
+
+							<table id="example" class="table table-lg invoice-archive">
+								<thead>
+									<tr>
+										<th class="border-bottom-0">Bil#</th>
+										<th class="border-bottom-0">Gambar</th>
+										<th class="border-bottom-0">Nama Syarikat</th>
+										<th class="border-bottom-0">Nama Pengurus</th>
+										<th class="border-bottom-0">No Telefon</th>
+										<th class="border-bottom-0">Status</th>
+										<th class="text-center border-bottom-0">Tindakan</th>
+									</tr>
+								</thead>
+						        <tbody>
+                                {% for row in kontraktor %}
+													<tr>
+														<td>{{forloop.counter}}</td>
+														<td>gambar</td>
+														<td><a href="{% url 'kontraktor/profile' row.id %}">{{row.konNama}}</a></td>
+														<td>{{row.konPengurus}}</td>
+														<td class="font-weight-bold">{{row.konNoTelPengurus}}</td>
+														<td>
+                                                            
+                                                            {% if dateend < row.sijilJPSTamat %}
+                                                            <span class="badge badge-pill badge-success">Berdaftar</span>
+
+                                                            {% else %}
+                                                            <span class="badge badge-pill badge-danger">Tidak Berdaftar</span>
+                                                            {% endif %}
+														</td>
+															<td class="text-center">
+											<div class="list-icons d-inline-flex">
+												<a href="{% url 'kontraktor/profile' row.id %}" class="list-icons-item mr-10"><i class="fa fa-eye"></i></a>
+												<div class="list-icons-item dropdown">
+													<a href="#" class="list-icons-item dropdown-toggle" data-toggle="dropdown"><i class="fa fa-file-text"></i></a>
+													<div class="dropdown-menu dropdown-menu-right">
+												
+														<div class="dropdown-divider"></div>
+														<a href="#" class="dropdown-item"><i class="fa fa-pencil"></i> Edit</a>
+														<a href="#" class="dropdown-item"><i class="fa fa-remove"></i> Remove</a>
+													</div>
+												</div>
+											</div>
+										</td>
+													</tr>
+												{% endfor %}
+											</tbody>
+							</table>
+
+						</div>
+					</div>
+				</div>
+			</div>
+		
+		  </div>
+		</section>
+		<!-- /.content -->
+	  </div>
+  </div>
+  <!-- /.content-wrapper -->
+{% endblock content %}

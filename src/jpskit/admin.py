@@ -22,8 +22,7 @@ admin.site.register(project.sistem)
 admin.site.register(project.subsistem)
 admin.site.register(kursus.Course)
 admin.site.register(kursus.Attandance)
-admin.site.register(kursus.Sokongan)
-admin.site.register(kursus.UnitGroup)
+
 
 
 # Register your models here.
