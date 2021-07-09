@@ -1,5 +1,3 @@
-from os import O_NDELAY
-from typing import SupportsIndex
 from django.db import models
 from django.contrib.auth.models import User
 
