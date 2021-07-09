@@ -1,128 +1,130 @@
-{% extends "based/based.html" %}
+{% extends 'based/based.html' %}
 {% block content %}
-
+{% load static %}
+  <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
 	  <div class="container-full">
-		<!-- Content Header (Page header) -->	  
+		<!-- Content Header (Page header) -->
 		<div class="content-header">
 			<div class="d-flex align-items-center">
 				<div class="mr-auto">
-					<h3 class="page-title">Kursus Dashboard</h3>
+					<h3 class="page-title">Pendaftaran Kursus</h3>
 					<div class="d-inline-block align-items-center">
 						<nav>
 							<ol class="breadcrumb">
 								<li class="breadcrumb-item"><a href="#"><i class="mdi mdi-home-outline"></i></a></li>
-								<li class="breadcrumb-item" aria-current="page">Kursus</li>
-								<li class="breadcrumb-item active" aria-current="page">Dashboard</li>
+								<li class="breadcrumb-item" aria-current="page">Borang</li>
+								<li class="breadcrumb-item active" aria-current="page">Kursus</li>
 							</ol>
 						</nav>
 					</div>
 				</div>
 				
 			</div>
-		</div>
-		
+		</div>	  
 
 		<!-- Main content -->
 		<section class="content">
-		<div class="row">
-					<div class="col-12 col-xl-12">
-				<div class="box">		
-			
-					<div class="box-body">						
-						<div class="px-10 py-30 text-dark">
-							<h3 class="px-10 mb-15 font-weight-700">Kursus Analisis</h3>
-						   <ul class="flexbox flex-justified">
-							<li class="px-10">
-							  <h3 class="mb-1 text-bold">699</h3>
-							  <h6>Kontraktor</h6>
-							</li>
-
-							<li class="br-1 bl-2 px-10">
-							   <h3 class="mb-1 text-bold">20</h3>
-							  <h6>Aktif</h6>
-							</li>
-
-							<li class="px-10 ">
-							<h3 class="mb-1 text-bold">159</h3>
-							  <h6>Tidak Aktif</h6>
-							</li>
-						  </ul>						
-						</div>						
-										
-			
-					</div>
+			<div class="row">			  
+				<div class="col-lg-12">
+                	<form class="form" action='' method="POST">
+					  <div class="box">
+				
+						<!-- /.box-header -->
 					
-				</div>
-			</div>  
-		</div>
-		  <div class="row">
-			<div class="col-xl-12 col-lg-12 col-12">
-				<div class="box">
-					<div class="box-header with-border">						
-						<h4 class="box-title">Kontraktor</h4>
-						<h6 class="box-subtitle">CSV, Excel, PDF & Print</h6>
-					</div>
-					<div class="box-body">						
-						<div class="table-responsive">
-
-							<table id="example" class="table table-lg invoice-archive">
-								<thead>
-									<tr>
-										<th class="border-bottom-0">Bil#</th>
-										<th class="border-bottom-0">Gambar</th>
-										<th class="border-bottom-0">Nama Syarikat</th>
-										<th class="border-bottom-0">Nama Pengurus</th>
-										<th class="border-bottom-0">No Telefon</th>
-										<th class="border-bottom-0">Status</th>
-										<th class="text-center border-bottom-0">Tindakan</th>
-									</tr>
-								</thead>
-						        <tbody>
-                                {% for row in kontraktor %}
-													<tr>
-														<td>{{forloop.counter}}</td>
-														<td>gambar</td>
-														<td><a href="{% url 'kontraktor/profile' row.id %}">{{row.konNama}}</a></td>
-														<td>{{row.konPengurus}}</td>
-														<td class="font-weight-bold">{{row.konNoTelPengurus}}</td>
-														<td>
-                                                            
-                                                            {% if dateend < row.sijilJPSTamat %}
-                                                            <span class="badge badge-pill badge-success">Berdaftar</span>
-
-                                                            {% else %}
-                                                            <span class="badge badge-pill badge-danger">Tidak Berdaftar</span>
-                                                            {% endif %}
-														</td>
-															<td class="text-center">
-											<div class="list-icons d-inline-flex">
-												<a href="{% url 'kontraktor/profile' row.id %}" class="list-icons-item mr-10"><i class="fa fa-eye"></i></a>
-												<div class="list-icons-item dropdown">
-													<a href="#" class="list-icons-item dropdown-toggle" data-toggle="dropdown"><i class="fa fa-file-text"></i></a>
-													<div class="dropdown-menu dropdown-menu-right">
-												
-														<div class="dropdown-divider"></div>
-														<a href="#" class="dropdown-item"><i class="fa fa-pencil"></i> Edit</a>
-														<a href="#" class="dropdown-item"><i class="fa fa-remove"></i> Remove</a>
-													</div>
-												</div>
+                          {% csrf_token %}
+							<div class="box-body">
+								<h4 class="box-title text-primary"><i class="ti-user mr-15"></i>Kursus</h4>
+								<hr class="my-15">
+								<div class="row">
+								<div class="col-lg-6 col-md-12">
+									<div class="row">
+										<div class="col-md-12">
+											<div class="form-group">
+											<label>Tajuk Kursus</label>
+											{{form.tajukkursus}}
+										
 											</div>
-										</td>
-													</tr>
-												{% endfor %}
-											</tbody>
-							</table>
-
+										</div>
+								
+									</div>
+							
+						
+									<div class="row">
+										<div class="col-lg-3 col-md-6">
+											<div class="form-group">
+											<label>Tarikh Mula</label>
+											{{form.tarikhmula}}
+											</div>
+										</div>
+										<div class="col-lg-3 col-md-6">
+											<div class="form-group">
+											<label>Tarikh Mula</label>
+											{{form.tarikhakhir}}
+											</div>
+										</div>
+										<div class="col-lg-2 col-md-3">
+											<div class="form-group">
+											<label>Hari</label>
+											{{form.hari}}
+											</div>
+										</div>
+										<div class="col-lg-4 col-md-3">
+											<div class="form-group">
+											<label>Tahun</label>
+											{{form.tahun}}
+											</div>
+										</div>
+								
+							
+									</div>
+									<div class="row">
+											<div class="col-lg-8 col-md-12">
+											<div class="form-group">
+											<label>Tempat</label>
+										
+											{{form.tempat}}
+											</div>
+										</div>
+									</div>
+							</div>
+							<div class="col-lg-6 col-md-12">
+					<div class="box-light">
+						<div class="box-body p-xl-0">							
+							<div class="row align-items-center">
+								<div class="col-12"><img src="{% static 'assets/images/svg-icon/color-svg/custom-14.svg'%}" alt=""></div>
+							
+							</div>
 						</div>
 					</div>
 				</div>
-			</div>
+							</div>
+							
 		
-		  </div>
+		
+							
+							</div>
+							<!-- /.box-body -->
+							<div class="box-footer">
+								<button type="button" class="btn  btn-warning btn-outline mr-1">
+								  <i class="ti-trash"></i> Cancel
+								</button>
+								<button type="submit"  class="btn btn-primary btn-outline">
+								  <i class="ti-save-alt"></i> Save
+								</button>
+							</div>  
+					
+					  </div>
+					  <!-- /.box -->	
+                        </form>		
+				</div>
+		
+		    </div>
+        
+	
 		</section>
 		<!-- /.content -->
 	  </div>
   </div>
   <!-- /.content-wrapper -->
-{% endblock content %}
+  {% endblock content %}
