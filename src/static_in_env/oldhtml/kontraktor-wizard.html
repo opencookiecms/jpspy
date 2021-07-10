@@ -1,0 +1,774 @@
+
+  {% extends 'based/based.html' %}
+  {% block content %}
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+	  <div class="container-full">
+		<!-- Content Header (Page header) -->
+		<div class="content-header">
+			<div class="d-flex align-items-center">
+				<div class="mr-auto">
+					<h3 class="page-title">Daftar baru Kontraktor</h3>
+					<div class="d-inline-block align-items-center">
+						<nav>
+							<ol class="breadcrumb">
+								<li class="breadcrumb-item"><a href="#"><i class="mdi mdi-home-outline"></i></a></li>
+								<li class="breadcrumb-item" aria-current="page">Kontraktor</li>
+								<li class="breadcrumb-item active" aria-current="page">Daftar Baru</li>
+							</ol>
+						</nav>
+					</div>
+				</div>
+				
+			</div>
+		</div>	  
+
+		<!-- Main content -->
+		<section class="content">
+
+		  <!-- vertical wizard -->
+		  <div class="box box-default">
+			<div class="box-header with-border">
+			  <h4 class="box-title">Borang Kontrakor</h4>
+			  <h6 class="box-subtitle">You can find the <a href="http://www.jquery-steps.com" target="_blank">offical website</a></h6>
+			</div>
+			<!-- /.box-header -->
+			<div class="box-body wizard-content">
+                <form action='{% url 'kontraktor/daftar-baru' %}' class="tab-wizard vertical wizard-circle" id="form" method='POST' enctype="multipart/form-data" >
+                {% csrf_token %}
+					<!-- Step 1 -->
+					<h6>Maklumat Syarikat</h6>
+					   <section>
+                            <div class="row">
+
+                                <div class="col-sm-6 col-md-6">
+                                    <div class="form-group">
+                                        <label class="form-label">Nama Syarikat</label>
+                                        {{form.konNama}}
+                                    </div>
+                                </div>
+                                <div class="col-sm-6 col-md-6"></div>
+                                <div class="col-sm-4 col-md-4">
+                                    <div class="form-group">
+                                        <label class="form-label">Gambar</label>
+                                        {{form.konImage}}
+                                    </div>
+                                </div>
+                                <div class="col-sm-6 col-md-6"></div>
+                                <div class="col-sm-6 col-md-6">
+                                    <div class="form-group">
+                                        <label class="form-label">Alamat</label>
+                                        {{form.konAlamat}}
+                                    </div>
+                                </div>
+                                <div class="col-sm-6 col-md-6"></div>
+                                <div class="col-sm-6 col-md-6">
+                                    <div class="form-group">
+                                        <label class="form-label"></label>
+                                        {{form.konAlamatExtS}}
+                                    </div>
+                                </div>
+                                <div class="col-sm-6 col-md-6"></div>
+                                <div class="col-sm-6 col-md-6">
+                                    <div class="form-group">
+                                        <label class="form-label"></label>
+                                        {{form.konAlamatExtD}}
+                                    </div>
+                                </div>
+                                <div class="col-sm-6 col-md-6"></div>
+                                <div class="col-sm-4 col-md-4">
+                                    <div class="form-group">
+                                        <label class="form-label">Poskod</label>
+                                        {{form.konPoskod}}
+                                    </div>
+                                </div>
+                                <div class="col-sm-4 col-md-4">
+                                    <div class="form-group">
+                                        <label class="form-label">Bandar</label>
+                                        {{form.konBandar}}
+                                    </div>
+                                </div>
+                                <div class="col-sm-4 col-md-4"></div>
+                                <div class="col-sm-4 col-md-4">
+                                    <div class="form-group">
+                                        <label class="form-label">Daerah</label>
+                                         {{form.konDaerah}}
+                                    </div>
+                                </div>
+                                <div class="col-sm-4 col-md-4">
+                                    <div class="form-group">
+                                        <label class="form-label">Negeri</label>
+                                        {{form.konNegeri}}
+                                    </div>
+                                </div>
+
+
+                                <div class="col-sm-6 col-md-6">
+                                    <div class="form-group">
+                                        <label class="form-label">Telefon Pejabat</label>
+                                        {{form.konTel}}
+                                    </div>
+                                </div>
+
+                                <div class="col-sm-6 col-md-6"></div>
+                                <div class="col-sm-6 col-md-6">
+                                    <div class="form-group">
+                                        <label class="form-label">Nama Pengurus</label>
+                                        {{form.konPengurus}}
+                                    </div>
+                                </div>
+
+
+                                <div class="col-sm-6 col-md-6"></div>
+                                <div class="col-sm-6 col-md-6">
+                                    <div class="form-group">
+                                        <label class="form-label">No Kad Pengenalan</label>
+                                        {{form.konNoKPPengurus}}
+                                    </div>
+                                </div>
+
+                                <div class="col-sm-6 col-md-6"></div>
+                                <div class="col-sm-6 col-md-6">
+                                    <div class="form-group">
+                                        <label class="form-label">No Telefon Pengurus</label>
+                                        {{form.konNoTelPengurus}}
+                                    </div>
+                                </div>
+                                <div class="col-sm-6 col-md-6"></div>
+                                <div class="col-sm-6 col-md-6">
+                                    <div class="form-group">
+                                        <label class="form-label">Email</label>
+                                       {{form.konEmail}}
+                                    </div>
+                                </div>
+
+                                <div class="col-sm-6 col-md-6">
+                                    <div class="form-group">
+                                        <label class="form-label">No Fax</label>
+                                        {{form.konFax}}
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+			
+                    <!-- Step 1 -->
+					<h6>Maklumat Rakan Konsi</h6>
+					  <section>
+                            <div class="row">
+
+                                <div class="col-sm-4 col-md-6">
+                                    <div class="form-group">
+                                        <label class="form-label">Rakan Konsi (1)</label>
+                                       {{form.konRKsatu}}
+                                    </div>
+                                </div>
+                                <div class="col-sm-4 col-md-3">
+                                    <div class="form-group">
+                                        <label class="form-label">No Kad Pengenalan</label>
+                                        {{form.konRKsatuNokp}}
+                                    </div>
+                                </div>
+                                <div class="col-sm-4 col-md-3">
+                                    <div class="form-group">
+                                        <label class="form-label">No Tel</label>
+                                        {{form.konRKsatuNoTel}}
+                                    </div>
+                                </div>
+
+                                <div class="col-sm-4 col-md-6">
+                                    <div class="form-group">
+                                        <label class="form-label">Rakan Konsi (2)</label>
+                                        {{form.konRKdua}}
+                                    </div>
+                                </div>
+                                <div class="col-sm-4 col-md-3">
+                                    <div class="form-group">
+                                        <label class="form-label">No Kad Pengenalan</label>
+                                         {{form.konRKduaNokp}}
+                                    </div>
+                                </div>
+                                <div class="col-sm-4 col-md-3">
+                                    <div class="form-group">
+                                        <label class="form-label">No Tel</label>
+                                       {{form.konRKduaNoTel}}
+                                    </div>
+                                </div>
+
+
+                                <div class="col-sm-4 col-md-6">
+                                    <div class="form-group">
+                                        <label class="form-label">Rakan Konsi (3)</label>
+                                        {{form.konRKtiga}}
+                                    </div>
+                                </div>
+                                <div class="col-sm-4 col-md-3">
+                                    <div class="form-group">
+                                        <label class="form-label">No Kad Pengenalan</label>
+                                         {{form.konRKtigaNokp}}
+                                    </div>
+                                </div>
+                                <div class="col-sm-4 col-md-3">
+                                    <div class="form-group">
+                                        <label class="form-label">No Tel</label>
+                                        {{form.konRKtigaNoTel}}
+                                    </div>
+                                </div>
+
+                                <div class="col-sm-4 col-md-6">
+                                    <div class="form-group">
+                                        <label class="form-label">Rakan Konsi (4)</label>
+                                        {{form.konRKempat}}
+                                    </div>
+                                </div>
+                                <div class="col-sm-4 col-md-3">
+                                    <div class="form-group">
+                                        <label class="form-label">No Kad Pengenalan</label>
+                                         {{form.konRKempatNokp}}
+                                    </div>
+                                </div>
+                                <div class="col-sm-4 col-md-3">
+                                    <div class="form-group">
+                                        <label class="form-label">No Tel</label>
+                                        {{form.konRKempatNoTel}}
+                                    </div>
+                                </div>
+
+
+
+
+                            </div>
+                        </section>
+					
+					<!-- Step 2 -->
+					<h6>Akaun Syarikat</h6>
+			        <section>
+                            <div class="form-group">
+                                <label class="form-label">Bank</label>
+                                {{form.konBank}}
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">No Akaun</label>
+                                <div class="input-group">
+                                    {{form.konNoAkaun}}
+                                    <span class="input-group-append">
+                                        <button class="btn btn-info" type="button"><i class="fa fa-cc-visa"></i>
+                                            &nbsp; <i class="fa fa-cc-amex"></i> &nbsp;
+                                            <i class="fa fa-cc-mastercard"></i></button>
+                                    </span>
+                                </div>
+                            </div>
+
+                    </section>
+					<!-- Step 3 -->
+			       <h6>Kawasan Operasi Syarikat</h6>
+                        <section>
+                            <div class="row">
+
+
+                                <div class="col-sm-5 col-md-5">
+                                    <div class="form-group">
+                                        <label class="form-label">Kawasan Operasi</label>
+                                        {{form.konKawOperasi}}
+                                    </div>
+                                </div>
+                                  <div class="col-sm-7 col-md-7"></div>   
+
+                                <div class="col-sm-5 col-md-5">
+                                    <div class="form-group">
+                                        <label class="form-label">Prestasi</label>
+                                        {{form.konPrestasi}}
+                                    </div>
+                                </div>
+
+                            </div>
+
+                 </section>
+					<!-- Step 4 -->
+			    <h6>Jenis Permohonan</h6>
+                        <section>
+                            <div class="row">
+
+
+                                <div class="col-sm-5 col-md-5">
+                                    <div class="form-group">
+                                        <label class="form-label">Permohonan Baru</label>
+                                       {{form.konJPBaru}}
+                                    </div>
+                                </div>
+                                <div class="col-sm-7 col-md-7"></div>
+
+                                <div class="col-sm-5 col-md-5">
+                                    <div class="form-group">
+                                        <label class="form-label">Pembaharuan</label>
+                                        {{form.konJPPembaharuan}}
+
+
+                                    </div>
+                                </div>
+
+                                <div class="col-sm-7 col-md-7"></div>
+                                <div class="col-sm-5 col-md-5">
+                                    <div class="form-group">
+                                        <label class="form-label">Lain-Lain</label>
+                                        {{form.konJPLainLain}}
+                                    </div>
+                                </div>
+                                <div class="col-sm-7 col-md-7"></div>
+
+                                <div class="col-sm-5 col-md-5">
+                                    <div class="form-group">
+                                        <label class="form-label">Kategori</label>
+                                       {{form.konJPKategori}}
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        </section>
+                            <h6>Maklumat Pemohon</h6>
+                        <section>
+                            <div class="row">
+
+                                <div class="col-sm-4 col-md-4">
+                                    <div class="form-group">
+                                        <label class="form-label">Tarikh Permohonan</label>
+                                        {{form.konMPTarikhMohon}}
+                                    </div>
+                                </div>
+                                <div class="col-sm-4 col-md-4">
+                                    <div class="form-group">
+                                        <label class="form-label">Cas Perkhidmatan (RM)</label>
+                                        {{form.konMPCas}}
+                                    </div>
+                                </div>
+                                <div class="col-sm-4 col-md-4">
+                                    <div class="form-group">
+                                        <label class="form-label">No Reset</label>
+                                        {{form.konMPNoResit}}
+                                    </div>
+                                </div>
+                              
+
+                                <div class="col-sm-6 col-md-6">
+                                    <div class="form-group">
+                                        <label class="form-label">No Sijil Pendaftaran</label>
+                                        {{form.konMPNoSijil}}
+                                    </div>
+                                </div>
+                                <div class="col-sm-3 col-md-3">
+                                    <div class="form-group">
+                                        <label class="form-label">Tarikh Sijil Dikeluarkan</label>
+                                        {{form.konMPtarikhkeluar}}
+                                    </div>
+                                </div>
+                                <div class="col-sm-3 col-md-3">
+                                    <div class="form-group">
+                                        <label class="form-label">Tarikh Tamat Sijil</label>
+                                        {{form.konMPtarikhtamat}}
+                                    </div>
+                                </div>
+                               
+
+                            </div>
+                        </section>
+                             <h6>Disemak Oleh</h6>
+                        <section>
+                            <div class="row">
+
+                                <div class="col-sm-4 col-md-4">
+                                    <div class="form-group">
+                                        <label class="form-label">Disemak oleh</label>
+                                        {{form.konMPdisemak}}
+
+                                    </div>
+                                </div>
+                                <div class="col-sm-4 col-md-4">
+                                    <div class="form-group">
+                                        <label class="form-label">Disahkan Oleh</label>
+                                        {{form.konMPdisah}}
+                                    </div>
+                                </div>
+                                <div class="col-sm-4 col-md-4">
+                                    <div class="form-group">
+                                        <label class="form-label">Diluluskan Oleh</label>
+                                         {{form.konMPlulus}}
+                                    </div>
+                                </div>
+
+                                <div class="col-sm-4 col-md-4">
+                                    <div class="form-group">
+                                        <label class="form-label">Jawatan Penyemak</label>
+                                        {{form.konMPjawatansemak}}
+                                    </div>
+                                </div>
+                                <div class="col-sm-4 col-md-4">
+                                    <div class="form-group">
+                                        <label class="form-label">Jawatan Pengurus</label>
+                                        {{form.konMPjawatansah}}
+                                    </div>
+                                </div>
+                                <div class="col-sm-4 col-md-4">
+                                    <div class="form-group">
+                                        <label class="form-label">Jawatan Penglulus</label>
+                                        {{form.konMPjawatanlulus}}
+                                    </div>
+                                </div>
+
+
+                            </div>
+                        </section>
+
+                         <h6>LPIPM</h6>
+
+                        <section>
+
+                            <div class="row">
+                                <div class="col-sm-12 col-md-12">
+                                    <h4 class="mt-1 mb-4">Lembaga Pembangunan Industri Pembinaan Malaysia (LPIPM)
+                                    </h4>
+                                    <h6 class="mb-6">a) Sijil Perakuan Pendaftaran Kontraktror (PPK)</h6>
+                                </div>
+                                <div class="col-sm-6 col-md-6">
+                                    <div class="form-group">
+                                        <label class="form-label">No Pendaftaran</label>
+                                        {{form.sijilPPKNoPendaftaran}}
+                                    </div>
+                                </div>
+                                <div class="col-sm-3 col-md-3">
+                                    <div class="form-group">
+                                        <label class="form-label">Tempoh Sah Dari</label>
+                                        {{form.sijilPPKSahDari}}
+                                    </div>
+                                </div>
+                                <div class="col-sm-3 col-md-3">
+                                    <div class="form-group">
+                                        <label class="form-label">Hingga</label>
+                                        {{form.sijilPPKTamat}}
+                                    </div>
+                                </div>
+
+                                <div class="col-sm-3 col-md-3">
+                                    <div class="form-group">
+                                        <label class="form-label">Gred</label>
+                                        {{form.sijilPPKGredSatu}}
+                                    </div>
+                                </div>
+
+                                <div class="col-sm-3 col-md-3">
+                                    <div class="form-group">
+                                        <label class="form-label">Kategori</label>
+                                        {{form.sijilPPKKatSatu}}
+                                    </div>
+                                </div>
+
+                                <div class="col-sm-6 col-md-6">
+                                    <div class="form-group">
+                                        <label class="form-label">Pengkhususan</label>
+                                        {{form.sijilPPKKhuSatu}}
+                                    </div>
+                                </div>
+
+                                <div class="col-sm-3 col-md-3">
+                                    <div class="form-group">
+                                        <label class="form-label">Gred</label>
+                                        {{form.sijilPPKGredDua}}
+                                    </div>
+                                </div>
+
+                                <div class="col-sm-3 col-md-3">
+                                    <div class="form-group">
+                                        <label class="form-label">Kategori</label>
+                                        {{form.sijilPPKKatDua}}
+                                    </div>
+                                </div>
+
+                                <div class="col-sm-6 col-md-6">
+                                    <div class="form-group">
+                                        <label class="form-label">Pengkhususan</label>
+                                         {{form.sijilPPKKhuDua}}
+                                    </div>
+                                </div>
+
+                                <div class="col-sm-3 col-md-3">
+                                    <div class="form-group">
+                                        <label class="form-label">Gred</label>
+                                        {{form.sijilPPKGredTiga}}
+                                    </div>
+                                </div>
+
+                                <div class="col-sm-3 col-md-3">
+                                    <div class="form-group">
+                                        <label class="form-label">Kategori</label>
+                                        {{form.sijilPPKKatTiga}}
+                                    </div>
+                                </div>
+
+                                <div class="col-sm-6 col-md-6">
+                                    <div class="form-group">
+                                        <label class="form-label">Pengkhususan</label>
+                                        {{form.sijilPPKKhuTiga}}
+                                    </div>
+                                </div>
+
+                                <div class="col-sm-12 col-md-12">
+                                    <h6 class="mt-4 mb-6">b) Sijil Perolehan Kerja Kerajaan (SPKK)</h6>
+                                </div>
+                                <div class="col-sm-6 col-md-6">
+                                    <div class="form-group">
+                                        <label class="form-label">No Pendaftaran</label>
+                                        {{form.sijilSPKKNoPendaftaran}}
+                                    </div>
+                                </div>
+                                <div class="col-sm-3 col-md-3">
+                                    <div class="form-group">
+                                        <label class="form-label">Tempoh Sah Dari</label>
+                                        {{form.sijilSPKKSahDari}}
+                                    </div>
+                                </div>
+                                <div class="col-sm-3 col-md-3">
+                                    <div class="form-group">
+                                        <label class="form-label">Hingga</label>
+                                        {{form.sijilSPKKTamat}}
+                                    </div>
+                                </div>
+
+                                <div class="col-sm-3 col-md-3">
+                                    <div class="form-group">
+                                        <label class="form-label">Gred</label>
+                                        {{form.sijilSPKKGredSatu}}
+                                    </div>
+                                </div>
+
+                                <div class="col-sm-3 col-md-3">
+                                    <div class="form-group">
+                                        <label class="form-label">Kategori</label>
+                                        {{form.sijilSPKKKatSatu}}
+                                    </div>
+                                </div>
+
+                                <div class="col-sm-6 col-md-6">
+                                    <div class="form-group">
+                                        <label class="form-label">Pengkhususan</label>
+                                        {{form.sijilSPKKKhuSatu}}
+                                    </div>
+                                </div>
+
+                                <div class="col-sm-3 col-md-3">
+                                    <div class="form-group">
+                                        <label class="form-label">Gred</label>
+                                        {{form.sijilSPKKGredDua}}
+                                    </div>
+                                </div>
+
+                                <div class="col-sm-3 col-md-3">
+                                    <div class="form-group">
+                                        <label class="form-label">Kategori</label>
+                                        {{form.sijilSPKKKatDua}}
+                                    </div>
+                                </div>
+
+                                <div class="col-sm-6 col-md-6">
+                                    <div class="form-group">
+                                        <label class="form-label">Pengkhususan</label>
+                                        {{form.sijilSPKKKhuDua}}
+                                    </div>
+                                </div>
+
+                                <div class="col-sm-3 col-md-3">
+                                    <div class="form-group">
+                                        <label class="form-label">Gred</label>
+                                       {{form.sijilSPKKGredTiga}}
+                                    </div>
+                                </div>
+
+                                <div class="col-sm-3 col-md-3">
+                                    <div class="form-group">
+                                        <label class="form-label">Kategori</label>
+                                       {{form.sijilSPKKKatTiga}}
+                                    </div>
+                                </div>
+
+                                <div class="col-sm-6 col-md-6">
+                                    <div class="form-group">
+                                        <label class="form-label">Pengkhususan</label>
+                                        {{form.sijilSPKKKhuTiga}}
+                                    </div>
+                                </div>
+
+
+                            </div>
+                        </section>
+
+                        <!--dfdf-->
+
+                        <h6>Pusat Khidmat Kontraktor (PKK)</h6>
+                        <section>
+
+                            <div class="row">
+                                <div class="col-sm-12 col-md-12">
+
+                                    <h6 class="mb-6">a) Sijil Taraf Bumiputra (STB)</h6>
+                                </div>
+                                <div class="col-sm-8 col-md-8">
+                                    <div class="form-group">
+                                        <label class="form-label">No Pendaftaran</label>
+                                        {{form.sijilSTBNoPendaftaran}}
+                                    </div>
+                                </div>
+                                <div class="col-sm-4 col-md-4"></div>
+                                <div class="col-sm-4 col-md-4">
+                                    <div class="form-group">
+                                        <label class="form-label">Tempoh Sah Dari</label>
+                                        {{form.sijilSTBSahDari}}
+                                    </div>
+                                </div>
+
+                                <div class="col-sm-4 col-md-4">
+                                    <div class="form-group">
+                                        <label class="form-label">Hingga</label>
+                                        {{form.sijilSTBTamat}}
+                                    </div>
+                                </div>
+
+
+                                <div class="col-sm-4 col-md-4">
+                                    <div class="form-group">
+                                        <label class="form-label">Gred Pendaftaran</label>
+                                        {{form.sijilSTBGred}}
+                                    </div>
+                                </div>
+
+
+                            </div>
+                        </section>
+                        <!--ssm-->
+                        <h6>Suruhanjaya Syarikat Malaysia (SSM)</h6>
+
+                        <section>
+
+                            <div class="row">
+                                <div class="col-sm-12 col-md-12">
+
+                                    <h6 class="mb-6">SSM</h6>
+                                </div>
+                                <div class="col-sm-8 col-md-8">
+                                    <div class="form-group">
+                                        <label class="form-label">No Pendaftaran</label>
+                                        {{form.sijilSSMNoPendaftaran}}
+                                    </div>
+                                </div>
+                                <div class="col-sm-4 col-md-4"></div>
+                                <div class="col-sm-4 col-md-4">
+                                    <div class="form-group">
+                                        <label class="form-label">Tempoh Sah Dari</label>
+                                     
+										{{form.sijilSSMSahDari}}
+                                    </div>
+                                </div>
+
+                                <div class="col-sm-4 col-md-4">
+                                    <div class="form-group">
+                                        <label class="form-label">Hingga</label>
+                                      
+										{{form.sijilSSMTamat}}
+                                    </div>
+                                </div>
+
+                            </div>
+                        </section>
+
+                        <!--GST-->
+                        <h6>SST</h6>
+
+                        <section>
+
+                            <div class="row">
+                                <div class="col-sm-12 col-md-12">
+
+                                    <h6 class="mb-6">SST</h6>
+                                </div>
+                                <div class="col-sm-8 col-md-8">
+                                    <div class="form-group">
+                                        <label class="form-label">No Pendaftaran</label>
+                                        {{form.sijilSSTNoPendaftaran}}
+                                    </div>
+                                </div>
+                                <div class="col-sm-4 col-md-4"></div>
+                                <div class="col-sm-4 col-md-4">
+                                    <div class="form-group">
+                                        <label class="form-label">Tempoh Sah Dari</label>
+                                      
+										{{form.sijilSSTSahDari}}
+										
+                                    </div>
+                                </div>
+
+                                <div class="col-sm-4 col-md-4">
+                                    <div class="form-group">
+                                        <label class="form-label">Hingga</label>
+                               
+										{{form.sijilSSTTamat}}
+                                    </div>
+                                </div>
+
+
+
+                            </div>
+                        </section>
+
+                        <!--JPS-->
+                        <h6>JPS</h6>
+
+                        <section>
+
+                            <div class="row">
+                                <div class="col-sm-12 col-md-12">
+
+                                    <h6 class="mb-6">a) Sijil Perakuan Pendaftaran Pembekal/Kontraktor(SPPPK)</h6>
+                                </div>
+                                <div class="col-sm-8 col-md-8">
+                                    <div class="form-group">
+                                        <label class="form-label">No Pendaftaran</label>
+                                        {{form.sijilJPSNoPendaftaran}}
+                                    </div>
+                                </div>
+                                <div class="col-sm-4 col-md-4"></div>
+                                <div class="col-sm-4 col-md-4">
+                                    <div class="form-group">
+                                        <label class="form-label">Tempoh Sah Dari</label>
+                                       {{form.sijilJPSSahDari}}
+                                    </div>
+                                </div>
+
+                                <div class="col-sm-4 col-md-4">
+                                    <div class="form-group">
+                                        <label class="form-label">Hingga</label>
+                                       {{form.sijilJPSTamat}}
+                                    </div>
+                                </div>
+
+
+                                <div class="col-sm-4 col-md-4">
+                                    <div class="form-group">
+                                        <label class="form-label">Gred Pendaftaran</label>
+                                      {{form.sijilJPSGred}}
+                                    </div>
+                                </div>
+
+                            </div>
+                        </section>
+				</form>
+			</div>
+			<!-- /.box-body -->
+		  </div>
+		  <!-- /.box -->
+		  <!-- /.box -->
+
+		</section>
+		<!-- /.content -->
+	  </div>
+  </div>
+  <!-- /.content-wrapper -->
+
+    {% endblock content %}
+  

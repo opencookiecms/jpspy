@@ -107,9 +107,11 @@ def kontraktordaftar(request):
 
     
     context = {
-        'form':form
+        'form':form,
+        'stepstep':'14'
     }
     return render(request, 'pages/kontraktor-wizard.html',context )
+
 
 
 @login_required(login_url='login')

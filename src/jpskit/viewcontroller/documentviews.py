@@ -54,6 +54,50 @@ def mrkone(request, projekid):
 
 
 @login_required(login_url='login')
+def mrkonev2(request, projekid):
+
+
+    dataobject = document.MRKSatu.objects.filter(projekbind=projekid).first()
+    p = project.Projek.objects.get(id=projekid)
+    print(p)
+   
+    form = ducumentform.MRK1Form(request.POST or None, instance=dataobject)
+
+    kos_belanjapost = 0.00
+    kos_tanggungpost =  request.POST.get('mrksatukosprojek')
+  
+    if form.is_valid():
+
+        if(dataobject):
+            query = document.kosprojek.objects.get(projekbind=p)
+            query.kos_tanggung = kos_tanggungpost
+            query.kos_belanja = kos_belanjapost
+            query.save()
+          
+        else:
+            query = document.kosprojek.objects.create(kos_belanja=kos_belanjapost,kos_tanggung=kos_tanggungpost,projekbind=p)
+            query.save()
+
+        form.save()
+        form = ducumentform.MRK1Form()
+
+        return HttpResponseRedirect(request.META.get('HTTP_REFERER'))  
+    else:
+        print(form.errors)
+      
+
+    context = {
+    
+        'form':form,
+        'projek':project.Projek.objects.get(id=projekid),
+        'kontraktor':kontraktor.Kontraktor.objects.all(),
+        'mrksatu':dataobject
+
+    }
+    return render(request, 'pages/mrksatuv2.html',context )
+
+
+@login_required(login_url='login')
 def mrktwo(request, projekid):
     
     dataobject = document.MRKDua.objects.filter(projekbind=projekid).first()

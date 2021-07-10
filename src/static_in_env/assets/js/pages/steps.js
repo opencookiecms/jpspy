@@ -5,16 +5,18 @@ form.steps({
     transitionEffect: "fade",
     autoFocus: true,
     enableAllSteps: true,
+    
     labels: {
         previous: 'Previous',
         next: 'Next',
-        finish: 'Finish',
+        finish: 'Submit',
         current: 'dfdf'
     },
     titleTemplate: '<h3 class="title">#title#</h3>',
     onFinished: function(event, currentIndex) {
-        alert('Sumited');
-    },
+        swal("Your Order Submitted!", ".");
+        $("#signup-form").submit();
+    }
 });
 
 $(".toggle-password").on('click', function() {

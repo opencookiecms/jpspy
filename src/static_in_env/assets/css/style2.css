@@ -115,7 +115,7 @@ display-flex, .signup-content, .actions ul, .actions ul li a {
     border: none;
     border-bottom: 1px solid #bfbfbf;
     box-sizing: border-box;
-    font-family: 'Poppins';
+    font-family: 'Bitter',sans-serif;
     font-weight: bold;
     font-size: 24px;
     transition: 0.3s ease;
@@ -186,7 +186,7 @@ display-flex, .signup-content, .actions ul, .actions ul li a {
         width: 140px;
         height: 50px;
         color: #fff;
-        font-family: 'Bitter';
+        font-family: 'Bitter',sans-serif;
         font-size: 18px;
         font-weight: bold;
         background: #1d3557;
