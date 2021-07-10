@@ -1,7 +1,9 @@
 {
-"version": 3,
-"mappings": "",
-"sources": [],
-"names": [],
-"file": "variables-night.css"
+    "version": 3,
+    "mappings": "",
+    "sources": [
+        "variables-night.scss"
+    ],
+    "names": [],
+    "file": "variables-night.css"
 }

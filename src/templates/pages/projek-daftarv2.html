@@ -1,0 +1,166 @@
+
+  {% extends 'based/based.html' %}
+  {% block content %}
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+	  <div class="container-full">
+		<!-- Content Header (Page header) -->
+		<div class="content-header">
+			<div class="d-flex align-items-center">
+				<div class="mr-auto">
+					<h3 class="page-title">Daftar Maklumat Perolehan</h3>
+					<div class="d-inline-block align-items-center">
+						<nav>
+							<ol class="breadcrumb">
+								<li class="breadcrumb-item"><a href="#"><i class="mdi mdi-home-outline"></i></a></li>
+								<li class="breadcrumb-item" aria-current="page">Kontraktor</li>
+								<li class="breadcrumb-item active" aria-current="page">Daftar Baru</li>
+							</ol>
+						</nav>
+					</div>
+				</div>
+				
+			</div>
+		</div>	  
+
+		<!-- Main content -->
+		<section class="content">
+
+		  <!-- vertical wizard -->
+		  <div class="box box-default">
+			<div class="box-header with-border">
+			  <h4 class="box-title">Borang Maklumat Perolehan</h4>
+			  <h6 class="box-subtitle">You can find the <a href="http://www.jquery-steps.com" target="_blank">offical website</a></h6>
+			</div>
+			<!-- /.box-header -->
+            <div class="signup-content">
+                <div class="signup-desc">
+                    <div class="signup-desc-content">
+                      
+                        <p class="title">Sign up now to try undraw 30 days for free</p>
+                        <p class="desc">
+                            MIT licensed illustrations for every project you can imagine and create
+                        </p>
+                        <img src="images/signup-img.jpg" alt="" class="signup-img">
+                    </div>
+                </div>
+                <div class="signup-form-conent">
+                    <form method="POST" id="signup-form" class="signup-form" enctype="multipart/form-data">
+                        <h3></h3>
+                        <fieldset>
+                            <span class="step-current">Step 1 / 4</span>
+                           	 <div class="row">
+								<div class="box-body form-element">
+						
+								<div class="row">
+								  <div class="col-lg-8 col-md-12">
+									<div class="form-group">
+									  <label>No Perolehan</label>
+									 <input type="hidden" name="{{form.nosebuthargaid.name}}" class="form-control" id="{{form.nosebuthargaid.id_for_label}}"/>
+								
+									  <div class="input-group">
+                                       <input type="text" name="" class="form-control" id="nosebuts" readonly/>
+									  
+									  <span class="input-group-append">
+									  	<button class="btn btn-primary btn-sm" type="button" data-toggle="modal" data-target=".bs-example-modal-lg" >Select</button>
+									  </span>
+									  </div>
+									</div>
+								  </div>
+                            
+								</div>
+					
+							
+								<div class="row">
+								  <div class="col-lg-4 col-md-12">
+									<div class="form-group">
+									  <label>Kaedah</label>
+								       <input type="text" name="" class="form-control" id="kaedah" readonly/>
+									</div>
+								  </div>
+                                 <div class="col-lg-4 col-md-12">
+									<div class="form-group">
+									  <label>Tarikh</label>
+									  <input type="text" name="" class="form-control" id="datedate" readonly/>
+									</div>
+								  </div>
+						
+								</div>
+								<div class="row">
+								  <div class="col-md-8">
+									<div class="form-group">
+									  <label>Tajuk Kerja</label>
+								       {{form.tajukkerja}}
+									</div>
+								  </div>
+						
+								</div>
+                                <div class="row">
+                                	<div class="col-md-8">
+									<div class="form-group">
+									  <label>Daerah</label>
+                                      {{form.daerah}}
+				
+									</div>
+								  </div>
+                                </div>
+
+								<div class="row">
+                                	<div class="col-md-6">
+									<div class="form-group">
+									  <label>Pegawai Selia</label>
+                                       <input type="text" name="" class="form-control" id="selia" readonly/>
+				
+									</div>
+								  </div>
+                                </div>
+							
+							
+							</div>
+                        </div>
+                        </fieldset>
+    
+                        <h3></h3>
+                        <fieldset>
+                            <span class="step-current">Step 2 / 4</span>
+                            <div class="form-group">
+                                <input type="text" name="email" id="email" required/>
+                                <label for="email">Your Email</label>
+                            </div>
+                        </fieldset>
+    
+                        <h3></h3>
+                        <fieldset>
+                            <span class="step-current">Step 3 / 4</span>
+                            <div class="form-group">
+                                <input type="text" name="your_password" id="your_password" required/>
+                                <label for="your_password">Your Password</label>
+                                <span toggle="#your_password" class="zmdi zmdi-eye field-icon toggle-password"></span>
+                            </div>
+                        </fieldset>
+    
+                        <h3></h3>
+                        <fieldset>
+                            <span class="step-current">Step 4 / 4</span>
+                            <div class="form-group">
+                                <input type="text" name="confirm_password" id="confirm_password" required/>
+                                <label for="confirm_password">Confirm your password</label>
+                                <span toggle="#confirm_password" class="zmdi zmdi-eye field-icon toggle-password"></span>
+                            </div>
+                        </fieldset>
+                    </form>
+                </div>
+            </div>
+			<!-- /.box-body -->
+		  </div>
+		  <!-- /.box -->
+		  <!-- /.box -->
+
+		</section>
+		<!-- /.content -->
+	  </div>
+  </div>
+  <!-- /.content-wrapper -->
+
+    {% endblock content %}
+  

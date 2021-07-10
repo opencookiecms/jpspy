@@ -28,7 +28,7 @@ def daftarprojek(request):
         'sebutharga': dfnoperolehan.NoPerolehan.objects.all(),
     }
 
-    return render(request, 'pages/projek-daftar.html',context)
+    return render(request, 'pages/projek-daftarv2.html',context)
 
 
 
