@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Bitter:wght@100;200;300;400;500;600;800;900&display=swap');
 /* @extend display-flex; */
 display-flex, .signup-content, .actions ul, .actions ul li a {
     display: flex;
@@ -8,16 +9,6 @@ display-flex, .signup-content, .actions ul, .actions ul li a {
     list-style-type: none;
     margin: 0;
     padding: 0; }
-  
-  a:focus,
-  a:active {
-    text-decoration: none;
-    outline: none;
-    transition: all 300ms ease 0s;
-    -moz-transition: all 300ms ease 0s;
-    -webkit-transition: all 300ms ease 0s;
-    -o-transition: all 300ms ease 0s;
-    -ms-transition: all 300ms ease 0s; }
   
   input,
   select,
@@ -81,7 +72,7 @@ display-flex, .signup-content, .actions ul, .actions ul li a {
     margin: 0px;
     padding-bottom: 65px; }
     h2 span {
-      color: #7c7cdd; }
+      color: #003049; }
   
 
   
@@ -89,7 +80,7 @@ display-flex, .signup-content, .actions ul, .actions ul li a {
     margin: 0px; }
   
   p.desc {
-    padding-bottom: 330px;
+    padding-bottom: 200;
     color: #999;
     line-height: 1.92; }
   
@@ -106,7 +97,7 @@ display-flex, .signup-content, .actions ul, .actions ul li a {
     margin: 0px; }
   
   .signup-desc {
-    background: #fff;
+  
     width: 495px; }
   
   .signup-desc-content {
@@ -175,7 +166,7 @@ display-flex, .signup-content, .actions ul, .actions ul li a {
 
     text-transform: uppercase;
     font-weight: 700;
-    color: #7c7cdd; }
+    color: #003049; }
   
   .actions ul {
     width: 100%;
@@ -195,10 +186,10 @@ display-flex, .signup-content, .actions ul, .actions ul li a {
         width: 140px;
         height: 50px;
         color: #fff;
-        font-family: 'Montserrat';
-        font-size: 13px;
+        font-family: 'Bitter';
+        font-size: 18px;
         font-weight: bold;
-        background: #7c7cdd;
+        background: #1d3557;
         align-items: center;
         -moz-align-items: center;
         -webkit-align-items: center;
@@ -210,9 +201,16 @@ display-flex, .signup-content, .actions ul, .actions ul li a {
         -o-justify-content: center;
         -ms-justify-content: center;
         text-decoration: none; }
+      .actions ul li a:hover{
+        color: #ffd60a;
+      }
+      .actions ul li a:focus{
+        color: #ffd60a;
+      }
   
   .steps {
     display: none; }
+
   
   @media screen and (max-width: 1500px) {
     .container {
@@ -227,7 +225,7 @@ display-flex, .signup-content, .actions ul, .actions ul li a {
   
     .signup-img {
       width: 100%; } }
-  @media screen and (max-width: 1000px) {
+  @media screen and (max-width: 1380px) {
     .steps ul, .signup-content {
       flex-direction: column;
       -moz-flex-direction: column;
