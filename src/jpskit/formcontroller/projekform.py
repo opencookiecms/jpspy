@@ -56,7 +56,7 @@ class Projekform(forms.ModelForm):
     )
 
 
-    tajukkerja = forms.CharField(required=False, widget=forms.Textarea(attrs={'class':'form-control text-dark font-weight-600','type':'text','placeholder':'Tajuk Kerja','rows':'5'}))
+    tajukkerja = forms.CharField(required=False, widget=forms.Textarea(attrs={'class':'form-control text-dark font-weight-600','type':'text','placeholder':'Tajuk Kerja','rows':'3'}))
     daerah = forms.ChoiceField(choices=daerah, required=False, widget=forms.Select(attrs={'class':'form-control text-dark font-weight-600 custom-select select28 ','placeholder':'baru'}))
     pgred = forms.ChoiceField(choices=gred, required=False, widget=forms.Select(attrs={'class':'form-control text-dark font-weight-600 custom-select select28 ','placeholder':'baru'}))
     pkategori = forms.ChoiceField(choices=catkontraktor, required=False, widget=forms.Select(attrs={'class':'form-control text-dark font-weight-600 custom-select select28 ','placeholder':'baru'}))

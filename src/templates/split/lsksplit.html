@@ -1,0 +1,304 @@
+{% block dukumen %}
+{% load humanize %} 
+<h3></h3>
+<fieldset>
+    <span class="step-current font-size-20">Step 1 / {{stepstep}}</span>
+    <div class="row">
+		<div class="box-body form-element2">
+			<div class="col-lg-12 col-md-12 p-0 mb-40" style=" border-bottom: 1px dashed #8d99ae;">
+                <h4 class="mt-1 mb-4 font-weight-600">Maklumat Rekod Kerja - Laporan Siap Kerja</h4>
+               
+            </div>
+			<div class="row mb-10">
+				<div class="col-lg-8 col-md-12">
+					<div class="form-group">
+                  	    <label>Kontraktor</label>
+                        <input type="hidden" class="form-control" name="{{form.projekbind.name}}" value="{{mrksatufecth.projekbind.id }}"/>
+                        <input type="hidden" class="form-control" name="{{form.lskmrksatulink.name}}" value="{{mrksatufecth.id}}"/>
+                        <input type="text" class="form-control font-weight-600 text-dark" id="" value="{{mrksatufecth.mrksatukontraktor.konNama}}" name="noinden" placeholder="" readonly>
+					</div>
+				</div>
+            </div>
+			<div class="row mb-10">
+				<div class="col-lg-8 col-md-12">
+					<div class="form-group">
+						<label>No Pendaftaran PKK</label>
+				   		<input type="text" class="form-control font-weight-600 text-dark "  id="" name="" value="{{mrksatufecth.mrksatukontraktor.sijilPPKNoPendaftaran}}" placeholder="No Pendaftaran PKK" readonly>
+				    </div>
+				</div>
+            </div>
+
+
+			<div class="row mb-10">
+				<div class="col-lg-8 col-md-6">
+					<div class="form-group">
+						<label>Alamat</label>
+						<textarea rows="2" type="text" class="form-control font-weight-600 text-dark" readonly>{{mrksatufecth.mrksatukontraktor.konAlamat}}</textarea>
+					</div>
+				</div>
+            </div>
+            <div class="row mb-10">
+				<div class="col-lg-4 col-md-6">
+					<div class="form-group">
+						<label>No inden</label>
+						<input type="text" class="form-control font-weight-600 text-dark"  placeholder="No Pesanan Kerja" value="{{mrksatufecth.mrksatunoinden}}" readonly>
+					</div>
+				</div>						
+			</div>
+    	</div>
+    </div>
+</fieldset>
+<h3></h3>
+<fieldset>
+    <span class="step-current font-size-20">Step 2 / {{stepstep}}</span>
+    <div class="row">
+		<div class="box-body form-element2">
+			<div class="col-lg-12 col-md-12 p-0 mb-40" style=" border-bottom: 1px dashed #8d99ae;">
+                <h4 class="mt-1 mb-4 font-weight-600">Kos & Tarikh Perlaksanaan</h4>
+               
+            </div>
+			<div class="row mb-10">
+				<div class="col-lg-4 col-md-12">
+					<div class="form-group">
+						<label>Harga Pesanan RM:</label>
+				            <div class="input-group">
+                                <div class="input-group-prepend bg-secondary border-secondary">
+                                    <span class="input-group-text bg-transparent text-white">RM</span>
+                                </div>
+                                <input type="text" class="form-control font-weight-600 text-dark ml-10"  value="{{mrksatufecth.mrksatukosprojek}}" placeholder="RM" readonly>
+                            </div>
+				    </div>
+				</div>
+                <div class="col-lg-4 col-md-12">
+					<div class="form-group">
+						<label>Harga Sebenar RM:</label>
+				            <div class="input-group">
+                                <div class="input-group-prepend bg-secondary border-secondary">
+                                    <span class="input-group-text bg-transparent text-white">RM</span>
+                                </div>
+                                 {{form.lskhargasebenar}}
+                            </div>
+				    </div>
+				</div>
+            </div>
+            <div class="row mb-10">
+				<div class="col-lg-3 col-md-6">
+					<div class="form-group">
+						<label>Tarikh Permulaan Kerja:</label>
+						<input type="text" data-toggle="datepicker" class="form-control font-weight-600 text-dark" value="{{mrksatufecth.mrksatutarikhmula}}" readonly>
+					</div>
+				</div>
+                <div class="col-lg-3 col-md-6">
+					<div class="form-group">
+						<label>Tarikh Kerja Tamat:</label>
+					    <input type="text" data-toggle="datepicker" class="form-control font-weight-600 text-dark" value="{{mrksatufecth.mrksatutarikhjangkasiap}}" readonly>
+					</div>
+				</div>
+						
+			</div>
+            <div class="row mb-10">
+				<div class="col-lg-3 col-md-6">
+					<div class="form-group">
+						<label>Tarikh Dilanjutkan Masa:</label>
+						{{form.lsklanjutmasa}}
+					</div>
+				</div>
+                <div class="col-lg-3 col-md-6">
+					<div class="form-group">
+						<label>Tarikh Kerja Siap Sempurna:</label>
+					   {{form.lskkerjasiap}}
+					</div>
+				</div>
+						
+			</div>
+
+            <div class="row mb-10">
+				<div class="col-lg-3 col-md-6">
+			        <label>Peruntukan:</label>
+                    <input type="text" name="{{form.lskperuntukan.name}}" id="" class="form-control font-weight-600 text-dark" value="{{mrksatufecth.projekbind.kodvot}}">	
+				</div>			
+			</div>
+    	</div>
+    </div>
+</fieldset>
+
+<h3></h3>
+<fieldset>
+    <span class="step-current font-size-20">Step 3 / {{stepstep}}</span>
+    <div class="row">
+		<div class="box-body form-element2">
+			<div class="col-lg-12 col-md-12 p-0 mb-40" style=" border-bottom: 1px dashed #8d99ae;">
+                <h4 class="mt-1 mb-4 font-weight-600">Laporan Pegawai Penjaga.</h4>
+               
+            </div>
+
+			<div class="row mb-10">
+				<div class="col-lg-8 col-md-6">
+					<div class="form-group">
+						<label>Laporan:</label>
+						 {{form.lsklaporan}}
+					</div>
+				</div>						
+			</div>
+			<div class="row mb-10">
+				<div class="col-lg-4 col-md-6">
+					<div class="form-group">
+						<label>Pegawai Penyelia:</label>
+						  <input type="text" class="form-control font-weight-600 text-dark" value="{{projek.nosebuthargaid.pegawaiselia.first_name}}" readonly>
+					</div>
+				</div>
+                <div class="col-lg-4 col-md-6">
+					<div class="form-group">
+						<label>Jawatan:</label>
+						<input type="text" class="form-control font-weight-600 text-dark"  value="{{projek.nosebuthargaid.pegawaiselia.userprofile.jawatan}}" readonly>
+					</div>
+				</div>						
+			</div>
+            <div class="row mb-10">
+				<div class="col-lg-4 col-md-6">
+					<div class="form-group">
+						<label>Tarikh Perakui:</label>
+						{{form.lsktarikhperakui}}
+					</div>
+				</div>						
+			</div>
+            <div class="row mb-10">
+				<div class="col-lg-4 col-md-6">
+					<div class="form-group">
+						<label>Ketua Bahagian:</label>
+						    <select name="{{form.lskketuabahagian.name}}" class="form-control font-weight-600 text-dark custom-select select28" id="">
+                                <option value="Tiada">Tiada</option>
+                                {% for row in userlist %}
+                                <option value="{{row.first_name}}">{{row.first_name}}</option>
+                                {% endfor %}
+                            </select>
+					</div>
+				</div>
+                <div class="col-lg-4 col-md-6">
+					<div class="form-group">
+						<label>Jawatan:</label>
+						    <select name="{{form.lskjawatanketuabahagian.name}}" class="form-control font-weight-600 text-dark custom-select select28" id="">
+                                <option value="Tiada">Tiada</option>
+								{% for row in userlist %}
+                                <option value="{{row.userprofile.jawatan}}">{{row.userprofile.jawatan}}</option>
+                                {% endfor %}
+                        </select>
+					</div>
+				</div>						
+			</div>
+            <div class="row mb-10">
+				<div class="col-lg-4 col-md-6">
+					<div class="form-group">
+						<label>Jurutera J41/J44:</label>
+						    <select name="{{form.lskjuruteraj41.name}}" class="form-control font-weight-600 text-dark custom-select select28" id="">
+                                <option value="Tiada">Tiada</option>
+                                {% for row in userlist %}
+                                <option value="{{row.first_name}}">{{row.first_name}}</option>
+                                {% endfor %}
+                            </select>
+					</div>
+				</div>
+                <div class="col-lg-4 col-md-6">
+					<div class="form-group">
+						<label>Jawatan:</label>
+						    <select name="{{form.lskjawatanj41.name}}" class="form-control font-weight-600 text-dark custom-select select28" id="">
+                                <option value="Tiada">Tiada</option>
+								{% for row in userlist %}
+                                <option value="{{row.userprofile.jawatan}}">{{row.userprofile.jawatan}}</option>
+                                {% endfor %}
+                        </select>
+					</div>
+				</div>						
+			</div>
+            <div class="row mb-10">
+				<div class="col-lg-4 col-md-6">
+					<div class="form-group">
+						<label>Jurutera Daerah:</label>
+						    <select name="{{form.lskjuruteradaerah.name}}" class="form-control font-weight-600 text-dark custom-select select28" id="">
+                                <option value="Tiada">Tiada</option>
+                                {% for row in userlist %}
+                                <option value="{{row.first_name}}">{{row.first_name}}</option>
+                                {% endfor %}
+                            </select>
+					</div>
+				</div>
+                <div class="col-lg-4 col-md-6">
+					<div class="form-group">
+						<label>Jawatan:</label>
+						    <select name="{{form.lskjawatanjuruteradaerah.name}}" class="form-control font-weight-600 text-dark custom-select select28" id="">
+                                <option value="Tiada">Tiada</option>
+								{% for row in userlist %}
+                                <option value="{{row.userprofile.jawatan}}">{{row.userprofile.jawatan}}</option>
+                                {% endfor %}
+                        </select>
+					</div>
+				</div>						
+			</div>
+
+    	</div>
+    </div>
+</fieldset>
+
+<h3></h3>
+<fieldset>
+    <span class="step-current font-size-20">Step 4 / {{stepstep}}</span>
+    <div class="row">
+		<div class="box-body form-element2">
+			<div class="col-lg-12 col-md-12 p-0 mb-40" style=" border-bottom: 1px dashed #8d99ae;">
+                <h4 class="mt-1 mb-4 font-weight-600">Polisi Insurans</h4>
+               
+            </div>
+            <div class="row mb-10">
+				<div class="col-lg-4 col-md-4">
+					<div class="form-group">
+					 	 <label>Perkeso / Workmen's:</label>
+						   {{form.lskperkeso}}
+						
+					</div>
+				</div>
+			</div>
+			<div class="row mb-10">
+				<div class="col-lg-8 col-md-6">
+					<div class="form-group">
+						<label>Jenis Polisi Insurans:</label>
+						    <h4 class="text-success">PL - Public Liability</h4>
+                            <h4 class="text-success">AR - All Risk</h4>
+                            <h4 class="text-success">IK - Insurans Kerja</h4>
+					</div>
+				</div>						
+			</div>
+            <div class="row mb-10">
+				<div class="col-lg-3 col-md-4">
+					<div class="form-group">
+					 	 <label>Jenis Insurans 01</label>
+						   {{form.lskjenisinsurancesatu}}
+						
+					</div>
+				</div>
+                <div class="col-lg-5 col-md-4">
+					<div class="form-group">
+					 	 <label>No Insurans 01</label>
+						{{form.lsknoinsurancesatu}}
+					</div>
+				</div>
+			</div>
+            <div class="row mb-10">
+				<div class="col-lg-3 col-md-4">
+					<div class="form-group">
+					 	 <label>Jenis Insurans 02</label>
+						   {{form.lskjenisinsurancedua}}
+						
+					</div>
+				</div>
+                <div class="col-lg-5 col-md-4">
+					<div class="form-group">
+					 	 <label>No Insurans 02</label>
+						{{form.lsknoinsurancedua}}
+					</div>
+				</div>
+			</div>
+    	</div>
+    </div>
+</fieldset>
+
+{% endblock dukumen %}     
