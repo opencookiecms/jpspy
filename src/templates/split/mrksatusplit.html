@@ -1,0 +1,257 @@
+{% block dukumen %}
+
+<h3></h3>
+<fieldset>
+    <span class="step-current font-size-20">Step 1 / {{stepstep}}</span>
+    <div class="row">
+		<div class="box-body form-element2">
+			<div class="col-lg-12 col-md-12 p-0 mb-40" style=" border-bottom: 1px dashed #8d99ae;">
+                <h4 class="mt-1 mb-4 font-weight-600">Maklumat Rekod Kerja</h4>
+               
+            </div>
+			<div class="row mb-10">
+				<div class="col-lg-8 col-md-12">
+					<div class="form-group">
+                  	    <label>No Sebutharga</label>
+                        <input type="hidden" class="form-control" name="{{form.projekbind.name}}" value="{{projek.id}}"/>
+                        <input type="text" class="form-control font-weight-600 text-dark" value="{{projek.nosebuthargaid.noperolehan}}" readonly/>
+					  
+		
+					</div>
+				</div>
+            </div>
+			<div class="row mb-10">
+				<div class="col-lg-8 col-md-12">
+					<div class="form-group">
+						<label>Kontraktor</label>
+				            <div class="input-group">
+                                <input type="hidden" class="form-control" value="{{mrksatu.mrksatukontraktor.id}}" name="{{form.mrksatukontraktor.name}}" id="{{form.mrksatukontraktor.id_for_label}}"/>
+                                <input type="text" value="{{mrksatu.mrksatukontraktor.konNama}}" class="form-control font-weight-600 text-dark" id="kontraktorname" readonly/>
+									<span class="input-group-append">
+									  	<button class="btn btn-secondary btn-sm" type="button" data-toggle="modal" data-target=".bs-example-modal-lg" >Select</button>
+									</span>
+						 </div>
+				    </div>
+				</div>
+            </div>
+            <div class="row mb-10">
+				<div class="col-lg-8 col-md-12">
+					<div class="form-group">
+						<label>No Pendaftaran PKK</label>
+                        <input type="text" value="{{mrksatu.mrksatukontraktor.sijilPPKNoPendaftaran}}" class="form-control font-weight-600 text-dark" id="pkkno" readonly/>
+				    </div>
+				</div>
+            </div>
+
+			<div class="row mb-10">
+				<div class="col-lg-8 col-md-12">
+					<div class="form-group">
+						<label>Alamat</label>
+						<textarea type="text" class="form-control font-weight-600 text-dark" id="alamats" readonly>{{mrksatu.mrksatukontraktor.konAlamat}}</textarea>
+					</div>
+				</div>
+            </div>
+            <div class="row mb-10">
+				<div class="col-lg-4 col-md-6">
+					<div class="form-group">
+						<label>Daerah</label>
+						<input type="text" class="form-control font-weight-600 text-dark" id="deerah" readonly/>
+					</div>
+				</div>
+                <div class="col-lg-4 col-md-6">
+					<div class="form-group">
+						<label>Negeri</label>
+						<input type="text" class="form-control font-weight-600 text-dark" id="negeri" readonly/>
+					</div>
+				</div>
+						
+			</div>
+    	</div>
+    </div>
+                                    <!-- /.modal -->
+
+							   <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" style="display: none;">
+									<div class="modal-dialog modal-lg">
+										<div class="modal-content">
+											<div class="modal-header">
+												<h4 class="modal-title" id="myLargeModalLabel">Senarai Kontraktor</h4>
+												<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+											</div>
+											<div class="modal-body">
+											 <div class="table-responsive">
+												<table id="tickets" class="table mt-0 table-hover no-wrap table-borderless" data-page-size="10">
+													<thead>
+													<tr>
+														<th>
+														Bil
+														</th>
+														<th>
+														ID
+														</th>
+														<th>
+														Pilihan
+														</th>
+                                                        <th width:30>
+														Kontraktor
+														</th>
+                                                        <th width:50>
+														Alamat
+														</th>
+                                                        <th width:50>
+														No PKK
+														</th>
+													
+														<th>
+														Daerah
+														</th>
+														<th>
+														Negeri
+														</th>
+														<th>
+														Status
+														</th>
+													</tr>
+													</thead>
+													<tbody>
+													{% for row in kontraktor %}
+														<tr>
+														<td class="py-1">{{forloomrksatu.counter}}</td>
+														<td class="py-1">{{row.id}}</td>
+														<td class="py-1"><button id="buttonkontraktor" value="{{row.id}}" class="waves-effect waves-light btn mb-5 bg-gradient-primary" data-dismiss="modal">Select</button></td>
+														<td class="py-1"><span>{{row.konNama}}<span></td> <!--Show data in list view-->
+                                                        <td class="py-1"><span>{{row.konAlamat}}<span></td> <!--Show data in list view-->
+                                                        <td class="py-1"><span>{{row.sijilPPKNoPendaftaran}}<span></td> <!--Show data in list view-->
+												
+														<td class="py-1"><span>{{row.konDaerah}}<span></td> <!--Show data in list view-->
+														<td class="py-1"><span>{{row.konNegeri}}<span></td> <!--Show data in list view-->
+                                                        <td class="py-1"><span>Aktif<span></td> <!--Show data in list view-->
+														</tr>
+
+													{% endfor %}
+													</tbody>
+												</table>
+												</div>
+											</div>
+											<div class="modal-footer">
+												<button type="button" class="btn btn-danger text-left" data-dismiss="modal">Close</button>
+											</div>
+										</div>
+										<!-- /.modal-content -->
+									</div>
+									<!-- /.modal-dialog -->
+								</div>
+							<!-- /.modal -->
+</fieldset>
+<h3></h3>
+<fieldset>
+    <span class="step-current font-size-20">Step 2 / {{stepstep}}</span>
+    <div class="row">
+		<div class="box-body form-element2">
+			<div class="col-lg-12 col-md-12 p-0 mb-40" style=" border-bottom: 1px dashed #8d99ae;">
+                <h4 class="mt-1 mb-4 font-weight-600">Inden & Maklumat Kontrak</h4>
+               
+            </div>
+			<div class="row mb-10">
+				<div class="col-lg-8 col-md-12">
+					<div class="form-group">
+                  	    <label>No Inden</label>
+                        {{form.mrksatunoinden}}
+					</div>
+				</div>
+            </div>
+            <div class="row mb-10">
+				<div class="col-lg-4 col-md-6">
+					<div class="form-group">
+						<label>Gred</label>
+						{{form.mrksatugred}}
+					</div>
+				</div>
+                <div class="col-lg-4 col-md-6">
+					<div class="form-group">
+						<label>Kategori</label>
+						{{form.mrksatukategori}}
+					</div>
+				</div>
+						
+			</div>
+            <div class="row mb-10">
+				<div class="col-lg-4 col-md-6">
+					<div class="form-group">
+						<label>Kursus</label>
+						<select name="{{form.mrksatupengkhususan.name}}" class="form-control font-weight-600 text-dark custom-select select28" id="">
+                            <option value="Tiada">Tiada</option>
+							{% for row in kursus %}
+                            <option value="{{row.kscode}}">{{row.kscode}} | {{row.ksname}}</option>
+                            {% endfor %}
+                        </select>
+					</div>
+				</div>						
+			</div>
+            <div class="row mb-10">
+				<div class="col-lg-4 col-md-6">
+					<div class="form-group">
+						<label>Tarikh Mula Kontrak</label>
+						{{form.mrksatutarikhmula}}
+					</div>
+				</div>
+                <div class="col-lg-4 col-md-6">
+					<div class="form-group">
+						<label>Tarikh Jangka Siap Kontrak</label>
+						 {{form.mrksatutarikhjangkasiap}}
+					</div>
+				</div>
+						
+			</div>
+    	</div>
+    </div>
+</fieldset>
+
+<h3></h3>
+<fieldset>
+    <span class="step-current font-size-20">Step 3 / {{stepstep}}</span>
+    <div class="row">
+		<div class="box-body form-element2">
+			<div class="col-lg-12 col-md-12 p-0 mb-40" style=" border-bottom: 1px dashed #8d99ae;">
+                <h4 class="mt-1 mb-4 font-weight-600">Pengesahan & Kos</h4>
+               
+            </div>
+            <div class="row mb-10">
+				<div class="col-lg-4 col-md-6">
+					<div class="form-group">
+						<label>Pegawai</label>
+						<input type="text" class="form-control font-weight-600 text-dark" value="{{projek.nosebuthargaid.pegawaiselia.first_name}}" readonly/>
+					</div>
+				</div>
+                <div class="col-lg-4 col-md-6">
+					<div class="form-group">
+						<label>Jawatan</label>
+						<input type="text" class="form-control font-weight-600 text-dark" value="{{projek.nosebuthargaid.pegawaiselia.userprofile.jawatan}}" readonly/>
+					</div>
+				</div>
+						
+			</div>
+            <div class="row mb-10">
+				<div class="col-lg-4 col-md-6">
+					<div class="form-group">
+						<label>Kos Projek</label>
+                          {{form.mrksatukosprojek}}
+					</div>
+				</div>						
+			</div>
+            <div class="row mb-10">
+				<div class="col-lg-4 col-md-6">
+					<div class="form-group">
+						<label>Tarikh</label>
+						{{form.mrksatutarikhdaftar}}
+					</div>
+				</div>						
+			</div>
+    	</div>
+    </div>
+</fieldset>
+
+
+
+
+
+{% endblock dukumen %}     

@@ -39,10 +39,7 @@ urlpatterns = [
     path('projek/maklumatperolehan', projekview.maklumatperolehan, name="projek/maklumatperolehan"),
     path('projek/maklumatperolehan/<str:jenisp>', projekview.maklumatperolehanjenis, name="projek/maklumatperolehan/"),   
     path('projek/kodvot/<int:kvd>', projekview.projekkodvot, name="projek/kodvot/"),  
-
     path('dokumen/mrksatu/<uuid:projekid>', documentviews.mrkone, name="dokumen/mrksatu"),
-    path('dokumen/mrksatuv2/<uuid:projekid>', documentviews.mrkonev2, name="dokumen/mrksatu"),
-
     path('dokumen/mrkdua/<uuid:projekid>', documentviews.mrktwo, name="dokumen/mrkdua"),
     path('dokumen/lsk/<uuid:projekid>', documentviews.laporansiapkerja, name="dokumen/lsk"),
     path('dokumen/mrktiga/<uuid:projekid>', documentviews.mrktiga, name="dokumen/mrktiga"),

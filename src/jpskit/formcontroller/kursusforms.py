@@ -15,12 +15,12 @@ class Dkursusform(forms.ModelForm):
     )
 
     
-    tajukkursus = forms.CharField(required=False, widget=forms.TextInput(attrs={'class':'form-control','type':'text','placeholder':'Tajuk Kursus'}))
-    tarikhmula = forms.DateField(input_formats=settings.DATE_INPUT_FORMATS, required=False,widget=forms.DateInput(attrs={'class':'form-control fc-datepicker','placeholder':'MM/DD/YYYY'}))
-    tarikhakhir = forms.DateField(input_formats=settings.DATE_INPUT_FORMATS, required=False,widget=forms.DateInput(attrs={'class':'form-control fc-datepicker','placeholder':'MM/DD/YYYY'}))
-    tempat = forms.CharField(required=False, widget=forms.Textarea(attrs={'class':'form-control','type':'text','placeholder':'Tempat Kursus','rows':'5'}))
-    tahun = forms.ChoiceField(choices=tahun, required=False, widget=forms.Select(attrs={'class':'form-control custom-select select28 ','placholder':'baru'}))
-    hari = forms.CharField(required=False, widget=forms.TextInput(attrs={'class':'form-control','type':'text','placeholder':'Tajuk Kursus'}))
+    tajukkursus = forms.CharField(required=False, widget=forms.TextInput(attrs={'class':'form-control text-dark font-weight-600','type':'text','placeholder':'Tajuk Kursus'}))
+    tarikhmula = forms.DateField(input_formats=settings.DATE_INPUT_FORMATS, required=False,widget=forms.DateInput(attrs={'class':'form-control text-dark font-weight-600 fc-datepicker','placeholder':'MM/DD/YYYY'}))
+    tarikhakhir = forms.DateField(input_formats=settings.DATE_INPUT_FORMATS, required=False,widget=forms.DateInput(attrs={'class':'form-control  text-dark font-weight-600 fc-datepicker','placeholder':'MM/DD/YYYY'}))
+    tempat = forms.CharField(required=False, widget=forms.Textarea(attrs={'class':'form-control text-dark font-weight-600','type':'text','placeholder':'Tempat Kursus','rows':'3'}))
+    tahun = forms.ChoiceField(choices=tahun, required=False, widget=forms.Select(attrs={'class':'form-control text-dark font-weight-600 custom-select select28 ','placholder':'2021'}))
+    hari = forms.CharField(required=False, widget=forms.TextInput(attrs={'class':'form-control text-dark font-weight-600','type':'text','placeholder':'hari'}))
 
 
     class Meta:

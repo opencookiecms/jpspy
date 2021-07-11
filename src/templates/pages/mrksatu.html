@@ -1,6 +1,5 @@
 {% extends 'based/based.html' %}
-{% block content %}
-{% load humanize %} 
+  {% block content %}
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
 	  <div class="container-full">
@@ -8,13 +7,13 @@
 		<div class="content-header">
 			<div class="d-flex align-items-center">
 				<div class="mr-auto">
-					<h3 class="page-title">MRK 01</h3>
+					<h3 class="page-title mb-15 font-size-40 font-weight-800">MRK 01</h3>
 					<div class="d-inline-block align-items-center">
 						<nav>
 							<ol class="breadcrumb">
 								<li class="breadcrumb-item"><a href="#"><i class="mdi mdi-home-outline"></i></a></li>
-								<li class="breadcrumb-item" aria-current="page">Borang</li>
-								<li class="breadcrumb-item active" aria-current="page">No perolehan</li>
+								<li class="breadcrumb-item" aria-current="page">Dokumen</li>
+								<li class="breadcrumb-item active" aria-current="page">MRK 01</li>
 							</ol>
 						</nav>
 					</div>
@@ -25,311 +24,43 @@
 
 		<!-- Main content -->
 		<section class="content">
-			<div class="row">			  
-				<div class="col-lg-9 col-9 ">
-                	<form class="form" action='' method="POST">
-					  <div class="box">
-				
-						<!-- /.box-header -->
-					
-                          {% csrf_token %}
-							<div class="box-body">
-								<h4 class="box-title text-primary"><i class="ti-user mr-15"></i>Kategori Pendaftaran</h4>
-								<hr class="my-15">
-								<a href="" target="_blank">cetak pdf</a>
-								<div class="row">
-								  <div class="col-xl-8 col-lg-12 ">
-									<div class="form-group">
-									  <label><h5 class="text-secondary font-weight-400 mb-2">No Sebutharga</h5></label>
-                                      <input type="hidden" class="form-control" name="{{form.projekbind.name}}" value="{{projek.id}}"/>
-                                      <input type="text" class="form-control" value="{{projek.nosebuthargaid.noperolehan}}" readonly/>
-									</div>
-								  </div>
-								</div>
 
-                                <div class="row">
-								  <div class="col-lg-12 col-xl-8">
-                                  <input type="hidden" class="form-control" value="{{mrksatu.mrksatukontraktor.id}}" name="{{form.mrksatukontraktor.name}}" id="{{form.mrksatukontraktor.id_for_label}}"/>
-									<div class="form-group">
-								
-
-									  <label><h5 class="text-secondary font-weight-500 mb-2">Kontraktor</h5></label>
-									  <div class="input-group">
-                                      
-                                       
-                                       <input type="text" value="{{mrksatu.mrksatukontraktor.konNama}}" class="form-control" id="kontraktorname" readonly/>
-									  
-									  <span class="input-group-append">
-									  	<button class="btn btn-primary btn-sm" type="button" data-toggle="modal" data-target=".bs-example-modal-lg" >Select</button>
-									  </span>
-									  </div>
-									</div>
-								  </div>
-								</div>
-
-                                <div class="row">
-								  <div class="col-lg-12 col-xl-8">
-									<div class="form-group">
-									  <label><h5 class="text-secondary font-weight-500 mb-2">No Pendaftaran PKK</h5></label>
-                                      <input type="text" value="{{mrksatu.mrksatukontraktor.sijilPPKNoPendaftaran}}" class="form-control" id="pkkno" readonly/>
-									</div>
-								  </div>
-								</div>
-
-                                <div class="row">
-								  <div class="col-lg-12 col-xl-8">
-									<div class="form-group">
-									  <label><h5 class="text-secondary font-weight-500 mb-2">Alamat</h5></label>
-                                      <textarea type="text" class="form-control" id="alamats" readonly>{{mrksatu.mrksatukontraktor.konAlamat}}</textarea>
-									</div>
-								  </div>
-								</div>
-
-                                
-                                <div class="row">
-								  <div class="col-lg-6 col-xl-4">
-									<div class="form-group">
-									  <label><h5 class="text-secondary font-weight-500 mb-2">Daerah</h5></label>
-                                      <input type="text" class="form-control" id="deerah" readonly/>
-									</div>
-								  </div>
-                                <div class="col-lg-6 col-xl-4">
-									<div class="form-group">
-									  <label><h5 class="text-secondary font-weight-500 mb-2">Negeri</h5></label>
-                                      <input type="text" class="form-control" id="negeri" readonly/>
-									</div>
-								  </div>
-								</div>
-
-                                <div class="row">
-								  <div class="col-lg-12 col-xl-8">
-									<div class="form-group">
-									  <label><h5 class="text-secondary font-weight-500 mb-2">Tajuk Kerja</h5></label>
-                                      <textarea type="text" class="form-control" readonly>{{projek.tajukkerja}}</textarea>
-									</div>
-								  </div>
-								</div>
-
-                                
-                                <!-- /.modal -->
-
-							   <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" style="display: none;">
-									<div class="modal-dialog modal-lg">
-										<div class="modal-content">
-											<div class="modal-header">
-												<h4 class="modal-title" id="myLargeModalLabel">Senarai Kontraktor</h4>
-												<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-											</div>
-											<div class="modal-body">
-											 <div class="table-responsive">
-												<table id="tickets" class="table mt-0 table-hover no-wrap table-borderless" data-page-size="10">
-													<thead>
-													<tr>
-														<th>
-														Bil
-														</th>
-														<th>
-														ID
-														</th>
-														<th>
-														Pilihan
-														</th>
-                                                        <th width:30>
-														Kontraktor
-														</th>
-                                                        <th width:50>
-														Alamat
-														</th>
-                                                        <th width:50>
-														No PKK
-														</th>
-													
-														<th>
-														Daerah
-														</th>
-														<th>
-														Negeri
-														</th>
-														<th>
-														Status
-														</th>
-													</tr>
-													</thead>
-													<tbody>
-													{% for row in kontraktor %}
-														<tr>
-														<td class="py-1">{{forloomrksatu.counter}}</td>
-														<td class="py-1">{{row.id}}</td>
-														<td class="py-1"><button id="buttonkontraktor" value="{{row.id}}" class="waves-effect waves-light btn mb-5 bg-gradient-primary" data-dismiss="modal">Select</button></td>
-														<td class="py-1"><span>{{row.konNama}}<span></td> <!--Show data in list view-->
-                                                        <td class="py-1"><span>{{row.konAlamat}}<span></td> <!--Show data in list view-->
-                                                        <td class="py-1"><span>{{row.sijilPPKNoPendaftaran}}<span></td> <!--Show data in list view-->
-												
-														<td class="py-1"><span>{{row.konDaerah}}<span></td> <!--Show data in list view-->
-														<td class="py-1"><span>{{row.konNegeri}}<span></td> <!--Show data in list view-->
-                                                        <td class="py-1"><span>Aktif<span></td> <!--Show data in list view-->
-														</tr>
-
-													{% endfor %}
-													</tbody>
-												</table>
-												</div>
-											</div>
-											<div class="modal-footer">
-												<button type="button" class="btn btn-danger text-left" data-dismiss="modal">Close</button>
-											</div>
-										</div>
-										<!-- /.modal-content -->
-									</div>
-									<!-- /.modal-dialog -->
-								</div>
-							<!-- /.modal -->
-						
-								<h4 class="box-title text-primary mt-20"><i class="ti-save mr-15"></i> Inden & Maklumat Kontrak</h4>
-								<hr class="my-15">
-							
-								<div class="row">
-								  <div class="col-md-6">
-									<div class="form-group">
-									  <label><h5 class="text-secondary font-weight-500 mb-2">No Inden</h5></label>
-								      {{form.mrksatunoinden}}
-									</div>
-								  </div>
-						
-								</div>
-                                <div class="row">
-                                	<div class="col-md-6">
-									<div class="form-group">
-									  <label><h5 class="text-secondary font-weight-500 mb-2">Gred</h5></label>
-                                      {{form.mrksatugred}}
-				
-									</div>
-								  </div>
-                                  	<div class="col-md-6">
-									<div class="form-group">
-									  <label><h5 class="text-secondary font-weight-500 mb-2">Kategori</h5></label>
-                                      {{form.mrksatukategori}}
-				
-									</div>
-								  </div>
-                                  	<div class="col-md-6">
-									<div class="form-group">
-									  <label><h5 class="text-secondary font-weight-500 mb-2">Kursus</h5></label>
-                                      <select name="{{form.mrksatupengkhususan.name}}" class="form-control custom-select select28" id="">
-                                        <option value="Tiada">Tiada</option>
-										
-                                        {% for row in kursus %}
-                                        <option value="{{row.kscode}}">{{row.kscode}} | {{row.ksname}}</option>
-                                        {% endfor %}
-
-                                      </select>
-				
-									</div>
-								  </div>
-                                </div>
-
-                                <div class="row">
-								  <div class="col-md-4">
-									<div class="form-group">
-									  <label><h5 class="text-secondary font-weight-500 mb-2">Tarikh Mula Kontrak</h5></label>
-                                      {{form.mrksatutarikhmula}}
-									</div>
-								  </div>
-								</div>
-
-                                <div class="row">
-								  <div class="col-md-4">
-									<div class="form-group">
-									  <label><h5 class="text-secondary font-weight-500 mb-2">Tarikh Jangka Siap Kontrak</h5></label>
-                                      {{form.mrksatutarikhjangkasiap}}
-									</div>
-								  </div>
-								</div>
-
-                                <div class="row">
-								  <div class="col-md-6">
-									<div class="form-group">
-									  <label><h5 class="text-secondary font-weight-500 mb-2">Pegawai</h5></label>
-									<input type="text" class="form-control" value="{{mrksatu.projekbind.nosebuthargaid.pegawaiselia.first_name}}" readonly/>
-									</div>
-								  </div>
-                                   <div class="col-md-6">
-									<div class="form-group">
-									  <label><h5 class="text-secondary font-weight-500 mb-2">Jawatan</h5></label>
-                                      <input type="text" class="form-control" value="{{mrksatu.projekbind.nosebuthargaid.pegawaiselia.userprofile.jawatan}}" readonly/>
-									</div>
-								  </div>
-								</div>
-
-                                <div class="row">
-								  <div class="col-md-4">
-									<div class="form-group">
-									  <label><h5 class="text-secondary font-weight-500 mb-2">Kos Projek</h5></label>
-                                      {{form.mrksatukosprojek}}
-									</div>
-								  </div>
-								</div>
-
-                                <div class="row">
-								  <div class="col-md-4">
-									<div class="form-group">
-									  <label><h5 class="text-secondary font-weight-500 mb-2">Tarikh</h5></label>
-                                      {{form.mrksatutarikhdaftar}}
-									</div>
-								  </div>
-								</div>
-							
-							
-							</div>
-							<!-- /.box-body -->
-							<div class="box-footer">
-								<button type="button" class="btn btn-rounded btn-warning btn-outline mr-1">
-								  <i class="ti-trash"></i> Cancel
-								</button>
-								<button type="submit"  class="btn btn-rounded btn-primary btn-outline">
-								  <i class="ti-save-alt"></i> Save
-								</button>
-							</div>  
-					
-					  </div>
-					  <!-- /.box -->	
-                          	</form>		
-				</div>  
-				<div class="col-lg-3">
-                    <div class="box">
-					<div class="box-header with-border">
-					  <h4 class="box-title">Labels</h4>
-					  <ul class="box-controls pull-right">
-						<li><a class="box-btn-slide" href="#"></a></li>	
-					  </ul>
-					</div>
-					<div class="box-body no-padding mailbox-nav">
-					  <ul class="nav nav-pills flex-column">
-						<li class="nav-item"><a class="nav-link aktif" href="{% url 'dokumen/mrksatu' projekid=projek.id  %}"><i class="fa fa-folder-open-o text-dark"></i>MRK 01</a></li>
-						<li class="nav-item"><a class="nav-link" href="{% url 'dokumen/mrkdua' projekid=projek.id %}"><i class="fa fa-folder-open-o text-dark"></i> MRK 02</a></li>
-						<li class="nav-item"><a class="nav-link" href="{% url 'dokumen/lsk' projekid=projek.id %}"><i class="fa fa-folder-o text-dark"></i> Laporan Siap Kerja</a></li>
-            			<li class="nav-item"><a class="nav-link" href="{% url 'dokumen/mrktiga' projekid=projek.id %}"><i class="fa fa-folder-o text-dark"></i> MRK 03</a></li>
-						<li class="nav-item"><a class="nav-link" href="{% url 'dokumen/psk' projekid=projek.id %}"><i class="fa fa-folder-o text-dark"></i>Perakuan Siap Kerja</a></li>
-						<li class="nav-item"><a class="nav-link" href="{% url 'dokumen/senaraisemakan' projekid=projek.id %}"><i class="fa fa-folder-o text-dark "></i> Senarai Semakan</a></li>
-            			<li class="nav-item"><a class="nav-link" href="{% url 'dokumen/psmk' projekid=projek.id %}"><i class="fa fa-folder-o"></i>Perakuan Siap Membaiki Kecacatan</a></li>
-						<li class="nav-item"><a class="nav-link" href="{% url 'dokumen/jaminanbank' projekid=projek.id %}"><i class="fa fa-folder-o text-dark"></i>Pelepasan Jaminan Bank</a></li>
-						<li class="nav-item"><a class="nav-link" href="{% url 'dokumen/ppwjp' projekid=projek.id %}"><i class="fa fa-folder-o text-dark"></i>Perakuan Pemulangan WJP</a></li>
-            			<li class="nav-item"><a class="nav-link" href="{% url 'dokumen/smrk' projekid=projek.id %}"><i class="fa fa-folder-o text-dark"></i> Surat Maklumat Rekod Kerja</a></li>
-						<li class="nav-item"><a class="nav-link" href="{% url 'dokumen/skhas' projekid=projek.id %}"><i class="fa fa-folder-o text-dark"></i> Surat Kebenaran Khas</a></li>
-						<li class="nav-item"><a class="nav-link" href="{% url 'dokumen/suratbon' projekid=projek.id %}"><i class="fa fa-folder-o text-dark"></i>Surat Pelepasan Bon Jaminan Perlaksanaan</a></li>
-					  </ul>
-					</div>
-					<!-- /.box-body -->
-				  </div>
-                
-
+		  <!-- vertical wizard -->
+		  <div class="box box-default">
+			<div class="box-header with-border">
+			  <h4 class="box-title">Borang Maklumat Rekod Kerja Satu</h4>
+			  <h6 class="box-subtitle">You can find the <a href="http://www.jquery-steps.com" target="_blank">offical website</a></h6>
+			</div>
+			<!-- /.box-header -->
+            <div class="signup-content">
+                <div class="signup-desc">
+                    <div class="signup-desc-content">
+                      
+                        <p class="title">Tajuk Kerja</p>
+                        <p class="desc">
+                            {{projek.tajukkerja}}
+                        </p>
+                        <img src="images/signup-img.jpg" alt="" class="signup-img">
+                    </div>
                 </div>
-		    </div>
-        
-	
+                <div class="signup-form-conent">
+                    <form action='' method="POST" id="signup-form" class="signup-form" enctype="multipart/form-data">
+					  {% csrf_token %}
+					   {% block dukumen %}
+					    {% include 'split/mrksatusplit.html' %}
+					   {% endblock dukumen %}
+                    </form>
+                </div>
+            </div>
+			<!-- /.box-body -->
+		  </div>
+		  <!-- /.box -->
+		  <!-- /.box -->
+
 		</section>
 		<!-- /.content -->
 	  </div>
   </div>
   <!-- /.content-wrapper -->
-  {% endblock content %}
+{% endblock content %}
+  

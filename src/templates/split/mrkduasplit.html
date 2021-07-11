@@ -1,0 +1,333 @@
+{% block dukumen %}
+{% load humanize %} 
+<h3></h3>
+<fieldset>
+    <span class="step-current font-size-20">Step 1 / {{stepstep}}</span>
+    <div class="row">
+		<div class="box-body form-element2">
+			<div class="col-lg-12 col-md-12 p-0 mb-40" style=" border-bottom: 1px dashed #8d99ae;">
+                <h4 class="mt-1 mb-4 font-weight-600">Maklumat Rekod Kerja 02</h4>
+               
+            </div>
+			<div class="row mb-10">
+				<div class="col-lg-8 col-md-12">
+					<div class="form-group">
+                  	    <label>Kontraktor</label>
+                        <input type="hidden" class="form-control" name="{{form.projekbind.name}}" value="{{mrksatufecth.projekbind.id}}"/>
+                        <input type="hidden" class="form-control" name="{{form.mrksatulink.name}}" value="{{mrksatufecth.id}}"/>
+                        <input type="text" class="form-control font-weight-600 text-dark" id="" value="{{mrksatufecth.mrksatukontraktor.konNama}}" name="noinden" placeholder="" readonly>
+					  
+		
+					</div>
+				</div>
+            </div>
+			<div class="row mb-10">
+				<div class="col-lg-8 col-md-12">
+					<div class="form-group">
+						<label>No Pendaftaran PKK</label>
+				   		<input type="text" class="form-control font-weight-600 text-dark "  id="" name="" value="{{mrksatufecth.mrksatukontraktor.sijilPPKNoPendaftaran}}" placeholder="No Pendaftaran PKK" readonly>
+				    </div>
+				</div>
+            </div>
+
+
+			<div class="row mb-10">
+				<div class="col-lg-4 col-md-6">
+					<div class="form-group">
+						<label>No Inden</label>
+						<input type="text" class="form-control font-weight-600 text-dark" id="noinden" value="{{mrksatufecth.mrksatunoinden}}" name="" placeholder="" readonly>
+					</div>
+				</div>
+				<div class="col-lg-4 col-md-6">
+					<div class="form-group">
+						<label>Kos Projek</label>
+						    <div class="input-group">
+                                <div class="input-group-prepend bg-secondary border-secondary">
+                                <span class="input-group-text bg-transparent text-white">RM</span>
+                                </div>
+                                <input type="text" class="form-control font-weight-600 text-dark ml-10"  value="{{mrksatufecth.mrksatukosprojek|intcomma}}" name="" placeholder="RM" readonly>
+                                        
+                            </div>
+					</div>
+				</div>
+            </div>
+            <div class="row mb-10">
+				<div class="col-lg-4 col-md-6">
+					<div class="form-group">
+						<label>Tarikh mula kontrak</label>
+						<input type="text" class="form-control font-weight-600 text-dark" id="" value="{{mrksatufecth.mrksatutarikhmula}}" name="" placeholder="" readonly>
+					</div>
+				</div>
+                <div class="col-lg-4 col-md-6">
+					<div class="form-group">
+						<label>Tarikh jangka siap</label>
+						<input type="text" class="form-control font-weight-600 text-dark" id="" value="{{mrksatufecth.mrksatutarikhjangkasiap}}" name="" placeholder="" readonly>
+					</div>
+				</div>
+						
+			</div>
+    	</div>
+    </div>
+</fieldset>
+<h3></h3>
+<fieldset>
+    <span class="step-current font-size-20">Step 2 / {{stepstep}}</span>
+    <div class="row">
+		<div class="box-body form-element2">
+			<div class="col-lg-12 col-md-12 p-0 mb-40" style=" border-bottom: 1px dashed #8d99ae;">
+                <h4 class="mt-1 mb-4 font-weight-600">Laporan Kemajuan Kerja Fizikal</h4>
+               
+            </div>
+			<div class="row mb-10">
+				<div class="col-lg-4 col-md-12">
+					<div class="form-group">
+						<label>Kemajuan Kerja Mengikut Jadual : %</label>
+				            <div class="input-group">
+                                <input type="hidden" class="form-control" value="{{mrksatu.mrksatukontraktor.id}}" name="{{form.mrksatukontraktor.name}}" id="{{form.mrksatukontraktor.id_for_label}}"/>
+                                {{form.mrkduakerjajadual}}
+								<span class="input-group-append">
+									  	 <span class="input-group-text bg-secondary text-dark">%</span>
+								</span>
+						 </div>
+				    </div>
+				</div>
+            </div>
+            <div class="row mb-10">
+				<div class="col-lg-4 col-md-6">
+					<div class="form-group">
+						<label>Kemajuan Kerja Sebenar(Semasa) Sehingga</label>
+						{{form.mrkduakerjasebenartarikh}}
+					</div>
+				</div>
+                <div class="col-lg-3 col-md-6">
+					<div class="form-group">
+						<label>=</label>
+						 {{form.mrkduakerjasebenar}}
+					</div>
+				</div>
+						
+			</div>
+            <div class="row mb-10">
+				<div class="col-lg-4 col-md-6">
+					<div class="form-group">
+						<label>Bayaran Kemajuan Semasa NO:</label>
+						{{form.mrkduakemajuan}}
+					</div>
+				</div>						
+			</div>
+            <div class="row mb-10">
+				<div class="col-lg-4 col-md-6">
+					<div class="form-group">
+						<label>Jumlah Bayaran Kemajuan (RM):</label>
+							<div class="input-group">
+                                <div class="input-group-prepend bg-secondary border-secondary">
+                                <span class="input-group-text bg-transparent text-white">RM</span>
+                                </div>
+                                {{form.mrkduabayarankemajuan}}
+                                        
+                            </div>
+					</div>
+				</div>
+
+						
+			</div>
+    	</div>
+    </div>
+</fieldset>
+
+<h3></h3>
+<fieldset>
+    <span class="step-current font-size-20">Step 3 / {{stepstep}}</span>
+    <div class="row">
+		<div class="box-body form-element2">
+			<div class="col-lg-12 col-md-12 p-0 mb-40" style=" border-bottom: 1px dashed #8d99ae;">
+                <h4 class="mt-1 mb-4 font-weight-600">Kerja Tergendala Kerana Masalah: Tandakan ( / ) Pada Ruang Berkenaan.</h4>
+               
+            </div>
+            <div class="row mb-10">
+				<div class="col-lg-2 col-md-4">
+					<div class="form-group">
+						 <input type="checkbox" name="{{form.mrkduamodal.name}}" id="md_checkbox_1" value='checked' class="chk-col-success" {{form.mrkduamodal.value}} />
+						 <label for="md_checkbox_1"><span class="text-dark font-weight-600">Modal</span></label>
+					</div>
+				</div>
+				<div class="col-lg-2 col-md-4">
+					<div class="form-group">
+						 <input type="checkbox" name="{{form.mkrduabahan.name}}" id="md_checkbox_2" value='checked' class="chk-col-primary" {{form.mkrduabahan.value}} />
+						 <label for="md_checkbox_2"><span class="text-dark font-weight-600">Kekurangan Bahan</span></label>
+					</div>
+				</div>
+				<div class="col-lg-2 col-md-4">
+					<div class="form-group">
+						 <input type="checkbox" name="{{form.mrkduapekerja.name}}" id="md_checkbox_3" value='checked' class="chk-col-info" {{form.mrkduapekerja.value}}   />
+						 <label for="md_checkbox_3"><span class="text-dark font-weight-600">Tiada Pekerja</span></label>
+					</div>
+				</div>
+				<div class="col-lg-2 col-md-4">
+					<div class="form-group">
+						 <input type="checkbox" name="{{form.mrkduatapak.name}}" id="md_checkbox_4" value='checked' class="chk-col-warning"  {{form.mrkduatapak.value}}/>
+						 <label for="md_checkbox_4"><span class="text-dark font-weight-600">Tapak</span></label>
+					</div>
+				</div>	
+				<div class="col-lg-2 col-md-4">
+					<div class="form-group">
+						<input type="checkbox" name="{{form.mrkduacuaca.name}}" id="md_checkbox_5" value='checked' class="chk-col-danger" {{form.mrkduacuaca.value}} />
+						 <label for="md_checkbox_5"><span class="text-dark font-weight-600">Cuaca</span></label>
+					</div>
+				</div>
+
+			</div>
+			<div class="row mb-10">
+				<div class="col-lg-8 col-md-6">
+					<div class="form-group">
+						<label>Disebabkan Oleh:</label>
+						{{form.mrkduadisebabkanoleh}}
+					</div>
+				</div>						
+			</div>
+			<div class="row mb-10">
+				<div class="col-lg-8 col-md-6">
+					<div class="form-group">
+						<label>Lain-lain:</label>
+						 {{form.mrkdualainlain}}
+					</div>
+				</div>						
+			</div>
+
+    	</div>
+    </div>
+</fieldset>
+
+<h3></h3>
+<fieldset>
+    <span class="step-current font-size-20">Step 4 / {{stepstep}}</span>
+    <div class="row">
+		<div class="box-body form-element2">
+			<div class="col-lg-12 col-md-12 p-0 mb-40" style=" border-bottom: 1px dashed #8d99ae;">
+                <h4 class="mt-1 mb-4 font-weight-600">Kerja Tergendala Kerana Masalah: Sila isikan butiran dibawah</h4>
+               
+            </div>
+            <div class="row mb-10">
+				<div class="col-lg-2 col-md-4">
+					<div class="form-group">
+					 	 <label>Lanjut Masa ke -:</label>
+						  {{form.mrkdualanjutmasa}}
+						
+					</div>
+				</div>
+				<div class="col-lg-3 col-md-4">
+					<div class="form-group">
+					 	 <label>Lanjut Masa ke -:</label>
+						  {{form.mrkdualanjutdari}}
+						
+					</div>
+				</div>
+				<div class="col-lg-3 col-md-4">
+					<div class="form-group">
+					 	 <label>Lanjut Masa ke -:</label>
+						  {{form.mrkdualanjutsehingga}}
+						
+					</div>
+				</div>
+
+			</div>
+			<div class="row mb-10">
+				<div class="col-lg-8 col-md-6">
+					<div class="form-group">
+						<label>Disebabkan Oleh:</label>
+						 {{form.mrkduadisebabkan}}
+					</div>
+				</div>						
+			</div>
+    	</div>
+    </div>
+</fieldset>
+
+<h3></h3>
+<fieldset>
+    <span class="step-current font-size-20">Step 5 / {{stepstep}}</span>
+    <div class="row">
+		<div class="box-body form-element2">
+			<div class="col-lg-12 col-md-12 p-0 mb-40" style=" border-bottom: 1px dashed #8d99ae;">
+                <h4 class="mt-1 mb-4 font-weight-600">Kerja Tergendala Kerana Masalah: Sila isikan butiran dibawah</h4>
+               
+            </div>
+            <div class="row mb-10">
+				<div class="col-lg-3 col-md-4">
+					<div class="form-group">
+					 	 <label>LAD Dikenakan</label>
+						  	<div class="input-group">
+                                <div class="input-group-prepend bg-secondary border-secondary">
+                                <span class="input-group-text bg-transparent text-white">RM</span>
+                                </div>
+                                 {{form.mrkduaLAD}}
+                                        
+                            </div>
+						
+					</div>
+				</div>
+				<div class="col-lg-3 col-md-4">
+					<div class="form-group">
+					 	 <label>Dari</label>
+						   {{form.mrkduaLADdari}}
+						
+					</div>
+				</div>
+				<div class="col-lg-3 col-md-4">
+					<div class="form-group">
+					 	 <label>Hingga</label>
+						{{form.mrkduaLADSehingga}}
+						
+					</div>
+				</div>
+
+			</div>
+			<div class="row mb-10">
+				<div class="col-lg-4 col-md-6">
+					<div class="form-group">
+						<label>Perakuan Kerja Tidak Siap Dikeluarkan Pada : </label>
+						 {{form.mrkduaperakuan}}
+					</div>
+				</div>
+				<div class="col-lg-3 col-md-6">
+					<div class="form-group">
+						<label>Projek Mansuh/Ditamatkan : </label>
+						 {{form.mrkduamansuh}}
+					</div>
+				</div>						
+			</div>
+			<div class="row mb-10">
+				<div class="col-lg-4 col-md-6">
+					<div class="form-group">
+						<label>Pegawai</label>
+						 <input type="text" class="form-control font-weight-600 text-dark"  readonly id="" value="{{projek.nosebuthargaid.pegawaiselia.first_name}}" name="">
+					</div>
+				</div>
+				<div class="col-lg-4 col-md-6">
+					<div class="form-group">
+						<label>Jawatan </label>
+						  <input type="text" class="form-control font-weight-600 text-dark" readonly id="" value="{{projek.nosebuthargaid.pegawaiselia.userprofile.jawatan}}" name="">
+					</div>
+				</div>						
+			</div>
+			<div class="row mb-10">
+				<div class="col-lg-4 col-md-6">
+					<div class="form-group">
+						<label>Tarikh Laporan</label>
+						{{form.mrkduatarikhlaporan}}
+					</div>
+				</div>
+						
+			</div>
+    	</div>
+    </div>
+</fieldset>
+
+
+
+
+
+
+
+
+{% endblock dukumen %}     
