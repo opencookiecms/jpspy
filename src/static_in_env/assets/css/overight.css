@@ -1,6 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Bitter:wght@100;200;300;400;500;600;800;900&display=swap');
-
 body {
     overflow-x: hidden;
     overflow-y: auto;
@@ -12,7 +11,6 @@ body {
     line-height: 1.5;
     background-color: #fafbfd;
 }
-
 
 .theme-primary .flex-column>li>a.nav-link.aktif {
     border-left-color: #0052cc;
@@ -46,7 +44,6 @@ body {
     min-height: 38px;
     font-size: 24px;
     border: none;
-  
     -webkit-background-clip: padding-box;
     background-color: transparent;
     background-position: center bottom, center calc(100% - 1px);
@@ -62,8 +59,6 @@ body {
     box-shadow: none;
     float: none;
     border-bottom: 1px solid #8d99ae;
- 
-
 }
 
 .form-element2 .form-control :focus {
@@ -87,14 +82,15 @@ body {
     transition-duration: .3s;
 }
 
+
 /*---basic---*/
 
 a {
     color: #2f579a;
 }
 
-a:hover{
-    color:#04a08b
+a:hover {
+    color: #04a08b
 }
 
 a:hover,
@@ -102,8 +98,7 @@ a:active,
 a:focus {
     outline: 0;
     text-decoration: none;
-    color:#04a08b
- 
+    color: #04a08b
 }
 
 h1,
@@ -1382,3 +1377,56 @@ hr {
     border-radius: 0 !important;
 }
 
+.carde {
+    height: 100px;
+    width: 200px;
+    position: relative;
+}
+
+input[class="radiocard"] {
+    -webkit-appearance: none;
+    appearance: none;
+    background-color: darkcyan;
+    height: 100%;
+    width: 100%;
+    border-radius: 10px;
+    position: absolute;
+    box-shadow: 7px 7px 15px rgba(2, 28, 53, 0.08);
+    cursor: pointer;
+    outline: none;
+}
+
+.radio-toolbar input[class="radiocard"]:before {
+    content: "";
+    position: absolute;
+    height: 22px;
+    width: 22px;
+    background-color: #f9fafd;
+    border: 1px solid #e2e6f3;
+    border-radius: 50%;
+    top: 35px;
+    right: 20px;
+}
+
+.radio-toolbar input[class="radiocard"]:after {
+    content: "";
+    position: absolute;
+    height: 13px;
+    width: 13px;
+    background-color: transparent;
+    border-radius: 50%;
+    top: 39.5px;
+    right: 24.5px;
+}
+
+.radio-toolbar input[class="radiocard"]:hover {
+    transform: scale(1.05);
+}
+
+.radio-toolbar input[class="radiocard"]:checked {
+    border: 3px solid #478bfb;
+}
+
+.radio-toolbar input[class="radiocard"]:checked:after {
+    background-color: #478bfb;
+}

@@ -1,0 +1,258 @@
+{% extends 'based/based.html' %}
+{% block content %}
+{% load humanize %}
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+	  <div class="container-full">
+		<!-- Content Header (Page header) -->
+		<div class="content-header">
+			<div class="d-flex align-items-center">
+				<div class="mr-auto">
+					<h3 class="page-title">MRK 03</h3>
+					<div class="d-inline-block align-items-center">
+						<nav>
+							<ol class="breadcrumb">
+								<li class="breadcrumb-item"><a href="#"><i class="mdi mdi-home-outline"></i></a></li>
+								<li class="breadcrumb-item" aria-current="page">Borang</li>
+								<li class="breadcrumb-item active" aria-current="page">No perolehan</li>
+							</ol>
+						</nav>
+					</div>
+				</div>
+
+			</div>
+		</div>
+
+		<!-- Main content -->
+		<section class="content">
+			<div class="row">
+				<div class="col-lg-9 col-9">
+                	<form class="form" action='{% url 'dokumen/mrktiga' projekid=mrksatufecth.projekbind.id  %}' method="POST">
+					  <div class="box">
+                       {% csrf_token %}
+
+
+                      </div>
+                     <div class="row">
+                        <div class="col-md-12">
+                        <div class="form-group row">
+                            <div class="col-sm-6">
+                            <label class="tl"><h5 class="text-secondary font-weight-500 mb-2">No Inden/Pesanan Tempatan:</h5></label>
+
+
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                        <div class="form-group row">
+                            <div class="col-sm-3">
+                            <label class="tl"><h5 class="text-secondary font-weight-500 mb-2">Tarikh Mula:</h5></label>
+
+                            </div>
+                            <div class="col-sm-3">
+                            <label class="tl"><h5 class="text-secondary font-weight-500 mb-2">Tarikh Jangka Siap:</h5></label>
+
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                        <div class="form-group row">
+                            <div class="col-sm-3">
+                            <label class="tl"><h5 class="text-secondary font-weight-500 mb-2">Dilanjutkan Masa:</h5></label>
+
+                            </div>
+                            <div class="col-sm-3">
+                            <label class="tl"><h5 class="text-secondary font-weight-500 mb-2">Tarikh Siap Sebenar:</h5></label>
+
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+
+
+
+
+
+
+
+					<h4 class="box-title text-primary mt-20"><i class="ti-save mr-15"></i>L.A.D Dikenakan</h4>
+					<hr class="my-15">
+
+                    <div class="row">
+                        <div class="col-md-12">
+                        <div class="form-group row">
+                            <div class="col-sm-4">
+                            <label class="tl"><h5 class="text-secondary font-weight-500 mb-2">Dari:</h5></label>
+
+                            </div>
+                            <div class="col-sm-4">
+                            <label class="tl"><h5 class="text-secondary font-weight-500 mb-2">Sehingga</h5></label>
+
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-12">
+                        <div class="form-group row">
+                            <div class="col-sm-4">
+                            <label class="tl"><h5 class="text-secondary font-weight-500 mb-2">L.A.D Dikenakan:</h5></label>
+                            <div class="input-group">
+                                <div class="input-group-prepend bg-primary border-primary">
+                                <span class="input-group-text bg-transparent text-white">RM</span>
+                                </div>
+
+                            </div>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+
+
+
+                    <h4 class="box-title text-primary mt-20"><i class="ti-save mr-15"></i>Kerja Tergendala Kerana Masalah: Tandakan ( / ) Pada Ruang Berkenaan.</h4>
+					<hr class="my-15">
+
+
+                    <div class="row">
+
+                    <div class="col-md-12">
+                        <table class="tg table table-striped">
+                        <colgroup>
+                        <col style="width: 200px">
+                        <col style="width: 90px">
+                        <col style="width: 90px">
+                        <col style="width: 150px">
+                        <col style="width: 150px">
+                        <col style="width: 230px">
+                        </colgroup>
+                        <thead class="bg-dark">
+                        <tr>
+                        <th style="text-align:center"></th>
+                        <th style="text-align:center">Terbaik</th>
+                        <th style="text-align:center">Baik</th>
+                        <th style="text-align:center">Sederhana</th>
+                        <th style="text-align:center">Tidak Memuaskan</th>
+                        <th style="text-align:center">Catatan</th>
+                        </tr>
+                        </thead>
+                        <tr>
+                        <td>Pengurusan Tapak Bina</td>
+                        <td style="text-align:center"></label></td>
+                        <td style="text-align:center"></label></td>
+                        <td style="text-align:center"><input type="radio" id="radio_3" class="radio-col-warning" name="{{form.mrktigabina.name}}" value="3" {% if form.mrktigabina.value == '3' %}checked{% endif %}><label for="radio_3"></label></td>
+                        <td style="text-align:center"><input type="radio" id="radio_4" class="radio-col-danger" name="{{form.mrktigabina.name}}" value="4" {% if form.mrktigabina.value == '4' %}checked{% endif %}><label for="radio_4"></label> </td>
+                        <td style="text-align:center">{{form.mrkcatat1}}</td>
+
+
+                        </tr>
+                        <tr>
+                        <td>Pentadbiran</td>
+                        <td style="text-align:center"><input type="radio"  id="radio_5" class="radio-col-success" name="{{form.mrktigatadbir.name}}" value="1" {% if form.mrktigatadbir.value == '1' %}checked{% endif %}><label for="radio_5"></label></td>
+                        <td style="text-align:center"><input type="radio"  id="radio_6" class="radio-col-primary" name="{{form.mrktigatadbir.name}}" value="2" {% if form.mrktigatadbir.value == '2' %}checked{% endif %}><label for="radio_6"></label> </td>
+                        <td style="text-align:center"><input type="radio"  id="radio_7" class="radio-col-warning" name="{{form.mrktigatadbir.name}}" value="3" {% if form.mrktigatadbir.value == '3' %}checked{% endif %}><label for="radio_7"></label> </td>
+                        <td style="text-align:center"><input type="radio"  id="radio_8" class="radio-col-danger" name="{{form.mrktigatadbir.name}}" value="4" {% if form.mrktigatadbir.value == '4' %}checked{% endif %}><label for="radio_8"></label> </td>
+                        <td style="text-align:center">{{form.mrkcatat2}}</td>
+                        </tr>
+                        <tr>
+                        <td>Perancagan/Kemajuan</td>
+                        <td style="text-align:center"><input type="radio" id="radio_9" class="radio-col-success" name="{{form.mrktigakemajuan.name}}" value="1" {% if form.mrktigakemajuan.value == '1' %}checked{% endif %}><label for="radio_9"></label></td>
+                        <td style="text-align:center"><input type="radio" id="radio_10" class="radio-col-primary" name="{{form.mrktigakemajuan.name}}" value="2" {% if form.mrktigakemajuan.value == '2' %}checked{% endif %}><label for="radio_10"></label></td>
+                        <td style="text-align:center"><input type="radio" id="radio_11" class="radio-col-warning" name="{{form.mrktigakemajuan.name}}" value="3" {% if form.mrktigakemajuan.value == '3' %}checked{% endif %}><label for="radio_11"></label> </td>
+                        <td style="text-align:center"><input type="radio" id="radio_12" class="radio-col-danger" name="{{form.mrktigakemajuan.name}}" value="4" {% if form.mrktigakemajuan.value == '4' %}checked{% endif %}><label for="radio_12"></label> </td>
+                        <td style="text-align:center">{{form.mrkcatat3}}</td>
+                        </tr>
+                        <tr>
+                        <td>Mutu Kerangka</td>
+                        <td style="text-align:center"><input type="radio" id="radio_13" class="radio-col-success" name="{{form.mkrtigamutukerangka.name}}" value="1" {% if form.mkrtigamutukerangka.value == '1' %}checked{% endif %}><label for="radio_13"></label></td>
+                        <td style="text-align:center"><input type="radio" id="radio_14" class="radio-col-primary" name="{{form.mkrtigamutukerangka.name}}" value="2" {% if form.mkrtigamutukerangka.value == '2' %}checked{% endif %}><label for="radio_14"></label> </td>
+                        <td style="text-align:center"><input type="radio" id="radio_15" class="radio-col-warning" name="{{form.mkrtigamutukerangka.name}}" value="3" {% if form.mkrtigamutukerangka.value == '3' %}checked{% endif %}><label for="radio_15"></label> </td>
+                        <td style="text-align:center"><input type="radio" id="radio_16" class="radio-col-danger" name="{{form.mkrtigamutukerangka.name}}" value="4" {% if form.mkrtigamutukerangka.value == '4' %}checked{% endif %}> <label for="radio_16"></label></td>
+                        <td style="text-align:center">{{form.mrkcatat4}}</td>
+                        </tr>
+                        <tr>
+                        <td>Mutu Kerja-Kerja</td>
+                        <td style="text-align:center"><input type="radio" id="radio_17" class="radio-col-success" name="{{form.mrktigamutukerja.name}}" value="1" {% if form.mrktigamutukerja.value == '1' %}checked{% endif %}><label for="radio_17"></label></td>
+                        <td style="text-align:center"><input type="radio" id="radio_18" class="radio-col-primary" name="{{form.mrktigamutukerja.name}}" value="2" {% if form.mrktigamutukerja.value == '2' %}checked{% endif %}> <label for="radio_18"></label></td>
+                        <td style="text-align:center"><input type="radio" id="radio_19" class="radio-col-warning" name="{{form.mrktigamutukerja.name}}" value="3" {% if form.mrktigamutukerja.value == '3' %}checked{% endif %}><label for="radio_19"></label> </td>
+                        <td style="text-align:center"><input type="radio" id="radio_20" class="radio-col-danger" name="{{form.mrktigamutukerja.name}}" value="4" {% if form.mrktigamutukerja.value == '4' %}checked{% endif %}><label for="radio_20"></label></td>
+                        <td style="text-align:center">{{form.mrkcatat5}}</td>
+                        </tr>
+                        <tr>
+                        <td>Mutu Kemasan</td>
+                        <td style="text-align:center"><input type="radio" id="radio_21" class="radio-col-success" name="{{form.mrktigamutukemasan.name}}" value="1" {% if form.mrktigamutukemasan.value == '1' %}checked{% endif %}><label for="radio_21"></label></td>
+                        <td style="text-align:center"><input type="radio" id="radio_22" class="radio-col-primary" name="{{form.mrktigamutukemasan.name}}" value="2" {% if form.mrktigamutukemasan.value == '2' %}checked{% endif %}><label for="radio_22"></label></td>
+                        <td style="text-align:center"><input type="radio" id="radio_23" class="radio-col-warning" name="{{form.mrktigamutukemasan.name}}" value="3" {% if form.mrktigamutukemasan.value == '3' %}checked{% endif %}><label for="radio_23"></label></td>
+                        <td style="text-align:center"><input type="radio" id="radio_24" class="radio-col-danger" name="{{form.mrktigamutukemasan.name}}" value="4" {% if form.mrktigamutukemasan.value == '4' %}checked{% endif %}><label for="radio_24"></label></td>
+                        <td style="text-align:center">{{form.mrkcatat6}}</td>
+                        </tr>
+                        <tr>
+                        <td>Mutu Kerja-Kerja Luar</td>
+                        <td style="text-align:center"><input type="radio" id="radio_25" class="radio-col-success" name="{{form.mrktigamutukerjaluar.name}}" value="1" {% if form.mrktigamutukerjaluar.value == '1' %}checked{% endif %}><label for="radio_25"></label></td>
+                        <td style="text-align:center"><input type="radio" id="radio_26" class="radio-col-primary" name="{{form.mrktigamutukerjaluar.name}}" value="2" {% if form.mrktigamutukerjaluar.value == '2' %}checked{% endif %}><label for="radio_26"></label></td>
+                        <td style="text-align:center"><input type="radio" id="radio_27" class="radio-col-warning" name="{{form.mrktigamutukerjaluar.name}}" value="3" {% if form.mrktigamutukerjaluar.value == '3' %}checked{% endif %}><label for="radio_27"></label></td>
+                        <td style="text-align:center"><input type="radio" id="radio_28" class="radio-col-danger" name="{{form.mrktigamutukerjaluar.name}}" value="4" {% if form.mrktigamutukerjaluar.value == '4' %}checked{% endif %}><label for="radio_28"></label></td>
+                        <td style="text-align:center">{{form.mrkcatat7}}</td>
+                        </tr>
+                        <tr>
+                        <td>Pengawasan Kontraktor</td>
+                        <td style="text-align:center"><input type="radio" id="radio_29" class="radio-col-success" name="{{form.mrktigapegawasan.name}}" value="1" {% if form.mrktigapegawasan.value == '1' %}checked{% endif %}><label for="radio_29"></label></td>
+                        <td style="text-align:center"><input type="radio" id="radio_30" class="radio-col-primary" name="{{form.mrktigapegawasan.name}}" value="2" {% if form.mrktigapegawasan.value == '2' %}checked{% endif %}><label for="radio_30"></label></td>
+                        <td style="text-align:center"><input type="radio" id="radio_31" class="radio-col-warning" name="{{form.mrktigapegawasan.name}}" value="3" {% if form.mrktigapegawasan.value == '3' %}checked{% endif %}><label for="radio_31"></label></td>
+                        <td style="text-align:center"><input type="radio" id="radio_32" class="radio-col-danger" name="{{form.mrktigapegawasan.name}}" value="4" {% if form.mrktigapegawasan.value == '4' %}checked{% endif %}><label for="radio_32"></label> </td>
+                        <td style="text-align:center">{{form.mrkcatat8}}</td>
+                        </tr>
+                        </table>
+                    </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-12">
+                        <div class="form-group row">
+                            <div class="col-sm-8">
+                            <label class="tl"><h5 class="text-secondary font-weight-500 mb-2">Sokongan / Ulasan:</h5></label>
+                                {{form.mrktigasokongan}}
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-12">
+                        <div class="form-group row">
+                            <div class="col-sm-4">
+
+                            <label class="tl"><h5 class="text-secondary font-weight-500 mb-2">Pegawai</h5></label>
+                            <input type="text" class="form-control ts"  placeholder="Pegawai" value="{{projek.nosebuthargaid.pegawaiselia.first_name}}" readonly>
+
+                            </div>
+                            <div class="col-sm-4">
+
+                            <label><h5 class="text-secondary font-weight-500 mb-2">Jawatan</h5></label>
+                            <input type="text" class="form-control ts"  placeholder="Jawatan" value="{{projek.nosebuthargaid.pegawaiselia.userprofile.jawatan}}"  readonly>
+                            </div>
+                        </div>
+                        </div>
+                     </div>
+
+                    <div class="row">
+                        <div class="col-md-12">
+                        <div class="form-group row">
+                            <div class="col-sm-4">
+                            <label class="tl"><h5 class="text-secondary font-weight-500 mb-2">Tarikh</h5></label>
+                            {{form.mrktigatarikh}}
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+
+
+

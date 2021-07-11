@@ -1,0 +1,264 @@
+{% block dukumen %}
+{% load humanize %}
+
+
+<h3></h3>
+<fieldset>
+    <span class="step-current font-size-20">Step 1 / {{stepstep}}</span>
+    <div class="row">
+		<div class="box-body form-element2">
+			<div class="col-lg-12 col-md-12 p-0 mb-40" style=" border-bottom: 1px dashed #8d99ae;">
+                <h4 class="mt-1 mb-4 font-weight-600">Maklumat Rekod Kerja - MRK 03</h4>
+               
+            </div>
+			<div class="row mb-10">
+				<div class="col-lg-8 col-md-12">
+					<div class="form-group">
+                  	    <label>Kontraktor</label>
+            			<input type="hidden" class="form-control" name="{{form.marktigamrksatu.name}}" value="{{mrksatufecth.id}}"/>
+                        <input type="hidden" class="form-control" name="{{form.projekbind.name}}" value="{{mrksatufecth.projekbind.id}}"/>
+                        <input type="text" class="form-control font-weight-600 text-dark" id="" value="{{mrksatufecth.mrksatukontraktor.konNama}}" name="noinden" placeholder="" readonly>
+					</div>
+				</div>
+            </div>
+			<div class="row mb-10">
+				<div class="col-lg-8 col-md-12">
+					<div class="form-group">
+						<label>No Pendaftaran PKK</label>
+				   		<input type="text" class="form-control font-weight-600 text-dark "  id="" name="" value="{{mrksatufecth.mrksatukontraktor.sijilPPKNoPendaftaran}}" placeholder="No Pendaftaran PKK" readonly>
+				    </div>
+				</div>
+            </div>
+			<div class="row mb-10">
+				<div class="col-lg-8 col-md-12">
+					<div class="form-group">
+						<label>No Pendaftaran PKK</label>
+				   		<input type="text" class="form-control font-weight-600 text-dark" placeholder="No Inden" value="{{mrksatufecth.mrksatunoinden}}" readonly>
+				    </div>
+				</div>
+            </div>
+			<div class="row mb-10">
+				<div class="col-lg-8 col-md-6">
+					<div class="form-group">
+						<label>Alamat</label>
+						<textarea rows="2" type="text" class="form-control font-weight-600 text-dark" readonly>{{mrksatufecth.mrksatukontraktor.konAlamat}}</textarea>
+					</div>
+				</div>
+            </div>
+            <div class="row mb-10">
+				<div class="col-lg-4 col-md-6">
+					<div class="form-group">
+						<label>No inden</label>
+						<input type="text" class="form-control font-weight-600 text-dark"  placeholder="No Pesanan Kerja" value="{{mrksatufecth.mrksatunoinden}}" readonly>
+					</div>
+				</div>						
+			</div>
+			<div class="row mb-10">
+				<div class="col-lg-4 col-md-6">
+					<div class="form-group">
+						<label>Tarikh Mula:</label>
+						<input type="text" data-toggle="datepicker" class="form-control font-weight-600 text-dark"  value="{{mrksatufecth.mrksatutarikhmula}}" placeholder="Tarikh Mula" readonly>
+					</div>
+				</div>
+				<div class="col-lg-4 col-md-6">
+					<div class="form-group">
+						<label>Tarikh Jangka Siap:</label>
+						<input type="text" data-toggle="datepicker" class="form-control font-weight-600 text-dark"  value="{{mrksatufecth.mrksatutarikhjangkasiap}}" readonly>
+					</div>
+				</div>					
+			</div>
+			<div class="row mb-10">
+				<div class="col-lg-4 col-md-6">
+					<div class="form-group">
+						<label>Dilanjutkan Masa:</label>
+						<input type="text" data-toggle="datepicker" class="form-control font-weight-600 text-dark"  value="{{lskfecth.lsklanjutmasa}}" readonly>
+					</div>
+				</div>
+				<div class="col-lg-4 col-md-6">
+					<div class="form-group">
+						<label>Tarikh Siap Sebenar:</label>
+						<input type="text" data-toggle="datepicker" class="form-control font-weight-600 text-dark" value="{{lskfecth.lskkerjasiap}}"  readonly>
+					</div>
+				</div>					
+			</div>
+			<div class="row mb-10">
+				<div class="col-lg-4 col-md-12">
+					<div class="form-group">
+						<label>Harga Pesanan RM:</label>
+				            <div class="input-group">
+                                <div class="input-group-prepend bg-secondary border-secondary">
+                                    <span class="input-group-text bg-transparent text-white">RM</span>
+                                </div>
+                                <input type="text" class="form-control font-weight-600 text-dark ml-10"  value="{{mrksatufecth.mrksatukosprojek|intcomma}}" placeholder="RM" readonly>
+                            </div>
+				    </div>
+				</div>
+                <div class="col-lg-4 col-md-12">
+					<div class="form-group">
+						<label>Harga Sebenar RM:</label>
+				            <div class="input-group">
+                                <div class="input-group-prepend bg-secondary border-secondary">
+                                    <span class="input-group-text bg-transparent text-white">RM</span>
+                                </div>
+                                <input type="text" class="form-control font-weight-600 text-dark ml-10" placeholder="RM" value="{{lskfecth.lskhargasebenar|intcomma}}" readonly>
+                            </div>
+				    </div>
+				</div>
+            </div>
+    	</div>
+    </div>
+</fieldset>
+<h3></h3>
+<fieldset>
+    <span class="step-current font-size-20">Step 2 / {{stepstep}}</span>
+    <div class="row">
+		<div class="box-body form-element2">
+			<div class="col-lg-12 col-md-12 p-0 mb-40" style=" border-bottom: 1px dashed #8d99ae;">
+                <h4 class="mt-1 mb-4 font-weight-600">L.A.D Dikenakan</h4>
+               
+            </div>
+			<div class="row mb-10">
+				<div class="col-lg-4 col-md-6">
+					<div class="form-group">
+						<label>Dari:</label>
+						<input type="text" data-toggle="datepicker" value="{{mrkduafecth.mrkduaLADdari}}" class="form-control font-weight-600 text-dark"  readonly>
+					</div>
+				</div>
+				<div class="col-lg-4 col-md-6">
+					<div class="form-group">
+						<label>Hingga:</label>
+						<input type="text" data-toggle="datepicker" value="{{mrkduafecth.mrkduaLADSehingga}}" class="form-control font-weight-600 text-dark" readonly>
+					</div>
+				</div>					
+			</div>
+			<div class="row mb-10">
+				<div class="col-lg-4 col-md-12">
+					<div class="form-group">
+						<label>L.A.D Dikenakan:</label>
+				            <div class="input-group">
+                                <div class="input-group-prepend bg-secondary border-secondary">
+                                    <span class="input-group-text bg-transparent text-white">RM</span>
+                                </div>
+                                <input type="text" class="form-control font-weight-600 text-dark ml-10" value="{{mrkduafecth.mrkduaLAD|intcomma}}"  readonly>
+                            </div>
+				    </div>
+				</div>
+            </div>
+    	</div>
+    </div>
+</fieldset>
+
+<h3></h3>
+<fieldset>
+    <span class="step-current font-size-20">Step 3 / {{stepstep}}</span>
+    <div class="row">
+		<div class="box-body form-element2">
+			<div class="col-lg-12 col-md-12 p-0 mb-40" style=" border-bottom: 1px dashed #8d99ae;">
+                <h4 class="mt-1 mb-4 font-weight-600">Prestasi kontrakotor semasa menjalankan tugas .</h4>
+               
+            </div>
+			<div class="row mb-10">
+				<div class="col-lg-3 col-md-6">
+					<div class="box pull-up box-default" style="cursor: pointer;">
+		        <div class="box-body">
+            <input type="radio" class="radiocard" name="pricing" id="card1">
+            <label for="card1">
+                <h4>90% Keatas</h4>
+                <h3>
+                 
+              
+                    <span class="text-dark font-weight-600">Terbaik</span>
+                </h3>
+            </label>
+        </div>
+		</div>
+					
+				</div>
+				<div class="col-lg-3 col-md-6">
+		       	<div class="box pull-up box-default" style="cursor: pointer;">
+		        <div class="box-body">
+            <input type="radio" class="radiocard" name="pricing" id="card2">
+            <label for="card2">
+                <h4>75% - 89%</h4>
+                 <h3>
+                 
+              
+                     <span class="text-dark font-weight-600">Baik</span>
+                </h3>
+            </label>
+        </div>
+		</div>
+				
+
+					
+				</div>
+	
+	
+			</div>
+    	</div>
+    </div>
+</fieldset>
+
+<h3></h3>
+<fieldset>
+    <span class="step-current font-size-20">Step 4 / {{stepstep}}</span>
+    <div class="row">
+		<div class="box-body form-element2">
+			<div class="col-lg-12 col-md-12 p-0 mb-40" style=" border-bottom: 1px dashed #8d99ae;">
+                <h4 class="mt-1 mb-4 font-weight-600">Polisi Insurans</h4>
+               
+            </div>
+            <div class="row mb-10">
+				<div class="col-lg-4 col-md-4">
+					<div class="form-group">
+					 	 <label>Perkeso / Workmen's:</label>
+						   {{form.lskperkeso}}
+						
+					</div>
+				</div>
+			</div>
+			<div class="row mb-10">
+				<div class="col-lg-8 col-md-6">
+					<div class="form-group">
+						<label>Jenis Polisi Insurans:</label>
+						    <h4 class="text-success">PL - Public Liability</h4>
+                            <h4 class="text-success">AR - All Risk</h4>
+                            <h4 class="text-success">IK - Insurans Kerja</h4>
+					</div>
+				</div>						
+			</div>
+            <div class="row mb-10">
+				<div class="col-lg-3 col-md-4">
+					<div class="form-group">
+					 	 <label>Jenis Insurans 01</label>
+						   {{form.lskjenisinsurancesatu}}
+						
+					</div>
+				</div>
+                <div class="col-lg-5 col-md-4">
+					<div class="form-group">
+					 	 <label>No Insurans 01</label>
+						{{form.lsknoinsurancesatu}}
+					</div>
+				</div>
+			</div>
+            <div class="row mb-10">
+				<div class="col-lg-3 col-md-4">
+					<div class="form-group">
+					 	 <label>Jenis Insurans 02</label>
+						   {{form.lskjenisinsurancedua}}
+						
+					</div>
+				</div>
+                <div class="col-lg-5 col-md-4">
+					<div class="form-group">
+					 	 <label>No Insurans 02</label>
+						{{form.lsknoinsurancedua}}
+					</div>
+				</div>
+			</div>
+    	</div>
+    </div>
+</fieldset>
+
+{% endblock dukumen %}     
