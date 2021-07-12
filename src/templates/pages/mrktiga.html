@@ -45,7 +45,7 @@
                     </div>
                 </div>
                 <div class="signup-form-conent">
-                    <form action='{% url 'dokumen/mrktiga' projekid=mrksatufecth.projekbind.id  %}' method="POST" id="signup-for" class="signup-form" enctype="multipart/form-data">
+                    <form action='{% url 'dokumen/mrktiga' projekid=mrksatufecth.projekbind.id  %}' method="POST" id="signup-form" class="signup-form" enctype="multipart/form-data">
 					  {% csrf_token %}
 					   {% block dukumen %}
 					    {% include 'split/mrktigasplit.html' %}

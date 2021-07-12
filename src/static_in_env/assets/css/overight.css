@@ -41,8 +41,7 @@ body {
 
 .form-element2 .form-control {
     color: #737373;
-    min-height: 38px;
-    font-size: 24px;
+
     border: none;
     -webkit-background-clip: padding-box;
     background-color: transparent;
