@@ -99,7 +99,13 @@
         padding-bottom: 200;
         color: #999;
         line-height: 1.92;
+        text-transform:lowercase;
     }
+
+    p.desc::first-letter{
+        text-transform: capitalize;
+    }
+
     
     p.title {
         font-weight: bold;
