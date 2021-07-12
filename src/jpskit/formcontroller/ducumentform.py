@@ -28,8 +28,8 @@ class MRK1Form(forms.ModelForm):
 
 
     mrksatunoinden = forms.CharField(required=False, widget=forms.TextInput(attrs={'class':'form-control text-dark font-weight-600','type':'text','placeholder':'No Inden'}))
-    mrksatugred = forms.ChoiceField(choices=gred, required=False, widget=forms.Select(attrs={'class':'form-control text-dark font-weight-600 font-size-18 custom-select select28 ','placholder':'baru'}))
-    mrksatukategori  = forms.ChoiceField(choices=kategori, required=False, widget=forms.Select(attrs={'class':'form-control text-dark font-weight-600 font-size-18 custom-select select28 ','placholder':'baru'}))
+    mrksatugred = forms.ChoiceField(choices=gred, required=False, widget=forms.Select(attrs={'class':'form-control font-size-18 text-dark font-weight-600 custom-select select28  ','placholder':'baru'}))
+    mrksatukategori  = forms.ChoiceField(choices=kategori, required=False, widget=forms.Select(attrs={'class':'form-control text-dark font-weight-600 custom-select select28 font-size-18 ','placholder':'baru'}))
     mrksatupengkhususan = forms.CharField(required=False, widget=forms.TextInput(attrs={'class':'form-control text-dark font-weight-600','type':'text','placeholder':'No Inden'}))
     mrksatutarikhmula = forms.DateField(input_formats=settings.DATE_INPUT_FORMATS, required=False,widget=forms.DateInput(attrs={'class':'form-control text-dark font-weight-600 fc-datepicker','placeholder':'MM/DD/YYYY'}))
     mrksatutarikhjangkasiap = forms.DateField(input_formats=settings.DATE_INPUT_FORMATS, required=False, widget=forms.DateInput(attrs={'class':'form-control text-dark font-weight-600 fc-datepicker','placeholder':'MM/DD/YYYY'}))
