@@ -526,30 +526,7 @@ function initMap() {
 }
 
 
-//bbox
-$('.radiocard').click(function() {
-    $('#bbox').css({
-        'border-color': '#478bfb',
-        'border':'5px solid #172b4c'
-    });
-    $('#bbox2').css({
-        'border-color': '#478bfb',
-        'border':'5px solid #e1e7fa'
-    });
-});
 
-
-//bbox2
-$('.radiocard2').click(function() {
-    $('#bbox2').css({
-        'border-color': '#478bfb',
-        'border':'5px solid #172b4c'
-    });
-    $('#bbox').css({
-        'border-color': '#478bfb',
-        'border':'5px solid #e1e7fa'
-    });
-});
 
 
 

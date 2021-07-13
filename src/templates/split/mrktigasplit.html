@@ -45,7 +45,20 @@
 					</div>
 				</div>
             </div>
-            <div class="row mb-10">
+   
+    	</div>
+    </div>
+</fieldset>
+<h3></h3>
+<fieldset>
+    <span class="step-current font-size-20">Step 2 / {{stepstep}}</span>
+    <div class="row">
+		<div class="box-body form-element2">
+			<div class="col-lg-12 col-md-12 p-0 mb-40" style=" border-bottom: 1px dashed #8d99ae;">
+                <h4 class="mt-1 mb-4 font-weight-600">Maklumat Rekod Kerja - MRK 03</h4>
+               
+            </div>
+			         <div class="row mb-10">
 				<div class="col-lg-4 col-md-6">
 					<div class="form-group">
 						<label>No inden</label>
@@ -105,12 +118,14 @@
 				    </div>
 				</div>
             </div>
+
+
     	</div>
     </div>
 </fieldset>
 <h3></h3>
 <fieldset>
-    <span class="step-current font-size-20">Step 2 / {{stepstep}}</span>
+    <span class="step-current font-size-20">Step 3 / {{stepstep}}</span>
     <div class="row">
 		<div class="box-body form-element2">
 			<div class="col-lg-12 col-md-12 p-0 mb-40" style=" border-bottom: 1px dashed #8d99ae;">
@@ -150,102 +165,230 @@
 
 <h3></h3>
 <fieldset>
-    <span class="step-current font-size-20">Step 3 / {{stepstep}}</span>
+    <span class="step-current font-size-20">Step 4 / {{stepstep}}</span>
     <div class="row">
 		<div class="box-body form-element2">
 			<div class="col-lg-12 col-md-12 p-0 mb-40" style=" border-bottom: 1px dashed #8d99ae;">
                 <h4 class="mt-1 mb-4 font-weight-600">Prestasi kontrakotor semasa menjalankan tugas .</h4>
-               
+               <h6 class="mt-1 mb-4 font-weight-600">Pengurusan Tapak Bina .</h6>
             </div>
 			<div class="row mb-10">
 				<div class="col-lg-3 col-md-6">
-					<div class="box pull-up box-default" id="bbox" style="cursor: pointer;">
-		        		<div class="box-body">
-            				<input type="radio" class="radiocard" name="pricing" id="card1">
-           					 <label for="card1">
-                				<h4 class="inf-rad">90% Keatas</h4>
-                				<h3><span class="inf-radio text-dark font-weight-600">Terbaik</span></h3>
-							</label>
-        				</div>
-					</div>
-					
+					<label class="card">
+    					<input name="{{form.mrktigabina.name}}" value="1" {% if form.mrktigabina.value == '1' %}checked{% endif %} class="radio-col-success radio " type="radio" checked>
+   						 	<span class="plan-details">
+      						<span class="plan-type">90% Keatas</span>
+      						<span class="plan-cost">Terbaik</span>
+      						<span>1 team member</span>
+      						<span>100 GB/mo</span>
+      						<span>1 concurrent build</span>
+    					</span>
+  					</label>	
 				</div>
 				<div class="col-lg-3 col-md-6">
-		       		<div class="box pull-up box-default" id="bbox2" style="cursor: pointer;">
-		        		<div class="box-body">
-           					<input type="radio" class="radiocard2" name="pricing" id="card2">
-            				<label for="card2">
-                				<h4 class="inf-rad">75% - 89%</h4>
-                 				<h3><span class="inf-radio text-dark font-weight-600">Baik</span></h3>
-            				</label>
-        				</div>
-					</div>	
+					<label class="card">
+    					<input name="{{form.mrktigabina.name}}" value="2" {% if form.mrktigabina.value == '2' %}checked{% endif %} class="radio-col-success radio " type="radio" checked>
+   						 	<span class="plan-details">
+      						<span class="plan-type">75% - 89%</span>
+      						<span class="plan-cost">Baik</span>
+      						<span>1 team member</span>
+      						<span>100 GB/mo</span>
+      						<span>1 concurrent build</span>
+    					</span>
+  					</label>	
+				</div>
+				<div class="col-lg-3 col-md-6">
+					<label class="card">
+    					<input name="{{form.mrktigabina.name}}" value="3" {% if form.mrktigabina.value == '3' %}checked{% endif %} class="radio-col-success radio " type="radio" checked>
+   						 	<span class="plan-details">
+      						<span class="plan-type">50% - 74%</span>
+      						<span class="plan-cost">Sederhana</span>
+      						<span>1 team member</span>
+      						<span>100 GB/mo</span>
+      						<span>1 concurrent build</span>
+    					</span>
+  					</label>	
+				</div>
+				<div class="col-lg-3 col-md-6">
+					<label class="card">
+    					<input name="{{form.mrktigabina.name}}" value="4" {% if form.mrktigabina.value == '4' %}checked{% endif %} class="radio-col-success radio " type="radio" checked>
+   						 	<span class="plan-details">
+      						<span class="plan-type">50% kebawah</span>
+      						<span class="plan-cost">Tidak Memuaskan</span>
+      						<span>1 team member</span>
+      						<span>100 GB/mo</span>
+      						<span>1 concurrent build</span>
+    					</span>
+  					</label>	
+				</div>
+
+				
+			</div>
+			<div class="row mb-10">
+				<div class="col-lg-12 col-md-12">
+					<div class="form-group">
+					 	 <label>Catatan</label>
+						   {{form.mrkcatat1}}
+						
+					</div>
 				</div>
 			</div>
     	</div>
     </div>
 </fieldset>
 
+
 <h3></h3>
 <fieldset>
-    <span class="step-current font-size-20">Step 4 / {{stepstep}}</span>
+    <span class="step-current font-size-20">Step 5 / {{stepstep}}</span>
     <div class="row">
 		<div class="box-body form-element2">
 			<div class="col-lg-12 col-md-12 p-0 mb-40" style=" border-bottom: 1px dashed #8d99ae;">
-                <h4 class="mt-1 mb-4 font-weight-600">Polisi Insurans</h4>
-               
+                <h4 class="mt-1 mb-4 font-weight-600">Prestasi kontrakotor semasa menjalankan tugas .</h4>
+               <h6 class="mt-1 mb-4 font-weight-600">Pentadbiran.</h6>
             </div>
-            <div class="row mb-10">
-				<div class="col-lg-4 col-md-4">
-					<div class="form-group">
-					 	 <label>Perkeso / Workmen's:</label>
-						   {{form.lskperkeso}}
-						
-					</div>
+			<div class="row mb-10">
+				<div class="col-lg-3 col-md-6">
+					<label class="card">
+    					<input name="{{form.mrktigatadbir.name}}" value="1" {% if form.mrktigatadbir.value == '1' %}checked{% endif %} class="radio-col-success radio " type="radio" checked>
+   						 	<span class="plan-details">
+      						<span class="plan-type">90% Keatas</span>
+      						<span class="plan-cost">Terbaik</span>
+      						<span>1 team member</span>
+      						<span>100 GB/mo</span>
+      						<span>1 concurrent build</span>
+    					</span>
+  					</label>	
 				</div>
+				<div class="col-lg-3 col-md-6">
+					<label class="card">
+    					<input name="{{form.mrktigatadbir.name}}" value="2" {% if form.mrktigatadbir.value == '2' %}checked{% endif %} class="radio-col-success radio " type="radio" checked>
+   						 	<span class="plan-details">
+      						<span class="plan-type">75% - 89%</span>
+      						<span class="plan-cost">Baik</span>
+      						<span>1 team member</span>
+      						<span>100 GB/mo</span>
+      						<span>1 concurrent build</span>
+    					</span>
+  					</label>	
+				</div>
+				<div class="col-lg-3 col-md-6">
+					<label class="card">
+    					<input name="{{form.mrktigatadbir.name}}" value="3" {% if form.mrktigatadbir.value == '3' %}checked{% endif %} class="radio-col-success radio " type="radio" checked>
+   						 	<span class="plan-details">
+      						<span class="plan-type">50% - 74%</span>
+      						<span class="plan-cost">Sederhana</span>
+      						<span>1 team member</span>
+      						<span>100 GB/mo</span>
+      						<span>1 concurrent build</span>
+    					</span>
+  					</label>	
+				</div>
+				<div class="col-lg-3 col-md-6">
+					<label class="card">
+    					<input name="{{form.mrktigatadbir.name}}" value="4" {% if form.mrktigatadbir.value == '4' %}checked{% endif %} class="radio-col-success radio " type="radio" checked>
+   						 	<span class="plan-details">
+      						<span class="plan-type">50% kebawah</span>
+      						<span class="plan-cost">Tidak Memuaskan</span>
+      						<span>1 team member</span>
+      						<span>100 GB/mo</span>
+      						<span>1 concurrent build</span>
+    					</span>
+  					</label>	
+				</div>
+
+				
 			</div>
 			<div class="row mb-10">
-				<div class="col-lg-8 col-md-6">
+				<div class="col-lg-12 col-md-12">
 					<div class="form-group">
-						<label>Jenis Polisi Insurans:</label>
-						    <h4 class="text-success">PL - Public Liability</h4>
-                            <h4 class="text-success">AR - All Risk</h4>
-                            <h4 class="text-success">IK - Insurans Kerja</h4>
-					</div>
-				</div>						
-			</div>
-            <div class="row mb-10">
-				<div class="col-lg-3 col-md-4">
-					<div class="form-group">
-					 	 <label>Jenis Insurans 01</label>
-						   {{form.lskjenisinsurancesatu}}
+					 	 <label>Catatan</label>
+						   {{form.mrkcatat2}}
 						
-					</div>
-				</div>
-                <div class="col-lg-5 col-md-4">
-					<div class="form-group">
-					 	 <label>No Insurans 01</label>
-						{{form.lsknoinsurancesatu}}
-					</div>
-				</div>
-			</div>
-            <div class="row mb-10">
-				<div class="col-lg-3 col-md-4">
-					<div class="form-group">
-					 	 <label>Jenis Insurans 02</label>
-						   {{form.lskjenisinsurancedua}}
-						
-					</div>
-				</div>
-                <div class="col-lg-5 col-md-4">
-					<div class="form-group">
-					 	 <label>No Insurans 02</label>
-						{{form.lsknoinsurancedua}}
 					</div>
 				</div>
 			</div>
     	</div>
     </div>
 </fieldset>
+
+
+<h3></h3>
+<fieldset>
+    <span class="step-current font-size-20">Step 5 / {{stepstep}}</span>
+    <div class="row">
+		<div class="box-body form-element2">
+			<div class="col-lg-12 col-md-12 p-0 mb-40" style=" border-bottom: 1px dashed #8d99ae;">
+                <h4 class="mt-1 mb-4 font-weight-600">Prestasi kontrakotor semasa menjalankan tugas .</h4>
+               <h6 class="mt-1 mb-4 font-weight-600">Perancagan/Kemajuan.</h6>
+            </div>
+			<div class="row mb-10">
+				<div class="col-lg-3 col-md-6">
+					<label class="card">
+    					<input name="{{form.mrktigakemajuan.name}}" value="1" {% if form.mrktigakemajuan.value == '1' %}checked{% endif %} class="radio-col-success radio " type="radio" checked>
+   						 	<span class="plan-details">
+      						<span class="plan-type">90% Keatas</span>
+      						<span class="plan-cost">Terbaik</span>
+      						<span>1 team member</span>
+      						<span>100 GB/mo</span>
+      						<span>1 concurrent build</span>
+    					</span>
+  					</label>	
+				</div>
+				<div class="col-lg-3 col-md-6">
+					<label class="card">
+    					<input name="{{form.mrktigakemajuan.name}}" value="2" {% if form.mrktigakemajuan.value == '2' %}checked{% endif %} class="radio-col-success radio " type="radio" checked>
+   						 	<span class="plan-details">
+      						<span class="plan-type">75% - 89%</span>
+      						<span class="plan-cost">Baik</span>
+      						<span>1 team member</span>
+      						<span>100 GB/mo</span>
+      						<span>1 concurrent build</span>
+    					</span>
+  					</label>	
+				</div>
+				<div class="col-lg-3 col-md-6">
+					<label class="card">
+    					<input name="{{form.mrktigakemajuan.name}}" value="3" {% if form.mrktigakemajuan.value == '3' %}checked{% endif %} class="radio-col-success radio " type="radio" checked>
+   						 	<span class="plan-details">
+      						<span class="plan-type">50% - 74%</span>
+      						<span class="plan-cost">Sederhana</span>
+      						<span>1 team member</span>
+      						<span>100 GB/mo</span>
+      						<span>1 concurrent build</span>
+    					</span>
+  					</label>	
+				</div>
+				<div class="col-lg-3 col-md-6">
+					<label class="card">
+    					<input name="{{form.mrktigakemajuan.name}}" value="4" {% if form.mrktigakemajuan.value == '4' %}checked{% endif %} class="radio-col-success radio " type="radio" checked>
+   						 	<span class="plan-details">
+      						<span class="plan-type">50% kebawah</span>
+      						<span class="plan-cost">Tidak Memuaskan</span>
+      						<span>1 team member</span>
+      						<span>100 GB/mo</span>
+      						<span>1 concurrent build</span>
+    					</span>
+  					</label>	
+				</div>
+
+				
+			</div>
+			<div class="row mb-10">
+				<div class="col-lg-12 col-md-12">
+					<div class="form-group">
+					 	 <label>Catatan</label>
+						   {{form.mrkcatat2}}
+						
+					</div>
+				</div>
+			</div>
+    	</div>
+    </div>
+</fieldset>
+
+
+
+
 
 {% endblock dukumen %}     

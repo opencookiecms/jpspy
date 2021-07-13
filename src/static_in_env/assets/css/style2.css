@@ -1,6 +1,17 @@
     @import url('https://fonts.googleapis.com/css2?family=Bitter:wght@100;200;300;400;500;600;800;900&display=swap');
     /* @extend display-flex; */
-    
+    :root {
+        --card-line-height: 1.2em;
+        --card-padding: 1em;
+        --card-radius: 0.5em;
+        --color-green: #2f579a;
+        --color-gray: #e2ebf6;
+        --color-dark-gray: #c4d1e1;
+        --radio-border-width: 3px;
+        --radio-size: 1.5em;
+    }
+
+
     display-flex,
     .signup-content,
     .actions ul,
@@ -213,6 +224,10 @@
         -webkit-justify-content: flex-end;
         -o-justify-content: flex-end;
         -ms-justify-content: flex-end;
+        display: flex;
+        justify-content: start;
+        padding: 15px;
+        margin-bottom:30px;
     }
     
     .actions ul .disabled {
@@ -224,8 +239,8 @@
     }
     
     .actions ul li:first-child a {
-        background: #fff;
-        color: #999;
+        background: #b7094c;
+        color: #fff;
     }
     
     .actions ul li a {
@@ -274,6 +289,20 @@
             min-height: 38px;
             font-size: 24px;
         }
+
+        .plan-cost {
+            font-size: 2rem;
+            font-weight: bold;
+            padding: 0.5rem 0;
+        }
+
+
+        [type="radio"]:not(:checked), [type="radio"]:checked{
+            left: 275px;
+            opacity:1;
+            background: #172b4c;
+        }
+          
     }
 
     @media screen and (max-width: 1440px) {
@@ -288,7 +317,20 @@
             min-height: 38px;
             font-size: 24px;
 
+        }      
+    
+        .plan-cost {
+            font-size: 1.2rem;
+            font-weight: 600;
+            padding: 0.5rem 0;
         }
+
+        [type="radio"]:not(:checked), [type="radio"]:checked{
+            left: 165px;
+            opacity:1;
+            background: #172b4c;
+        }
+
     }
     
     @media screen and (max-width: 1366px) {
@@ -309,12 +351,13 @@
             font-size:12px;
             font-weight: 300;
         }
-        .inf-radio{
-            font-size:16px;
+
+        [type="radio"]:not(:checked), [type="radio"]:checked{
+            left: 155px;
+            opacity:1;
+            background: #172b4c;
         }
-        .inf-rad{
-            font-size:16px;
-        }
+
     }
     
  

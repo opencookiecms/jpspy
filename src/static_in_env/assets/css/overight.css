@@ -1,5 +1,17 @@
 @import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Bitter:wght@100;200;300;400;500;600;800;900&display=swap');
+
+:root {
+    --card-line-height: 1.2em;
+    --card-padding: 1em;
+    --card-radius: 0.5em;
+    --color-green: #2f579a;
+    --color-gray: #e2ebf6;
+    --color-dark-gray: #c4d1e1;
+    --radio-border-width: 3px;
+    --radio-size: 1.5em;
+}
+
 body {
     overflow-x: hidden;
     overflow-y: auto;
@@ -1376,56 +1388,136 @@ hr {
     border-radius: 0 !important;
 }
 
-.carde {
-    height: 100px;
-    width: 200px;
+
+
+
+.card {
+    background-color: #fff;
+    border-radius: var(--card-radius);
     position: relative;
-}
-
-input[class="radiocard"] {
-    -webkit-appearance: none;
-    appearance: none;
-    background-color: darkcyan;
-    height: 100%;
-    width: 100%;
-    border-radius: 10px;
+  }
+  .card:hover {
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.15);
+  }
+  
+  .radio {
+    font-size: inherit;
+    margin: 0;
     position: absolute;
-    box-shadow: 7px 7px 15px rgba(2, 28, 53, 0.08);
+    right: calc(var(--card-padding) + var(--radio-border-width));
+    top: calc(var(--card-padding) + var(--radio-border-width));
+    left: 250px;
+  }
+  
+  @supports (-webkit-appearance: none) or (-moz-appearance: none) {
+    .radio {
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      background: #fff;
+      border: var(--radio-border-width) solid var(--color-gray);
+      border-radius: 50%;
+      cursor: pointer;
+      height: var(--radio-size);
+      outline: none;
+      left: 250px;
+      transition: background 0.2s ease-out, border-color 0.2s ease-out;
+      width: var(--radio-size);
+    }
+    .radio::after {
+      border: var(--radio-border-width) solid #fff;
+      border-top: 0;
+      border-left: 0;
+      content: "";
+      display: block;
+      height: 0.75rem;
+      left: 25%;
+      position: absolute;
+      top: 50%;
+      transform: rotate(45deg) translate(-50%, -50%);
+      width: 0.375rem;
+    }
+    .radio:checked {
+      background: var(--color-green);
+      border-color: var(--color-green);
+    }
+  
+    .card:hover .radio {
+      border-color: var(--color-dark-gray);
+    }
+    .card:hover .radio:checked {
+      border-color: var(--color-green);
+    }
+  }
+  .plan-details {
+    border: var(--radio-border-width) solid var(--color-gray);
+    border-radius: var(--card-radius);
     cursor: pointer;
-    outline: none;
-}
+    display: flex;
+    flex-direction: column;
+    padding: var(--card-padding);
+    transition: border-color 0.2s ease-out;
+  }
+  
+  .card:hover .plan-details {
+    border-color: var(--color-dark-gray);
+  }
+  
+  .radio:checked ~ .plan-details {
+    border-color: var(--color-green);
+  }
+  
+  .radio:focus ~ .plan-details {
+    box-shadow: 0 0 0 2px var(--color-dark-gray);
+  }
+  
+  .radio:disabled ~ .plan-details {
+    color: var(--color-dark-gray);
+    cursor: default;
+  }
+  
+  .radio:disabled ~ .plan-details .plan-type {
+    color: var(--color-dark-gray);
+  }
+  
+  .card:hover .radio:disabled ~ .plan-details {
+    border-color: var(--color-gray);
+    box-shadow: none;
+  }
+  
+  .card:hover .radio:disabled {
+    border-color: var(--color-gray);
+  }
+  
+  .plan-type {
+    color: var(--color-green);
+    font-size: 1.5rem;
+    font-weight: bold;
+    line-height: 1em;
+    display: flex;
+    justify-content: space-between;
+  }
+  
 
-.radio-toolbar input[class="radiocard"]:before {
-    content: "";
+  .slash {
+    font-weight: normal;
+  }
+  
+  .plan-cycle {
+    font-size: 2rem;
+    font-variant: none;
+    border-bottom: none;
+    cursor: inherit;
+    text-decoration: none;
+  }
+  
+  .hidden-visually {
+    border: 0;
+    clip: rect(0, 0, 0, 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
     position: absolute;
-    height: 22px;
-    width: 22px;
-    background-color: #f9fafd;
-    border: 1px solid #e1e7fa;
-    border-radius: 50%;
-    top: 35px;
-    right: 20px;
-}
-
-.radio-toolbar input[class="radiocard"]:after {
-    content: "";
-    position: absolute;
-    height: 13px;
-    width: 13px;
-    background-color: transparent;
-    border-radius: 50%;
-    top: 39.5px;
-    right: 24.5px;
-}
-
-.radio-toolbar input[class="radiocard"]:hover {
-    transform: scale(1.05);
-}
-
-.radio-toolbar input[class="radiocard"]:checked {
-    border: 3px solid #478bfb;
-}
-
-.radio-toolbar input[class="radiocard"]:checked:after {
-    background-color: #478bfb;
-}
+    white-space: nowrap;
+    width: 1px;
+  }

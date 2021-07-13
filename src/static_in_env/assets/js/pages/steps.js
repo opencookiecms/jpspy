@@ -7,8 +7,8 @@ form.steps({
     enableAllSteps: true,
     
     labels: {
-        previous: 'Previous',
-        next: 'Next',
+        previous: 'Kembali',
+        next: 'Seterusnya',
         finish: 'Submit',
         current: 'dfdf'
     },
