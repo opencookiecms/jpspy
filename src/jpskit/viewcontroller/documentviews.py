@@ -132,7 +132,8 @@ def mrktiga(request, projekid):
        
         'mrkduafecth':document.MRKDua.objects.get(projekbind=projekid),
         'projek':project.Projek.objects.get(id=projekid),
-        'userlist':User.objects.all()
+        'userlist':User.objects.all(),
+        'stepstep':'12',
     }
 
     return render(request, 'pages/mrktiga.html',context)
