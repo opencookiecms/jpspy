@@ -1,5 +1,5 @@
 {% extends 'based/based.html' %}
-{% block content %}
+  {% block content %}
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
 	  <div class="container-full">
@@ -7,13 +7,13 @@
 		<div class="content-header">
 			<div class="d-flex align-items-center">
 				<div class="mr-auto">
-					<h3 class="page-title">Senarai Semakan</h3>
+					<h3 class="page-title mb-15 pl-15 font-size-40 font-weight-800">Senarai Semakan</h3>
 					<div class="d-inline-block align-items-center">
 						<nav>
-							<ol class="breadcrumb">
+							<ol class="breadcrumb pl-15">
 								<li class="breadcrumb-item"><a href="#"><i class="mdi mdi-home-outline"></i></a></li>
-								<li class="breadcrumb-item" aria-current="page">Borang</li>
-								<li class="breadcrumb-item active" aria-current="page">No perolehan</li>
+								<li class="breadcrumb-item" aria-current="page">Dokumen</li>
+								<li class="breadcrumb-item active" aria-current="page">SS</li>
 							</ol>
 						</nav>
 					</div>
@@ -24,280 +24,44 @@
 
 		<!-- Main content -->
 		<section class="content">
-			<div class="row">			  
-				<div class="col-lg-9 col-9">
-                	<form class="form" action='{% url 'dokumen/senaraisemakan' projekid=mrksatufecth.projekbind.id  %}' method="POST">
-					  <div class="box">
-                       {% csrf_token %}
-						<div class="box-body">
-						<h4 class="box-title text-primary"><i class="ti-user mr-15"></i>Senarai Semakan</h4>
-						<hr class="my-15">
-                    
-                        <div class="row">
-                                <input type="hidden" class="form-control" name="{{form.projekbind.name}}" value="{{mrksatufecth.projekbind.id}}"/>
-                                <input type="hidden" class="form-control" name="{{form.ssmrksatulink.name}}" value="{{mrksatufecth.id}}"/>
-                                
-                            <div class="col-lg-12 col-xl-3">
-                                <div class="form-group">
-                                <div class="form-radio form-radio-flat">
-                                    <label class="form-check-label">
-                                 
-                                    <input type="checkbox" name={{form.ssinden.name}} id="md_checkbox_1" class="chk-col-success" value="checked" {{form.ssinden.value}}><label for="md_checkbox_1"><h5 class="text-secondary font-weight-400">I. Inden/Nota Minta</h5></h5></label>
-                                    </label>
-                                </div>
 
-                                </div>
-                            </div>
-                            <div class="col-lg-12 col-xl-3">
-                                <div class="form-group">
-                                <div class="form-radio form-radio-flat">
-                                    <label class="form-check-label">
-                                     <input type="checkbox" name={{form.sslsk.name}} id="md_checkbox_2" class="chk-col-success" value="checked" {{form.sslsk.value}}><label for="md_checkbox_2"><h5 class="text-secondary font-weight-400 mb-10">II. Laporan Siap Kerja</h5></label>
-                             
-                                    </label>
-                                </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-12 col-xl-3">
-                                <div class="form-group">
-                                    <div class="form-radio form-radio-flat">
-                                        <label class="form-check-label">
-                                        <input type="checkbox" name={{form.ssti.name}} id="md_checkbox_3" class="chk-col-success" value="checked" {{form.ssti.value}}><label for="md_checkbox_3"><h5 class="text-secondary font-weight-400 mb-10">III. Tuntutan Invois</h5></label>
-                                 
-                                        </label>
-                                </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="row">
-                            <div class="col-lg-12 col-xl-3">
-                                <div class="form-group">
-                                <div class="form-radio form-radio-flat">
-                                    <label class="form-check-label">
-                                    <input type="checkbox" name={{form.sssebutharga.name}} id="md_checkbox_4" class="chk-col-success" value="checked" {{form.sssebutharga.value}}><label for="md_checkbox_4"><h5 class="text-secondary font-weight-400 mb-10">IV .Sebutharga/Lantikan Terus</h5></label> 
-                                    </label>
-                                </div>
-
-                                </div>
-                            </div>
-                            <div class="col-lg-12 col-xl-3">
-                                <div class="form-group">
-                                <div class="form-radio form-radio-flat">
-                                    <label class="form-check-label">
-                                    <input type="checkbox" name={{form.sspt.name}} id="md_checkbox_5" class="chk-col-success" value="checked" {{form.sspt.value}}><label for="md_checkbox_5"><h5 class="text-secondary font-weight-400 mb-10">V.Penerimaan Tawaran</h5></label>
-                                 
-                                    </label>
-                                </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-12 col-xl-3">
-                                <div class="form-group">
-                                    <div class="form-radio form-radio-flat">
-                                        <label class="form-check-label">
-                                         <input type="checkbox" name={{form.ssjs.name}} id="md_checkbox_6" class="chk-col-success" value="checked" {{form.ssjs.value}}><label for="md_checkbox_6"><h5 class="text-secondary font-weight-400 mb-10">VI. Jadual Sebutarga</h5></label>
-                                   
-                                        </label>
-                                </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-lg-12 col-xl-3s">
-                                <div class="form-group">
-                                <div class="form-radio form-radio-flat">
-                                    <label class="form-check-label">
-                                    <input type="checkbox" name={{form.sskts.name}} id="md_checkbox_7" class="chk-col-success" value="checked" {{form.sskts.value}}><label for="md_checkbox_7"><h5 class="text-secondary font-weight-400 mb-10">VII. Kertas Taklimat Sebutharga</h5></label>
-                                 
-                                    </label>
-                                </div>
-
-                                </div>
-                            </div>
-                            <div class="col-lg-12 col-xl-3">
-                                <div class="form-group">
-                                <div class="form-radio form-radio-flat">
-                                    <label class="form-check-label">
-                                    <input type="checkbox" name={{form.ssds.name}} id="md_checkbox_8" class="chk-col-success" value="checked" {{form.ssds.value}}><label for="md_checkbox_8"><h5 class="text-secondary font-weight-400 mb-10">VIII. Dokumen Sebutharga</h5></label>
-                                   
-                                    </label>
-                                </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-12 col-xl-3">
-                                <div class="form-group">
-                                    <div class="form-radio form-radio-flat">
-                                        <label class="form-check-label">
-                                        <input type="checkbox" name={{form.ssplm.name}} id="md_checkbox_9" class="chk-col-success" value="checked" {{form.ssplm.value}}><label for="md_checkbox_9"><h5 class="text-secondary font-weight-400 mb-10">IX. Permohonan Lanjut Masa</h5></label>
-                                        
-                                        </label>
-                                </div>
-                                </div>
-                            </div>
-                        </div>
-
-
-                        <div class="row">
-                            <div class="col-lg-12 col-xl-3">
-                                <div class="form-group">
-                                <div class="form-radio form-radio-flat">
-                                    <label class="form-check-label">
-                                    <input type="checkbox" name={{form.ssab.name}} id="md_checkbox_10" class="chk-col-success" value="checked" {{form.ssab.value}}><label for="md_checkbox_10"><h5 class="text-secondary font-weight-400 mb-10">X. Salinan Akaun Bank</h5></label>
-                                   
-                                    </label>
-                                </div>
-
-                                </div>
-                            </div>
-                            <div class="col-lg-12 col-xl-3">
-                                <div class="form-group">
-                                <div class="form-radio form-radio-flat">
-                                    <label class="form-check-label">
-                                    <input type="checkbox" name={{form.sscidb.name}} id="md_checkbox_11" class="chk-col-success" value="checked" {{form.sscidb.value}}><label for="md_checkbox_11"><h5 class="text-secondary font-weight-400 mb-10">XI. CIDB Malaysia</h5></label>
-                                
-                                    </label>
-                                </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-12 col-xl-3">
-                                <div class="form-group">
-                                    <div class="form-radio form-radio-flat">
-                                        <label class="form-check-label">
-                                        <input type="checkbox" name={{form.sspkk.name}} id="md_checkbox_12" class="chk-col-success" value="checked" {{form.sspkk.value}}><label for="md_checkbox_12"><h5 class="text-secondary font-weight-400 mb-10">XII. PKK</h5></label>
-                                   
-                                        </label>
-                                </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                        <div class="col-lg-12 col-xl-3">
-                            <div class="form-group">
-                            <div class="form-radio form-radio-flat">
-                                <label class="form-check-label">
-                                 <input type="checkbox" name={{form.ssssm.name}} id="md_checkbox_13" class="chk-col-success" value="checked" {{form.ssssm.value}}><label for="md_checkbox_13"><h5 class="text-secondary font-weight-400 mb-10">XIII. SSM</h5></label>
-                            
-                                </label>
-                            </div>
-
-                            </div>
-                        </div>
-                        <div class="col-md-3 tls">
-                            <div class="form-group">
-                            <div class="form-radio form-radio-flat">
-                                <label class="form-check-label">
-                                <input type="checkbox" name={{form.sskk.name}} id="md_checkbox_14" class="chk-col-success" value="checked" {{form.sskk.value}}><label for="md_checkbox_14"><h5 class="text-secondary font-weight-400 mb-10">XIV Kementerian Kewangan</h5></label>
-                             
-                                </label>
-                            </div>
-                            </div>
-                        </div>
-                        </div>
-
-                        <h4 class="box-title text-primary mt-20"><i class="ti-user mr-15"></i>Insurans</h4>
-						<hr class="my-15">
-
-                        <div class="row">
-                            <div class="col-md-12 tls">
-                                <div class="form-group">
-                                <div class="form-radio form-radio-flat">
-                                    <label class="form-check-label">
-                                     <input type="checkbox" name={{form.ssinsurance.name}} id="md_checkbox_15" class="chk-col-success" value="checked" {{form.ssinsurance.value}}><label class="" for="md_checkbox_15"><h5 class="text-secondary font-weight-400">Insuran: Perkeso/Workmen/Public Liability/Kerja</h5></label>
-                                   
-                                    </label>
-                                </div>
-
-                                </div>
-                            </div>
-                            
-                        </div>
-                        <h4 class="box-title text-primary mt-20"><i class="ti-user mr-15"></i>Gambar</h4>
-						<hr class="my-15">
-
-                        <div class="row">
-                            <div class="col-md-3 tls">
-                                <div class="form-group">
-                                <div class="form-radio form-radio-flat">
-                                    <label class="form-check-label">
-                                     <input type="checkbox" name={{form.ssgambar.name}} id="md_checkbox_16" class="chk-col-success" value="checked" {{form.ssgambar.value}}><label for="md_checkbox_16"><h5 class="text-secondary font-weight-400 mb-10">Gambar</h5></label>
-                                   
-                                    </label>
-                                </div>
-
-                                </div>
-                            </div>
-                            
-                        </div>
-
-                        <hr class="my-15">
-
-                            <div class="col-md-12">
-                  <div class="form-group row">
-                    <div class="col-sm-5">
-                    <label class="tl"><h5 class="text-secondary font-weight-500 mb-2">Disediakan Oleh</h5></label>
-                    <input type="text" class="form-control" value="{{mrksatufecth.projekbind.nosebuthargaid.pegawaiselia.first_name}}" readonly/>
-                    </div>
-
-
-                    <div class="col-sm-4">
-                    <label class="tl"><h5 class="text-secondary font-weight-500 mb-2">Dari</h5></label>
-                      {{form.sstarikh}}
-                    </div>
-
-
-                  
+		  <!-- vertical wizard -->
+		  <div class="box box-transparent">
+			<div class="box-header with-border">
+			  <h4 class="box-title">Borang Senarai Semakan</h4>
+			  <h6 class="box-subtitle">You can find the <a href="http://www.jquery-steps.com" target="_blank">offical website</a></h6>
+			</div>
+			<!-- /.box-header -->
+            <div class="signup-content">
+                <div class="signup-desc">
+                    <div class="signup-desc-content">
+                      
+                        <p class="title">Tajuk Kerja</p>
+                        <p class="desc">
+                            {{projek.tajukkerja}}</br>
+							<h4 class="font-weight-600 mt-10">{{mrksatufecth.projekbind.nosebuthargaid}}</h4>
+                        </p>
+                        <img src="images/signup-img.jpg" alt="" class="signup-img">
                     </div>
                 </div>
-                                
-           
-
-	
-						</div>
-						<!-- /.box-body -->
-						<div class="box-footer">
-							<button type="button" class="btn btn-rounded btn-warning btn-outline mr-1"><i class="ti-trash"></i> Cancel</button>
-				            <button type="submit"  class="btn btn-rounded btn-primary btn-outline"><i class="ti-save-alt"></i> Save</button>
-						</div>  
-					
-					  </div>
-					  <!-- /.box -->	
-                    </form>		
-				</div>
-                <div class="col-lg-3">
-                <div class="box">
-					<div class="box-header with-border">
-					  <h4 class="box-title">Labels</h4>
-					  <ul class="box-controls pull-right">
-						<li><a class="box-btn-slide" href="#"></a></li>	
-					  </ul>
-					</div>
-					<div class="box-body no-padding mailbox-nav">
-					  <ul class="nav nav-pills flex-column">
-						<li class="nav-item"><a class="nav-link" href="{% url 'dokumen/mrksatu' projekid=mrksatufecth.projekbind.id  %}"><i class="fa fa-folder-o text-dark"></i>MRK 01</a></li>
-						<li class="nav-item"><a class="nav-link" href="{% url 'dokumen/mrkdua' projekid=mrksatufecth.projekbind.id  %}"><i class="fa fa-folder-o text-dark"></i> MRK 02</a></li>
-						<li class="nav-item"><a class="nav-link" href="{% url 'dokumen/lsk' projekid=mrksatufecth.projekbind.id  %}"><i class="fa fa-folder-o text-dark"></i> Laporan Siap Kerja</a></li>
-                        <li class="nav-item"><a class="nav-link" href="{% url 'dokumen/mrktiga' projekid=mrksatufecth.projekbind.id  %}"><i class="fa fa-folder-o text-dark"></i> MRK 03</a></li>
-						<li class="nav-item"><a class="nav-link" href="{% url 'dokumen/psk' projekid=mrksatufecth.projekbind.id  %}"><i class="fa fa-folder-o text-dark"></i>Perakuan Siap Kerja</a></li>
-						<li class="nav-item"><a class="nav-link aktif" href="{% url 'dokumen/senaraisemakan' projekid=mrksatufecth.projekbind.id  %}"><i class="fa fa-folder-open-o text-dark "></i> Senarai Semakan</a></li>
-                        <li class="nav-item"><a class="nav-link" href="{% url 'dokumen/psmk' projekid=mrksatufecth.projekbind.id  %}"><i class="fa fa-folder-o"></i>Perakuan Siap Membaiki Kecacatan</a></li>
-						<li class="nav-item"><a class="nav-link" href="{% url 'dokumen/jaminanbank' projekid=mrksatufecth.projekbind.id  %}"><i class="fa fa-folder-o text-dark"></i>Pelepasan Jaminan Bank</a></li>
-						<li class="nav-item"><a class="nav-link" href="{% url 'dokumen/ppwjp' projekid=mrksatufecth.projekbind.id  %}"><i class="fa fa-folder-o text-dark"></i>Perakuan Pemulangan WJP</a></li>
-                        <li class="nav-item"><a class="nav-link" href="{% url 'dokumen/smrk' projekid=mrksatufecth.projekbind.id  %}"><i class="fa fa-folder-o text-dark"></i> Surat Maklumat Rekod Kerja</a></li>
-						<li class="nav-item"><a class="nav-link" href="{% url 'dokumen/skhas' projekid=mrksatufecth.projekbind.id  %}"><i class="fa fa-folder-o text-dark"></i> Surat Kebenaran Khas</a></li>
-						<li class="nav-item"><a class="nav-link" href="{% url 'dokumen/suratbon' projekid=mrksatufecth.projekbind.id  %}"><i class="fa fa-folder-o text-dark"></i>Surat Pelepasan Bon Jaminan Perlaksanaan</a></li>
-					  </ul>
-					</div>
-					<!-- /.box-body -->
-				  </div>
-                
-
+                <div class="signup-form-conent">
+                    <form action='{% url 'dokumen/senaraisemakan' projekid=mrksatufecth.projekbind.id  %}' method="POST" id="signup-form" class="signup-form" enctype="multipart/form-data">
+					  {% csrf_token %}
+					   {% block dukumen %}
+					    {% include 'split/sssplit.html' %}
+					   {% endblock dukumen %}
+                    </form>
                 </div>
-		    </div>
-        
-	
+            </div>
+			<!-- /.box-body -->
+		  </div>
+		  <!-- /.box -->
+		  <!-- /.box -->
+
 		</section>
 		<!-- /.content -->
 	  </div>
   </div>
   <!-- /.content-wrapper -->
-  {% endblock content %}
+{% endblock content %}
+  
