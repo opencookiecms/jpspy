@@ -292,8 +292,8 @@ class JaminanBankForm(forms.ModelForm):
 
     rujukanbank  = forms.CharField(required=False, widget=forms.TextInput(attrs={'class':'form-control text-dark font-weight-600','type':'text','placeholder':'Rujukan Bank'}))
     namabank = forms.CharField(required=False, widget=forms.TextInput(attrs={'class':'form-control text-dark font-weight-600','type':'text','placeholder':'contoh:Bank Islam, Maybank'}))
-    alamatbank  = forms.CharField(required=False, widget=forms.Textarea(attrs={'class':'form-control text-dark font-weight-600','type':'text','placeholder':'Alamat bank','rows':'5'}))
-    alamatpemborongsurat  = forms.CharField(required=False, widget=forms.Textarea(attrs={'class':'form-control text-dark font-weight-600','type':'text','placeholder':'Alamat Pemborong','rows':'5'}))
+    alamatbank  = forms.CharField(required=False, widget=forms.Textarea(attrs={'class':'form-control text-dark font-weight-600','type':'text','placeholder':'Alamat bank','rows':'2'}))
+    alamatpemborongsurat  = forms.CharField(required=False, widget=forms.Textarea(attrs={'class':'form-control text-dark font-weight-600','type':'text','placeholder':'Alamat Pemborong','rows':'2'}))
 
     class Meta:
         model = document.SuratPJaminanbank
@@ -319,8 +319,8 @@ class PwjpForm(forms.ModelForm):
     rujukantuan  = forms.CharField(required=False, widget=forms.TextInput(attrs={'class':'form-control text-dark font-weight-600','type':'text','placeholder':'Rujukan Tuan'}))
     rujukankami = forms.CharField(required=False, widget=forms.TextInput(attrs={'class':'form-control text-dark font-weight-600','type':'text','placeholder':'Rujukan Kami'}))
     namarujukan = forms.CharField(required=False, widget=forms.TextInput(attrs={'class':'form-control text-dark font-weight-600','type':'text','placeholder':'Akauntan Negara'}))
-    alamatrujukan = forms.CharField(required=False, widget=forms.Textarea(attrs={'class':'form-control text-dark font-weight-600','type':'text','placeholder':'Alamat','rows':'5'}))
-    koswjp = forms.CharField(required=False, widget=forms.TextInput(attrs={'class':'form-control text-dark font-weight-600','type':'text','placeholder':'0.00'}))
+    alamatrujukan = forms.CharField(required=False, widget=forms.Textarea(attrs={'class':'form-control text-dark font-weight-600','type':'text','placeholder':'Alamat','rows':'2'}))
+    koswjp = forms.CharField(required=False, widget=forms.TextInput(attrs={'class':'form-control text-dark font-weight-600 ml-10','type':'text','placeholder':'0.00'}))
     wjpjawatan = forms.ChoiceField(choices=jawatan, required=False, widget=forms.Select(attrs={'class':'form-control text-dark font-weight-600 custom-select select28 ','placholder':'baru'}))
 
     

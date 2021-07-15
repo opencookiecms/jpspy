@@ -1,0 +1,119 @@
+{% block dukumen %}
+
+<h3></h3>
+<fieldset>
+    <span class="step-current font-size-20">Step 1 / {{stepstep}}</span>
+    <div class="row">
+		<div class="box-body form-element2">
+			<div class="col-lg-12 col-md-12 p-0 mb-40" style=" border-bottom: 1px dashed #8d99ae;">
+                <h4 class="mt-1 mb-4 font-weight-600">Perakuan Pemulangan Wang Jaminan Perlaksanaana</h4>
+               
+            </div>
+			<div class="row mb-10">
+				<div class="col-lg-6 col-md-12">
+					<div class="form-group">
+                  	    <label>Nama Pemborong</label>
+                        <input type="hidden" class="form-control" name="{{form.wjpmrksatulink.name}}" value="{{mrksatufecth.id}}"/>
+                  		<input type="hidden" class="form-control" name="{{form.projekbind.name}}" value="{{mrksatufecth.projekbind.id}}"/> 
+					    <input type="text" class="form-control font-weight-600 text-dark" value="{{mrksatufecth.mrksatukontraktor.konNama }}" name="namaborong" readonly>
+		
+					</div>
+				</div>
+            </div>
+			<div class="row mb-10">
+				<div class="col-lg-3 col-md-12">
+					<div class="form-group">
+						<label>Rujukan Tuan</label>
+				         {{form.rujukantuan}}
+				    </div>
+				</div>
+				<div class="col-lg-3 col-md-12">
+					<div class="form-group">
+						<label>Rujukan Kami</label>
+				         {{form.rujukankami}}
+				    </div>
+				</div>
+            </div>
+	
+			<div class="row mb-10">
+				<div class="col-lg-6 col-md-12">
+					<div class="form-group">
+						<label>Nama Rujukan</label>
+				          {{form.namarujukan}}
+				    </div>
+				</div>
+            </div>
+
+
+			<div class="row mb-10">
+				<div class="col-lg-6 col-md-12">
+					<div class="form-group">
+						<label>Alamat Rujukan</label>
+						{{form.alamatrujukan}}
+					</div>
+				</div>
+            </div>
+    	</div>
+    </div>
+</fieldset>
+<h3></h3>
+<fieldset>
+    <span class="step-current font-size-20">Step 2 / {{stepstep}}</span>
+    <div class="row">
+		<div class="box-body form-element2">
+			<div class="col-lg-12 col-md-12 p-0 mb-40" style=" border-bottom: 1px dashed #8d99ae;">
+                <h4 class="mt-1 mb-4 font-weight-600">Maklumat Pemborong</h4>
+               
+            </div>
+			<div class="row mb-10">
+				<div class="col-lg-6 col-md-12">
+					<div class="form-group">
+                  	    <label>Kepada</label>
+                         <input type="text" value="{{mrksatufecth.mrksatukontraktor.konNama }}" class="form-control font-weight-600 text-dark" readonly>
+					</div>
+				</div>
+            </div>
+ 			<div class="row mb-10">
+				<div class="col-lg-6 col-md-12">
+					<div class="form-group">
+						<label>Alamat</label>
+						<textarea rows="4" type="text" class="form-control text-dark font-weight-600"readonly >{{mrksatufecth.mrksatukontraktor.konAlamat }}, &#10;{{mrksatufecth.mrksatukontraktor.konPoskod }} {{mrksatufecth.mrksatukontraktor.konBandar }}, {{mrksatufecth.mrksatukontraktor.konNegeri }}</textarea>
+					</div>
+				</div>
+            </div>
+            <div class="row mb-10">
+				<div class="col-lg-3 col-md-6">
+					<div class="form-group">
+						<label>Kos WJP</label>
+						    <div class="input-group">
+                                <div class="input-group-prepend bg-secondary border-secondary">
+                                <span class="input-group-text bg-transparent text-white">RM</span>
+                                </div>
+                                {{form.koswjp}}
+                                        
+                            </div>
+					</div>
+				</div>
+            </div>
+			<div class="row mb-10">
+				<div class="col-lg-3 col-md-6">
+					<div class="form-group">
+						<label>Pegawai</label>
+						<input type="text" class="form-control font-weight-600 text-dark" value="{{projek.nosebuthargaid.pegawaiselia.first_name}}" readonly/>
+					</div>
+				</div>
+                <div class="col-lg-3 col-md-6">
+					<div class="form-group">
+						<label>Jawatan</label>
+						<input type="text" class="form-control font-weight-600 text-dark" value="{{projek.nosebuthargaid.pegawaiselia.userprofile.jawatan}}" readonly/>
+					</div>
+				</div>
+						
+			</div>
+
+    	</div>
+    </div>
+</fieldset>
+
+
+{% endblock dukumen %}     
