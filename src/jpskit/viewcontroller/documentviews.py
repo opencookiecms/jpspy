@@ -129,7 +129,7 @@ def mrktiga(request, projekid):
     context = {
         'form':form,
         'mrksatufecth':document.MRKSatu.objects.get(projekbind=projekid),
-       
+        'lskfecth':document.Laporansiapkerja.objects.get(projekbind=projekid),
         'mrkduafecth':document.MRKDua.objects.get(projekbind=projekid),
         'projek':project.Projek.objects.get(id=projekid),
         'userlist':User.objects.all(),

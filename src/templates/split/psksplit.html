@@ -1,0 +1,76 @@
+{% block dukumen %}
+
+<h3></h3>
+<fieldset>
+    <span class="step-current font-size-20">Step 1 / {{stepstep}}</span>
+    <div class="row">
+		<div class="box-body form-element2">
+			<div class="col-lg-12 col-md-12 p-0 mb-40" style=" border-bottom: 1px dashed #8d99ae;">
+                <h4 class="mt-1 mb-4 font-weight-600">Maklumat Dokument -PSK</h4>
+               
+            </div>
+			<div class="row mb-10">
+				<div class="col-lg-6 col-md-12">
+					<div class="form-group">
+                  	    <label>Nama Pemborong</label>
+                        <input type="hidden" class="form-control" name="{{form.pskmrksatulink.name}}" value="{{mrksatufecth.id}}"/>
+                        <input type="hidden" class="form-control" name="{{form.projekbind.name}}" value="{{mrksatufecth.projekbind.id}}"/>
+                        <input type="text" class="form-control text-dark font-weight-600" value="{{mrksatufecth.mrksatukontraktor.konNama}}"  placeholder="Nama Pemborong" readonly>
+					  
+		
+					</div>
+				</div>
+            </div>
+			<div class="row mb-10">
+				<div class="col-lg-6 col-md-12">
+					<div class="form-group">
+						<label>Alamat</label>
+				        <textarea rows="2" type="text" class="form-control font-weight-600 text-dark" placeholder="Alamat" readonly>{{mrksatufecth.mrksatukontraktor.konAlamat}}</textarea>
+				    </div>
+				</div>
+            </div>
+            <div class="row mb-10">
+				<div class="col-lg-4 col-md-12">
+					<div class="form-group">
+						<label>Inden No</label>
+                        <input type="text" value="{{mrksatufecth.mrksatunoinden}}" class="form-control text-dark font-weight-600" readonly>
+				    </div>
+				</div>
+            </div>
+            <div class="row mb-10">
+				<div class="col-lg-4 col-md-6">
+					<div class="form-group">
+						<label>Tarikh Siap Sebenar:</label>
+						<input type="text" value="{{lskfecth.lskkerjasiap}}" class="form-control font-weight-600 text-dark" readonly>
+					</div>
+				</div>
+                <div class="col-lg-4 col-md-6">
+					<div class="form-group">
+						<label>Tarikh Ambil Milik:</label>
+						{{form.psktarikhambilmilik}}
+					</div>
+				</div>
+						
+			</div>
+			<div class="row mb-10">
+				<div class="col-lg-4 col-md-6">
+					<div class="form-group">
+						<label>Tarikh Mula Tanggungan Kecacatan </label>
+						{{form.psktarikhmulatanggug}}
+					</div>
+				</div>
+                <div class="col-lg-4 col-md-6">
+					<div class="form-group">
+						<label>Tarikh Tamat Tanggungan Kecacatan</label>
+						{{form.psktarikhtamattanggung}}
+					</div>
+				</div>
+						
+			</div>
+    	</div>
+    </div>
+
+</fieldset>
+
+
+{% endblock dukumen %}     

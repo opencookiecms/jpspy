@@ -1,0 +1,235 @@
+{% block dukumen %}
+
+<h3></h3>
+<fieldset>
+    <span class="step-current font-size-20">Step 1 / {{stepstep}}</span>
+    <div class="row">
+		<div class="box-body form-element2">
+			<div class="col-lg-12 col-md-12 p-0 mb-40" style=" border-bottom: 1px dashed #8d99ae;">
+                <h4 class="mt-1 mb-4 font-weight-600">Maklumat Dokument -PSMK</h4>
+               
+            </div>
+			<div class="row mb-10">
+				<div class="col-lg-6 col-md-12">
+					<div class="form-group">
+                  	    <label>Nama Pemborong</label>
+                    	<input type="hidden" class="form-control" name="{{form.projekbind.name}}" value="{{mrksatufecth.projekbind.id }}"/>
+                        <input type="hidden" class="form-control" name="{{form.psmkmrksatulink.name}}" value="{{mrksatufecth.id}}"/>
+                        <input type="text" class="form-control text-dark font-weight-600" value="{{mrksatufecth.mrksatukontraktor.konNama}}"  placeholder="Nama Pemborong" readonly>
+					  
+		
+					</div>
+				</div>
+            </div>
+			<div class="row mb-10">
+				<div class="col-lg-6 col-md-12">
+					<div class="form-group">
+						<label>Alamat</label>
+				        <textarea rows="2" type="text" class="form-control font-weight-600 text-dark" placeholder="Alamat" readonly>{{mrksatufecth.mrksatukontraktor.konAlamat}}</textarea>
+				    </div>
+				</div>
+            </div>
+            <div class="row mb-10">
+				<div class="col-lg-4 col-md-6">
+					<div class="form-group">
+						<label>Tarikh Mula Tanggungan Kecacatan</label>
+						<input type="text" data-toggle="datepicker" value="{{pskfecth.psktarikhmulatanggug}}" class="form-control font-weight-600 text-dark" readonly>
+					</div>
+				</div>
+                <div class="col-lg-4 col-md-6">
+					<div class="form-group">
+						<label>Tarikh Tamat Tanggungan Kecacatan</label>
+						 <input type="text" data-toggle="datepicker" value="{{pskfecth.psktarikhtamattanggung}}" class="form-control font-weight-600 text-dark"  readonly>
+					</div>
+				</div>
+						
+			</div>
+			<div class="row mb-10">
+				<div class="col-lg-4 col-md-6">
+					<div class="form-group">
+						<label>Gred</label>
+						<input type="text" value="{{mrksatufecth.mrksatugred}}" class="form-control font-weight-600 text-dark" readonly>
+					</div>
+				</div>
+                <div class="col-lg-4 col-md-6">
+					<div class="form-group">
+						<label>Kategori</label>
+						 <input type="text" value="{{mrksatufecth.mrksatukategori}}" class="form-control font-weight-600 text-dark" readonly>
+					</div>
+				</div>
+				<div class="col-lg-4 col-md-6">
+					<div class="form-group">
+						<label>Pengkhususan</label>
+						<input type="text" value="{{mrksatufecth.mrksatupengkhususan}}" class="form-control font-weight-600 text-dark" readonly>
+					</div>
+				</div>
+						
+			</div>
+    	</div>
+    </div>
+
+</fieldset>
+
+<h3></h3>
+<fieldset>
+    <span class="step-current font-size-20">Step 2 / {{stepstep}}</span>
+    <div class="row">
+		<div class="box-body form-element2">
+			<div class="col-lg-12 col-md-12 p-0 mb-40" style=" border-bottom: 1px dashed #8d99ae;">
+                <h4 class="mt-1 mb-4 font-weight-600">Kewangan & Jaminan Insurans</h4>
+				<h6 class="mt-1 mb-4 font-weight-600">Bahagia A</h6>
+               
+            </div>
+			<div class="row mb-10">
+				<div class="col-lg-4 col-md-12">
+					<div class="form-group">
+                  	    <label>(i)** No Kewangan Jaminan Bank/Insuran</label>
+                        {{form.psmknojaminanbanka}}
+					</div>
+				</div>
+				<div class="col-lg-4 col-md-12">
+					<div class="form-group">
+                  	    <label>Harga</label>
+                            <div class="input-group">
+                                <div class="input-group-prepend bg-secondary border-secondary">
+                                    <span class="input-group-text bg-transparent text-white">RM</span>
+                                </div>
+                                {{form.psmkhargajaminana}}
+                            </div>
+					</div>
+				</div>
+            </div>
+			<div class="row mb-10">
+				<div class="col-lg-4 col-md-12">
+					<div class="form-group">
+						<label>(ii) ** Baki Wang Jaminan Perlaksanaan</label>
+				        <div class="input-group">
+                                <div class="input-group-prepend bg-secondary border-secondary">
+                                    <span class="input-group-text bg-transparent text-white">RM</span>
+                                </div>
+                                 {{form.psmkbakiwangjaminana}}
+                            </div>
+				    </div>
+				</div>
+            </div>
+    	</div>
+    </div>
+
+</fieldset>
+
+<h3></h3>
+<fieldset>
+    <span class="step-current font-size-20">Step 3 / {{stepstep}}</span>
+    <div class="row">
+		<div class="box-body form-element2">
+			<div class="col-lg-12 col-md-12 p-0 mb-40" style=" border-bottom: 1px dashed #8d99ae;">
+                <h4 class="mt-1 mb-4 font-weight-600">Kewangan & Jaminan Insurans</h4>
+				<h6 class="mt-1 mb-4 font-weight-600">Bahagia B</h6>
+               
+            </div>
+			<div class="row mb-10">
+				<div class="col-lg-4 col-md-12">
+					<div class="form-group">
+                  	    <label>(i)** No Kewangan Jaminan Bank/Insuran</label>
+                         {{form.psmknojaminanbankab}}
+					</div>
+				</div>
+				<div class="col-lg-4 col-md-12">
+					<div class="form-group">
+                  	    <label>Harga</label>
+                            <div class="input-group">
+                                <div class="input-group-prepend bg-secondary border-secondary">
+                                    <span class="input-group-text bg-transparent text-white">RM</span>
+                                </div>
+                                 {{form.psmkhargajaminanb}}
+                            </div>
+					</div>
+				</div>
+            </div>
+			<div class="row mb-10">
+				<div class="col-lg-4 col-md-12">
+					<div class="form-group">
+						<label> ** Wang Jaminan Perlaksanaan</label>
+				        <div class="input-group">
+                                <div class="input-group-prepend bg-secondary border-secondary">
+                                    <span class="input-group-text bg-transparent text-white">RM</span>
+                                </div>
+                                {{form.psmkbakiwangjaminanb}}
+                            </div>
+				    </div>
+				</div>
+            </div>
+    	</div>
+    </div>
+
+</fieldset>
+
+
+<h3></h3>
+<fieldset>
+    <span class="step-current font-size-20">Step 4 / {{stepstep}}</span>
+    <div class="row">
+		<div class="box-body form-element2">
+			<div class="col-lg-12 col-md-12 p-0 mb-40" style=" border-bottom: 1px dashed #8d99ae;">
+                <h4 class="mt-1 mb-4 font-weight-600">Kewangan & Jaminan Insurans</h4>
+				<h6 class="mt-1 mb-4 font-weight-600">sambungan ...</h6>
+               
+            </div>
+			<div class="row mb-10">
+				<div class="col-lg-4 col-md-12">
+					<div class="form-group">
+                  	    <label>(ii) ** Tambahan Kos Bon Perlaksanaan</label>
+                       
+						<div class="input-group">
+                                <div class="input-group-prepend bg-secondary border-secondary">
+                                    <span class="input-group-text bg-transparent text-white">RM</span>
+                                </div>
+                                {{form.psmkkosbon}}
+                        </div>
+					</div>
+				</div>
+				<div class="col-lg-4 col-md-12">
+					<div class="form-group">
+                  	    <label>** Baki Kos Bon Perlaksanaan</label>
+                            <div class="input-group">
+                                <div class="input-group-prepend bg-secondary border-secondary">
+                                    <span class="input-group-text bg-transparent text-white">RM</span>
+                                </div>
+                                 {{form.psmkbakikos}}
+                            </div>
+					</div>
+				</div>
+            </div>
+			<div class="row mb-10">
+				<div class="col-lg-4 col-md-12">
+					<div class="form-group">
+						<label>Pegawai</label>
+				            <select name="{{form.psmkpegawaipenguasa.name}}" class="form-control text-dark font-weight-600 custom-select select28" id="">
+                                <option value="Tiada">Tiada</option>
+								{% for row in userlist %}
+                                <option value="{{row.first_name}}">{{row.first_name}}</option>
+                                {% endfor %}
+							</select>
+				    </div>
+				</div>
+				<div class="col-lg-4 col-md-12">
+					<div class="form-group">
+						<label>Jawatan</label>
+				            <select name="{{form.psmkpegawaipenguasa.name}}" class="form-control text-dark font-weight-600 custom-select select28" id="">
+                                <option value="Tiada">Tiada</option>
+								{% for row in userlist %}
+                                <option value="{{row.userprofile.jawatan}}">{{row.userprofile.jawatan}}</option>
+                                {% endfor %}
+							</select>
+				    </div>
+				</div>
+            </div>
+    	</div>
+    </div>
+
+</fieldset>
+
+
+
+
+{% endblock dukumen %}     

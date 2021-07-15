@@ -1,0 +1,228 @@
+{% block dukumen %}
+<h3></h3>
+<fieldset>
+    <span class="step-current font-size-20">Step 1 / {{stepstep}}</span>
+    <div class="row">
+		<div class="box-body form-element2">
+			<div class="col-lg-12 col-md-12 p-0 mb-10" style=" border-bottom: 1px dashed #8d99ae;">
+                <h4 class="mt-1 mb-4 font-weight-600">Maklumat Dokumen Senarai Semakan</h4>
+               <input type="hidden" class="form-control" name="{{form.pskmrksatulink.name}}" value="{{mrksatufecth.id}}"/>
+               <input type="hidden" class="form-control" name="{{form.projekbind.name}}" value="{{mrksatufecth.projekbind.id}}"/>
+            </div>
+			<div class="row">
+				<div class="col-lg-12 mb-15">
+					<h6 class="font-weight-600">Senarai Semakan</h6>
+				</div>
+			</div>
+			<div class="row mb-10">
+                <div class="col-lg-4 col-md-6">
+					<div class="form-group">
+                    	<div class="form-radio form-radio-flat">
+                        	<label class="form-check-label">
+                        		<input type="checkbox" name={{form.ssinden.name}} id="md_checkbox_1" class="chk-col-success" value="checked" {{form.ssinden.value}}><label for="md_checkbox_1"><h5 class="text-dark font-weight-600 font-s">I. Inden/Nota Minta</h5></h5></label>
+                        	</label>
+                   		</div>
+
+                	</div>
+				</div>
+				<div class="col-lg-4 col-md-6">
+					<div class="form-group">
+                    	<div class="form-radio form-radio-flat">
+                        	<label class="form-check-label">
+                        		<input type="checkbox" name={{form.sslsk.name}} id="md_checkbox_2" class="chk-col-success" value="checked" {{form.sslsk.value}}><label for="md_checkbox_2"><h5 class="text-dark font-weight-600 mb-10 font-s">II. Laporan Siap Kerja</h5></label>
+                        	</label>
+                   		</div>
+
+                	</div>
+				</div>
+				<div class="col-lg-4 col-md-6">
+					<div class="form-group">
+                    	<div class="form-radio form-radio-flat">
+                        	<label class="form-check-label">
+                        		<input type="checkbox" name={{form.ssti.name}} id="md_checkbox_3" class="chk-col-success" value="checked" {{form.ssti.value}}><label for="md_checkbox_3"><h5 class="text-dark font-weight-600 mb-10 font-s">III. Tuntutan Invois</h5></label>
+                        	</label>
+                   		</div>
+
+                	</div>
+				</div>			
+			</div>
+
+
+			<div class="row mb-10">
+                <div class="col-lg-4 col-md-6">
+					<div class="form-group">
+                    	<div class="form-radio form-radio-flat">
+                        	<label class="form-check-label">
+                        		<input type="checkbox" name={{form.sssebutharga.name}} id="md_checkbox_4" class="chk-col-success" value="checked" {{form.sssebutharga.value}}><label for="md_checkbox_4"><h5 class="text-dark font-weight-600 mb-10 font-s">IV .Sebutharga/Lantikan Terus</h5></label> 
+                        	</label>
+                   		</div>
+
+                	</div>
+				</div>
+				<div class="col-lg-4 col-md-6">
+					<div class="form-group">
+                    	<div class="form-radio form-radio-flat">
+                        	<label class="form-check-label">
+                        		 <input type="checkbox" name={{form.sspt.name}} id="md_checkbox_5" class="chk-col-success" value="checked" {{form.sspt.value}}><label for="md_checkbox_5"><h5 class="text-dark font-weight-600 mb-10 font-s">V.Penerimaan Tawaran</h5></label>
+                        	</label>
+                   		</div>
+
+                	</div>
+				</div>
+				<div class="col-lg-4 col-md-6">
+					<div class="form-group">
+                    	<div class="form-radio form-radio-flat">
+                        	<label class="form-check-label">
+                        		<input type="checkbox" name={{form.ssjs.name}} id="md_checkbox_6" class="chk-col-success" value="checked" {{form.ssjs.value}}><label for="md_checkbox_6"><h5 class="text-dark font-weight-600 mb-10 font-s">VI. Jadual Sebutarga</h5></label>
+                        	</label>
+                   		</div>
+
+                	</div>
+				</div>			
+			</div>
+
+			<div class="row mb-10">
+                <div class="col-lg-4 col-md-6">
+					<div class="form-group">
+                    	<div class="form-radio form-radio-flat">
+                        	<label class="form-check-label">
+                        		<input type="checkbox" name={{form.sskts.name}} id="md_checkbox_7" class="chk-col-success" value="checked" {{form.sskts.value}}><label for="md_checkbox_7"><h5 class="text-dark font-weight-600 mb-10 font-s">VII. Kertas Taklimat Sebutharga</h5></label>
+                        	</label>
+                   		</div>
+
+                	</div>
+				</div>
+				<div class="col-lg-4 col-md-6">
+					<div class="form-group">
+                    	<div class="form-radio form-radio-flat">
+                        	<label class="form-check-label">
+                        		 <input type="checkbox" name={{form.ssds.name}} id="md_checkbox_8" class="chk-col-success" value="checked" {{form.ssds.value}}><label for="md_checkbox_8"><h5 class="text-dark font-weight-600 mb-10 font-s">VIII. Dokumen Sebutharga</h5></label>
+                        	</label>
+                   		</div>
+
+                	</div>
+				</div>
+				<div class="col-lg-4 col-md-6">
+					<div class="form-group">
+                    	<div class="form-radio form-radio-flat">
+                        	<label class="form-check-label">
+                        		 <input type="checkbox" name={{form.ssplm.name}} id="md_checkbox_9" class="chk-col-success" value="checked" {{form.ssplm.value}}><label for="md_checkbox_9"><h5 class="text-dark font-weight-600 mb-10 font-s">IX. Permohonan Lanjut Masa</h5></label>
+                        	</label>
+                   		</div>
+
+                	</div>
+				</div>			
+			</div>
+
+
+			<div class="row mb-10">
+                <div class="col-lg-4 col-md-6">
+					<div class="form-group">
+                    	<div class="form-radio form-radio-flat">
+                        	<label class="form-check-label">
+                        		<input type="checkbox" name={{form.ssab.name}} id="md_checkbox_10" class="chk-col-success" value="checked" {{form.ssab.value}}><label for="md_checkbox_10"><h5 class="text-dark font-weight-600 mb-10 font-s">X. Salinan Akaun Bank</h5></label>
+                        	</label>
+                   		</div>
+
+                	</div>
+				</div>
+				<div class="col-lg-4 col-md-6">
+					<div class="form-group">
+                    	<div class="form-radio form-radio-flat">
+                        	<label class="form-check-label">
+                        		  <input type="checkbox" name={{form.sscidb.name}} id="md_checkbox_11" class="chk-col-success" value="checked" {{form.sscidb.value}}><label for="md_checkbox_11"><h5 class="text-dark font-weight-600 mb-10 font-s">XI. CIDB Malaysia</h5></label>
+                        	</label>
+                   		</div>
+
+                	</div>
+				</div>
+				<div class="col-lg-4 col-md-6">
+					<div class="form-group">
+                    	<div class="form-radio form-radio-flat">
+                        	<label class="form-check-label">
+                        		 <input type="checkbox" name={{form.sspkk.name}} id="md_checkbox_12" class="chk-col-success" value="checked" {{form.sspkk.value}}><label for="md_checkbox_12"><h5 class="text-dark font-weight-600 mb-10 font-s">XII. PKK</h5></label>
+                        	</label>
+                   		</div>
+
+                	</div>
+				</div>			
+			</div>
+
+			<div class="row mb-10">
+                <div class="col-lg-4 col-md-6">
+					<div class="form-group">
+                    	<div class="form-radio form-radio-flat">
+                        	<label class="form-check-label">
+                        		 <input type="checkbox" name={{form.ssssm.name}} id="md_checkbox_13" class="chk-col-success" value="checked" {{form.ssssm.value}}><label for="md_checkbox_13"><h5 class="text-dark font-weight-600 mb-10 font-s">XIII. SSM</h5></label>
+                        	</label>
+                   		</div>
+
+                	</div>
+				</div>
+				<div class="col-lg-4 col-md-6">
+					<div class="form-group">
+                    	<div class="form-radio form-radio-flat">
+                        	<label class="form-check-label">
+                        		  <input type="checkbox" name={{form.sskk.name}} id="md_checkbox_14" class="chk-col-success" value="checked" {{form.sskk.value}}><label for="md_checkbox_14"><h5 class="text-dark font-weight-600 mb-10 font-s">XIV Kementerian Kewangan</h5></label>
+                        	</label>
+                   		</div>
+
+                	</div>
+				</div>			
+			</div>
+			<div class="row">
+				<div class="col-lg-12 mb-15 mt-15">
+					<h6 class="font-weight-600">Insurans</h6>
+				</div>
+			</div>
+			<div class="row mb-10">
+                <div class="col-lg-12 col-md-6">
+					<div class="form-group">
+                    	<div class="form-radio form-radio-flat">
+                        	<label class="form-check-label">
+                        		  <input type="checkbox" name={{form.ssinsurance.name}} id="md_checkbox_15" class="chk-col-success" value="checked" {{form.ssinsurance.value}}><label class="" for="md_checkbox_15"><h5 class="text-dark font-weight-600 mb-10 font-s">Insuran: Perkeso/Workmen/Public Liability/Kerja</h5></label>
+                        	</label>
+                   		</div>
+
+                	</div>
+				</div>			
+			</div>
+			<div class="row">
+				<div class="col-lg-12 mb-15 mt-15">
+					<h6 class="font-weight-600">Gambar</h6>
+				</div>
+			</div>
+			<div class="row mb-10">
+                <div class="col-lg-12 col-md-6">
+					<div class="form-group">
+                    	<div class="form-radio form-radio-flat">
+                        	<label class="form-check-label">
+                        		 <input type="checkbox" name={{form.ssgambar.name}} id="md_checkbox_16" class="chk-col-success" value="checked" {{form.ssgambar.value}}><label for="md_checkbox_16"><h5 class="text-dark font-weight-600 mb-10 font-s">Gambar</h5></label>
+                        	</label>
+                   		</div>
+
+                	</div>
+				</div>			
+			</div>
+			<div class="row mb-10">
+                <div class="col-lg-4 col-md-6">
+					<div class="form-group">
+						<label>Disediakan oleh</label>
+						 <input type="text" class="form-control text-weight-600 text-dark" value="{{mrksatufecth.projekbind.nosebuthargaid.pegawaiselia.first_name}}" readonly/>
+					</div>
+				</div>
+				<div class="col-lg-4 col-md-6">
+					<div class="form-group">
+						<label>Tarikh</label>
+						 {{form.sstarikh}}
+					</div>
+				</div>			
+			</div>
+
+    	</div>
+    </div>
+
+</fieldset>
+
+
+{% endblock dukumen %}     

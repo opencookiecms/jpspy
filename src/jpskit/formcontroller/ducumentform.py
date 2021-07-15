@@ -260,13 +260,13 @@ class SenaraiSemakanForm(forms.ModelForm):
 class Psmkform(forms.ModelForm):
 
     psmknojaminanbanka = forms.CharField(required=False, widget=forms.TextInput(attrs={'class':'form-control text-dark font-weight-600','type':'text','placeholder':'No Kewangan Jaminan Bank/Insuran'}))
-    psmkhargajaminana = forms.CharField(required=False, widget=forms.TextInput(attrs={'class':'form-control text-dark font-weight-600','type':'text','placeholder':'0.00'}))
-    psmkbakiwangjaminana = forms.CharField(required=False, widget=forms.TextInput(attrs={'class':'form-control text-dark font-weight-600','type':'text','placeholder':'0.00'}))
+    psmkhargajaminana = forms.CharField(required=False, widget=forms.TextInput(attrs={'class':'form-control text-dark font-weight-600 ml-10','type':'text','placeholder':'0.00'}))
+    psmkbakiwangjaminana = forms.CharField(required=False, widget=forms.TextInput(attrs={'class':'form-control text-dark font-weight-600 ml-10','type':'text','placeholder':'0.00'}))
     psmknojaminanbankab = forms.CharField(required=False, widget=forms.TextInput(attrs={'class':'form-control text-dark font-weight-600','type':'text','placeholder':'No Kewangan Jaminan Bank/Insuran'}))
-    psmkhargajaminanb = forms.CharField(required=False, widget=forms.TextInput(attrs={'class':'form-control text-dark font-weight-600','type':'text','placeholder':'0.00'}))
-    psmkbakiwangjaminanb = forms.CharField(required=False, widget=forms.TextInput(attrs={'class':'form-control text-dark font-weight-600','type':'text','placeholder':'0.00'}))
-    psmkkosbon = forms.CharField(required=False, widget=forms.TextInput(attrs={'class':'form-control text-dark font-weight-600','type':'text','placeholder':'0.00'}))
-    psmkbakikos = forms.CharField(required=False, widget=forms.TextInput(attrs={'class':'form-control text-dark font-weight-600','type':'text','placeholder':'0.00'}))
+    psmkhargajaminanb = forms.CharField(required=False, widget=forms.TextInput(attrs={'class':'form-control text-dark font-weight-600 ml-10','type':'text','placeholder':'0.00'}))
+    psmkbakiwangjaminanb = forms.CharField(required=False, widget=forms.TextInput(attrs={'class':'form-control text-dark font-weight-600 ml-10','type':'text','placeholder':'0.00'}))
+    psmkkosbon = forms.CharField(required=False, widget=forms.TextInput(attrs={'class':'form-control text-dark font-weight-600 ml-10','type':'text','placeholder':'0.00'}))
+    psmkbakikos = forms.CharField(required=False, widget=forms.TextInput(attrs={'class':'form-control text-dark font-weight-600 ml-10','type':'text','placeholder':'0.00'}))
 
 
     class Meta:
