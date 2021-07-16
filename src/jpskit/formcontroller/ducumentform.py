@@ -363,7 +363,7 @@ class SuratMRKForm(forms.ModelForm):
     smrktarikh  = forms.DateField(input_formats=settings.DATE_INPUT_FORMATS, required=False,widget=forms.DateInput(attrs={'class':'form-control text-dark font-weight-600 fc-datepicker','placeholder':'MM/DD/YYYY'}))
     smrkjenisborang  = forms.ChoiceField(choices=jenisborang, required=False, widget=forms.Select(attrs={'class':'form-control text-dark font-weight-600 custom-select select28 ','placholder':'baru'}))
     smrknamarujukan  = forms.CharField(required=False, widget=forms.TextInput(attrs={'class':'form-control text-dark font-weight-600','type':'text','placeholder':'Nama Rujukan'}))
-    smkralamatrujukan  = forms.CharField(required=False, widget=forms.Textarea(attrs={'class':'form-control text-dark font-weight-600','type':'text','placeholder':'Alamat Rujukan','rows':'5'}))
+    smkralamatrujukan  = forms.CharField(required=False, widget=forms.Textarea(attrs={'class':'form-control text-dark font-weight-600','type':'text','placeholder':'Alamat Rujukan','rows':'2'}))
     smrkjawatan = forms.ChoiceField(choices=jawatan, required=False, widget=forms.Select(attrs={'class':'form-control text-dark font-weight-600 custom-select select28 ','placholder':'baru'}))
 
 
