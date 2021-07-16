@@ -15,7 +15,7 @@ class Dkursusform(forms.ModelForm):
     )
 
     
-    tajukkursus = forms.CharField(required=False, widget=forms.TextInput(attrs={'class':'form-control text-dark font-weight-600','type':'text','placeholder':'Tajuk Kursus'}))
+    tajukkursus = forms.CharField(required=False, widget=forms.Textarea(attrs={'class':'form-control text-dark font-weight-600','type':'text','placeholder':'Tajuk Kursus','rows':'3'}))
     tarikhmula = forms.DateField(input_formats=settings.DATE_INPUT_FORMATS, required=False,widget=forms.DateInput(attrs={'class':'form-control text-dark font-weight-600 fc-datepicker','placeholder':'MM/DD/YYYY'}))
     tarikhakhir = forms.DateField(input_formats=settings.DATE_INPUT_FORMATS, required=False,widget=forms.DateInput(attrs={'class':'form-control  text-dark font-weight-600 fc-datepicker','placeholder':'MM/DD/YYYY'}))
     tempat = forms.CharField(required=False, widget=forms.Textarea(attrs={'class':'form-control text-dark font-weight-600','type':'text','placeholder':'Tempat Kursus','rows':'3'}))

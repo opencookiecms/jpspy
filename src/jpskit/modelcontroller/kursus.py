@@ -2,7 +2,7 @@ from django.db import models
 from django.contrib.auth.models import User
 
 class Course(models.Model):
-    tajukkursus = models.CharField(max_length=300, null=True, blank=True)
+    tajukkursus = models.CharField(max_length=500, null=True, blank=True)
     tarikhmula =  models.DateField(null=True, blank=True)
     tarikhakhir =  models.DateField(null=True, blank=True)
     tempat = models.CharField(max_length=150, null=True, blank=True)
