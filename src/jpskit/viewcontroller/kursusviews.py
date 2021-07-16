@@ -11,6 +11,11 @@ from django.db.models import Count
 
 
 def kursusdashboard(request):
+
+    data = {
+        'kursus':kursus.Course.objects.all(),
+    
+    }
     return render(request, 'pages/kursusdashboard.html')
 
 

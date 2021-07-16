@@ -45,7 +45,7 @@
                     </div>
                 </div>
                 <div class="signup-form-conent">
-                    <form class="form" action='{% url 'noperolehan/daftar' %}' method="POST">
+                    <form class="form" action='{% url 'kursus/daftar' %}' method="POST">
 					{% csrf_token %}
 					    <div class="row pl-55 pr-55 pt-15">
 							<div class="box-body form-element2">
@@ -54,7 +54,7 @@
 								
 								</div>
 								<div class="row mb-10">
-									<div class="col-lg-6 col-md-12">
+									<div class="col-lg-8 col-md-12">
 										<div class="form-group">
 											<label>Tajuk Kursus</label>
 											{{form.tajukkursus}}
@@ -74,7 +74,7 @@
 											 {{form.tarikhakhir}}
 										</div>
 									</div>
-									<div class="col-lg-1 col-md-6">
+									<div class="col-lg-2 col-md-6">
 										<div class="form-group">
 											<label>Hari</label>
 											 {{form.hari}}
