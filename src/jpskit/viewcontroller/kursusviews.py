@@ -13,10 +13,10 @@ from django.db.models import Count
 def kursusdashboard(request):
 
     data = {
-        'kursus':kursus.Course.objects.all(),
-    
+        'total':kursus.Course.objects.all().count(),
+        'kursus':kursus.Course.objects.all(), 
     }
-    return render(request, 'pages/kursusdashboard.html')
+    return render(request, 'pages/kursusdashboard.html',data)
 
 
 def kursusdaftar(request):
