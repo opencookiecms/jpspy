@@ -1,128 +1,70 @@
-{% extends "based/based.html" %}
-{% block content %}
 
+  {% extends "based/based.html" %}
+  {% block content %}
+
+  <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
 	  <div class="container-full">
-		<!-- Content Header (Page header) -->	  
-		<div class="content-header">
-			<div class="d-flex align-items-center">
-				<div class="mr-auto">
-					<h3 class="page-title">Kursus Dashboard</h3>
-					<div class="d-inline-block align-items-center">
-						<nav>
-							<ol class="breadcrumb">
-								<li class="breadcrumb-item"><a href="#"><i class="mdi mdi-home-outline"></i></a></li>
-								<li class="breadcrumb-item" aria-current="page">Kursus</li>
-								<li class="breadcrumb-item active" aria-current="page">Dashboard</li>
-							</ol>
-						</nav>
-					</div>
-				</div>
-				
-			</div>
-		</div>
-		
-
 		<!-- Main content -->
 		<section class="content">
-		<div class="row">
-					<div class="col-12 col-xl-12">
-				<div class="box">		
-			
-					<div class="box-body">						
-						<div class="px-10 py-30 text-dark">
-							<h3 class="px-10 mb-15 font-weight-700">Kursus Analisis</h3>
-						   <ul class="flexbox flex-justified">
-							<li class="px-10">
-							  <h3 class="mb-1 text-bold">{{total}}</h3>
-							  <h6>Kursus</h6>
-							</li>
-
-							<li class="br-1 bl-2 px-10">
-							   <h3 class="mb-1 text-bold">20</h3>
-							  <h6>Aktif</h6>
-							</li>
-
-							<li class="px-10 ">
-							<h3 class="mb-1 text-bold">159</h3>
-							  <h6>Tidak Aktif</h6>
-							</li>
-						  </ul>						
-						</div>						
-										
-			
-					</div>
-					
-				</div>
-			</div>  
-		</div>
-		  <div class="row">
-			<div class="col-xl-12 col-lg-12 col-12">
-				<div class="box">
-					<div class="box-header with-border">						
-						<h4 class="box-title">Kontraktor</h4>
-						<h6 class="box-subtitle">CSV, Excel, PDF & Print</h6>
-					</div>
-					<div class="box-body">						
-						<div class="table-responsive">
-
-							<table id="example" class="table table-lg invoice-archive">
-								<thead>
-									<tr>
-										<th class="border-bottom-0">Bil#</th>
-										<th class="border-bottom-0">Gambar</th>
-										<th class="border-bottom-0">Nama Syarikat</th>
-										<th class="border-bottom-0">Nama Pengurus</th>
-										<th class="border-bottom-0">No Telefon</th>
-										<th class="border-bottom-0">Status</th>
-										<th class="text-center border-bottom-0">Tindakan</th>
-									</tr>
-								</thead>
-						        <tbody>
-                                {% for row in kontraktor %}
-													<tr>
-														<td>{{forloop.counter}}</td>
-														<td>gambar</td>
-														<td><a href="{% url 'kontraktor/profile' row.id %}">{{row.konNama}}</a></td>
-														<td>{{row.konPengurus}}</td>
-														<td class="font-weight-bold">{{row.konNoTelPengurus}}</td>
-														<td>
-                                                            
-                                                            {% if dateend < row.sijilJPSTamat %}
-                                                            <span class="badge badge-pill badge-success">Berdaftar</span>
-
-                                                            {% else %}
-                                                            <span class="badge badge-pill badge-danger">Tidak Berdaftar</span>
-                                                            {% endif %}
-														</td>
-															<td class="text-center">
-											<div class="list-icons d-inline-flex">
-												<a href="{% url 'kontraktor/profile' row.id %}" class="list-icons-item mr-10"><i class="fa fa-eye"></i></a>
-												<div class="list-icons-item dropdown">
-													<a href="#" class="list-icons-item dropdown-toggle" data-toggle="dropdown"><i class="fa fa-file-text"></i></a>
-													<div class="dropdown-menu dropdown-menu-right">
-												
-														<div class="dropdown-divider"></div>
-														<a href="#" class="dropdown-item"><i class="fa fa-pencil"></i> Edit</a>
-														<a href="#" class="dropdown-item"><i class="fa fa-remove"></i> Remove</a>
-													</div>
-												</div>
-											</div>
-										</td>
-													</tr>
-												{% endfor %}
-											</tbody>
-							</table>
-
+			<div class="row mb-15">
+				<div class="col-12">
+					<div class="box-transparent">
+						<div class="box-body pr-0  pl-15 py-0">							
+							<div class="row align-items-center">
+								<div class="col-12 col-lg-8">
+									<h1 class="mb-15 font-size-40 font-weight-800">Kursus Dashboard!</h1>
+								</div>
+								
+							</div>
 						</div>
 					</div>
 				</div>
 			</div>
-		
-		  </div>
+			<div class="row">
+				<div class="col-12">														
+					<div class="box no-shadow mb-0 bg-transparent">
+						<div class="box-header no-border px-0">
+							<h4 class="box-title">Kursus Semasa</h4>	
+							<ul class="box-controls pull-right d-md-flex d-none">
+							  <li>
+								<button class="btn btn-primary-light px-10">View All</button>
+							  </li>
+							</ul>
+						</div>
+					</div>
+				</div>
+                {% for k in kursus %}
+				<div class="col-lg-3 col-md-6 col-12">
+					<div class="box pull-up">
+						<div class="box-body">	
+							<div class="bg-primary rounded">
+								<h5 class="text-white p-10">It & software</h5>
+							</div>
+							<p class="mb-0 font-size-18">{{k.tajukkursus}}</p>
+							<p class="mb-0 font-size-18">Course A-Z</p>
+							<div class="d-flex justify-content-between mt-30">
+								<div>
+									<p class="mb-0 text-fade">Jumlah Peserta</p>
+									<p class="mb-0">Maical Doe</p>
+								</div>
+								<div>
+									<p class="mb-5 font-weight-600">55%</p>
+									<div class="progress progress-sm mb-0 w-100">
+										<div class="progress-bar progress-bar-primary" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 55%">
+										</div>
+									</div>
+								</div>
+							</div>								
+						</div>					
+					</div>
+				</div>
+                {% endfor %}
+			</div>
+			
 		</section>
 		<!-- /.content -->
 	  </div>
   </div>
   <!-- /.content-wrapper -->
-{% endblock content %}
+  {% endblock content %}
