@@ -396,7 +396,7 @@ class SuratKhasForm(forms.ModelForm):
 
     khasrujukantuan = forms.CharField(required=False, widget=forms.TextInput(attrs={'class':'form-control text-dark font-weight-600','type':'text','placeholder':'Rujukan Tuan'}))
     khasnamarujukan = forms.CharField(required=False, widget=forms.TextInput(attrs={'class':'form-control text-dark font-weight-600','type':'text','placeholder':'Rujukan Tuan'}))
-    khasalamatrujukan = forms.CharField(required=False, widget=forms.Textarea(attrs={'class':'form-control text-dark font-weight-600','type':'text','placeholder':'Alamat Rujukan','rows':'5'}))
+    khasalamatrujukan = forms.CharField(required=False, widget=forms.Textarea(attrs={'class':'form-control text-dark font-weight-600','type':'text','placeholder':'Alamat Rujukan','rows':'2'}))
     khasjawatan = forms.ChoiceField(choices=jawatan, required=False, widget=forms.Select(attrs={'class':'form-control text-dark font-weight-600 custom-select select28 ','placholder':'baru'}))
 
     class Meta:
@@ -424,10 +424,10 @@ class SuratBonForm(forms.ModelForm):
     )
 
     bonkepada = forms.CharField(required=False, widget=forms.TextInput(attrs={'class':'form-control text-dark font-weight-600','type':'text','placeholder':'Rujukan Tuan'}))
-    bonalamatsatu = forms.CharField(required=False, widget=forms.Textarea(attrs={'class':'form-control text-dark font-weight-600','type':'text','placeholder':'Alamat Rujukan','rows':'5'}))
+    bonalamatsatu = forms.CharField(required=False, widget=forms.Textarea(attrs={'class':'form-control text-dark font-weight-600','type':'text','placeholder':'Alamat Rujukan','rows':'2'}))
     bonmelalui = forms.CharField(required=False, widget=forms.TextInput(attrs={'class':'form-control text-dark font-weight-600','type':'text','placeholder':'Melalui'}))
-    bonalamatdua = forms.CharField(required=False, widget=forms.Textarea(attrs={'class':'form-control text-dark font-weight-600','type':'text','placeholder':'Alamat Rujukan','rows':'5'}))
-    bonwangjaminan = forms.CharField(required=False, widget=forms.TextInput(attrs={'class':'form-control text-dark font-weight-600','type':'text','placeholder':'0.00'}))
+    bonalamatdua = forms.CharField(required=False, widget=forms.Textarea(attrs={'class':'form-control text-dark font-weight-600','type':'text','placeholder':'Alamat Rujukan','rows':'2'}))
+    bonwangjaminan = forms.CharField(required=False, widget=forms.TextInput(attrs={'class':'form-control text-dark font-weight-600 ml-10','type':'text','placeholder':'0.00'}))
     bonjawatan = forms.ChoiceField(choices=jawatan, required=False, widget=forms.Select(attrs={'class':'form-control text-dark font-weight-600 custom-select select28 ','placholder':'baru'}))
 
 

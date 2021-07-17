@@ -12,46 +12,38 @@
 			<div class="row mb-10">
 				<div class="col-lg-4 col-md-12">
 					<div class="form-group">
-                  	    <label>Rujukan Tuan</label>
+                  	    <label>Kepada</label>
                         <input type="hidden" class="form-control" name="{{form.projekbind.name}}" value="{{mrksatufecth.projekbind.id }}"/>
-                        <input type="hidden" class="form-control" name="{{form.khasmrksatulink.name}}" value="{{mrksatufecth.id}}"/> 
-                         {{form.khasrujukantuan}}
+                        <input type="hidden" class="form-control" name="{{form.bonmrksatulink.name}}" value="{{mrksatufecth.id}}"/> 
+                         {{form.bonkepada}}
 					  
 		
 					</div>
-				</div>
-                <div class="col-lg-4 col-md-12">
-					<div class="form-group">
-						<label>Rujukan Kami</label>
-				        <input type="text" value="{{mrksatufecth.projekbind.nosebuthargaid}}" class="form-control text-dark font-weight-600" readonly placeholder="Rujukan Kami">
-				    </div>
 				</div>
             </div>
 			<div class="row mb-10">
 
             </div>
             <div class="row mb-10">
-				<div class="col-lg-6 col-md-6">
+				<div class="col-lg-4 col-md-6">
 					<div class="form-group">
-						<label>Nama Kontraktor</label>
-						 <input type="text" value="{{mrksatufecth.mrksatukontraktor.konNama}}" class="form-control text-dark font-weight-600" readonly>
+						<label>Alamat</label>
+						 {{form.bonalamatsatu}}
 					</div>
 				</div>
 				
 			</div>
 			<div class="row mb-10">
-				<div class="col-lg-6 col-md-6">
+				<div class="col-lg-4 col-md-6">
 					<div class="form-group">
 						<label>Nama Rujukan</label>
-						  {{form.khasnamarujukan}}
+						  <input type="text" value="{{mrksatufecth.projekbind.nosebuthargaid}}" class="form-control font-weight-600 text-dark" readonly>
 					</div>
-				</div>					
-			</div>
-            <div class="row mb-10">
-				<div class="col-lg-6 col-md-6">
+				</div>
+                <div class="col-lg-4 col-md-6">
 					<div class="form-group">
-						<label>Alamat Rujukan</label>
-						   {{form.khasalamatrujukan}}
+						<label>Nama Rujukan</label>
+						  <input type="text" value="{{mrksatufecth.projekbind.nosebuthargaid}}" class="form-control font-weight-600 text-dark" readonly>
 					</div>
 				</div>					
 			</div>
@@ -70,30 +62,60 @@
             </div>
 
 		    <div class="row mb-10">
-				<div class="col-lg-3 col-md-6">
+				<div class="col-lg-4 col-md-6">
 					<div class="form-group">
-						<label>Gred</label>
-						 <input type="text" value="{{mrksatufecth.mrksatugred}}" class="form-control text-dark font-weight-600"  readonly>
+						<label>Nama Kontraktor</label>
+						 <input type="text" value="{{mrksatufecth.mrksatukontraktor.konNama}}" class="form-control text-dark font-weight-600" readonly>
 					</div>
-				</div>	
-                <div class="col-lg-3 col-md-6">
+				</div>
+                <div class="col-lg-4 col-md-6">
 					<div class="form-group">
-						<label>Kategori</label>
-						 <input type="text" value="{{mrksatufecth.mrksatukategori}}" class="form-control text-dark font-weight-600"  readonly>
+						<label>No. Kontraktor</label>
+						<input type="text" value="{{mrksatufecth.mrksatukontraktor.sijilPPKNoPendaftaran}}" class="form-control text-dark font-weight-600" readonly>
 					</div>
-				</div>	
-                <div class="col-lg-3 col-md-6">
-					<div class="form-group">
-						<label>Pengkhususan</label>
-						  <input type="text" value="{{mrksatufecth.mrksatupengkhususan}}" class="form-control text-dark font-weight-600"  readonly>
-					</div>
-				</div>			
+				</div>				
 			</div>
+
+
+		    <div class="row mb-10">
+				<div class="col-lg-4 col-md-6">
+					<div class="form-group">
+						<label>Melalui</label>
+						 {{form.bonmelalui}}
+					</div>
+				</div>				
+			</div>
+
+		    <div class="row mb-10">
+
+                <div class="col-lg-4 col-md-6">
+					<div class="form-group">
+						<label>Alamat</label>
+						 {{form.bonalamatdua}}
+					</div>
+				</div>				
+			</div>
+            
+
+		    <div class="row mb-10">
+				<div class="col-lg-4 col-md-6">
+					<div class="form-group">
+						<label>Wang Jaminan Perlaksanaan</label>
+							<div class="input-group">
+                                <div class="input-group-prepend bg-secondary border-secondary">
+                                    <span class="input-group-text bg-transparent text-white">RM</span>
+                                </div>
+                                 {{form.bonwangjaminan}}
+                            </div>
+					</div>
+				</div>				
+			</div>
+
             <div class="row mb-10">
 				<div class="col-lg-3 col-md-6">
 					<div class="form-group">
 						<label>Pegawai Penguasa</label>
-						    <select name="{{form.khaspegawai.name}}" class="form-control text-dark font-weight-600 custom-select select28" id="">  
+						    <select name="{{form.bonpegawai.name}}" class="form-control text-dark font-weight-600 custom-select select28" id="">  
                                 <option value="Tiada">Tiada</option>
                                 {% for row in userlist %}
                                 <option value="{{row.first_name}}">{{row.first_name}}</option>
@@ -104,7 +126,7 @@
                 <div class="col-lg-3 col-md-6">
 					<div class="form-group">
 						<label>Jawatan</label>
-						  {{form.khasjawatan}}
+						   {{form.bonjawatan}}
 					</div>
 				</div>					
 			</div>

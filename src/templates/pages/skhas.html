@@ -1,5 +1,5 @@
 {% extends 'based/based.html' %}
-{% block content %}
+  {% block content %}
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
 	  <div class="container-full">
@@ -7,13 +7,13 @@
 		<div class="content-header">
 			<div class="d-flex align-items-center">
 				<div class="mr-auto">
-					<h3 class="page-title">Surat Kebenaran Khas (Permohonan Pengkhususan)</h3>
+					<h3 class="page-title mb-15 pl-15 font-size-40 font-weight-800">Surat Kebenaran Khas (Permohonan Pengkhususan)</h3>
 					<div class="d-inline-block align-items-center">
 						<nav>
-							<ol class="breadcrumb">
+							<ol class="breadcrumb pl-15">
 								<li class="breadcrumb-item"><a href="#"><i class="mdi mdi-home-outline"></i></a></li>
-								<li class="breadcrumb-item" aria-current="page">Borang</li>
-								<li class="breadcrumb-item active" aria-current="page">No perolehan</li>
+								<li class="breadcrumb-item" aria-current="page">Dokumen</li>
+								<li class="breadcrumb-item active" aria-current="page">SKHAS</li>
 							</ol>
 						</nav>
 					</div>
@@ -24,216 +24,44 @@
 
 		<!-- Main content -->
 		<section class="content">
-			<div class="row">			 
-               
-				<div class="col-lg-9 col-12">
-                	<form class="form" action='{% url 'dokumen/skhas' projekid=mrksatufecth.projekbind.id   %}' method="POST">
-					  <div class="box">
-				
-						<!-- /.box-header -->
-					
-                          {% csrf_token %}
-							<div class="box-body">
-							<h4 class="box-title text-primary"><i class="ti-user mr-15"></i>Surat Khas</h4>
-							<hr class="my-15">
 
-                            <div class="row">
-                                <div class="col-md-12 tl">
-                                    <div class="form-group row">
-                                    <label class="col-sm-2 col-form-label"><h5 class="text-secondary font-weight-500 mb-2">Rujukan Tuan</h5></label>
-                                    <div class="col-sm-6">
-                                    <input type="hidden" class="form-control" name="{{form.projekbind.name}}" value="{{mrksatufecth.projekbind.id }}"/>
-                                    <input type="hidden" class="form-control" name="{{form.khasmrksatulink.name}}" value="{{mrksatufecth.id}}"/> 
-                                        {{form.khasrujukantuan}}
-                                    </div>
-                                    </div>
-                                </div>
-                                </div>
-                                <div class="row">
-                                <div class="col-md-12 tl">
-                                    <div class="form-group row">
-                                    <label class="col-sm-2 col-form-label"><h5 class="text-secondary font-weight-500 mb-2">Rujukan Kami</h5></label>
-                                    <div class="col-sm-6">
-                                    <input type="text" value="{{mrksatufecth.projekbind}}" class="form-control ts" readonly>
-                                    </div>
-                                    </div>
-                                </div>
-                                </div>
-                                        <div class="row">
-                                <div class="col-md-12 tl">
-                                    <div class="form-group row">
-                                    <label class="col-sm-2 col-form-label"><h5 class="text-secondary font-weight-500 mb-2">No Sebutharga</h5></label>
-                                    <div class="col-sm-6">
-                                        <input type="text" value="{{mrksatufecth.projekbind}}" class="form-control ts" readonly>
-                                    
-                                    </div>
-                                    </div>
-                                </div>
-                                </div>
-                                <div class="row">
-                                <div class="col-md-12 tl">
-                                    <div class="form-group row">
-                                    <label class="col-sm-2 col-form-label"><h5 class="text-secondary font-weight-500 mb-2">Nama Kontraktor</h5></label>
-                                    <div class="col-sm-6">
-                                    <input type="text" value="{{mrksatufecth.mrksatukontraktor.konNama}}" class="form-control ts" readonly>
-                                    </div>
-                                    </div>
-                                </div>
-                                </div>
-                            <div class="row">
-                                <div class="col-md-12 tl">
-                                    <div class="form-group row">
-                                    <label class="col-sm-2 col-form-label"><h5 class="text-secondary font-weight-500 mb-2">Nama Rujukan</h5></label>
-                                    <div class="col-sm-7">
-                                    {{form.khasnamarujukan}}
-                                    </div>
-                                    </div>
-                                </div>
-                                </div>
-
-                                <div class="row">
-                                <div class="col-md-12 tl">
-                                    <div class="form-group row">
-                                    <label class="col-sm-2 col-form-label"><h5 class="text-secondary font-weight-500 mb-2">Alamat Rujukan</h5></label>
-                                    <div class="col-sm-7">
-                                    {{form.khasalamatrujukan}}
-                                    </div>
-                                    </div>
-                                </div>
-                                </div>
-                                <div class="row">
-                                <div class="col-md-12 tl">
-                                    <div class="form-group row">
-                                    <label class="col-sm-2 col-form-label"><h5 class="text-secondary font-weight-500 mb-2">Tajuk Projek</h5></label>
-                                    <div class="col-sm-6">
-                                    <textarea rows="5" value="" type="text" class="form-control ts"  readonly>{{projek.tajukkerja}}</textarea>
-                                    </div>
-                                    </div>
-                                </div>
-                                </div>
-                                <div class="row">
-                                <div class="col-md-12">
-                                    <div class="form-group row">
-
-                                    <label class="col-sm-2 col-form-label"><h5 class="text-secondary font-weight-500 mb-2">Gred</h5></label>
-                                    <div class="col-sm-2">
-                                        <input type="text" value="{{mrksatufecth.mrksatugred}}" class="form-control ts"  readonly>
-                                    
-                                    </div>
-                                    <label class="col-sm-2 col-form-label"><h5 class="text-secondary font-weight-500 mb-2">Kategori</h5></label>
-                                    <div class="col-sm-2">
-                                        <input type="text" value="{{mrksatufecth.mrksatukategori}}" class="form-control ts"  readonly>
-                                    
-                                    </div>
-                                    <label class="col-sm-2 col-form-label"><h5 class="text-secondary font-weight-500 mb-2">Pengkhususan</h5></label>
-                                    <div class="col-sm-2">
-                                        <input type="text" value="{{mrksatufecth.mrksatupengkhususan}}" class="form-control ts"  readonly>
-                                    </div>
-                                    </div>
-                                </div>
-                                </div>
-
-                                <div class="row">
-                                <div class="col-md-12 tl">
-                                    <div class="form-group row">
-
-                                    <label class="col-sm-2 col-form-label"><h5 class="text-secondary font-weight-500 mb-2">Pegawai Penguasa</h5></label>
-                                    <div class="col-sm-3">
-                                           <select name="{{form.khaspegawai.name}}" class="form-control custom-select select28" id="">
-                                        <option value="Tiada">Tiada</option>
-										
-                                        {% for row in userlist %}
-                                        <option value="{{row.first_name}}">{{row.first_name}}</option>
-                                        {% endfor %}
-
-                                    </select>
-                                    </div>
-                                    <label class="col-sm-1 col-form-label"><h5 class="text-secondary font-weight-500 mb-2">Jawatan</h5></label>
-                                    <div class="col-sm-2">
-                                    {{form.khasjawatan}}
-                                    </div>
-                                    </div>
-                                </div>
-                                </div>
-                                <div class="row">
-                                <div class="col-md-12">
-                                    <div class="form-group row">
-                                        <div class="col-sm-3">
-                                                <a class="btn btn-dark mr-2 btn-rounded" target="_blank" href="<?php echo site_url('report/Report_Khas01/'.$get_detail[0]->projek_id)?>">Surat Khas 01</a>
-                                        </div>
-                                        <div class="col-sm-2">
-                                                <h5>Jenis Surat Khas 01</h5>
-                                        </div>
-                                    </div>
-                                </div>
-                                </div>
-                                <div class="row">
-                                <div class="col-md-12">
-                                    <div class="form-group row">
-                                        <div class="col-sm-3">
-                                                <a class="btn btn-dark mr-2 btn-rounded" target="_blank" href="<?php echo site_url('report/report_khas02/'.$get_detail[0]->projek_id)?>">Surat Khas 02</a>
-                                        </div>
-                                        <div class="col-sm-2">
-                                                <h5>Jenis Surat Khas 02</h5>
-                                        </div>
-                                    </div>
-                                </div>
-                                </div>
-                                            
-
-              
-			
-                    
-						    </div>
-							<!-- /.box-body -->
-							<div class="box-footer">
-								<button type="button" class="btn btn-rounded btn-warning btn-outline mr-1">
-								  <i class="ti-trash"></i> Cancel
-								</button>
-								<button type="submit"  class="btn btn-rounded btn-primary btn-outline">
-								  <i class="ti-save-alt"></i> Save
-								</button>
-							</div>  
-					
-					  </div>
-					  <!-- /.box -->	
-                          	</form>		
-				</div>  
-                               <div class="col-lg-3">
-                    	  <div class="box">
-					<div class="box-header with-border">
-					  <h4 class="box-title">Labels</h4>
-					  <ul class="box-controls pull-right">
-						<li><a class="box-btn-slide" href="#"></a></li>	
-					  </ul>
-					</div>
-					<div class="box-body no-padding mailbox-nav">
-					  <ul class="nav nav-pills flex-column">
-						<li class="nav-item"><a class="nav-link" href="{% url 'dokumen/mrksatu' projekid=mrksatufecth.projekbind.id  %}"><i class="fa fa-folder-o text-dark"></i>MRK 01</a></li>
-						<li class="nav-item"><a class="nav-link" href="{% url 'dokumen/mrkdua' projekid=mrksatufecth.projekbind.id  %}"><i class="fa fa-folder-o text-dark"></i> MRK 02</a></li>
-						<li class="nav-item"><a class="nav-link" href="{% url 'dokumen/lsk' projekid=mrksatufecth.projekbind.id  %}"><i class="fa fa-folder-o text-dark"></i> Laporan Siap Kerja</a></li>
-                        <li class="nav-item"><a class="nav-link" href="{% url 'dokumen/mrktiga' projekid=mrksatufecth.projekbind.id  %}"><i class="fa fa-folder-o text-dark"></i> MRK 03</a></li>
-						<li class="nav-item"><a class="nav-link" href="{% url 'dokumen/psk' projekid=mrksatufecth.projekbind.id  %}"><i class="fa fa-folder-o text-dark"></i>Perakuan Siap Kerja</a></li>
-						<li class="nav-item"><a class="nav-link" href="{% url 'dokumen/senaraisemakan' projekid=mrksatufecth.projekbind.id  %}"><i class="fa fa-folder-o text-dark "></i> Senarai Semakan</a></li>
-                        <li class="nav-item"><a class="nav-link" href="{% url 'dokumen/psmk' projekid=mrksatufecth.projekbind.id  %}"><i class="fa fa-folder-o"></i>Perakuan Siap Membaiki Kecacatan</a></li>
-						<li class="nav-item"><a class="nav-link" href="{% url 'dokumen/jaminanbank' projekid=mrksatufecth.projekbind.id  %}"><i class="fa fa-folder-o text-dark"></i>Pelepasan Jaminan Bank</a></li>
-						<li class="nav-item"><a class="nav-link" href="{% url 'dokumen/ppwjp' projekid=mrksatufecth.projekbind.id  %}"><i class="fa fa-folder-o text-dark"></i>Perakuan Pemulangan WJP</a></li>
-                        <li class="nav-item"><a class="nav-link" href="{% url 'dokumen/smrk' projekid=mrksatufecth.projekbind.id  %}"><i class="fa fa-folder-o text-dark"></i> Surat Maklumat Rekod Kerja</a></li>
-						<li class="nav-item"><a class="nav-link aktif" href="{% url 'dokumen/skhas' projekid=mrksatufecth.projekbind.id  %}"><i class="fa fa-folder-open-o text-dark"></i> Surat Kebenaran Khas</a></li>
-						<li class="nav-item"><a class="nav-link" href="{% url 'dokumen/suratbon' projekid=mrksatufecth.projekbind.id  %}"><i class="fa fa-folder-o text-dark"></i>Surat Pelepasan Bon Jaminan Perlaksanaan</a></li>
-					  </ul>
-					</div>
-					<!-- /.box-body -->
-				  </div>
-                
-
+		  <!-- vertical wizard -->
+		  <div class="box box-transparent">
+			<div class="box-header with-border">
+			  <h4 class="box-title">Borang Surat Kebenaran Khas </h4>
+			  <h6 class="box-subtitle">You can find the <a href="http://www.jquery-steps.com" target="_blank">offical website</a></h6>
+			</div>
+			<!-- /.box-header -->
+            <div class="signup-content">
+                <div class="signup-desc">
+                    <div class="signup-desc-content">
+                      
+                        <p class="title">Tajuk Kerja</p>
+                        <p class="desc">
+                            {{projek.tajukkerja}}</br>
+							<h4 class="font-weight-600 mt-10">{{mrksatufecth.projekbind.nosebuthargaid}}</h4>
+                        </p>
+                        <img src="images/signup-img.jpg" alt="" class="signup-img">
+                    </div>
                 </div>
-		    </div>
-        
-	
+                <div class="signup-form-conent">
+                    <form action='{% url 'dokumen/skhas' projekid=mrksatufecth.projekbind.id  %}' method="POST" id="signup-form" class="signup-form" enctype="multipart/form-data">
+					  {% csrf_token %}
+					   {% block dukumen %}
+					    {% include 'split/skhassplit.html' %}
+					   {% endblock dukumen %}
+                    </form>
+                </div>
+            </div>
+			<!-- /.box-body -->
+		  </div>
+		  <!-- /.box -->
+		  <!-- /.box -->
+
 		</section>
 		<!-- /.content -->
 	  </div>
   </div>
   <!-- /.content-wrapper -->
-  {% endblock content %}
+{% endblock content %}
+  
