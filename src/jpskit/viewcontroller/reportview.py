@@ -1,5 +1,6 @@
 """pip uninstall pdfminer" and "pip uninstall pdfminer.six".
-Then all clear, "pip install pdfminer.six"."""
+Then all clear, "pip install pdfminer.six".
+https://www.bedjango.com/blog/how-generate-pdf-django-weasyprint/"""
 
 from django.shortcuts import render, get_list_or_404, redirect, reverse
 from django.core.files.storage import FileSystemStorage
@@ -34,6 +35,10 @@ from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
 from django.db.models import Q
 from django.db.models import Count
+
+from django.views.generic import View
+from ..utils import pdf_redering
+from django.template.loader import get_template
 
 
 @login_required(login_url='login')
@@ -893,6 +898,25 @@ def report_by_filter(request):
     
     return render(request, 'pages/laporan_filter.html',context)
     
+
+
+
+#anohter methord to render the pdf
+
+class kontraktoreport(View):
+
+    def get(self, request, *arg, **kwargs):
+
+        data = {
+            'kon':kontraktor.Kontraktor.objects.all(),
+        }
+
+        pdf = pdf_redering('htmlprint/kontraktor.html',data)
+
+        return HttpResponse(pdf, content_type='application/pdf')
+
+
+
     
     
     

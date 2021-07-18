@@ -71,6 +71,7 @@ urlpatterns = [
 
     path('laporan/smrk-01/<uuid:projekid>', reportview.pdfsmrksatu, name="laporan/smrk-01"),
     path('laporan/smrk-02/<uuid:projekid>', reportview.pdfsmrkdua, name="laporan/smrk-02"),
+    path('kontraktor/report',reportview.kontraktoreport.as_view()),
 
     path('laporan/skhas-01/<uuid:projekid>', reportview.pdfskhas01, name="laporan/skhas-01"),
     path('laporan/skhas-02/<uuid:projekid>', reportview.pdfskhas02, name="laporan/skhas-02"),
