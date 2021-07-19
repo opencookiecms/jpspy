@@ -85,6 +85,8 @@ urlpatterns = [
     path('kursus/dashboard',kursusviews.kursusdashboard, name='kursus/dashboard'),
     path('kursus/daftar',kursusviews.kursusdaftar, name='kursus/daftar'),
 
+    path('kontraktor/report',reportview.pdfhtmlgenerator, name='kontraktor/report'),
+
     path('login',authviews.loginJPS, name="login"),
     path('logout',authviews.logoutJPS, name='logout'),
     path('register',authviews.registerJPS, name='register'),

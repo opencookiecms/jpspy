@@ -894,6 +894,10 @@ def report_by_filter(request):
     print(qs.query)
     
     return render(request, 'pages/laporan_filter.html',context)
+
+
+def pdfhtmlgenerator(request):
+    return render(request, 'htmlprint/kontraktor.html')
     
 
 
