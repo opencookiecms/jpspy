@@ -1,14 +1,6 @@
+{% extends "easy_pdf/base.html" %}
 
-<!DOCTYPE html>
-
-<html>
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title></title>
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="">
+{% block extra_style %}
     <style type="text/css">
 @page {
     size: letter landscape;
@@ -24,10 +16,12 @@
 .tg .tg-c4ww{background-color:#cbcefb;border-color:inherit;text-align:center;vertical-align:top}
 .tg .tg-c3ow{border-color:inherit;text-align:center;vertical-align:top}
 .tg .tg-0pky{border-color:inherit;text-align:left;vertical-align:top}
-</style>
-  </head>
-  <body>
-  <page backtop="15mm" backbottom="5mm" backleft="5mm" backright="120mm">
+    </style>
+{% endblock %}
+
+{% block content %}
+    <div id="content">
+<page backtop="15mm" backbottom="5mm" backleft="5mm" backright="120mm">
 <div class="text" style="text-align:center; width:1044px;"><span style="text-align:center">JABATAN PENGAIRAN DAN SALIRAN</span></div>
 <div class="text" style="text-align:center; width:1044px;"><span style="text-align:center">KUALA MUDA / SIK / BALING</span></div>
 <div class="text" style="text-align:center; width:1044px;"><span style="text-align:center">MAKLUMAT SYARIKAT MENGIKUT DAERAH</span></div>
@@ -80,10 +74,9 @@
 </tbody>
 </table>
 </page>
-    
+    </div>
+{% endblock %}
 
-  </body>
-</html>
 
 
 

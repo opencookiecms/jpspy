@@ -36,9 +36,6 @@ from django.contrib.auth.decorators import login_required
 from django.db.models import Q
 from django.db.models import Count
 
-from django.views.generic import View
-from ..utils import pdf_redering
-from django.template.loader import get_template
 
 
 @login_required(login_url='login')
@@ -901,19 +898,7 @@ def report_by_filter(request):
 
 
 
-#anohter methord to render the pdf
 
-class kontraktoreport(View):
-
-    def get(self, request, *arg, **kwargs):
-
-        data = {
-            'kon':kontraktor.Kontraktor.objects.all(),
-        }
-
-        pdf = pdf_redering('htmlprint/kontraktor.html',data)
-
-        return HttpResponse(pdf, content_type='application/pdf')
 
 
 
