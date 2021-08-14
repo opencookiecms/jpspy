@@ -1,4 +1,3 @@
-
 from django.contrib import admin
 from django.urls import path
 from django.urls import include, path
@@ -53,11 +52,12 @@ urlpatterns = [
     path('dokumen/suratbon/<uuid:projekid>',documentviews.sbonview, name="dokumen/suratbon"),
 
 
-    path('laporan/pdf/<uuid:projekid>', reportview.some_pdf, name="laporan/pdf"),
-    path('laporan/excel/<uuid:projekid>', reportview.some_excel, name="laporan/excel"),
-    path('laporan/filter', reportview.report_by_filter, name="laporan/filter"),
+
     path('laporan/excel', reportview.testexcel, name="laporan/excel"),
     path('laporan/excel2', reportview.testexcel2, name="laporan/excel2"),
+    path('laporan/filter', reportview.report_by_filter, name="laporan/filter"),
+    path('kontraktor/report',reportview.pdfhtmlgenerator, name='kontraktor/report'),
+ 
     path('laporan/mrksatu/<uuid:projekid>', reportview.pdfmrksatu, name="laporan/mrksatu"),
     path('laporan/mrkdua/<uuid:projekid>',reportview.pdfmrkdua, name="laporan/mrkdua"),
     path('laporan/lsk/<uuid:projekid>',reportview.pdflsk, name="laporan/lsk"),
@@ -85,7 +85,7 @@ urlpatterns = [
     path('kursus/dashboard',kursusviews.kursusdashboard, name='kursus/dashboard'),
     path('kursus/daftar',kursusviews.kursusdaftar, name='kursus/daftar'),
 
-    path('kontraktor/report',reportview.pdfhtmlgenerator, name='kontraktor/report'),
+
 
     path('login',authviews.loginJPS, name="login"),
     path('logout',authviews.logoutJPS, name='logout'),

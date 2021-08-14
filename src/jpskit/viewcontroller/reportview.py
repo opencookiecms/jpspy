@@ -35,6 +35,8 @@ from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
 from django.db.models import Q
 from django.db.models import Count
+from weasyprint import HTML, CSS
+from django.template.loader import get_template
 
 
 
@@ -108,15 +110,19 @@ def testexcel2(request):
     data = document.MRKSatu.objects.all()
 
 
-    for datas in data:
+    for d in data:
 
-        r1 = project.Projek.objects.filter(nosebuthargaid=datas.mrksatunosebutharga).first()
+        r1 = project.Projek.objects.filter(nosebuthargaid=d.projekbind.nosebuthargaid).first()
+        r2 = document.kosprojek.objects.filter(projekbind=r1.id).first()
 
-        columns = ["num"]
-        columns1 = [datas.mrksatunoinden]
+        columns = [""]
+        columns1 = [d.mrksatunoinden]
         columns2 = [r1.tajukkerja]
-        columns3 = ["empty"]
-
+        columns3 = [d.mrksatukosprojek]
+        columns4 = ['(1)'+d.mrksatukontraktor.konNama+'\n(2)'+d.projekbind.nosebuthargaid.noperolehan+'\n(3)'+str(d.mrksatutarikhmula)+'/'+str(d.mrksatutarikhjangkasiap)+'\n(4)'+str(d.mrksatutarikhmula)+'/'+str(d.mrksatutarikhjangkasiap)+'']
+        columns5 = [r1.peruntukansemasa]
+        columns6 = [r2.kos_belanja ]
+        columns7 = [r2.kos_tanggung]
 
         for col_num in range(len(columns)):   
             
@@ -126,6 +132,13 @@ def testexcel2(request):
             ws.cell(row_num, col_num+2, columns1[col_num]).border = thin_border
             ws.cell(row_num, col_num+3, columns2[col_num]).border = thin_border
             ws.cell(row_num, col_num+4, columns3[col_num]).border = thin_border
+            ws.cell(row_num, col_num+5, columns4[col_num]).border = thin_border
+            ws.cell(row_num, col_num+6, columns5[col_num]).border = thin_border
+            ws.cell(row_num, col_num+7, columns6[col_num]).border = thin_border
+            ws.cell(row_num, col_num+8, columns7[col_num]).border = thin_border
+            ws.cell(row_num, col_num+9).border = thin_border
+            ws.cell(row_num, col_num+10).border = thin_border
+            ws.cell(row_num, col_num+11).border = thin_border
             wb.save("render2.xlsx")
         
 
@@ -156,43 +169,6 @@ def exceltest(request):
     
     wb.save("chart.xlsx")
 
-
-@login_required(login_url='login')
-def some_pdf(request, projekid):
-
-    dataobject = document.MRKSatu.objects.filter(mrksatunosebutharga=projekid).first()
-    print("this is data object",dataobject.mrksatunoinden)
-
-    pdfjinja = PdfJinja('static_in_env/assets/pdf/form.pdf')
-    pdfout = pdfjinja(
-        dict(
-            firstname = dataobject.mrksatukontraktor.sijilPPKNoPendaftaran
-        ))
-    pdfout.write(open('static_in_env/assets/pdf/filled.pdf', 'wb'))
-    try:
-        return FileResponse(open('static_in_env/assets/pdf/filled.pdf', 'rb'), content_type='application/pdf')
-    except FileNotFoundError:
-        raise Http404()
-
-    return render(request, 'pages/printtest.html' )
-
-@login_required(login_url='login')
-def some_excel(request, projekid):
-
-    scope = ["https://spreadsheets.google.com/feeds",'https://www.googleapis.com/auth/spreadsheets',"https://www.googleapis.com/auth/drive.file","https://www.googleapis.com/auth/drive"]
-
-    creds = ServiceAccountCredentials.from_json_keyfile_name("static_in_env/assets/json/cred.json", scope)
-
-    client = gspread.authorize(creds)
-
-    sheet = client.open("jptest").sheet1  # Open the spreadhseet
-
-    data = sheet.get_all_records()  # Get a list of all records
-    print(data)
-
-    return render(request, 'pages/printtest.html')
-
-#real dokument print began here
 
 @login_required(login_url='login')
 def pdfmrksatu(request, projekid):
@@ -868,7 +844,7 @@ def report_by_filter(request):
     print(kaedah)
 
     qs = document.MRKSatu.objects.filter(projekbind__nosebuthargaid__tarikh__year=2021).values(
-        'projekbind__kodvot__kodvot',
+        'projekbind__kodvot__no',
         'mrksatutarikhmula',
         'mrksatutarikhmula',
         'mrksatukosprojek',
@@ -897,7 +873,12 @@ def report_by_filter(request):
 
 
 def pdfhtmlgenerator(request):
-    return render(request, 'htmlprint/kontraktor.html')
+    html_template = get_template('htmlprint/ticket.html').render()
+    print(html_template)
+    pdfgenerate = HTML(string=html_template).write_pdf()
+    trigger = HttpResponse(pdfgenerate, content_type='application/pdf' )
+    trigger['Content-Disposition'] = 'filename="home_page.pdf"'
+    return trigger
     
 
 
