@@ -12,7 +12,7 @@ from django.contrib.auth.decorators import login_required
 @login_required(login_url='login')
 def kontraktordash(request):
 
-    timecurrent = datetime.date.today().strftime('%d/%m/%Y')
+    timecurrent = datetime.date.today().strftime('%Y-%m-%d')
 
     k = kontraktor.Kontraktor.objects.all().exists()
     print(k)
@@ -80,7 +80,7 @@ def kontraktorprofile(request, kontrakid):
 @login_required(login_url='login')
 def kontraktorlist(request):
 
-    timecurrent = datetime.date.today().strftime('%d/%m/%Y')
+    timecurrent = datetime.date.today().strftime('%Y-%m-%d')
     
     data = {
         'kontraktor':kontraktor.Kontraktor.objects.all(),

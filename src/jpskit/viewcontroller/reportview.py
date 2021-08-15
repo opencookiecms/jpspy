@@ -873,10 +873,14 @@ def report_by_filter(request):
     return render(request, 'pages/laporan_filter.html',context)
 
 
-def pdfhtmlgenerator(request):
-    html_template = get_template('htmlprint/kontraktor.html').render()
-    print(html_template)
-    pdfgenerate = HTML(string=html_template).write_pdf(stylesheets=["https://fonts.googleapis.com/css?family=Raleway:400,600&display=swap"])
+def pdfhtmlgenerator(request, context_dict={}):
+    
+    context_dict['klist'] = kontraktor.Kontraktor.objects.all()
+    context_dict['timecurrent'] = datetime.date.today().strftime('%Y-%m-%d')
+
+    html_template = get_template('htmlprint/kontraktor.html')
+    html = html_template.render(context_dict)
+    pdfgenerate = HTML(string=html).write_pdf(stylesheets=["https://fonts.googleapis.com/css?family=Raleway:400,600&display=swap"])
     trigger = HttpResponse(pdfgenerate, content_type='application/pdf' )
     trigger['Content-Disposition'] = 'filename="home_page.pdf"'
     return trigger

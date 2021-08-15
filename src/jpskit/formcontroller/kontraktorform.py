@@ -1,5 +1,6 @@
 from django import forms
 from ..modelcontroller import kontraktor, userprofile
+from django.conf import settings
 
 class KontraktroForm(forms.ModelForm):
 
@@ -140,12 +141,12 @@ class KontraktroForm(forms.ModelForm):
         konJPLainLain = forms.CharField(required=False, widget=forms.TextInput(attrs={'class':'form-control text-dark font-weight-600','placeholder':'lain-lain'}))
         konJPKategori = forms.ChoiceField(choices=katergorikontraktor, required=False, widget=forms.Select(attrs={'class':'form-control text-dark font-weight-600 custom-select select25','placholder':'baru'}))
         #malumat Permohonan]
-        konMPTarikhMohon = forms.CharField(required=False, widget=forms.TextInput(attrs={'class':'form-control text-dark font-weight-600 fc-datepicker','placeholder':'MM/DD/YYYY'}))
+        konMPTarikhMohon = forms.DateField(input_formats=settings.DATE_INPUT_FORMATS, required=False,widget=forms.DateInput(attrs={'class':'form-control text-dark font-weight-600 fc-datepicker','placeholder':'MM/DD/YYYY'}))
         konMPCas = forms.CharField(required=False, widget=forms.TextInput(attrs={'class':'form-control text-dark font-weight-600','placeholder':'10.00'}))
         konMPNoResit = forms.CharField(required=False, widget=forms.TextInput(attrs={'class':'form-control text-dark font-weight-600','placeholder':'cth:JPS-2938HS'})) 
         konMPNoSijil = forms.CharField(required=False, widget=forms.TextInput(attrs={'class':'form-control text-dark font-weight-600','placeholder':'JPS0293us932'}))
-        konMPtarikhkeluar = forms.CharField(required=False, widget=forms.TextInput(attrs={'class':'form-control text-dark font-weight-600 fc-datepicker','placeholder':'MM/DD/YYYY'})) 
-        konMPtarikhtamat = forms.CharField(required=False, widget=forms.TextInput(attrs={'class':'form-control text-dark font-weight-600 fc-datepicker','placeholder':'MM/DD/YYYY'}))
+        konMPtarikhkeluar = forms.DateField(input_formats=settings.DATE_INPUT_FORMATS, required=False,widget=forms.DateInput(attrs={'class':'form-control text-dark font-weight-600 fc-datepicker','placeholder':'MM/DD/YYYY'}))
+        konMPtarikhtamat = forms.DateField(input_formats=settings.DATE_INPUT_FORMATS, required=False,widget=forms.DateInput(attrs={'class':'form-control text-dark font-weight-600 fc-datepicker','placeholder':'MM/DD/YYYY'}))
         #Disemak
         
         konMPdisemak = forms.ModelChoiceField(required=False, queryset=userprofile.UserProfile.objects.all(), widget=forms.Select(attrs={'class':'form-control text-dark font-weight-600 custom-select select26'}))
@@ -156,8 +157,8 @@ class KontraktroForm(forms.ModelForm):
         konMPjawatanlulus = forms.ChoiceField(choices=jawatan, required=False, widget=forms.Select(attrs={'class':'form-control text-dark font-weight-600 custom-select select26 ','placholder':'baru'}))
         #sijil Perakuan pendaftaran kontraktor (PPK)
         sijilPPKNoPendaftaran = forms.CharField(required=False, widget=forms.TextInput(attrs={'class':'form-control text-dark font-weight-600','placeholder':'none'}) )
-        sijilPPKSahDari = forms.CharField(required=False, widget=forms.TextInput(attrs={'class':'form-control text-dark font-weight-600 fc-datepicker','placeholder':'MM/DD/YYYY'}))
-        sijilPPKTamat  = forms.CharField(required=False, widget=forms.TextInput(attrs={'class':'form-control text-dark font-weight-600 fc-datepicker','placeholder':'MM/DD/YYYY'}))  
+        sijilPPKSahDari = forms.DateField(input_formats=settings.DATE_INPUT_FORMATS, required=False,widget=forms.DateInput(attrs={'class':'form-control text-dark font-weight-600 fc-datepicker','placeholder':'MM/DD/YYYY'}))
+        sijilPPKTamat  = forms.DateField(input_formats=settings.DATE_INPUT_FORMATS, required=False,widget=forms.DateInput(attrs={'class':'form-control text-dark font-weight-600 fc-datepicker','placeholder':'MM/DD/YYYY'}))
         sijilPPKGredSatu = forms.ChoiceField(choices=gredkontraktor, required=False, widget=forms.Select(attrs={'class':'form-control text-dark font-weight-600 custom-select select27 ','placholder':'baru'}))
         sijilPPKKatSatu = forms.ChoiceField(choices=catkontraktor, required=False, widget=forms.Select(attrs={'class':'form-control text-dark font-weight-600 custom-select select27 ','placholder':'baru'}))
         sijilPPKKhuSatu = forms.CharField(required=False, widget=forms.TextInput(attrs={'class':'form-control text-dark font-weight-600','placeholder':'cth:G1, G5, B, CE'}) )
@@ -169,8 +170,8 @@ class KontraktroForm(forms.ModelForm):
         sijilPPKKhuTiga = forms.CharField(required=False, widget=forms.TextInput(attrs={'class':'form-control text-dark font-weight-600','placeholder':'cth:G1, G5, B, CE'}) )
         #sijil Perakuan pendaftaran kontraktor (SPKK)
         sijilSPKKNoPendaftaran = forms.CharField(required=False, widget=forms.TextInput(attrs={'class':'form-control text-dark font-weight-600','placeholder':'none'}) )
-        sijilSPKKSahDari = forms.CharField(required=False, widget=forms.TextInput(attrs={'class':'form-control text-dark font-weight-600 fc-datepicker','placeholder':'MM/DD/YYYY'}))
-        sijilSPKKTamat = forms.CharField(required=False, widget=forms.TextInput(attrs={'class':'form-control text-dark font-weight-600 fc-datepicker','placeholder':'MM/DD/YYYY'}))
+        sijilSPKKSahDari = forms.DateField(input_formats=settings.DATE_INPUT_FORMATS, required=False,widget=forms.DateInput(attrs={'class':'form-control text-dark font-weight-600 fc-datepicker','placeholder':'MM/DD/YYYY'}))
+        sijilSPKKTamat = forms.DateField(input_formats=settings.DATE_INPUT_FORMATS, required=False,widget=forms.DateInput(attrs={'class':'form-control text-dark font-weight-600 fc-datepicker','placeholder':'MM/DD/YYYY'}))
         sijilSPKKGredSatu = forms.ChoiceField(choices=gredkontraktor, required=False, widget=forms.Select(attrs={'class':'form-control text-dark font-weight-600 custom-select select27 ','placholder':'baru'}))
         sijilSPKKKatSatu = forms.ChoiceField(choices=catkontraktor, required=False, widget=forms.Select(attrs={'class':'form-control text-dark font-weight-600 custom-select select27 ','placholder':'baru'}))
         sijilSPKKKhuSatu = forms.CharField(required=False, widget=forms.TextInput(attrs={'class':'form-control text-dark font-weight-600','placeholder':'cth:G1, G5, B, CE'}) )
@@ -182,21 +183,21 @@ class KontraktroForm(forms.ModelForm):
         sijilSPKKKhuTiga = forms.CharField(required=False, widget=forms.TextInput(attrs={'class':'form-control text-dark font-weight-600','placeholder':'cth:G1, G5, B, CE'}) )
         #sijilTarahBumiputera
         sijilSTBNoPendaftaran = forms.CharField(required=False, widget=forms.TextInput(attrs={'class':'form-control text-dark font-weight-600','placeholder':'none'}) )
-        sijilSTBSahDari =forms.CharField(required=False, widget=forms.TextInput(attrs={'class':'form-control text-dark font-weight-600 fc-datepicker','placeholder':'MM/DD/YYYY'}))
-        sijilSTBTamat = forms.CharField(required=False, widget=forms.TextInput(attrs={'class':'form-control text-dark font-weight-600 fc-datepicker','placeholder':'MM/DD/YYYY'}))
+        sijilSTBSahDari =forms.DateField(input_formats=settings.DATE_INPUT_FORMATS, required=False,widget=forms.DateInput(attrs={'class':'form-control text-dark font-weight-600 fc-datepicker','placeholder':'MM/DD/YYYY'}))
+        sijilSTBTamat = forms.DateField(input_formats=settings.DATE_INPUT_FORMATS, required=False,widget=forms.DateInput(attrs={'class':'form-control text-dark font-weight-600 fc-datepicker','placeholder':'MM/DD/YYYY'}))
         sijilSTBGred = forms.ChoiceField(choices=stbgred, required=False, widget=forms.Select(attrs={'class':'form-control text-dark font-weight-600 custom-select select27 ','placholder':'baru'}))
         #sijilSSM
         sijilSSMNoPendaftaran = forms.CharField(required=False, widget=forms.TextInput(attrs={'class':'form-control text-dark font-weight-600','placeholder':'none'}) )
-        sijilSSMSahDari = forms.CharField(required=False, widget=forms.TextInput(attrs={'class':'form-control text-dark font-weight-600 fc-datepicker','placeholder':'MM/DD/YYYY'}))
-        sijilSSMTamat = forms.CharField(required=False, widget=forms.TextInput(attrs={'class':'form-control text-dark font-weight-600 fc-datepicker','placeholder':'MM/DD/YYYY'}))
+        sijilSSMSahDari = forms.DateField(input_formats=settings.DATE_INPUT_FORMATS, required=False,widget=forms.DateInput(attrs={'class':'form-control text-dark font-weight-600 fc-datepicker','placeholder':'MM/DD/YYYY'}))
+        sijilSSMTamat = forms.DateField(input_formats=settings.DATE_INPUT_FORMATS, required=False,widget=forms.DateInput(attrs={'class':'form-control text-dark font-weight-600 fc-datepicker','placeholder':'MM/DD/YYYY'}))
         #sijilSST
         sijilSSTNoPendaftaran = forms.CharField(required=False, widget=forms.TextInput(attrs={'class':'form-control text-dark font-weight-600','placeholder':'none'}))
-        sijilSSTSahDari = forms.CharField(required=False, widget=forms.TextInput(attrs={'class':'form-control text-dark font-weight-600 fc-datepicker','placeholder':'MM/DD/YYYY'}))
-        sijilSSTTamat = forms.CharField(required=False, widget=forms.TextInput(attrs={'class':'form-control text-dark font-weight-600 fc-datepicker','placeholder':'MM/DD/YYYY'}))
+        sijilSSTSahDari = forms.DateField(input_formats=settings.DATE_INPUT_FORMATS, required=False,widget=forms.DateInput(attrs={'class':'form-control text-dark font-weight-600 fc-datepicker','placeholder':'MM/DD/YYYY'}))
+        sijilSSTTamat = forms.DateField(input_formats=settings.DATE_INPUT_FORMATS, required=False,widget=forms.DateInput(attrs={'class':'form-control text-dark font-weight-600 fc-datepicker','placeholder':'MM/DD/YYYY'}))
         #sijilJPS
         sijilJPSNoPendaftaran = forms.CharField(required=False, widget=forms.TextInput(attrs={'class':'form-control text-dark font-weight-600','placeholder':'none'}) )
-        sijilJPSSahDari = forms.CharField(required=False, widget=forms.TextInput(attrs={'class':'form-control text-dark font-weight-600 fc-datepicker','placeholder':'MM/DD/YYYY'}))
-        sijilJPSTamat = forms.CharField(required=False, widget=forms.TextInput(attrs={'class':'form-control text-dark font-weight-600 fc-datepicker','placeholder':'MM/DD/YYYY'}))
+        sijilJPSSahDari = forms.DateField(input_formats=settings.DATE_INPUT_FORMATS, required=False,widget=forms.DateInput(attrs={'class':'form-control text-dark font-weight-600 fc-datepicker','placeholder':'MM/DD/YYYY'}))
+        sijilJPSTamat = forms.DateField(input_formats=settings.DATE_INPUT_FORMATS, required=False,widget=forms.DateInput(attrs={'class':'form-control text-dark font-weight-600 fc-datepicker','placeholder':'MM/DD/YYYY'}))
         sijilJPSGred = forms.ChoiceField(choices=stbgred, required=False, widget=forms.Select(attrs={'class':'form-control text-dark font-weight-600 custom-select select27 ','placholder':'baru'}))
 
 

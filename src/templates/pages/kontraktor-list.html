@@ -34,17 +34,17 @@
 							<h3 class="px-10 mb-15 font-weight-700">Kontraktor Analisis</h3>
 						   <ul class="flexbox flex-justified">
 							<li class="px-10">
-							  <h3 class="mb-1 text-bold">699</h3>
+							  <h3 class="mb-1 text-bold">{{total}}</h3>
 							  <h6>Kontraktor</h6>
 							</li>
 
 							<li class="br-1 bl-2 px-10">
-							   <h3 class="mb-1 text-bold">20</h3>
+							   <h3 class="mb-1 text-bold">{{totalactive.active}}</h3>
 							  <h6>Aktif</h6>
 							</li>
 
 							<li class="px-10 ">
-							<h3 class="mb-1 text-bold">159</h3>
+							<h3 class="mb-1 text-bold">{{totalactive.deactive}}</h3>
 							  <h6>Tidak Aktif</h6>
 							</li>
 						  </ul>						
@@ -88,7 +88,7 @@
 														<td class="font-weight-bold">{{row.konNoTelPengurus}}</td>
 														<td>
                                                             
-                                                            {% if dateend < row.sijilJPSTamat %}
+                                                            {% if dateend <  row.sijilJPSTamat|date:"Y-m-d" %}
                                                             <span class="badge badge-pill badge-success">Berdaftar</span>
 
                                                             {% else %}
