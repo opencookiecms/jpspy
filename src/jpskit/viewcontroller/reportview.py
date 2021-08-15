@@ -36,6 +36,7 @@ from django.contrib.auth.decorators import login_required
 from django.db.models import Q
 from django.db.models import Count
 from weasyprint import HTML, CSS
+from weasyprint.fonts import FontConfiguration
 from django.template.loader import get_template
 
 
@@ -873,9 +874,9 @@ def report_by_filter(request):
 
 
 def pdfhtmlgenerator(request):
-    html_template = get_template('htmlprint/ticket.html').render()
+    html_template = get_template('htmlprint/kontraktor.html').render()
     print(html_template)
-    pdfgenerate = HTML(string=html_template).write_pdf()
+    pdfgenerate = HTML(string=html_template).write_pdf(stylesheets=["https://fonts.googleapis.com/css?family=Raleway:400,600&display=swap"])
     trigger = HttpResponse(pdfgenerate, content_type='application/pdf' )
     trigger['Content-Disposition'] = 'filename="home_page.pdf"'
     return trigger
