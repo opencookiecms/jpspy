@@ -5,7 +5,7 @@
 
 </head>
 <style type="text/css">
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700');
 @charset "UTF-8";
 
 @page {size:landscape;}
@@ -24,7 +24,6 @@ body {
 .tg td{
   border: 0.3px solid black;
   font-size:14px;
-
   padding:10px 5px;
   word-break:normal;
   }
@@ -42,51 +41,51 @@ body {
   font-family: 'Poppins', sans-serif;
   font-weight: 600;
   text-align:center;
-  vertical-align:top
+  vertical-align:top;
   }
 
 .tg .tg-81ec{
-  background-color:#ffffff;
-  text-align:center;
-  vertical-align:top
+ 
+  text-align:left;
+  vertical-align:top;
   }
 .tg .tg-p8lb{
   background-color:#168aad;
   color:#ffffff;
   text-align:center;
-  vertical-align:top
+  vertical-align:top;
   }
 
 .tg .tg-yb51{
   background-color:#e9ecef;
   border-color:#e9ecef;
   text-align:center;
-  vertical-align:top
+  vertical-align:top;
   }
 .tg .tg-60k7{
   background-color:#e9ecef;
   border-color:#e9ecef;
   text-align:left;
-  vertical-align:top
+  vertical-align:top;
   }
 .tg .tg-3zy9{
   background-color:#023e8a;
   color:#ffffff;
   text-align:center;
-  vertical-align:top
+  vertical-align:top;
   }
 .tg .tg-yhpw{
   background-color:#023e8a;
   color:#ffffff;
   text-align:center;
-  vertical-align:top
+  vertical-align:top;
   }
 .tg .tg-855q{
   background-color:#ffffff;
   text-align:center;
   font-family: 'Poppins', sans-serif;
   font-weight: 300;
-  vertical-align:top
+  vertical-align:top;
   }
 .wctext{
   font-family: 'Poppins', sans-serif;
@@ -112,7 +111,11 @@ body {
   font-family: 'Poppins', sans-serif;
   font-weight: 600;
   font-size:12px;
-  color:#ffffff
+  color:#ffffff;
+}
+
+.tg-special{
+  background-color:#b8bedd;
 }
 
 
@@ -156,10 +159,10 @@ body {
  {% for row in klist %}
   <tr>
     <td class="tg-855q" rowspan="2"><br>{{forloop.counter}}</td>
-    <td class="tg-81ec"><span class="tdtexts">{{row.konNama}}</span></td>
-    <td class="tg-81ec"><span class="tdtext">{{row.sijilSPKKNoPendaftaran}}</span></td>
-    <td class="tg-81ec"><span class="tdtext">{{row.sijilPPKTamat}}</span></td>
-    <td class="tg-81ec"><span class="tdtext">{{row.konPrestasi}}</span></td>
+    <td class="tg-81ec tg-special"><span class="tdtexts">{{row.konNama}}</span></td>
+    <td class="tg-81ec tg-special"><span class="tdtext">{{row.sijilSPKKNoPendaftaran}}</span></td>
+    <td class="tg-81ec tg-special"><span class="tdtext">{{row.sijilPPKTamat}}</span></td>
+    <td class="tg-81ec tg-special"><span class="tdtext">{{row.konPrestasi}}</span></td>
     <td class="tg-81ec" rowspan="2"><span class="tdtext">{{row.konDaerah}}</span></td>
     <td class="tg-81ec" rowspan="2"></td>
     <td class="tg-81ec" rowspan="2"></td>

@@ -28,7 +28,7 @@
 		<!-- Main content -->
 		<section class="content">
 		<div class="row">
-			<div class="col-xl-12 col-lg-12 col-12">
+			<div class="col-xl-3 col-lg-3 col-3">
 				<div class="box">
 					<div class="box-header with-border">						
 						<h4 class="box-title">ICarian</h4>
@@ -37,7 +37,7 @@
 					<form class="form" method="GET" action="{% url 'laporan/filter' %}">
 					<div class="box-body">
 					<div class="row">					
-						  <div class="col-md-4">
+						  <div class="col-md-12">
 									<div class="form-group">
 									  <label>Kod Peruntukan</label>
 									    <select class="form-control" name="kod">
@@ -50,18 +50,19 @@
 									  </select>
 									</div>
 								  </div>
-								  	  <div class="col-md-4">
+								  	  <div class="col-md-12">
+										<label>Kaedah</label>
+										</p>
 									<div class="form-group">
-									  <label>Kaedah Perolehan</label>
-									  	<select class="form-control" name="kaedah">
-										<option value="Tiada">Tiada</option>
-										<option value="sebutharga">Sebutharga</option>
-										<option value="lantikan_terus">Lantikan Terus</option>
-										<option value="undi">Undi</option>
-									  </select>
+									
+										<label class="form-check-label">
+                        					<input type="checkbox" name="sebutharga" id="md_checkbox_1" class="chk-col-success" value="Sebutharga"><label for="md_checkbox_1"><h5 class="text-dark font-weight-600 font-s">Sebutharga</h5></h5></label></br>
+											<input type="checkbox" name="undi" id="md_checkbox_2" class="chk-col-success" value="Undi"><label for="md_checkbox_2"><h5 class="text-dark font-weight-600 font-s">Undi</h5></h5></label></br>
+											<input type="checkbox" name="lantikanterus" id="md_checkbox_3" class="chk-col-success" value="Lantikan Terus"><label for="md_checkbox_3"><h5 class="text-dark font-weight-600 font-s">Lantikan Terus</h5></h5></label></br>
+                        				</label>
 									</div>
 								  </div>
-								  	  <div class="col-md-4">
+								  	<div class="col-md-12">
 									<div class="form-group">
 									  <label>Tahun</label>
 									  	<select class="form-control" name="tahun">
@@ -73,6 +74,25 @@
 									  </select>
 									</div>
 							
+								</div>
+								<div class="col-md-12">
+												  <div class="form-group">
+					<label>Date range:(Masih dalam Percubaan)</label>
+
+					<div class="input-group">
+	<div class="input-group">
+					  <div class="input-group-addon">
+						<i class="fa fa-calendar"></i>
+					  </div>
+					  <input type="text" class="form-control pull-right" id="reportrange">
+					</div>
+<input type="hidden" name="date1" id="date1">
+
+<input type="hidden" name="date2" id="date2">
+				
+					</div>
+					<!-- /.input group -->
+				  </div>
 								</div>
 								</div>
 					</div>
@@ -89,9 +109,7 @@
 									</form>
 				</div>
 			</div>
-		  </div>
-		  <div class="row">
-			<div class="col-xl-12 col-lg-12 col-12">
+						<div class="col-xl-9 col-lg-9 col-9">
 				<div class="box">
 					<div class="box-header with-border">						
 						<h4 class="box-title">Invoice List</h4>
@@ -126,8 +144,18 @@
 										<td>
 											<h6 class="mb-0">
 											
-												<span class="d-block text-muted" style="width:200px">{{qss.projekbind__tajukkerja}}</span>
-												{{ps}}
+												<span class="d-block text-muted" style="width:400">{{qss.projekbind__tajukkerja}}</span>
+												
+												{{qss.projekbind__nosebuthargaid__tarikh__year}}
+											
+											</h6>
+											<br>
+											<h6 class="mb-0">
+											
+										
+												
+												<span class="d-block text-muted text-primary" style="width:400">{{qss.projekbind__nosebuthargaid__kaedahperolehan}}</span>
+											
 											</h6>
 										</td>
 									
@@ -173,6 +201,9 @@
 					</div>
 				</div>
 			</div>
+		  </div>
+		  <div class="row">
+
 		  </div>
 		</section>
 		<!-- /.content -->

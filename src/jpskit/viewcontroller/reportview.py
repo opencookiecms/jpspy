@@ -1,7 +1,7 @@
 """pip uninstall pdfminer" and "pip uninstall pdfminer.six".
 Then all clear, "pip install pdfminer.six".
 https://www.bedjango.com/blog/how-generate-pdf-django-weasyprint/"""
-
+from django.db.models import Q, Count
 from django.shortcuts import render, get_list_or_404, redirect, reverse
 from django.core.files.storage import FileSystemStorage
 from django.http import FileResponse, Http404
@@ -836,20 +836,30 @@ def pdfpwjp02(request, projekid):
     return render(request, 'pages/printtest.html' )
 
 
+def is_valid_qs(*arg):
+    return arg != '' and arg is not None
+
 ##filter the report
-@login_required(login_url='login')
-def report_by_filter(request):
 
-    kaedah = request.GET.get('kaedah')
+def filter(request):
+
     timecurrent = datetime.date.today().strftime('%d/%m/%Y')
-    print(kaedah)
+    sebutharga = request.GET.get('sebutharga',default="")
+    undi = request.GET.get('undi',default="")
+    lantikan = request.GET.get('lantikanterus',default="")
+    date1 = request.GET.get('date1')
+    date2 =  request.GET.get('date2')
+    tahun = request.GET.get('tahun')
 
-    qs = document.MRKSatu.objects.filter(projekbind__nosebuthargaid__tarikh__year=2021).values(
+    print(tahun)
+
+    qs = document.MRKSatu.objects.all().values(
         'projekbind__kodvot__no',
         'mrksatutarikhmula',
         'mrksatutarikhmula',
         'mrksatukosprojek',
         'projekbind__tajukkerja',
+        'projekbind__nosebuthargaid__kaedahperolehan',
         'projekbind__peruntukansemasa',
         'projekbind__nosebuthargaid__noperolehan',
         'mrksatukontraktor__konNama',
@@ -857,18 +867,29 @@ def report_by_filter(request):
         'bindone__mrkduaLADSehingga',
         'projekbind__kosprojek__kos_belanja',
         'projekbind__kosprojek__kos_tanggung',
-    
+        'projekbind__nosebuthargaid__tarikh__year',
     )
-    print(qs.query)
-    
 
+
+    if is_valid_qs(sebutharga,undi,lantikan,tahun):
+        qs = qs.filter(Q(projekbind__nosebuthargaid__kaedahperolehan=sebutharga)
+                       | Q(projekbind__nosebuthargaid__kaedahperolehan=undi)
+                       | Q(projekbind__nosebuthargaid__kaedahperolehan=lantikan)
+                       and Q(projekbind__nosebuthargaid__tarikh__year=tahun)
+                       ).distinct()
+
+  
+
+    return qs
+
+def report_by_filter(request):
+
+    qs = filter(request)
     context = {
         'qs':qs,
         'kd':project.KDvot.objects.all()
     }
   
-
-    print(qs.query)
     
     return render(request, 'pages/laporan_filter.html',context)
 
