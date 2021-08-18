@@ -836,17 +836,15 @@ def pdfpwjp02(request, projekid):
     return render(request, 'pages/printtest.html' )
 
 
-def is_valid_qs(*arg):
-    return arg != '' and arg is not None
 
 ##filter the report
 
 def filter(request):
 
     timecurrent = datetime.date.today().strftime('%d/%m/%Y')
-    sebutharga = request.GET.get('sebutharga',default="")
-    undi = request.GET.get('undi',default="")
-    lantikan = request.GET.get('lantikanterus',default="")
+    sebutharga = request.GET.get('sebutharga')
+    undi = request.GET.get('undi')
+    lantikan = request.GET.get('lantikanterus')
     date1 = request.GET.get('date1')
     date2 =  request.GET.get('date2')
     tahun = request.GET.get('tahun')
@@ -871,15 +869,16 @@ def filter(request):
     )
 
 
-    if is_valid_qs(sebutharga,undi,lantikan,tahun):
-        qs = qs.filter(Q(projekbind__nosebuthargaid__kaedahperolehan=sebutharga)
-                       | Q(projekbind__nosebuthargaid__kaedahperolehan=undi)
-                       | Q(projekbind__nosebuthargaid__kaedahperolehan=lantikan)
-                       and Q(projekbind__nosebuthargaid__tarikh__year=tahun)
-                       ).distinct()
 
-  
-
+    if tahun !="" and tahun is not None:
+        qs = qs.filter(projekbind__nosebuthargaid__tarikh__year=tahun)
+    if (undi,lantikan,sebutharga) is not None:
+        qs = qs.filter(Q(projekbind__nosebuthargaid__kaedahperolehan=lantikan)
+                        |Q(projekbind__nosebuthargaid__kaedahperolehan=undi)
+                        |Q(projekbind__nosebuthargaid__kaedahperolehan=sebutharga)
+                        )
+    
+        print(qs.query)
     return qs
 
 def report_by_filter(request):
