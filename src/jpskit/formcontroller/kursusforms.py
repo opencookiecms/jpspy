@@ -21,6 +21,7 @@ class Dkursusform(forms.ModelForm):
     tempat = forms.CharField(required=False, widget=forms.Textarea(attrs={'class':'form-control text-dark font-weight-600','type':'text','placeholder':'Tempat Kursus','rows':'3'}))
     tahun = forms.ChoiceField(choices=tahun, required=False, widget=forms.Select(attrs={'class':'form-control text-dark font-weight-600 custom-select select28 ','placholder':'2021'}))
     hari = forms.CharField(required=False, widget=forms.TextInput(attrs={'class':'form-control text-dark font-weight-600','type':'text','placeholder':'hari'}))
+    kategori = forms.CharField(required=False, widget=forms.TextInput(attrs={'class':'form-control text-dark font-weight-600','type':'text','placeholder':'kategori kursus'}))
 
 
     class Meta:
@@ -29,6 +30,7 @@ class Dkursusform(forms.ModelForm):
             'tajukkursus',
             'tarikhmula',
             'tarikhakhir',
+            'kategori',
             'tempat',
             'tahun',
             'hari',

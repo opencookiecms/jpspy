@@ -5,11 +5,12 @@ class Course(models.Model):
     tajukkursus = models.CharField(max_length=500, null=True, blank=True)
     tarikhmula =  models.DateField(null=True, blank=True)
     tarikhakhir =  models.DateField(null=True, blank=True)
+    kategori = models.CharField(max_length=150, null=True, blank=True)
     tempat = models.CharField(max_length=150, null=True, blank=True)
     tahun = models.CharField(max_length=10, null=True, blank=True)
     hari = models.CharField(max_length=10, null=True, blank=True)
-    
 
+    
 class Attandance(models.Model):
     one = models.IntegerField(blank=True, null=True)
     two  = models.IntegerField(blank=True, null=True)
