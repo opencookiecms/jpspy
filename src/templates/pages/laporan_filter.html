@@ -41,9 +41,10 @@
 									<div class="form-group">
 									  <label>Kod Peruntukan</label>
 									    <select class="form-control" name="kod">
-										<option>Tiada</option>
-										
-										<option value=""></option>
+										<option value="">-----</option>
+										{% for k in kd%}
+										<option value="{{k.no}}">{{k.no}}</option>
+										{% endfor %}
 									
 							
 										

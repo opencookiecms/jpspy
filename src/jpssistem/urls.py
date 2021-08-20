@@ -27,6 +27,7 @@ urlpatterns = [
     path('kontraktor/senarai', kontraktorviews.kontraktorlist, name="kontraktor/senarai"),
     path('kontraktor/profile/<uuid:kontrakid>', kontraktorviews.kontraktorprofile, name="kontraktor/profile"),
     path('kontraktor/daftar-baru', kontraktorviews.kontraktordaftar, name="kontraktor/daftar-baru"),
+    path('kontraktor/sijil/<uuid:konid>', reportview.kontraktorsijil, name="kontraktor/sijil"),
  
     path('kontraktor/edit/<int:id>/',kontraktorviews.kontraktoredit, name="kontraktor/edit"),
     path('kontraktor-delete/<int:id>',kontraktorviews.kontraktordelete, name="kontraktor-delete"),
@@ -51,7 +52,7 @@ urlpatterns = [
     path('dokumen/skhas/<uuid:projekid>',documentviews.skhasview, name="dokumen/skhas"),
     path('dokumen/suratbon/<uuid:projekid>',documentviews.sbonview, name="dokumen/suratbon"),
 
-
+  
 
     path('laporan/excel', reportview.testexcel, name="laporan/excel"),
     path('laporan/excel2', reportview.testexcel2, name="laporan/excel2"),
