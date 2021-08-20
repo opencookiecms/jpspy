@@ -145,6 +145,7 @@ def testexcel2(request):
 
     return render(request, 'pages/someexcel.html')
 
+
 @login_required(login_url='login')
 def exceltest(request):
      
@@ -169,6 +170,37 @@ def exceltest(request):
             ws.cell(row_num, col_num+2, row[col_num])
     
     wb.save("chart.xlsx")
+
+
+def kontraktorsijil(request, konid):
+    dataobject = kontraktor.Kontraktor.objects.filter(id=konid).first()
+
+    namakon = dataobject.konNama
+    image = os.path.join("static_in_env/assets/images/avatar/1.jpg")
+    print(image)
+
+
+    jinjapdf = PdfJinja('static_in_env/assets/pdf/sijilform.pdf')
+    output = jinjapdf(
+        dict(
+            nama=dataobject.konNama,
+            alamat=dataobject.konAlamat,
+            poskod=dataobject.konPoskod,
+            bandar=dataobject.konBandar,
+            daerah=dataobject.konDaerah,
+            negeri=dataobject.konNegeri,
+            jps=dataobject.sijilJPSNoPendaftaran,
+            pengurus=dataobject.konPengurus,
+            kp=dataobject.konNoKPPengurus,
+            picture=image,
+        ))
+    output.write(open('static_in_env/assets/pdf/outputpdf/sijilform-'+namakon+'.pdf', 'wb'))
+    try:
+        return FileResponse(open('static_in_env/assets/pdf/outputpdf/sijilform-'+namakon+'.pdf', 'rb'), content_type='application/pdf')
+    except FileNotFoundError:
+        raise Http404()
+    
+    return render(request, 'pages/printtest.html' )
 
 
 @login_required(login_url='login')
@@ -203,7 +235,7 @@ def pdfmrksatu(request, projekid):
     except FileNotFoundError:
         raise Http404()
 
-    return render(request, 'pages/printtest.html' )
+    return render(request, 'pages/printtest.html')
 
 @login_required(login_url='login')
 def pdfmrkdua(request, projekid):
@@ -848,6 +880,7 @@ def filter(request):
     date1 = request.GET.get('date1')
     date2 =  request.GET.get('date2')
     tahun = request.GET.get('tahun')
+    kod = request.GET.get('kod')
 
     print(tahun)
 
@@ -877,8 +910,10 @@ def filter(request):
                         |Q(projekbind__nosebuthargaid__kaedahperolehan=undi)
                         |Q(projekbind__nosebuthargaid__kaedahperolehan=sebutharga)
                         )
+    if kod !="" and kod is not None:
+        qs = qs.filter(projekbind__kodvot__no=kod)
     
-        print(qs.query)
+    print(qs.query)
     return qs
 
 def report_by_filter(request):
